@@ -11,8 +11,7 @@ import Contenido from "./src/components/Principal/Contenido";
 export default class App extends Component < {} > {
   render() {
     return (
-    <Contenido />
-
+        <Detalle />
     );
   }
 }
