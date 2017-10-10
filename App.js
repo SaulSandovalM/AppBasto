@@ -1,57 +1,101 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+ * Comida a domicilio
+ * @Fixter
  */
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, {Component} from 'react';
+import {Platform, StyleSheet, Text, View, ImageBackground} from 'react-native';
+// import Video from 'react-native-video';
+// import video from './src/assets/video/video.mp4';
+import {Button} from 'native-base';
+import img from './src/assets/imgs/fondo.jpg';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+const Texto = Platform.select({
+  ios: 'DE LA CENTRAL\n A TU HOGAR,\n EN MINUTOS',
+  android: 'DE LA CENTRAL\n A TU HOGAR,\n EN MINUTOS',
 });
 
-export default class App extends Component<{}> {
+export default class App extends Component < {} > {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <ImageBackground source={img} style={styles.img}>
+
+        <View>
+          <Text style={styles.nombre}>AppBasto</Text>
+        </View>
+
+    {/*<Video source={video} rate={1.0} muted={true} resizeMode={"cover"} repeat style={styles.video}/>*/}
+
+        <View style={styles.content2}>
+          <Text style={styles.texto}>{Texto}</Text>
+        </View>
+
+        <View style={styles.content}>
+          <Button rounded block style={styles.buttonIngreso}>
+            <Text style={styles.boton}>INICIAR SESIÓN</Text>
+          </Button>
+          <Text style={styles.text}>REGÍSTRATE</Text>
+        </View>
+
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1
+  },
+  // video: {
+  //   position: 'absolute',
+  //   top: 0,
+  //   left: 0,
+  //   bottom: 0,
+  //   right: 0,
+  // },
+  content: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    margin: 15
+  },
+  content2: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    marginTop: 100
   },
-  welcome: {
+  img: {
+    justifyContent: 'flex-end',
+    flex: 2,
+    height: null,
+    width: null,
+    opacity: 15
+  },
+  buttonIngreso: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginBottom: 10,
+    backgroundColor: '#4DA49B'
+  },
+  text: {
+    color: 'white'
+  },
+  texto: {
+    color: 'white',
+    backgroundColor: 'transparent',
+    fontSize: 45
+  },
+  nombre: {
+    color: 'white',
+    backgroundColor: 'transparent',
+    margin: 25,
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  boton: {
+    color: 'white',
+    fontWeight: 'bold'
   },
 });
