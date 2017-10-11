@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {Container, Content, Button, Header, Card, CardItem} from 'native-base';
@@ -75,31 +74,3 @@ const styles = StyleSheet.create({
     flex: 1
   },
 });
-=======
-import React, { Component } from 'react';
-import {
-    Text,
-    View,
-    Image,
-    ScrollView
-} from 'react-native';
-import {Encabezado} from "../Comun/Encabezado";
-import { Container, Header, Content, Card, CardItem, Thumbnail, Button, Icon, Left, Body, Right } from 'native-base';
-
-export default class Detalle extends Component<{}> {
-    render() {
-        return (
-            <Container>
-                <Encabezado headerText={'CATEGORIA 1'}/>
-
-                <ScrollView>
-
-                    <Text>Lista de Imagenes</Text>
-
-                </ScrollView>
-
-            </Container>
-        );
-    }
-}
->>>>>>> 60d8c0f166646f53e3a9b3176656525fd12684de
