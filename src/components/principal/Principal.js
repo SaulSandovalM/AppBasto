@@ -1,33 +1,40 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView, Alert} from 'react-native';
-import Encabezado from '../comun/Encabezado';
+import {Text, View, Image, ScrollView, Alert, ImageBackground, TouchableOpacity} from 'react-native';
 import Buscador from '../comun/Buscador';
-import {Container, Content, Card, CardItem, Body} from 'native-base';
+import {Actions} from 'react-native-router-flux';
+import {CardSection, Card, Header} from '../comun';
+import cat1 from '../../assets/imgs/cat1.jpg'
+import cat2 from '../../assets/imgs/cat2.jpg'
+import cat3 from '../../assets/imgs/cat3.jpg'
+import cat4 from '../../assets/imgs/cat4.jpg'
 
 export default class Principal extends Component < {} > {
   render() {
     return (
-      <Container>
-        {/*<Encabezado headerText={'APPBASTO'}/> aqui se jodio la cabecara perdon jose Luis*/}
-        <Buscador/>
+      <View style={{flex:1}}>
+        <Header headerText={'BUSCADOR'}/>
 
-        <Content>
+        <ScrollView style={{backgroundColor:'white'}}>
 
-          <CardItem>
-            <Body>
-              <Text>
+
+            <ImageBackground source={cat1} style={{justifyContent: 'flex-end',
+                padding: 15,
+                height: null,
+                width: null,
+                opacity: 15}}>
+              <Text onPress={() => Actions.Detalle()} style={{color:'white', fontWeight:'bold', fontSize:20}}>
                 CATEGORIA 1
               </Text>
-            </Body>
-          </CardItem>
+            </ImageBackground>
+
 
           <View style={{
             flexDirection: 'row'
           }}>
-            <ScrollView horizontal={true}>
+            <ScrollView horizontal={true} style={{marginBottom: 10}}>
+              <TouchableOpacity onPress={() => Actions.detalleProducto()}>
+              <Card >
 
-              <Card>
-                <CardItem>
                   <Image source={{
                     uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
                   }} style={{
@@ -35,10 +42,13 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
                   }} style={{
@@ -46,10 +56,13 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'http://cdn.masdemx.com/wp-content/uploads/2016/08/chiles-mas-picantes-mexico.jpg'
                   }} style={{
@@ -57,25 +70,30 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
             </ScrollView>
           </View>
 
-          <CardItem>
-            <Body>
-              <Text>
-                CATEGORIA 2
-              </Text>
-            </Body>
-          </CardItem>
+          <ImageBackground source={cat1} style={{justifyContent: 'flex-end',
+              padding: 15,
+              height: null,
+              width: null,
+              opacity: 15}}>
+            <Text style={{color:'white', fontWeight:'bold', fontSize:20}}>
+               CATEGORIA 2
+            </Text>
+
+          </ImageBackground>
           <View style={{
             flexDirection: 'row'
           }}>
-            <ScrollView horizontal={true}>
+            <ScrollView horizontal={true} style={{marginBottom: 10}}>
 
+              <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'https://super.walmart.com.mx/images/product-images/img_large/00750102540304L.jpg'
                   }} style={{
@@ -83,10 +101,13 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'http://www.colgatecommercial.com/App_Themes/ColgateStyle/Images/products/53096-lrg.png'
                   }} style={{
@@ -94,10 +115,13 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'https://pedidos.com/myfotos/xLarge/(X)CLX-CLORO-930ML.jpg'
                   }} style={{
@@ -105,25 +129,30 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
             </ScrollView>
           </View>
 
-          <CardItem>
-            <Body>
-              <Text>
+          <ImageBackground source={cat1} style={{justifyContent: 'flex-end',
+              padding: 15,
+              height: null,
+              width: null,
+              opacity: 15}}>
+              <Text style={{color:'white', fontWeight:'bold', fontSize:20}}>
                 CATEGORIA 3
               </Text>
-            </Body>
-          </CardItem>
+          </ImageBackground>
+
           <View style={{
             flexDirection: 'row'
           }}>
-            <ScrollView horizontal={true}>
+            <ScrollView horizontal={true} style={{marginBottom: 10}}>
 
+              <TouchableOpacity>
               <Card>
-                <CardItem>
                   <Image source={{
                     uri: 'http://www.lamoderna.com.mx/templates/LaModerna/images/categories/pastas/pastas-la-moderna-mobile.png'
                   }} style={{
@@ -131,10 +160,13 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
+                <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'https://i5.walmartimages.com/asr/4f552695-250f-4778-a1bf-b6aaa2f13728_1.135100d3d2562bc4adb81e96ddd88de6.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF'
                   }} style={{
@@ -142,10 +174,14 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'http://www.chedraui.com.mx/media/catalog/product/cache/10/image/950x950/9df78eab33525d08d6e5fb8d27136e95/7/5/750103912014_00.jpg'
                   }} style={{
@@ -153,25 +189,30 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+                </TouchableOpacity>
+
             </ScrollView>
           </View>
 
-          <CardItem>
-            <Body>
-              <Text>
+          <ImageBackground source={cat1} style={{justifyContent: 'flex-end',
+              padding: 15,
+              height: null,
+              width: null,
+              opacity: 15}}>
+              <Text style={{color:'white', fontWeight:'bold', fontSize:20}}>
                 CATEGORIA 4
               </Text>
-            </Body>
-          </CardItem>
+          </ImageBackground>
           <View style={{
             flexDirection: 'row'
           }}>
-            <ScrollView horizontal={true}>
+            <ScrollView horizontal={true} style={{marginBottom: 10}}>
 
+              <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
                   }} style={{
@@ -179,10 +220,13 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
                   }} style={{
@@ -190,10 +234,13 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
               <Card>
-                <CardItem>
+
                   <Image source={{
                     uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
                   }} style={{
@@ -201,14 +248,16 @@ export default class Principal extends Component < {} > {
                     width: 200,
                     flex: 1
                   }}/>
-                </CardItem>
+
               </Card>
+              </TouchableOpacity>
+
             </ScrollView>
           </View>
 
-        </Content>
+        </ScrollView>
 
-      </Container>
+      </View>
     );
   }
 }
