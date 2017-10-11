@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, Image, ScrollView, Alert} from 'react-native';
-import Encabezado from '../comun/Encabezado';
+import {Encabezado} from '../comun/Encabezado';
 import Buscador from '../comun/Buscador';
 import {Container, Content, Card, CardItem, Body} from 'native-base';
 
@@ -8,7 +8,6 @@ export default class Principal extends Component < {} > {
   render() {
     return (
       <Container>
-        {/*<Encabezado headerText={'APPBASTO'}/> aqui se jodio la cabecara perdon jose Luis*/}
         <Buscador/>
 
         <Content>

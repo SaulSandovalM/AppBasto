@@ -6,18 +6,17 @@ import {Actions} from 'react-native-router-flux';
 export default class Buscador extends Component {
   render() {
     return (
-      <Header searchBar rounded style={styles.header}>
+      <Header searchBar style={styles.header}>
         <View style={styles.view}>
           <Icon name="menu"/>
         </View>
-        <Item>
+        <Item style={{backgroundColor: '#d9d9d9'}}>
           <Icon name="ios-search"/>
           <Input placeholder="Buscar"/>
-          <Icon name="cart"/>
         </Item>
-        <Button transparent>
-          <Text>Buscar</Text>
-        </Button>
+        <View style={styles.view}>
+          <Icon name="cart"/>
+        </View>
       </Header>
     );
   }

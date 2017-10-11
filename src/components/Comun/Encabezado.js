@@ -1,13 +1,20 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import {Icon, Left, Right, Header} from 'native-base';
 
 const Encabezado = (props) => {
   const {textStyle, viewStyle} = styles;
 
   return (
-    <View style={viewStyle}>
-      <Text style={textStyle}>{props.headerText}</Text>
-    </View>
+    <Header rounded style={styles.header}>
+      <Left>
+        <Icon name="menu"/>
+      </Left>
+      <Text style={{alignSelf: 'center'}}>{props.headerText}</Text>
+      <Right>
+        <Icon name="cart"/>
+      </Right>
+    </Header>
   );
 };
 
@@ -17,7 +24,6 @@ const styles = {
     backgroundColor: '#F8F8F8',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 60,
     paddingTop: 15,
     shadowColor: '#000',
     shadowOffset: {
@@ -33,6 +39,14 @@ const styles = {
   },
   iconStyle: {
     alignSelf: 'flex-end'
+  },
+  view: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    margin: 10
+  },
+  header: {
+    backgroundColor: 'white'
   }
 };
 
