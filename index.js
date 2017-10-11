@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import Routes from './Routes';
 
-AppRegistry.registerComponent('AppBasto', () => App);
+AppRegistry.registerComponent('AppBasto', () => Routes);

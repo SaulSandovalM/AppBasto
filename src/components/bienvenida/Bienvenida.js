@@ -3,11 +3,13 @@ import {Platform, StyleSheet, Text, View, ImageBackground} from 'react-native';
 // import Video from 'react-native-video';
 // import video from './src/assets/video/video.mp4';
 import {Button} from 'native-base';
-import img from '../../assets/imgs/fondo.jpg';
+import img from '../../assets/imgs/bienvenida.jpg';
+import {Actions} from 'react-native-router-flux';
 
 const Texto = Platform.select({
   ios: 'DE LA CENTRAL\n A TU HOGAR,\n EN MINUTOS',
   android: 'DE LA CENTRAL\n A TU HOGAR,\n EN MINUTOS',
+  //pensar en la frase de inicio
 });
 
 export default class Bienvenida extends Component < {} > {
@@ -26,7 +28,7 @@ export default class Bienvenida extends Component < {} > {
         </View>
 
         <View style={styles.content}>
-          <Button rounded block style={styles.buttonIngreso}>
+          <Button rounded block style={styles.buttonIngreso} onPress={() => Actions.Login()}>
             <Text style={styles.boton}>INICIAR SESIÓN</Text>
           </Button>
           <Text style={styles.text}>REGÍSTRATE</Text>
