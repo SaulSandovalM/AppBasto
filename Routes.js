@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+
 import {Root} from 'native-base';
 import {Router, Scene} from 'react-native-router-flux';
 import Bienvenida from './src/components/bienvenida/Bienvenida';
