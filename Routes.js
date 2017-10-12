@@ -1,4 +1,4 @@
-
+import React, {Component} from 'react';
 import {Root} from 'native-base';
 import {Router, Scene} from 'react-native-router-flux';
 import Bienvenida from './src/components/bienvenida/Bienvenida';
@@ -8,7 +8,6 @@ import Detalle from './src/components/detalle/Detalle';
 import Registro from './src/components/login/Registro';
 import Recover from './src/components/login/Recover';
 import detalleProducto from "./src/components/detalleproducto/detalleProducto";
-
 
 const Routes = () => {
   return (

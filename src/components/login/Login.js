@@ -9,7 +9,7 @@ export default class Login extends Component < {} > {
     return (
       <ImageBackground source={img} style={styles.img}>
 
-        <View style={styles.content}>
+        <View>
           <View style={styles.adelante}>
             <Text style={styles.texto}
               onPress={() => Actions.Principal()}>INICIA SESIÓN MAS ADELANTE</Text>

@@ -8,14 +8,14 @@ export default class Buscador extends Component {
     return (
       <Header searchBar style={styles.header}>
         <View style={styles.view}>
-          <Icon name="menu"/>
+          <Icon name="menu" style={{color: "white"}}/>
         </View>
         <Item style={{backgroundColor: '#d9d9d9'}}>
           <Icon name="ios-search"/>
           <Input placeholder="Buscar"/>
         </Item>
         <View style={styles.view}>
-          <Icon name="cart"/>
+          <Icon name="cart" style={{color: "white"}}/>
         </View>
       </Header>
     );
@@ -24,7 +24,7 @@ export default class Buscador extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "white"
+    backgroundColor: "black"
   },
   view: {
     flexDirection: 'column',

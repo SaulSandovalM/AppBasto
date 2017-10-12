@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ImageBackground} from 'react-native';
+import {Platform, StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native';
 // import Video from 'react-native-video';
 // import video from './src/assets/video/video.mp4';
 import {Button} from 'native-base';
@@ -16,7 +16,7 @@ export default class Bienvenida extends Component < {} > {
   render() {
     return (
       <ImageBackground source={img} style={styles.img}>
-
+        <StatusBar barStyle="dark-content"/>
         <View>
           <Text style={styles.nombre}>AppBasto</Text>
         </View>
@@ -29,9 +29,8 @@ export default class Bienvenida extends Component < {} > {
 
         <View style={styles.content}>
           <Button rounded block style={styles.buttonIngreso} onPress={() => Actions.Login()}>
-            <Text style={styles.boton}>INICIAR SESIÓN</Text>
+            <Text style={styles.boton}>COMENZAR</Text>
           </Button>
-          <Text style={styles.text}>REGÍSTRATE</Text>
         </View>
 
       </ImageBackground>

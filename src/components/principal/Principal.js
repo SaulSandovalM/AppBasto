@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView, Alert} from 'react-native';
-import {Encabezado} from '../comun/Encabezado';
+import {Text, View, Image, ScrollView, Alert, ImageBackground, TouchableOpacity, StatusBar} from 'react-native';
 import Buscador from '../comun/Buscador';
 import {Actions} from 'react-native-router-flux';
 import {CardSection, Card, Header} from '../comun';
@@ -8,14 +7,18 @@ import cat1 from '../../assets/imgs/cat1.jpg'
 import cat2 from '../../assets/imgs/cat2.jpg'
 import cat3 from '../../assets/imgs/cat3.jpg'
 import cat4 from '../../assets/imgs/cat4.jpg'
+import getTheme from '../../../native-base-theme/components';
+import material from '../../../native-base-theme/variables/material';
+import {StyleProvider} from 'native-base';
 
 export default class Principal extends Component < {} > {
   render() {
     return (
-      <Container>
+      <StyleProvider style={getTheme(material)}>
+      <View style={{flex:1}}>
         <Buscador/>
-
         <ScrollView style={{backgroundColor:'white'}}>
+
 
             <ImageBackground source={cat1} style={{justifyContent: 'flex-end',
                 padding: 15,
@@ -258,6 +261,7 @@ export default class Principal extends Component < {} > {
         </ScrollView>
 
       </View>
+       </StyleProvider>
     );
   }
 }
