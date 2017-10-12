@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ImageBackground} from 'react-native';
-// import Video from 'react-native-video';
-// import video from './src/assets/video/video.mp4';
-import {Button} from 'native-base';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
+import {Buttonn} from "../comun";
 
 const Texto = Platform.select({
   ios: 'DE LA CENTRAL\n A TU HOGAR,\n EN MINUTOS',
@@ -17,22 +15,21 @@ export default class Bienvenida extends Component < {} > {
     return (
       <ImageBackground source={img} style={styles.img}>
 
-        <View>
+
           <Text style={styles.nombre}>AppBasto</Text>
-        </View>
 
-    {/*<Video source={video} rate={1.0} muted={true} resizeMode={"cover"} repeat style={styles.video}/>*/}
 
-        <View style={styles.content2}>
+
           <Text style={styles.texto}>{Texto}</Text>
-        </View>
 
-        <View style={styles.content}>
-          <Button rounded block style={styles.buttonIngreso} onPress={() => Actions.Login()}>
-            <Text style={styles.boton}>INICIAR SESIÓN</Text>
-          </Button>
-          <Text style={styles.text}>REGÍSTRATE</Text>
+<View style={{flexDirection:'column', alignItems:'center'}}>
+        <View style={{flexDirection:'row'}}>
+          <Buttonn onPress={() => Actions.Login()}>
+            INICIAR SESIÓN
+          </Buttonn>
         </View>
+          <Text style={styles.text}>REGÍSTRATE</Text>
+</View>
 
       </ImageBackground>
     );
@@ -43,13 +40,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  // video: {
-  //   position: 'absolute',
-  //   top: 0,
-  //   left: 0,
-  //   bottom: 0,
-  //   right: 0,
-  // },
   content: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -63,7 +53,8 @@ const styles = StyleSheet.create({
     marginTop: 100
   },
   img: {
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
+      alignItems:'center',
     flex: 2,
     height: null,
     width: null,
@@ -76,7 +67,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#4DA49B'
   },
   text: {
-    color: 'white'
+    color: 'white',
+      marginTop:10
   },
   texto: {
     color: 'white',
