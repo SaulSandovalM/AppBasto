@@ -7,16 +7,15 @@ export default class Buscador extends Component {
   render() {
     return (
       <Header searchBar style={styles.header}>
-        <View style={styles.view}>
-          <Icon name="menu" style={{color: "white"}}/>
+        <View style={styles.view} onPress={() => props.toggle()}>
+          <Icon name="menu" style={styles.color}/>
         </View>
-        <Item style={{backgroundColor: '#d9d9d9'}}>
-          <Icon name="ios-search"/>
+        <Item style={{backgroundColor: '#000'}}>
+          <Icon name="ios-search" style={styles.color}/>
           <Input placeholder="Buscar"/>
         </Item>
         <View style={styles.view}>
-          <Badge ><Text>51</Text></Badge>
-          <Icon name="cart" style={{color: "white"}}/>
+          <Icon name="cart" style={styles.color}/>
         </View>
       </Header>
     );
@@ -31,6 +30,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     margin: 10
+  },
+  color: {
+    color: "white"
   }
 });
 
