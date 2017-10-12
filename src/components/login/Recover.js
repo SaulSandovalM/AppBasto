@@ -1,18 +1,41 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, ImageBackground, TouchableOpacity} from 'react-native';
-import {Button, Input, Item, Header} from 'native-base';
+import {Button, Input, Item} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';
 
-export default class Recover extends Component < {} > {
+export default class Registro extends Component < {} > {
   render() {
     return (
-      <Container>
-        <Header/>
+      <ImageBackground source={img} style={styles.img}>
 
+        <View style={styles.view}>
+          <Item style={styles.inputRounded}>
+            <Input
+              name="correo"
+              placeholder='Correo electrónico'
+              keyboardType='email-address'
+              placeholderTextColor='#000'
+              returnKeyType='next'
+              autoCapitalize='none'/>
+          </Item>
 
+          <Item style={styles.inputRounded}>
+            <Input
+              name="password"
+              placeholder='Contraseña'
+              placeholderTextColor='#000'
+              secureTextEntry={true}/>
+          </Item>
+        </View>
 
-      </Container>
+        <View style={styles.content}>
+          <Button block style={styles.button} onPress={() => Actions.Login()}>
+            <Text style={styles.boton}>RECUPERAR CONTRASEÑA</Text>
+          </Button>
+        </View>
+
+      </ImageBackground>
     );
   }
 }
@@ -24,25 +47,10 @@ const styles = StyleSheet.create({
     height: null,
     width: null
   },
-  texto: {
-    color: 'black',
-    alignSelf: 'center',
-    fontWeight: 'bold',
-    marginTop: 20,
-    backgroundColor: 'transparent'
-  },
   view: {
-    margin: 15
-  },
-  view2: {
-    justifyContent: 'flex-end',
-    backgroundColor: 'transparent'
-  },
-  view3: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
     flexDirection: 'column',
-    marginBottom: 10
+    justifyContent: 'center'
   },
   inputRounded: {
     marginRight: 40,
@@ -56,21 +64,15 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold'
   },
-  text: {
-    color: 'black'
-  },
-  text1: {
-    color: 'black',
-    fontSize: 18
-  },
-  adelante: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    margin: 20
-  },
   button: {
     width: '78%',
     alignSelf: 'center',
     backgroundColor: '#4DA49B'
+  },
+  content: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    margin: 15
   }
 });
