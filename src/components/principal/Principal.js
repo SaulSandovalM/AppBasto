@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {Text, View, Image, ScrollView, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
 import Buscador from '../comun/Buscador';
+import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
-import {CardSection, Card, Header} from '../comun';
+import {Icon} from 'native-base';
+import {CardSection, Card, Header,CardSectionn} from '../comun';
 import cat1 from '../../assets/imgs/cat1.jpg'
 import cat2 from '../../assets/imgs/cat2.jpg'
 import cat3 from '../../assets/imgs/cat3.jpg'
@@ -14,6 +16,9 @@ import SideMenu from 'react-native-side-menu';
 import Menu from './Menu';
 
 export default class Principal extends Component < {} > {
+    state = {
+        modalVisible: null,
+    };
   constructor(props){
   	super(props);
   	this.state = {
@@ -32,6 +37,34 @@ export default class Principal extends Component < {} > {
       isOpen
     })
   }
+
+    _renderModalContent = () => (
+        <View style={{width:200, alignSelf:'center'}}>
+
+          <CardSectionn >
+
+            <Image source={{
+                uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
+            }} style={{
+                height: 200,
+                width: 200,
+                flex: 1
+            }}/>
+          </CardSectionn>
+
+          <CardSectionn >
+            <Text>Jitomate</Text>
+          </CardSectionn>
+          <CardSectionn >
+            <Text style={{marginRight:40, marginLeft:60}}>$20.00 Kg</Text>
+            <Icon name="cart" style={{color: "green"}}/>
+          </CardSectionn>
+
+
+        </View>
+
+
+    );
 
   render() {
     return (
@@ -52,7 +85,7 @@ export default class Principal extends Component < {} > {
 
               <View style={styles.view2}>
                 <ScrollView horizontal={true} style={styles.scroll}>
-                  <TouchableOpacity onPress={() => Actions.detalleProducto()}>
+                  <TouchableOpacity onPress={() => this.setState({ visibleModal: 1 })}>
                     <Card>
                       <Image source={{
                         uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
@@ -99,7 +132,7 @@ export default class Principal extends Component < {} > {
                     <Card>
                       <Image source={{
                         uri: 'http://www.colgatecommercial.com/App_Themes/ColgateStyle/Images/products/53096-lrg.png'
-                      }} style={styles.scroll}/>
+                      }} style={styles.img}/>
                     </Card>
                   </TouchableOpacity>
 
@@ -107,7 +140,7 @@ export default class Principal extends Component < {} > {
                     <Card>
                       <Image source={{
                         uri: 'https://pedidos.com/myfotos/xLarge/(X)CLX-CLORO-930ML.jpg'
-                      }} style={styles.scroll}/>
+                      }} style={styles.img}/>
                     </Card>
                   </TouchableOpacity>
 
@@ -184,6 +217,12 @@ export default class Principal extends Component < {} > {
 
                 </ScrollView>
               </View>
+              <Modal
+                  isVisible={this.state.visibleModal === 1}
+                  onBackdropPress={() => this.setState({ visibleModal: null })}
+              >
+                  {this._renderModalContent()}
+              </Modal>
 
             </ScrollView>
 
