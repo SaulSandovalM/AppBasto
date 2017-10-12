@@ -7,7 +7,8 @@ import Principal from './src/components/principal/Principal';
 import Detalle from './src/components/detalle/Detalle';
 import Registro from './src/components/login/Registro';
 import Recover from './src/components/login/Recover';
-import detalleProducto from "./src/components/detalleproducto/detalleProducto";
+import detalleProducto from './src/components/detalleproducto/detalleProducto';
+import Carrito from './src/components/carrito/Carrito';
 
 const Routes = () => {
   return (
@@ -21,6 +22,7 @@ const Routes = () => {
         <Scene key="Principal" header={null} component={Principal}/>
         <Scene key="detalleProducto" header={null} component={detalleProducto}/>
         <Scene key="Detalle" header={null} component={Detalle}/>
+        <Scene key="Carrito" header={null} component={Carrito}/>
       </Scene>
     </Router>
     </Root>

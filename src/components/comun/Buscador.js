@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, BackHandler, TouchableOpacity, Text, View} from 'react-native';
-import {Header, Button, Icon, Item, Input} from 'native-base';
+import {Header, Button, Icon, Item, Input, Badge} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 
 export default class Buscador extends Component {
@@ -15,6 +15,7 @@ export default class Buscador extends Component {
           <Input placeholder="Buscar"/>
         </Item>
         <View style={styles.view}>
+          <Badge ><Text>51</Text></Badge>
           <Icon name="cart" style={{color: "white"}}/>
         </View>
       </Header>

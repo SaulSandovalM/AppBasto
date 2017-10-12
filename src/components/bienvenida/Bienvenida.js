@@ -19,19 +19,19 @@ export default class Bienvenida extends Component < {} > {
       <ImageBackground source={img} style={styles.img}>
         <StatusBar barStyle="dark-content"/>
         <View>
+          <View style={styles.container}>
           <Text style={styles.nombre}>AppBasto</Text>
+          </View>
 
-
-
+          <View style={styles.container}>
           <Text style={styles.texto}>{Texto}</Text>
-
-        <View style={styles.content}>
-          <Button rounded block style={styles.buttonIngreso} onPress={() => Actions.Login()}>
-            <Text style={styles.boton}>COMENZAR</Text>
-          </Button>
+          </View>
+          <View style={styles.content}>
+            <Button rounded block style={styles.buttonIngreso} onPress={() => Actions.Login()}>
+              <Text style={styles.boton}>COMENZAR</Text>
+            </Button>
+          </View>
         </View>
-          <Text style={styles.text}>REGÍSTRATE</Text>
-</View>
 
       </ImageBackground>
     );
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   img: {
     justifyContent: 'space-around',
-      alignItems:'center',
+    alignItems: 'center',
     flex: 2,
     height: null,
     width: null,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-      marginTop:10
+    marginTop: 10
   },
   texto: {
     color: 'white',
@@ -88,5 +88,5 @@ const styles = StyleSheet.create({
   boton: {
     color: 'white',
     fontWeight: 'bold'
-  },
+  }
 });
