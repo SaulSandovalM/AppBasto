@@ -1,328 +1,174 @@
 import React, {Component} from 'react';
-import {View, Image,ScrollView, TouchableOpacity} from 'react-native';
-import {Header, Card} from "../comun";
+import {View, Image, ScrollView, TouchableOpacity, StyleSheet, Text} from 'react-native';
+import {Card, CardItem, Left, Right, Body, Button, Icon, Container, StyleProvider} from 'native-base';
+import Buscador from '../comun/Buscador';
+import getTheme from '../../../native-base-theme/components';
+import material from '../../../native-base-theme/variables/material';
 
 export default class Detalle extends Component < {} > {
   render() {
     return (
-      <View style={{flex:1}}>
-        <Header headerText={'CATEGORIA 1'}/>
-
+      <StyleProvider style={getTheme(material)}>
+      <Container>
+        <Buscador/>
         <ScrollView >
-
-          <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
-
-              <TouchableOpacity >
-                <Card>
-
-                  <Image source={{
-                      uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-                  }} style={{
-                      height: 110,
-                      width: 110,
-                      flex: 1
-                  }}/>
-
-                </Card>
-              </TouchableOpacity>
-
-              <TouchableOpacity>
-                <Card>
-
-                  <Image source={{
-                      uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                  }} style={{
-                      height: 110,
-                      width: 110,
-                      flex: 1
-                  }}/>
-
-                </Card>
-              </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
+          <View style={styles.view}>
+            <Card>
+              <CardItem>
+                <Left>
+                  <Body>
+                    <Text>Nombre</Text>
+                    <Text note>$50.00</Text>
+                  </Body>
+                </Left>
+              </CardItem>
+              <CardItem cardBody>
                 <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
+                  uri: 'Image URL'
+                }} style={styles.img}/>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Button transparent>
+                    <Text>Agregar al Carrito</Text>
+                  </Button>
+                </Body>
+              </CardItem>
+            </Card>
 
-              </Card>
-            </TouchableOpacity>
-        </View>
-
-          <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
-
-            <TouchableOpacity >
-              <Card>
-
+            <Card>
+              <CardItem>
+                <Left>
+                  <Body>
+                    <Text>Nombre</Text>
+                    <Text note>Precio</Text>
+                  </Body>
+                </Left>
+              </CardItem>
+              <CardItem cardBody>
                 <Image source={{
-                    uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
+                  uri: 'Image URL'
+                }} style={styles.img}/>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Button transparent>
+                    <Text>Agregar al Carrito</Text>
+                  </Button>
+                </Body>
+              </CardItem>
+            </Card>
           </View>
 
-          <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
-
-            <TouchableOpacity >
-              <Card>
-
+          <View style={styles.view}>
+            <Card>
+              <CardItem>
+                <Left>
+                  <Body>
+                    <Text>Nombre</Text>
+                    <Text note>$50.00</Text>
+                  </Body>
+                </Left>
+              </CardItem>
+              <CardItem cardBody>
                 <Image source={{
-                    uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
+                  uri: 'Image URL'
+                }} style={styles.img}/>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Button transparent>
+                    <Text>Agregar al Carrito</Text>
+                  </Button>
+                </Body>
+              </CardItem>
+            </Card>
 
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
+            <Card>
+              <CardItem>
+                <Left>
+                  <Body>
+                    <Text>Nombre</Text>
+                    <Text note>Precio</Text>
+                  </Body>
+                </Left>
+              </CardItem>
+              <CardItem cardBody>
                 <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
+                  uri: 'Image URL'
+                }} style={styles.img}/>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Button transparent>
+                    <Text>Agregar al Carrito</Text>
+                  </Button>
+                </Body>
+              </CardItem>
+            </Card>
           </View>
-          <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
 
-            <TouchableOpacity >
-              <Card>
-
+          <View style={styles.view}>
+            <Card>
+              <CardItem>
+                <Left>
+                  <Body>
+                    <Text>Nombre</Text>
+                    <Text note>$50.00</Text>
+                  </Body>
+                </Left>
+              </CardItem>
+              <CardItem cardBody>
                 <Image source={{
-                    uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
+                  uri: 'Image URL'
+                }} style={styles.img}/>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Button transparent>
+                    <Text>Agregar al Carrito</Text>
+                  </Button>
+                </Body>
+              </CardItem>
+            </Card>
 
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
+            <Card>
+              <CardItem>
+                <Left>
+                  <Body>
+                    <Text>Nombre</Text>
+                    <Text note>Precio</Text>
+                  </Body>
+                </Left>
+              </CardItem>
+              <CardItem cardBody>
                 <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-          </View>
-          <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
-
-            <TouchableOpacity >
-              <Card>
-
-                <Image source={{
-                    uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-          </View>
-          <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
-
-            <TouchableOpacity >
-              <Card>
-
-                <Image source={{
-                    uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-          </View>
-          <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
-
-            <TouchableOpacity >
-              <Card>
-
-                <Image source={{
-                    uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Card>
-
-                <Image source={{
-                    uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
-                }} style={{
-                    height: 110,
-                    width: 110,
-                    flex: 1
-                }}/>
-
-              </Card>
-            </TouchableOpacity>
+                  uri: 'Image URL'
+                }} style={styles.img}/>
+              </CardItem>
+              <CardItem>
+                <Body>
+                  <Button transparent>
+                    <Text>Agregar al Carrito</Text>
+                  </Button>
+                </Body>
+              </CardItem>
+            </Card>
           </View>
         </ScrollView>
-      </View>
-
+      </Container>
+      </StyleProvider>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  view: {
+    flexDirection: 'row'
+  },
+  img: {
+    height: 100,
+    width: null,
+    flex: 1
+  }
+});

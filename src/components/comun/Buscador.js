@@ -15,7 +15,7 @@ export default class Buscador extends Component {
           <Input placeholder="Buscar"/>
         </Item>
         <View style={styles.view}>
-          <Icon name="cart" style={styles.color}/>
+          <Icon name="cart" style={styles.color} onPress={() => Actions.Carrito()}/>
         </View>
       </Header>
     );
