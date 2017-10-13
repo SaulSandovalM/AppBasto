@@ -17,7 +17,7 @@ export default class Bienvenida extends Component < {} > {
   render() {
     return (
       <ImageBackground source={img} style={styles.img}>
-        <StatusBar barStyle="dark-content"/>
+        <StatusBar hidden={true}/>
         <View>
           <View style={styles.container}>
           <Text style={styles.nombre}>AppBasto</Text>
