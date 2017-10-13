@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, TouchableOpacity, StatusBar} from 'react-native';
 import {Button, Input, Item} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';
@@ -8,6 +8,7 @@ export default class Login extends Component < {} > {
   render() {
     return (
       <ImageBackground source={img} style={styles.img}>
+        <StatusBar hidden={true} />
 
         <View>
           <View style={styles.adelante}>

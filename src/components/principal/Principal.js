@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, Image, ScrollView, ImageBackground, TouchableOpacity, StyleSheet, StatusBar} from 'react-native';
 import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
@@ -68,7 +68,9 @@ export default class Principal extends Component < {} > {
 
   render() {
     return (
+
       <StyleProvider style={getTheme(material)}>
+
         <SideMenu
           menu={<Menu/>}
           isOpen={this.state.isOpen}
@@ -77,10 +79,13 @@ export default class Principal extends Component < {} > {
             <Buscador toggle={this.toggle.bind(this)}/>
 
             <ScrollView style={styles.content}>
+              <StatusBar hidden={true} />
               <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
                 <Text onPress={() => Actions.Detalle()} style={styles.texto}>
                   CATEGORIA 1
                 </Text>
+                </View>
               </ImageBackground>
 
               <View style={styles.view2}>
@@ -112,9 +117,11 @@ export default class Principal extends Component < {} > {
               </View>
 
               <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
                 <Text style={styles.texto}>
                   CATEGORIA 2
                 </Text>
+                </View>
 
               </ImageBackground>
               <View style={styles.view2}>
@@ -148,9 +155,11 @@ export default class Principal extends Component < {} > {
               </View>
 
               <ImageBackground source={cat1} style={styles.fondo}>
-                <Text style={styles.texto}>
+                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
+                <Text style={styles.texto} onPress={() => Actions.PruebaM()}>
                   CATEGORIA 3
                 </Text>
+                </View>
               </ImageBackground>
 
               <View style={styles.view2}>
@@ -184,9 +193,11 @@ export default class Principal extends Component < {} > {
               </View>
 
               <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
                 <Text style={styles.texto}>
                   CATEGORIA 4
                 </Text>
+                </View>
               </ImageBackground>
               <View style={styles.view2}>
                 <ScrollView horizontal={true} style={styles.scroll}>
@@ -220,6 +231,8 @@ export default class Principal extends Component < {} > {
               <Modal
                   isVisible={this.state.visibleModal === 1}
                   onBackdropPress={() => this.setState({ visibleModal: null })}
+                  animationIn={'slideInLeft'}
+                  animationOut={'fadeOut'}
               >
                   {this._renderModalContent()}
               </Modal>
@@ -245,17 +258,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   fondo: {
-    justifyContent: 'flex-end',
-    padding: 15,
-    height: null,
+    justifyContent: 'center',
+    height: 60,
     width: null,
-    opacity: 15
   },
   texto: {
     backgroundColor: 'transparent',
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 20,
+      marginLeft: 5
   },
   scroll: {
     marginBottom: 10
