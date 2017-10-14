@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
   },
   fondo: {
     justifyContent: 'center',
-    height: 60,
+    height: 50,
     width: null,
   },
   texto: {
@@ -274,8 +274,8 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   img: {
-    height: 200,
-    width: 200,
+    height: 150,
+    width: 150,
     flex: 1
   }
 });
