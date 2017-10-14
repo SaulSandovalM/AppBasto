@@ -3,37 +3,37 @@ import {StyleSheet, BackHandler, TouchableOpacity, Text, View} from 'react-nativ
 import {Header, Button, Icon, Item, Input, Badge} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 
-export default class Buscador extends Component {
-  render() {
+const Buscador = (props) => {
+
     return (
       <Header searchBar style={styles.header}>
-        <View style={styles.view} onPress={() => props.toggle()}>
-          <Icon name="menu" style={styles.color}/>
+        <View style={styles.view} >
+          <Icon name="menu" style={styles.color} onPress={props.toggle}/>
         </View>
-        <Item style={{backgroundColor: '#000'}}>
-          <Icon name="ios-search" style={styles.color}/>
-          <Input placeholder="Buscar"/>
+        <Item style={{backgroundColor: 'white'}}>
+          <Icon name="ios-search" style={{color: "#000"}}/>
+          <Input placeholder="Buscar" style={{borderRadius:50}}/>
         </Item>
         <View style={styles.view}>
-          <Icon name="cart" style={styles.color} onPress={() => Actions.Carrito()}/>
+          <Icon name="ios-cart" style={styles.color} onPress={() => Actions.Carrito()}/>
         </View>
       </Header>
     );
-  }
-}
+};
+
+export default Buscador;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "black"
+    backgroundColor: "#1CAF57"
   },
   view: {
     flexDirection: 'column',
     justifyContent: 'center',
-    margin: 10
+    margin: 10,
   },
   color: {
     color: "white"
   }
 });
 
-module.export = Buscador;

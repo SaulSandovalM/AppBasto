@@ -14,6 +14,7 @@ import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
 import SideMenu from 'react-native-side-menu';
 import Menu from './Menu';
+import {Encabezado} from "../comun/Encabezado";
 
 export default class Principal extends Component < {} > {
     state = {
@@ -26,11 +27,11 @@ export default class Principal extends Component < {} > {
     };
   }
 
-  toggle(){
+  toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     })
-  }
+  };
 
   actualizar(isOpen){
     this.setState({
@@ -76,7 +77,7 @@ export default class Principal extends Component < {} > {
           isOpen={this.state.isOpen}
           onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
-            <Buscador toggle={this.toggle.bind(this)}/>
+            <Buscador toggle={this.toggle} />
 
             <ScrollView style={styles.content}>
               <StatusBar hidden={true} />
@@ -93,7 +94,7 @@ export default class Principal extends Component < {} > {
                   <TouchableOpacity onPress={() => this.setState({ visibleModal: 1 })}>
                     <Card>
                       <Image source={{
-                        uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
+                        uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
                       }} style={styles.img}/>
                     </Card>
                   </TouchableOpacity>
@@ -101,7 +102,7 @@ export default class Principal extends Component < {} > {
                   <TouchableOpacity>
                     <Card>
                       <Image source={{
-                        uri: 'http://blogesp.diabetv.com/wp-content/uploads/2015/04/papa.jpg'
+                        uri: 'http://www.agroindustriasmora.com/images/productos/papa.png'
                       }} style={styles.img}/>
                     </Card>
                   </TouchableOpacity>
@@ -109,7 +110,7 @@ export default class Principal extends Component < {} > {
                   <TouchableOpacity>
                     <Card>
                       <Image source={{
-                        uri: 'http://cdn.masdemx.com/wp-content/uploads/2016/08/chiles-mas-picantes-mexico.jpg'
+                        uri: 'http://jalapeno.cz/wp-content/uploads/2015/02/SHU-stupnice-palivosti-chilli.jpg'
                       }} style={styles.img}/>
                     </Card>
                   </TouchableOpacity>
@@ -255,7 +256,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   content: {
-    backgroundColor: 'white'
+    backgroundColor: '#fff'
   },
   fondo: {
     justifyContent: 'center',

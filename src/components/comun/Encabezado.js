@@ -8,7 +8,7 @@ const Encabezado = (props) => {
   return (
     <Header rounded style={styles.header}>
       <Left>
-        <Icon name="menu"/>
+        <Icon name="menu" onPress={props.toggle}/>
       </Left>
       <Text style={{alignSelf: 'center'}}>{props.headerText}</Text>
       <Right>
