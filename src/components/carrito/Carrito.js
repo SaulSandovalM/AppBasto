@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView, StyleSheet, Text} from 'react-native';
-import {Container, StyleProvider, Right, Thumbnail, Body, List, ListItem, Button, Card, CardItem} from 'native-base';
+import {Container, StyleProvider, Right, Thumbnail, Body, List, ListItem, Button, Card, CardItem, Form, Item, Picker} from 'native-base';
 import Cabecera from '../comun/Cabecera';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import img from '../../assets/imgs/bienvenida.jpg';
 
 export default class Detalle extends Component < {} > {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected2: undefined
+    };
+  }
+  onValueChange2(value: string) {
+    this.setState({
+      selected2: value
+    });
+  }
+
   render() {
     return (
       <StyleProvider style={getTheme(material)}>
@@ -43,7 +55,19 @@ export default class Detalle extends Component < {} > {
                   <Text>$25.00</Text>
                 </Body>
                 <Body>
-                  <Text>1kg</Text>
+                  <Form>
+                    <Picker
+                      mode="dropdown"
+                      placeholder="1kg"
+                      selectedValue={this.state.selected2}
+                      onValueChange={this.onValueChange2.bind(this)}>
+                      <Item label="2 kg" value="key0" />
+                      <Item label="3 kg" value="key1" />
+                      <Item label="4 kg" value="key2" />
+                      <Item label="5 kg" value="key3" />
+                      <Item label="6 kg" value="key4" />
+                    </Picker>
+          </Form>
                 </Body>
                 <Body>
                   <Text>$25.00</Text>

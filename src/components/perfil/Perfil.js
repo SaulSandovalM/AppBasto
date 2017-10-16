@@ -17,7 +17,7 @@ export default class Perfil extends Component {
           <Thumbnail source={img2} style={styles.thub}/>
           </View>
           <H1 style={styles.h1}>Saul Sandoval M</H1>
-          <Text style={styles.text}>@Saul Sandoval M</Text>
+          <Text style={styles.text}>sauldevelop@gmail.com</Text>
           {/*</ImageBackground>*/}
         </View>
 
@@ -25,64 +25,28 @@ export default class Perfil extends Component {
           <ListItem>
             <Thumbnail square size={80} source={img}/>
             <Body>
-              <Text>Manzanas</Text>
-            </Body>
-            <Body>
-              <Text>$25.00</Text>
-            </Body>
-            <Body>
-              <Text>1kg</Text>
-            </Body>
-            <Body>
-              <Text>$25.00</Text>
+              <Text>Pedido 1</Text>
             </Body>
           </ListItem>
 
           <ListItem>
             <Thumbnail square size={80} source={img}/>
             <Body>
-              <Text>Manzanas</Text>
-            </Body>
-            <Body>
-              <Text>$25.00</Text>
-            </Body>
-            <Body>
-              <Text>1kg</Text>
-            </Body>
-            <Body>
-              <Text>$25.00</Text>
+              <Text>Pedido 2</Text>
             </Body>
           </ListItem>
 
           <ListItem>
             <Thumbnail square size={80} source={img}/>
             <Body>
-              <Text>Manzanas</Text>
-            </Body>
-            <Body>
-              <Text>$25.00</Text>
-            </Body>
-            <Body>
-              <Text>1kg</Text>
-            </Body>
-            <Body>
-              <Text>$25.00</Text>
+              <Text>Pedido 3</Text>
             </Body>
           </ListItem>
 
           <ListItem>
             <Thumbnail square size={80} source={img}/>
             <Body>
-              <Text>Manzanas</Text>
-            </Body>
-            <Body>
-              <Text>$25.00</Text>
-            </Body>
-            <Body>
-              <Text>1kg</Text>
-            </Body>
-            <Body>
-              <Text>$25.00</Text>
+              <Text>Pedido 4</Text>
             </Body>
           </ListItem>
         </List>
