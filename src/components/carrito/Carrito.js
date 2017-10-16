@@ -12,8 +12,8 @@ export default class Detalle extends Component < {} > {
       <StyleProvider style={getTheme(material)}>
         <Container>
           <Cabecera/>
-            <ScrollView>
-              <List style={styles.list}>
+          <ScrollView>
+            <List style={styles.list}>
               <ListItem>
                 <Body>
                   <Text style={styles.text1}>Imagen</Text>
@@ -31,11 +31,11 @@ export default class Detalle extends Component < {} > {
                   <Text style={styles.text1}>Total</Text>
                 </Body>
               </ListItem>
-              </List>
+            </List>
 
             <List>
               <ListItem>
-                <Thumbnail square size={80} source={img} />
+                <Thumbnail square size={80} source={img}/>
                 <Body>
                   <Text>Manzanas</Text>
                 </Body>
@@ -51,7 +51,7 @@ export default class Detalle extends Component < {} > {
               </ListItem>
 
               <ListItem>
-                <Thumbnail square size={80} source={img} />
+                <Thumbnail square size={80} source={img}/>
                 <Body>
                   <Text>Manzanas</Text>
                 </Body>
@@ -67,7 +67,7 @@ export default class Detalle extends Component < {} > {
               </ListItem>
 
               <ListItem>
-                <Thumbnail square size={80} source={img} />
+                <Thumbnail square size={80} source={img}/>
                 <Body>
                   <Text>Manzanas</Text>
                 </Body>
@@ -83,7 +83,7 @@ export default class Detalle extends Component < {} > {
               </ListItem>
 
               <ListItem>
-                <Thumbnail square size={80} source={img} />
+                <Thumbnail square size={80} source={img}/>
                 <Body>
                   <Text>Manzanas</Text>
                 </Body>
@@ -101,9 +101,9 @@ export default class Detalle extends Component < {} > {
           </ScrollView>
 
           <Card>
-            <CardItem style={{alignSelf: 'center', flexDirection: 'column'}}>
-            <Text>Total a Pagar</Text>
-            <Text style={{fontWeight: 'bold', fontSize: 25}}>$500.00 MXN</Text>
+            <CardItem style={styles.cardItem}>
+              <Text>Total a Pagar</Text>
+              <Text style={styles.pago}>$500.00 MXN</Text>
             </CardItem>
           </Card>
 
@@ -124,13 +124,20 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   text1: {
-    color: 'white',
+    color: 'white'
   },
   boton: {
     backgroundColor: 'yellow',
-    width: '100%',
+    width: '100%'
   },
   list: {
     backgroundColor: 'black'
+  },
+  cardItem: {
+    alignSelf: 'center',
+    flexDirection: 'column'
+  },
+  pago: {
+
   }
 });

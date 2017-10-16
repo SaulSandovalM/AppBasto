@@ -59,11 +59,7 @@ export default class Principal extends Component < {} > {
             <Text style={{marginRight:40, marginLeft:60}}>$20.00 Kg</Text>
             <Icon name="cart" style={{color: "green"}}/>
           </CardSectionn>
-
-
         </View>
-
-
     );
 
   render() {

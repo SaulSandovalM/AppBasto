@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import img from '../../assets/imgs/usuario.jpg';
+import {Actions} from 'react-native-router-flux';
 
 const {width, height} = Dimensions.get('window')
 
@@ -9,9 +10,11 @@ export default class Menu extends Component < {} > {
     return (
       <View style={styles.menu}>
         <View style={styles.container}>
-          <View style={styles.usuarioImagen}>
-            <Image style={styles.usuario} source={img}/>
-            <Text style={styles.text}>Saul Sandoval</Text>
+          <View>
+            <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
+              <Image style={styles.usuario} source={img}/>
+              <Text style={styles.text}>Saul Sandoval</Text>
+            </TouchableOpacity>
           </View>
         </View>
 

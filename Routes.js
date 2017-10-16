@@ -9,13 +9,14 @@ import Registro from './src/components/login/Registro';
 import Recover from './src/components/login/Recover';
 import detalleProducto from './src/components/detalleproducto/detalleProducto';
 import Carrito from './src/components/carrito/Carrito';
+import Perfil from './src/components/perfil/Perfil';
 
 const Routes = () => {
   return (
     <Root>
     <Router>
       <Scene key="root">
-        <Scene key="Bienvenida" header={null} component={Bienvenida} initial/>
+        <Scene key="Bienvenida" header={null} component={Bienvenida}initial />
         <Scene key="Login" header={null} component={Login}/>
         <Scene key="Registro" header={null} component={Registro}/>
         <Scene key="Recover" header={null} component={Recover}/>
@@ -23,6 +24,7 @@ const Routes = () => {
         <Scene key="detalleProducto" header={null} component={detalleProducto}/>
         <Scene key="Detalle" header={null} component={Detalle}/>
         <Scene key="Carrito" header={null} component={Carrito}/>
+        <Scene key="Perfil" header={null} component={Perfil} />
       </Scene>
     </Router>
     </Root>
