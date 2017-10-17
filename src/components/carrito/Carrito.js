@@ -6,9 +6,9 @@ import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import img from '../../assets/imgs/bienvenida.jpg';
 import Select from './Select';
+import {Actions} from 'react-native-router-flux';
 
-export default class Detalle extends Component < {} > {
-
+export default class Carrito extends Component < {} > {
   render() {
     return (
       <StyleProvider style={getTheme(material)}>
@@ -100,7 +100,7 @@ export default class Detalle extends Component < {} > {
               <Text style={styles.pago}>$500.00 MXN</Text>
             </CardItem>
 
-            <Button block style={styles.boton}>
+            <Button block style={styles.boton} onPress={() => Actions.StatusOrden()}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </Card>
