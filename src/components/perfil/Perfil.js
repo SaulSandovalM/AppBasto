@@ -8,18 +8,18 @@ import img from '../../assets/imgs/bienvenida.jpg';
 export default class Perfil extends Component {
   render() {
     return (
-      <Container style={{backgroundColor: 'white'}}>
-        {/*<ImageBackground source={img} style={styles.img}>*/}
+      <Container style={styles.container}>
         <Cabecera/>
         <Content>
-          <View style={{alignSelf: 'center'}}>
-            <View style={{alignSelf: 'center'}}>
+          <ImageBackground source={img} style={styles.img}>
+          <View style={styles.view}>
+            <View style={styles.view}>
           <Thumbnail source={img2} style={styles.thub}/>
           </View>
           <H1 style={styles.h1}>Saul Sandoval M</H1>
           <Text style={styles.text}>sauldevelop@gmail.com</Text>
-          {/*</ImageBackground>*/}
-        </View>
+          </View>
+          </ImageBackground>
 
         <List>
           <ListItem>
@@ -64,15 +64,23 @@ const styles = StyleSheet.create({
     width: 80
   },
   h1: {
-    marginLeft: 20
+    marginLeft: 20,
+    color: 'white'
   },
   text: {
-    marginLeft: 20
+    marginLeft: 20,
+    color: 'white'
   },
   img: {
     flex: 2,
     height: 200,
     width: null,
     opacity: 15
+  },
+  container: {
+    backgroundColor: 'white'
+  },
+  view: {
+    alignSelf: 'center'
   }
 });

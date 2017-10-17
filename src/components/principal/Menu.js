@@ -9,16 +9,7 @@ const {width, height} = Dimensions.get('window');
 export default class Menu extends Component < {} > {
   render() {
     return (
-      <View style={styles.menu}>  
-        <View style={styles.container}>
-          <View>
-            <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
-              <Image style={styles.usuario} source={img}/>
-              <Text style={styles.text}>Saul Sandoval</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
+      <View style={styles.menu}>
         <ScrollView style={styles.content}>
           <List>
 
@@ -161,10 +152,18 @@ export default class Menu extends Component < {} > {
                 </TouchableOpacity>
               </Right>
             </ListItem>
-
-
           </List>
         </ScrollView>
+
+        <View style={styles.container}>
+          <View>
+            <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
+              <Image style={styles.usuario} source={img}/>
+              <Text style={styles.text}>Saul Sandoval</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        
       </View>
     );
   }
