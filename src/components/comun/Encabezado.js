@@ -1,53 +1,39 @@
-import React from 'react';
-import {Text, View} from 'react-native';
-import {Icon, Left, Right, Header} from 'native-base';
+import React, {Component} from 'react';
+import {StyleSheet, BackHandler, TouchableOpacity, Text, View} from 'react-native';
+import {Header, Button, Icon, Item, Input, Badge} from 'native-base';
+import {Actions} from 'react-native-router-flux';
 
-const Encabezado = (props) => {
-  const {textStyle, viewStyle} = styles;
+const Encabezado = () => {
 
-  return (
-    <Header rounded style={styles.header}>
-      <Left>
-        <Icon name="menu" onPress={props.toggle}/>
-      </Left>
-      <Text style={{alignSelf: 'center'}}>{props.headerText}</Text>
-      <Right>
-        <Icon name="cart"/>
-      </Right>
-    </Header>
-  );
+    return (
+        <Header searchBar style={styles.header}>
+          <View style={styles.view} >
+            <Icon name="arrow-back" style={styles.color} onPress={() => Actions.pop()} />
+          </View>
+          <Item style={{backgroundColor: 'white'}}>
+            <Icon name="ios-search" style={{color: "#000"}}/>
+            <Input placeholder="Buscar" style={{borderRadius:50}}/>
+          </Item>
+          <View style={styles.view}>
+            <Icon name="ios-cart" style={styles.color} onPress={() => Actions.Carrito()}/>
+          </View>
+        </Header>
+    );
 };
 
-const styles = {
-  viewStyle: {
-    flexDirection: 'row',
-    backgroundColor: '#F8F8F8',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 15,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2
+export default Encabezado;
+
+const styles = StyleSheet.create({
+    header: {
+        backgroundColor: "#1CAF57"
     },
-    shadowOpacity: 0.2,
-    elevation: 2,
-    position: 'relative'
-  },
-  textStyle: {
-    fontSize: 20
-  },
-  iconStyle: {
-    alignSelf: 'flex-end'
-  },
-  view: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    margin: 10
-  },
-  header: {
-    backgroundColor: 'white'
-  }
-};
+    view: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        margin: 10,
+    },
+    color: {
+        color: "white"
+    }
+});
 
-export {Encabezado};
