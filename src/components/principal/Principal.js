@@ -5,10 +5,7 @@ import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
 import {Icon} from 'native-base';
 import {CardSection, Card, Header,CardSectionn} from '../comun';
-import cat1 from '../../assets/imgs/cat1.jpg'
-import cat2 from '../../assets/imgs/cat2.jpg'
-import cat3 from '../../assets/imgs/cat3.jpg'
-import cat4 from '../../assets/imgs/cat4.jpg'
+import cat1 from '../../assets/imgs/cat1.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
@@ -153,7 +150,7 @@ export default class Principal extends Component < {} > {
 
               <ImageBackground source={cat1} style={styles.fondo}>
                 <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text style={styles.texto} onPress={() => Actions.PruebaM()}>
+                <Text style={styles.texto} >
                   CATEGORIA 3
                 </Text>
                 </View>
