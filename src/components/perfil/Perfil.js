@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
-import {Icon, Content, Container, Thumbnail, H1, List, ListItem, Body} from 'native-base';
+import {View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground} from 'react-native';
+import {Container, Content, SwipeRow, Icon, Button, Thumbnail, H1} from 'native-base';
 import img2 from '../../assets/imgs/usuario.jpg';
 import Cabecera from '../comun/Cabecera';
 import img from '../../assets/imgs/bienvenida.jpg';
+import {Actions} from 'react-native-router-flux';
 
 export default class Perfil extends Component {
   render() {
@@ -12,44 +13,69 @@ export default class Perfil extends Component {
         <Cabecera/>
         <Content>
           <ImageBackground source={img} style={styles.img}>
-          <View style={styles.view}>
             <View style={styles.view}>
-          <Thumbnail source={img2} style={styles.thub}/>
-          </View>
-          <H1 style={styles.h1}>Saul Sandoval M</H1>
-          <Text style={styles.text}>sauldevelop@gmail.com</Text>
-          </View>
+              <View style={styles.view}>
+                <Thumbnail source={img2} style={styles.thub}/>
+              </View>
+              <H1 style={styles.h1}>Saul Sandoval M</H1>
+              <Text style={styles.text}>sauldevelop@gmail.com</Text>
+            </View>
           </ImageBackground>
 
-        <List>
-          <ListItem>
-            <Thumbnail square size={80} source={img}/>
-            <Body>
-              <Text>Pedido 1</Text>
-            </Body>
-          </ListItem>
+          <View>
+            <Text style={styles.orden}>Historia de Ordenes</Text>
+          </View>
 
-          <ListItem>
-            <Thumbnail square size={80} source={img}/>
-            <Body>
-              <Text>Pedido 2</Text>
-            </Body>
-          </ListItem>
+          <SwipeRow
+            leftOpenValue={75}
+            rightOpenValue={-75}
+            left = {
+              <Button success onPress={()=>Actions.Carrito()}>
+                <Icon active name="add"/>
+              </Button>
+            }
+            body = {
+              <View>
+                <Text>Orden 1</Text>
+              </View>}
+            right = {
+              <Button danger onPress={() => alert('Trash')}>
+                <Icon active name="trash"/>
+              </Button>}/>
 
-          <ListItem>
-            <Thumbnail square size={80} source={img}/>
-            <Body>
-              <Text>Pedido 3</Text>
-            </Body>
-          </ListItem>
+            <SwipeRow
+              leftOpenValue={75}
+              rightOpenValue={-75}
+              left = {
+                <Button success onPress={() => alert('Add')}>
+                  <Icon active name="add"/>
+                </Button>
+              }
+              body = {
+                <View>
+                  <Text>Orden 2</Text>
+                </View>}
+              right = {
+                <Button danger onPress={() => alert('Trash')}>
+                  <Icon active name="trash"/>
+                </Button>}/>
 
-          <ListItem>
-            <Thumbnail square size={80} source={img}/>
-            <Body>
-              <Text>Pedido 4</Text>
-            </Body>
-          </ListItem>
-        </List>
+              <SwipeRow
+                leftOpenValue={75}
+                rightOpenValue={-75}
+                left = {
+                  <Button success onPress={() => alert('Add')}>
+                    <Icon active name="add"/>
+                  </Button>
+                }
+                body = {
+                  <View>
+                    <Text>Orden 3</Text>
+                  </View>}
+                right = {
+                  <Button danger onPress={() => alert('Trash')}>
+                    <Icon active name="trash"/>
+                  </Button>}/>
 
         </Content>
       </Container>
@@ -82,5 +108,10 @@ const styles = StyleSheet.create({
   },
   view: {
     alignSelf: 'center'
+  },
+  orden: {
+    alignSelf: 'center',
+    margin: 20,
+    fontSize: 20
   }
 });
