@@ -4,14 +4,13 @@ import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
 import {Icon} from 'native-base';
-import {Card, Header,CardSectionn} from '../comun';
+import {Card, CardSectionn} from '../comun';
 import cat1 from '../../assets/imgs/cat1.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
 import SideMenu from 'react-native-side-menu';
 import Menu from './Menu';
-import {Encabezado} from "../comun/Encabezado";
 
 export default class Principal extends Component < {} > {
   state = {
@@ -90,6 +89,7 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
                       }} style={styles.img}/>
+                      <Text>hola</Text>
                     </Card>
                   </TouchableOpacity>
 
