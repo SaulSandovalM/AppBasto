@@ -187,11 +187,10 @@ export default class Menu extends Component < {} > {
           <View>
             <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
               <Image style={styles.usuario} source={img}/>
-              <Text style={styles.text}>Pedido{'\n'}Status: <Text style={{color: 'green'}}>En Camino</Text></Text>
+              <Text style={styles.text}>Pedido{'\n'}Status: <Text style={styles.textoc}>En Camino</Text></Text>
             </TouchableOpacity>
           </View>
         </View>
-
       </View>
     );
   }
@@ -230,6 +229,9 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 15,
     marginLeft: 15
+  },
+  textoc: {
+    color: 'green'
   },
   textWithIcon: {
     flexDirection: 'row',

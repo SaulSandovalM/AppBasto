@@ -3,7 +3,7 @@ import {Text, View, Image, ScrollView, ImageBackground, TouchableOpacity, StyleS
 import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
-import {Card, CardItem, Left, Right, Icon, Button} from 'native-base';
+import {Card, CardItem, Icon, Button} from 'native-base';
 import cat1 from '../../assets/imgs/cat1.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
@@ -13,12 +13,12 @@ import Menu from './Menu';
 
 export default class Principal extends Component < {} > {
   state = {
-      modalVisible: null,
+    modalVisible: null
   };
 
-  constructor(props){
-  	super(props);
-  	this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {
       isOpen: false
     };
   }
@@ -29,66 +29,55 @@ export default class Principal extends Component < {} > {
     })
   };
 
-  actualizar(isOpen){
-    this.setState({
-      isOpen
-    })
+  actualizar(isOpen) {
+    this.setState({isOpen})
   }
 
   _renderModalContent = () => (
-      <View style={{width:200, height:200, alignSelf:'center', backgroundColor:'white'}}>
-<View style={{ flex:1}}>
+    <View style={styles.view3}>
+      <View style={styles.view}>
         <Card>
           <Image source={{
-              uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
-          }} style={{width:'100%', height:150,}}/>
+            uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
+          }} style={styles.img2}/>
         </Card>
-</View>
-
-<Text style={{alignSelf:'center'}}>Jitomate</Text>
-        <Button bordered iconRight
-                style={{alignSelf:'center', borderColor:'white'}}
-                onPress={()=>alert('Agregado!')}
-        >
-          <Text >Agregar</Text>
-          <Icon name="cart" style={{color: "green"}}/>
-        </Button>
-
-
       </View>
+
+      <Text style={styles.text}>Jitomate</Text>
+      <Button bordered iconRight style={styles.button} onPress={() => alert('Agregado!')}>
+        <Text>Agregar</Text>
+        <Icon name="cart" style={styles.icon}/>
+      </Button>
+    </View>
   );
 
   render() {
     return (
-
       <StyleProvider style={getTheme(material)}>
 
-        <SideMenu
-          menu={<Menu/>}
-          isOpen={this.state.isOpen}
-          onChange={(isOpen) => this.actualizar(isOpen)}>
+        <SideMenu menu={< Menu />} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
-            <Buscador toggle={this.toggle} />
+            <Buscador toggle={this.toggle}/>
 
             <ScrollView style={styles.content}>
-              <StatusBar hidden={true} />
+              <StatusBar hidden={true}/>
               <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text onPress={() => Actions.Detalle()} style={styles.texto}>
-                  FRUTAS Y VERDURAS
-                </Text>
+                <View style={styles.view4}>
+                  <Text onPress={() => Actions.Detalle()} style={styles.texto}>
+                    FRUTAS Y VERDURAS
+                  </Text>
                 </View>
               </ImageBackground>
 
               <View style={styles.view2}>
                 <ScrollView horizontal={true} style={styles.scroll}>
-                  <TouchableOpacity onPress={() => this.setState({ visibleModal: 1 })}>
+                  <TouchableOpacity onPress={() => this.setState({visibleModal: 1})}>
                     <Card>
                       <Image source={{
                         uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
                       }} style={styles.img}/>
-                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
-                      <Icon name="ios-star-outline" style={{color:'green'}}/>
+                    <View style={styles.view5}>
+                        <Icon name="ios-star-outline" style={styles.icon}/>
                       </View>
                     </Card>
                   </TouchableOpacity>
@@ -98,8 +87,8 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'http://www.agroindustriasmora.com/images/productos/papa.png'
                       }} style={styles.img}/>
-                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
-                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                    <View style={styles.view5}>
+                        <Icon name="ios-star-outline" style={styles.icon}/>
                       </View>
                     </Card>
                   </TouchableOpacity>
@@ -109,8 +98,8 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'http://jalapeno.cz/wp-content/uploads/2015/02/SHU-stupnice-palivosti-chilli.jpg'
                       }} style={styles.img}/>
-                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
-                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                    <View style={styles.view5}>
+                        <Icon name="ios-star-outline" style={styles.icon}/>
                       </View>
                     </Card>
                   </TouchableOpacity>
@@ -118,10 +107,10 @@ export default class Principal extends Component < {} > {
               </View>
 
               <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text style={styles.texto}>
-                  HIGIENE
-                </Text>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    HIGIENE
+                  </Text>
                 </View>
 
               </ImageBackground>
@@ -133,8 +122,8 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'https://super.walmart.com.mx/images/product-images/img_large/00750102540304L.jpg'
                       }} style={styles.img}/>
-                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
-                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                    <View style={styles.view5}>
+                        <Icon name="ios-star-outline" style={styles.icon}/>
                       </View>
                     </Card>
                   </TouchableOpacity>
@@ -144,8 +133,8 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'http://www.colgatecommercial.com/App_Themes/ColgateStyle/Images/products/53096-lrg.png'
                       }} style={styles.img}/>
-                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
-                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                    <View style={styles.view5}>
+                        <Icon name="ios-star-outline" style={styles.icon}/>
                       </View>
                     </Card>
                   </TouchableOpacity>
@@ -155,8 +144,8 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'https://pedidos.com/myfotos/xLarge/(X)CLX-CLORO-930ML.jpg'
                       }} style={styles.img}/>
-                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
-                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                    <View style={styles.view5}>
+                        <Icon name="ios-star-outline" style={styles.icon}/>
                       </View>
                     </Card>
                   </TouchableOpacity>
@@ -165,10 +154,10 @@ export default class Principal extends Component < {} > {
               </View>
 
               <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text style={styles.texto} >
-                  CATEGORIA 3
-                </Text>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    CATEGORIA 3
+                  </Text>
                 </View>
               </ImageBackground>
 
@@ -203,10 +192,10 @@ export default class Principal extends Component < {} > {
               </View>
 
               <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text style={styles.texto}>
-                  CATEGORIA 4
-                </Text>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    CATEGORIA 4
+                  </Text>
                 </View>
               </ImageBackground>
               <View style={styles.view2}>
@@ -238,20 +227,14 @@ export default class Principal extends Component < {} > {
 
                 </ScrollView>
               </View>
-              <Modal
-                  isVisible={this.state.visibleModal === 1}
-                  onBackdropPress={() => this.setState({ visibleModal: null })}
-                  animationIn={'slideInLeft'}
-                  animationOut={'fadeOut'}
-              >
-                  {this._renderModalContent()}
+              <Modal isVisible={this.state.visibleModal === 1} onBackdropPress={() => this.setState({visibleModal: null})} animationIn={'slideInLeft'} animationOut={'fadeOut'}>
+                {this._renderModalContent()}
               </Modal>
 
             </ScrollView>
 
           </View>
         </SideMenu>
-
       </StyleProvider>
     );
   }
@@ -259,10 +242,26 @@ export default class Principal extends Component < {} > {
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
+    flex: 1
   },
   view2: {
     flexDirection: 'row'
+  },
+  view3: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+    backgroundColor: 'white'
+  },
+  view4: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center'
+  },
+  view5: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   },
   content: {
     backgroundColor: '#fff'
@@ -270,14 +269,17 @@ const styles = StyleSheet.create({
   fondo: {
     justifyContent: 'center',
     height: 50,
-    width: null,
+    width: null
   },
   texto: {
     backgroundColor: 'transparent',
     color: 'white',
     fontWeight: 'bold',
     fontSize: 20,
-      marginLeft: 5
+    marginLeft: 5
+  },
+  text: {
+    alignSelf: 'center'
   },
   scroll: {
     marginBottom: 10
@@ -286,5 +288,16 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
     flex: 1
+  },
+  img2: {
+    width: '100%',
+    height: 150
+  },
+  button: {
+    alignSelf: 'center',
+    borderColor: 'white'
+  },
+  icon: {
+    color: "green"
   }
 });
