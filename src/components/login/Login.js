@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, TouchableOpacity, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, TouchableOpacity} from 'react-native';
 import {Button, Input, Item} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';
+import Video from 'react-native-video';
+import videop from '../../assets/video/videop.mp4';
+import Cabecera from '../comun/Cabecera';
 
 export default class Login extends Component < {} > {
   render() {
     return (
-      <ImageBackground source={img} style={styles.img}>
-        <StatusBar hidden={true} />
+      <View style={styles.img}>
+        <Cabecera/>
 
+        <Video
+          source={videop}
+          rate={1.0}
+          muted={true}
+          resizeMode={"cover"}
+          repeat
+          style={styles.video}/>
 
         <View>
           <Item style={styles.inputRounded}>
@@ -17,7 +27,7 @@ export default class Login extends Component < {} > {
               name="correo"
               placeholder='Correo electrónico'
               keyboardType='email-address'
-              placeholderTextColor='#000'
+              placeholderTextColor='#fff'
               returnKeyType='next'
               autoCapitalize='none'/>
           </Item>
@@ -26,7 +36,7 @@ export default class Login extends Component < {} > {
             <Input
               name="password"
               placeholder='Contraseña'
-              placeholderTextColor='#000'
+              placeholderTextColor='#fff'
               secureTextEntry={true}/>
           </Item>
 
@@ -47,16 +57,21 @@ export default class Login extends Component < {} > {
                 <Text style={styles.text1}>Crear Cuenta</Text>
               </TouchableOpacity>
             </View>
-
           </View>
         </View>
-
-      </ImageBackground>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  video: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  },
   img: {
     justifyContent: 'flex-end',
     flex: 2,
@@ -87,19 +102,19 @@ const styles = StyleSheet.create({
     marginRight: 40,
     marginLeft: 40,
     marginBottom: 10,
-    borderColor: '#000',
+    borderColor: 'orange',
     borderWidth: 1.5,
-    backgroundColor: 'transparent'
+    backgroundColor: 'rgba(0,0,0,.5)'
   },
   boton: {
     color: 'white',
     fontWeight: 'bold'
   },
   text: {
-    color: 'black'
+    color: 'white'
   },
   text1: {
-    color: 'black',
+    color: 'white',
     fontSize: 18
   },
   adelante: {
@@ -110,6 +125,6 @@ const styles = StyleSheet.create({
   button: {
     width: '78%',
     alignSelf: 'center',
-    backgroundColor: '#4DA49B'
+    backgroundColor: 'orange'
   }
 });
