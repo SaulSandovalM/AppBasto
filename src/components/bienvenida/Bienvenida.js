@@ -23,6 +23,7 @@ export default class Bienvenida extends Component < {} > {
 
           <ImageBackground source={img} style={styles.img}>
             <View style={styles.estiloImageB}>
+              <Icon name="md-cart" style={styles.icono}/>
               <Text style={styles.text}>EAT FAST</Text>
             </View>
           </ImageBackground>
@@ -120,5 +121,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     alignSelf: 'center',
     marginTop: 15
+  },
+  icono: {
+    color: 'white',
+    fontSize: 140,
+    alignSelf: 'center'
   }
 });

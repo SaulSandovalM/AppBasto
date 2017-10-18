@@ -1,25 +1,27 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, ImageBackground, TouchableOpacity} from 'react-native';
-import {Button, Input, Item} from 'native-base';
+import {Button, Input, Item, Icon} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';
 import Video from 'react-native-video';
 import videop from '../../assets/video/videop.mp4';
-import Cabecera from '../comun/Cabecera';
 
 export default class Login extends Component < {} > {
   render() {
     return (
       <View style={styles.img}>
-        <Cabecera/>
 
         <Video
-          source={videop}
-          rate={1.0}
-          muted={true}
-          resizeMode={"cover"}
-          repeat
-          style={styles.video}/>
+        source={videop}
+        rate={1.0}
+        muted={true}
+        resizeMode={"cover"}
+        repeat
+        style={styles.video}/>
+
+      <View style={styles.view4}>
+          <Icon name="arrow-back" style={styles.icon} onPress={() => Actions.pop()}/>
+        </View>
 
         <View>
           <Item style={styles.inputRounded}>
@@ -98,6 +100,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginBottom: 10
   },
+  view4: {
+    flex: 1,
+    margin: 20
+  },
   inputRounded: {
     marginRight: 40,
     marginLeft: 40,
@@ -126,5 +132,10 @@ const styles = StyleSheet.create({
     width: '78%',
     alignSelf: 'center',
     backgroundColor: 'orange'
+  },
+  icon: {
+    backgroundColor: 'transparent',
+    color: 'orange',
+    fontSize: 50
   }
 });
