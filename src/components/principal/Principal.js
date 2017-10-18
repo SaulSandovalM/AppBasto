@@ -3,8 +3,7 @@ import {Text, View, Image, ScrollView, ImageBackground, TouchableOpacity, StyleS
 import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
-import {Icon} from 'native-base';
-import {Card, CardSectionn} from '../comun';
+import {Card, CardItem, Left, Right, Icon, Button} from 'native-base';
 import cat1 from '../../assets/imgs/cat1.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
@@ -37,26 +36,25 @@ export default class Principal extends Component < {} > {
   }
 
   _renderModalContent = () => (
-      <View style={{width:200, alignSelf:'center'}}>
-
-        <CardSectionn >
-
+      <View style={{width:200, height:200, alignSelf:'center', backgroundColor:'white'}}>
+<View style={{ flex:1}}>
+        <Card>
           <Image source={{
-              uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-          }} style={{
-              height: 200,
-              width: 200,
-              flex: 1
-          }}/>
-        </CardSectionn>
+              uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
+          }} style={{width:'100%', height:150,}}/>
+        </Card>
+</View>
 
-        <CardSectionn >
-          <Text>Jitomate</Text>
-        </CardSectionn>
-        <CardSectionn >
-          <Text style={{marginRight:40, marginLeft:60}}>$20.00 Kg</Text>
+<Text style={{alignSelf:'center'}}>Jitomate</Text>
+        <Button bordered iconRight
+                style={{alignSelf:'center', borderColor:'white'}}
+                onPress={()=>alert('Agregado!')}
+        >
+          <Text >Agregar</Text>
           <Icon name="cart" style={{color: "green"}}/>
-        </CardSectionn>
+        </Button>
+
+
       </View>
   );
 
@@ -77,7 +75,7 @@ export default class Principal extends Component < {} > {
               <ImageBackground source={cat1} style={styles.fondo}>
                 <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
                 <Text onPress={() => Actions.Detalle()} style={styles.texto}>
-                  CATEGORIA 1
+                  FRUTAS Y VERDURAS
                 </Text>
                 </View>
               </ImageBackground>
@@ -89,7 +87,9 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
                       }} style={styles.img}/>
-                      <Text>hola</Text>
+                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
+                      <Icon name="ios-star-outline" style={{color:'green'}}/>
+                      </View>
                     </Card>
                   </TouchableOpacity>
 
@@ -98,6 +98,9 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'http://www.agroindustriasmora.com/images/productos/papa.png'
                       }} style={styles.img}/>
+                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
+                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                      </View>
                     </Card>
                   </TouchableOpacity>
 
@@ -106,6 +109,9 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'http://jalapeno.cz/wp-content/uploads/2015/02/SHU-stupnice-palivosti-chilli.jpg'
                       }} style={styles.img}/>
+                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
+                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                      </View>
                     </Card>
                   </TouchableOpacity>
                 </ScrollView>
@@ -114,7 +120,7 @@ export default class Principal extends Component < {} > {
               <ImageBackground source={cat1} style={styles.fondo}>
                 <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
                 <Text style={styles.texto}>
-                  CATEGORIA 2
+                  HIGIENE
                 </Text>
                 </View>
 
@@ -127,6 +133,9 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'https://super.walmart.com.mx/images/product-images/img_large/00750102540304L.jpg'
                       }} style={styles.img}/>
+                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
+                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                      </View>
                     </Card>
                   </TouchableOpacity>
 
@@ -135,6 +144,9 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'http://www.colgatecommercial.com/App_Themes/ColgateStyle/Images/products/53096-lrg.png'
                       }} style={styles.img}/>
+                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
+                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                      </View>
                     </Card>
                   </TouchableOpacity>
 
@@ -143,6 +155,9 @@ export default class Principal extends Component < {} > {
                       <Image source={{
                         uri: 'https://pedidos.com/myfotos/xLarge/(X)CLX-CLORO-930ML.jpg'
                       }} style={styles.img}/>
+                      <View style={{flexDirection:'row', justifyContent:'flex-end'}}>
+                        <Icon name="ios-star-outline" style={{color:'green'}}/>
+                      </View>
                     </Card>
                   </TouchableOpacity>
 
