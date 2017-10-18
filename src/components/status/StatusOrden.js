@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
-import {Container, Header, Content, Card, CardItem, Body} from 'native-base';
+import {Container, Content, Card, CardItem, Body} from 'native-base';
+import Cabecera from '../comun/Cabecera';
 
 export default class StatusOrder extends Component < {} > {
   render() {
     return (
       <Container>
-        <Header/>
+        <Cabecera/>
         <Content>
           <View>
           <Card>
