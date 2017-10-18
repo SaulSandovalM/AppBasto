@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   view: {
     flex: 1
   },
-  texto: {
+  texto1: {
     fontSize: 100,
     color:'orange'
   },
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     fontSize: 140,
     alignSelf: 'center'
   },
-  viewImagw2: {
+  viewImage2: {
     backgroundColor: 'rgba(0,0,0,.5)',
     height: '100%',
     width: '100%',
