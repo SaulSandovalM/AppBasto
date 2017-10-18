@@ -18,7 +18,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo }/>
               </Left>
               <Body>
-                <Text style={{color: '#000' }}>Despensa</Text>
+                <Text style={styles.textoC}>Despensa</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -32,7 +32,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Lácteos</Text>
+              <Text style={styles.textoC}>Lácteos</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -46,7 +46,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Frutas y Verduras</Text>
+              <Text style={styles.textoC}>Frutas y Verduras</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -60,7 +60,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Carnes y Pescados</Text>
+              <Text style={styles.textoC}>Carnes y Pescados</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -74,7 +74,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Salchichoneria</Text>
+              <Text style={styles.textoC}>Salchichoneria</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -88,7 +88,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Panaderia</Text>
+              <Text style={styles.textoC}>Panaderia</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -102,7 +102,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Jugos</Text>
+              <Text style={styles.textoC}>Jugos</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -116,7 +116,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Vinos y Licores</Text>
+              <Text style={styles.textoC}>Vinos y Licores</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -130,7 +130,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Higiene</Text>
+              <Text style={styles.textoC}>Higiene</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -144,35 +144,35 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Farmacia</Text>
+              <Text style={styles.textoC}>Farmacia</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Bebés</Text>
+              <Text style={styles.textoC}>Bebés</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Congelados</Text>
+              <Text style={styles.textoC}>Congelados</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -187,7 +187,7 @@ export default class Menu extends Component < {} > {
           <View>
             <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
               <Image style={styles.usuario} source={img}/>
-              <Text style={styles.text}>Saul Sandoval</Text>
+              <Text style={styles.text}>Pedido{'\n'}Status: <Text style={{color: 'green'}}>En Camino</Text></Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -202,14 +202,15 @@ const styles = StyleSheet.create({
     flex: 1,
     width: width,
     height: height,
-    backgroundColor: '#fff'
+    backgroundColor: 'black'
   },
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: width / 2 + 50,
-    borderColor: '#000'
+    borderColor: '#000',
+    backgroundColor: 'black'
   },
   usuario: {
     width: 60,
@@ -222,8 +223,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    fontSize: 20,
-    color: 'black'
+    fontSize: 15,
+    color: 'white'
   },
   texto: {
     color: 'black',
@@ -249,7 +250,10 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginLeft: 15
   },
-    iconoo:{
+  iconoo:{
     color:'orange'
-    }
+  },
+  textoC: {
+    color: 'white'
+  }
 });

@@ -4,7 +4,7 @@ import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
 import {Icon} from 'native-base';
-import {CardSection, Card, Header,CardSectionn} from '../comun';
+import {Card, Header,CardSectionn} from '../comun';
 import cat1 from '../../assets/imgs/cat1.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
@@ -14,9 +14,10 @@ import Menu from './Menu';
 import {Encabezado} from "../comun/Encabezado";
 
 export default class Principal extends Component < {} > {
-    state = {
-        modalVisible: null,
-    };
+  state = {
+      modalVisible: null,
+  };
+
   constructor(props){
   	super(props);
   	this.state = {
@@ -36,29 +37,29 @@ export default class Principal extends Component < {} > {
     })
   }
 
-    _renderModalContent = () => (
-        <View style={{width:200, alignSelf:'center'}}>
+  _renderModalContent = () => (
+      <View style={{width:200, alignSelf:'center'}}>
 
-          <CardSectionn >
+        <CardSectionn >
 
-            <Image source={{
-                uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-            }} style={{
-                height: 200,
-                width: 200,
-                flex: 1
-            }}/>
-          </CardSectionn>
+          <Image source={{
+              uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
+          }} style={{
+              height: 200,
+              width: 200,
+              flex: 1
+          }}/>
+        </CardSectionn>
 
-          <CardSectionn >
-            <Text>Jitomate</Text>
-          </CardSectionn>
-          <CardSectionn >
-            <Text style={{marginRight:40, marginLeft:60}}>$20.00 Kg</Text>
-            <Icon name="cart" style={{color: "green"}}/>
-          </CardSectionn>
-        </View>
-    );
+        <CardSectionn >
+          <Text>Jitomate</Text>
+        </CardSectionn>
+        <CardSectionn >
+          <Text style={{marginRight:40, marginLeft:60}}>$20.00 Kg</Text>
+          <Icon name="cart" style={{color: "green"}}/>
+        </CardSectionn>
+      </View>
+  );
 
   render() {
     return (
@@ -243,7 +244,7 @@ export default class Principal extends Component < {} > {
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1
+    flex: 1,
   },
   view2: {
     flexDirection: 'row'

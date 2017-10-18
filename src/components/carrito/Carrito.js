@@ -118,11 +118,13 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   text1: {
-    color: 'white'
+    color: 'black',
+    fontWeight: 'bold'
   },
   total: {
-    color: 'white',
-    marginLeft: 10
+    color: 'black',
+    marginLeft: 10,
+    fontWeight: 'bold'
   },
   totalP: {
     marginLeft: 15
@@ -132,7 +134,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   list: {
-    backgroundColor: 'black'
+    backgroundColor: 'white'
   },
   cardItem: {
     alignSelf: 'center',
