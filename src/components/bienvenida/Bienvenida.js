@@ -7,7 +7,6 @@ import Swiper from 'react-native-swiper'
 import bienve3 from '../../assets/imgs/img5.jpg';
 import bienve2 from '../../assets/imgs/img4.jpg';
 
-
 export default class Bienvenida extends Component < {} > {
     render() {
         return (
@@ -136,7 +135,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     alignSelf: 'center'
   },
-  view: {
+  viewP: {
     flex: 1
   },
   texto1: {
