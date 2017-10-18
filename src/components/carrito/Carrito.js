@@ -12,7 +12,7 @@ export default class Carrito extends Component < {} > {
   render() {
     return (
       <StyleProvider style={getTheme(material)}>
-        <Container>
+        <Container style={styles.fondo}>
           <Cabecera/>
           <List style={styles.list}>
             <ListItem>
@@ -94,7 +94,7 @@ export default class Carrito extends Component < {} > {
             </List>
           </ScrollView>
 
-          <Card style={styles.card}>
+          <View style={styles.card}>
             <CardItem style={styles.cardItem}>
               <Text>Total a Pagar</Text>
               <Text style={styles.pago}>$500.00 MXN</Text>
@@ -103,7 +103,7 @@ export default class Carrito extends Component < {} > {
             <Button block style={styles.boton} onPress={() => Actions.StatusOrden()}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
-          </Card>
+          </View>
 
         </Container>
       </StyleProvider>
@@ -142,7 +142,10 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   card: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center'
+  },
+  fondo: {
+    backgroundColor: 'white'
   }
 });
