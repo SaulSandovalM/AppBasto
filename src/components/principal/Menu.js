@@ -15,133 +15,133 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo }/>
               </Left>
               <Body>
                 <Text style={{color: '#000' }}>Despensa</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Lácteos</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Frutas y Verduras</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Carnes y Pescados</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Salchichoneria</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Panaderia</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Jugos</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Vinos y Licores</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Higiene</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+                <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={{color: '#000' }}>Farmacia</Text>
@@ -176,7 +176,7 @@ export default class Menu extends Component < {} > {
               </Body>
               <Right>
                 <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                  <Icon name="arrow-forward" style={styles.iconoo} />
                 </TouchableOpacity>
               </Right>
             </ListItem>
@@ -248,5 +248,8 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 10,
     marginLeft: 15
-  }
+  },
+    iconoo:{
+    color:'orange'
+    }
 });
