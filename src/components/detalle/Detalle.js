@@ -4,15 +4,14 @@ import {Card, CardItem, Left, Right, Button, Icon, Container, StyleProvider} fro
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import img from '../../assets/imgs/bienvenida.jpg';
-import Encabezado from "../comun/Encabezado";
-
+import Cabecera from "../comun/Cabecera";
 
 export default class Detalle extends Component < {} > {
   render() {
     return (
       <StyleProvider style={getTheme(material)}>
       <Container>
-        <Encabezado/>
+        <Cabecera/>
 
   <ScrollView >
 

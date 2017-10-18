@@ -38,7 +38,7 @@ export default class Bienvenida extends Component < {} > {
             <View style={styles.estiloImagenF}>
 
               <View style={styles.estiloMargen}>
-                <Text style={styles.text}>NOSOTROS VAMOS</Text>
+                <Text style={styles.text}>NOSOTROS {'\n'}VAMOS</Text>
               </View>
 
               <View style={styles.estiloV}>
@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   estiloMargen: {
-    marginTop: '77%'
+    marginTop: '77%',
+    alignSelf: 'center'
   },
   estiloV: {
     alignSelf: 'center',

@@ -25,7 +25,7 @@ export default Buscador;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#1CAF57"
+    backgroundColor: "orange"
   },
   view: {
     flexDirection: 'column',
@@ -36,4 +36,3 @@ const styles = StyleSheet.create({
     color: "white"
   }
 });
-
