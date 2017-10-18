@@ -15,17 +15,17 @@ export default class Detalle extends Component < {} > {
 
   <ScrollView >
 
-    <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-            <Card style={{borderColor:'green', borderWidth:3}}>
-              <CardItem style={{borderColor:'green', borderWidth:1}}>
-                <Left style={{justifyContent:'space-between'}}>
+    <View style={styles.viewP}>
+            <Card style={styles.estiloCard}>
+              <CardItem style={styles.estiloCardI}>
+                <Left style={styles.cardL}>
                     <Text>Jitomate</Text>
                     <Text note>$50.00</Text>
                 </Left>
               </CardItem>
                 <Image source={img} style={styles.img}/>
                   <Button bordered iconRight
-                          style={{alignSelf:'stretch', borderColor:'green'}}
+                          style={styles.btn}
                           onPress={()=>alert('Agregado!')}
                   >
                     <Text >Agregar al Carrito</Text>
@@ -33,35 +33,37 @@ export default class Detalle extends Component < {} > {
                   </Button>
             </Card>
 
-            <Card style={{borderColor:'green', borderWidth:3}}>
-              <CardItem style={{borderColor:'green', borderWidth:1}}>
-                <Left style={{justifyContent:'space-between'}}>
-                  <Text>Jitomate</Text>
-                  <Text note>$50.00</Text>
-                </Left>
-              </CardItem>
-              <Image source={img} style={styles.img}/>
-              <Button bordered iconRight
-                      style={{alignSelf:'stretch', borderColor:'green'}}
-                      onPress={()=>alert('Agregado!')}
-              >
-                <Text >Agregar al Carrito</Text>
-                <Icon name="cart" style={{color: "green"}}/>
-              </Button>
-            </Card>
+      <Card style={styles.estiloCard}>
+        <CardItem style={styles.estiloCardI}>
+          <Left style={styles.cardL}>
+            <Text>Jitomate</Text>
+            <Text note>$50.00</Text>
+          </Left>
+        </CardItem>
+        <Image source={img} style={styles.img}/>
+        <Button bordered iconRight
+                style={styles.btn}
+                onPress={()=>alert('Agregado!')}
+        >
+          <Text >Agregar al Carrito</Text>
+          <Icon name="cart" style={{color: "green"}}/>
+        </Button>
+      </Card>
+
+
     </View>
 
-    <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-      <Card style={{borderColor:'green', borderWidth:3}}>
-        <CardItem style={{borderColor:'green', borderWidth:1}}>
-          <Left style={{justifyContent:'space-between'}}>
+    <View style={styles.viewP}>
+      <Card style={styles.estiloCard}>
+        <CardItem style={styles.estiloCardI}>
+          <Left style={styles.cardL}>
             <Text>Jitomate</Text>
             <Text note>$50.00</Text>
           </Left>
         </CardItem>
         <Image source={img} style={styles.img}/>
         <Button bordered iconRight
-                style={{alignSelf:'stretch', borderColor:'green'}}
+                style={styles.btn}
                 onPress={()=>alert('Agregado!')}
         >
           <Text >Agregar al Carrito</Text>
@@ -69,35 +71,37 @@ export default class Detalle extends Component < {} > {
         </Button>
       </Card>
 
-      <Card style={{borderColor:'green', borderWidth:3}}>
-        <CardItem style={{borderColor:'green', borderWidth:1}}>
-          <Left style={{justifyContent:'space-between'}}>
+      <Card style={styles.estiloCard}>
+        <CardItem style={styles.estiloCardI}>
+          <Left style={styles.cardL}>
             <Text>Jitomate</Text>
             <Text note>$50.00</Text>
           </Left>
         </CardItem>
         <Image source={img} style={styles.img}/>
         <Button bordered iconRight
-                style={{alignSelf:'stretch', borderColor:'green'}}
+                style={styles.btn}
                 onPress={()=>alert('Agregado!')}
         >
           <Text >Agregar al Carrito</Text>
           <Icon name="cart" style={{color: "green"}}/>
         </Button>
       </Card>
+
+
     </View>
 
-    <View style={{flexDirection:'row', flexWrap:'wrap'}}>
-      <Card style={{borderColor:'green', borderWidth:3}}>
-        <CardItem style={{borderColor:'green', borderWidth:1}}>
-          <Left style={{justifyContent:'space-between'}}>
+    <View style={styles.viewP}>
+      <Card style={styles.estiloCard}>
+        <CardItem style={styles.estiloCardI}>
+          <Left style={styles.cardL}>
             <Text>Jitomate</Text>
             <Text note>$50.00</Text>
           </Left>
         </CardItem>
         <Image source={img} style={styles.img}/>
         <Button bordered iconRight
-                style={{alignSelf:'stretch', borderColor:'green'}}
+                style={styles.btn}
                 onPress={()=>alert('Agregado!')}
         >
           <Text >Agregar al Carrito</Text>
@@ -105,24 +109,25 @@ export default class Detalle extends Component < {} > {
         </Button>
       </Card>
 
-      <Card style={{borderColor:'green', borderWidth:3}}>
-        <CardItem style={{borderColor:'green', borderWidth:1}}>
-          <Left style={{justifyContent:'space-between'}}>
+      <Card style={styles.estiloCard}>
+        <CardItem style={styles.estiloCardI}>
+          <Left style={styles.cardL}>
             <Text>Jitomate</Text>
             <Text note>$50.00</Text>
           </Left>
         </CardItem>
         <Image source={img} style={styles.img}/>
         <Button bordered iconRight
-                style={{alignSelf:'stretch', borderColor:'green'}}
+                style={styles.btn}
                 onPress={()=>alert('Agregado!')}
         >
           <Text >Agregar al Carrito</Text>
           <Icon name="cart" style={{color: "green"}}/>
         </Button>
       </Card>
+
+
     </View>
-
   </ScrollView>
 
 
@@ -134,6 +139,32 @@ export default class Detalle extends Component < {} > {
 }
 
 const styles = StyleSheet.create({
+    viewP:{
+        flexDirection:'row',
+        flexWrap:'wrap'
+    },
+    estiloCard:{
+        borderColor:'green',
+        borderWidth:3,
+    },
+    estiloCardI:{
+        borderColor:'green',
+        borderWidth:1
+    },
+    cardL:{
+        justifyContent:'space-between'
+    },
+    btn:{
+        alignSelf:'stretch',
+        borderColor:'green'
+    },
+
+
+
+
+
+
+
   view: {
     flexDirection: 'row'
   },
