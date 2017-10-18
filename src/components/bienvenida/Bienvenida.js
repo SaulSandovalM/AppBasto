@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native';
-import {Button} from 'native-base';
+import {Button, Icon} from 'native-base';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
 import Swiper from 'react-native-swiper'
@@ -20,7 +20,8 @@ export default class Bienvenida extends Component < {} > {
 
           <ImageBackground source={img} style={styles.img}>
             <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-              <Text style={styles.text}>EAT FAST</Text>
+                <Icon name="md-cart" style={{color:'white', fontSize: 140, alignSelf:'center'}} />
+                <Text style={styles.text}>EAT FAST</Text>
             </View>
           </ImageBackground>
 
