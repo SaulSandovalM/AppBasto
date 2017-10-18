@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     marginLeft: 15
   },
   boton: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'orange',
     width: '100%'
   },
   list: {

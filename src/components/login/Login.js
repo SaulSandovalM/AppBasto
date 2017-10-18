@@ -20,7 +20,7 @@ export default class Login extends Component < {} > {
         style={styles.video}/>
 
       <View style={styles.view4}>
-          <Icon name="arrow-back" style={styles.icon} onPress={() => Actions.pop()}/>
+          <Icon name="ios-arrow-back" style={styles.icon} onPress={() => Actions.pop()}/>
         </View>
 
         <View>
