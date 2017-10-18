@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import img from '../../assets/imgs/usuario.jpg';
-import { Container, Content, List, ListItem, Icon, Left, Body, Right, Switch } from 'native-base';
+import {Container, List, ListItem, Icon, Left, Body, Right} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 
 const {width, height} = Dimensions.get('window');

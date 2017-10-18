@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Body, List, ListItem, Form, Item, Picker} from 'native-base';
+import {Body, Form, Item, Picker} from 'native-base';
 
 export default class Select extends Component < {} > {
   constructor(props) {

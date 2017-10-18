@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground} from 'react-native';
 import {Container, Content, SwipeRow, Icon, Button, Thumbnail, H1} from 'native-base';
 import img2 from '../../assets/imgs/usuario.jpg';
 import Cabecera from '../comun/Cabecera';

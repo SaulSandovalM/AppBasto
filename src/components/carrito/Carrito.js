@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView, StyleSheet, Text} from 'react-native';
-import {Container, StyleProvider, Thumbnail, Body, List, ListItem, Card, CardItem, Button} from 'native-base';
+import {Container, StyleProvider, Thumbnail, Body, List, ListItem, CardItem, Button} from 'native-base';
 import Cabecera from '../comun/Cabecera';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
@@ -33,8 +33,8 @@ export default class Carrito extends Component < {} > {
               </Body>
             </ListItem>
           </List>
-          <ScrollView>
 
+          <ScrollView>
             <List>
               <ListItem>
                 <Thumbnail square size={80} source={img}/>

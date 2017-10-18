@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import {Button, Input, Item} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';

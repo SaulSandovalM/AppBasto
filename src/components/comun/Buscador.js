@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {StyleSheet, BackHandler, TouchableOpacity, Text, View} from 'react-native';
-import {Header, Button, Icon, Item, Input, Badge} from 'native-base';
+import {StyleSheet, Text, View} from 'react-native';
+import {Header, Icon, Item, Input} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 
 const Buscador = (props) => {
