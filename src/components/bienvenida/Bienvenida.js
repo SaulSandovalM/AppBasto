@@ -1,65 +1,66 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native';
-import {Button, Icon} from 'native-base';
+import {Platform, StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native';
+import {Button} from 'native-base';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
 import Swiper from 'react-native-swiper'
-// import bienve3 from '../../assets/imgs/img5.jpg';
-// import bienve2 from '../../assets/imgs/img4.jpg';
+import bienve3 from '../../assets/imgs/img5.jpg';
+import bienve2 from '../../assets/imgs/img4.jpg';
+
 
 export default class Bienvenida extends Component < {} > {
-  render() {
-    return (
-      <View style={styles.view}>
-        <StatusBar hidden={true}/>
-        <Swiper
-          loop={false}
-          showsPagination={false}
-          showsButtons={true}
-          nextButton={
-            <Text style = {styles.texto}> › </Text>
-          }
-          prevButton={
-            <Text style={styles.texto}> ‹ </Text>
-          }>
+    render() {
+        return (
+            <View style={styles.viewP}>
+              <StatusBar hidden={true} />
+              <Swiper loop={false} showsPagination={false} showsButtons={true}
+                      nextButton={<Text style={styles.estiloF}>›</Text>}
+                      prevButton={<Text style={styles.estiloF}>‹</Text>}
+              >
 
-          <ImageBackground source={img} style={styles.img}>
-            <View style={styles.viewImage}>
-              <Icon name="md-cart" style={styles.icon}/>
-              <Text style={styles.text}>EAT FAST</Text>
+                <ImageBackground source={img} style={styles.img}>
+                  <View style={styles.estiloImageB }>
+                    <Text style={styles.text}>EAT FAST</Text>
+                  </View>
+                </ImageBackground>
+
+                <ImageBackground source={bienve2} style={styles.img}>
+                  <View style={styles.estiloImageB}>
+                    <Text style={styles.text}>¿IR AL SUPER?</Text>
+                  </View>
+                </ImageBackground>
+
+                <ImageBackground source={bienve3} style={styles.img2}>
+                  <View style={styles.estiloImagenF }>
+
+                    <View style={styles.estiloMargen}>
+                      <Text style={styles.text}>NOSOTROS VAMOS</Text>
+                    </View>
+
+                    <View style={styles.estiloV}>
+                      <Button rounded success
+                              onPress={()=>Actions.Login()}
+                              style={styles.estiloButton}>
+                        <Text
+                            style={styles.estiloTexto}
+                        >
+                          INICIAR SESIÓN
+                        </Text>
+                      </Button>
+
+                      <Text
+                          style={styles.estiloTexto2}
+                          onPress={()=>Actions.Principal()}
+                      >
+                        VER PRODUCTOS
+                      </Text>
+                    </View>
+                  </View>
+                </ImageBackground>
+              </Swiper>
             </View>
-          </ImageBackground>
-
-          <ImageBackground source={img} style={styles.img}>
-            <View style={styles.viewImage}>
-              <Text style={styles.text}>¿IR AL SUPER?</Text>
-            </View>
-          </ImageBackground>
-
-          <ImageBackground source={img} style={styles.img2}>
-            <View style={styles.viewImage2}>
-
-              <View style={styles.view2}>
-                <Text style={styles.text}>NOSOTROS VAMOS</Text>
-              </View>
-
-              <View style={styles.view3}>
-                <Button rounded success onPress={() => Actions.Login()} style={styles.button}>
-                  <Text style={styles.texto2}>
-                    INICIAR SESIÓN
-                  </Text>
-                </Button>
-
-                <Text style={styles.texto3} onPress={() => Actions.Principal()}>
-                  VER PRODUCTOS
-                </Text>
-              </View>
-            </View>
-          </ImageBackground>
-        </Swiper>
-      </View>
-    );
-  }
+        );
+    }
 }
 
 const styles = StyleSheet.create({
