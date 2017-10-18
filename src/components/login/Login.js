@@ -10,12 +10,6 @@ export default class Login extends Component < {} > {
       <ImageBackground source={img} style={styles.img}>
         <StatusBar hidden={true} />
 
-        <View>
-          <View style={styles.adelante}>
-            <Text style={styles.texto}
-              onPress={() => Actions.Principal()}>INICIA SESIÓN MAS ADELANTE</Text>
-          </View>
-        </View>
 
         <View>
           <Item style={styles.inputRounded}>
