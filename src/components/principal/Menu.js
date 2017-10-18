@@ -18,7 +18,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-                <Text style={{color: '#000' }}>Categoria 1</Text>
+                <Text style={{color: '#000' }}>Despensa</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -32,7 +32,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 2</Text>
+              <Text style={{color: '#000' }}>Lácteos</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -46,7 +46,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 3</Text>
+              <Text style={{color: '#000' }}>Frutas y Verduras</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -60,7 +60,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 4</Text>
+              <Text style={{color: '#000' }}>Carnes y Pescados</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -74,7 +74,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 5</Text>
+              <Text style={{color: '#000' }}>Salchichoneria</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -88,7 +88,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 6</Text>
+              <Text style={{color: '#000' }}>Panaderia</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -102,7 +102,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 7</Text>
+              <Text style={{color: '#000' }}>Jugos</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -116,7 +116,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 8</Text>
+              <Text style={{color: '#000' }}>Vinos y Licores</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -130,7 +130,7 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 9</Text>
+              <Text style={{color: '#000' }}>Higiene</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -144,7 +144,35 @@ export default class Menu extends Component < {} > {
                 <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
               </Left>
               <Body>
-              <Text style={{color: '#000' }}>Categoria 10</Text>
+              <Text style={{color: '#000' }}>Farmacia</Text>
+              </Body>
+              <Right>
+                <TouchableOpacity>
+                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                </TouchableOpacity>
+              </Right>
+            </ListItem>
+
+            <ListItem icon>
+              <Left>
+                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+              </Left>
+              <Body>
+              <Text style={{color: '#000' }}>Bebés</Text>
+              </Body>
+              <Right>
+                <TouchableOpacity>
+                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
+                </TouchableOpacity>
+              </Right>
+            </ListItem>
+
+            <ListItem icon>
+              <Left>
+                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
+              </Left>
+              <Body>
+              <Text style={{color: '#000' }}>Congelados</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -163,7 +191,7 @@ export default class Menu extends Component < {} > {
             </TouchableOpacity>
           </View>
         </View>
-        
+
       </View>
     );
   }
