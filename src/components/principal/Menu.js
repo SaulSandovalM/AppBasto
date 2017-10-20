@@ -3,11 +3,16 @@ import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity}
 import img from '../../assets/imgs/usuario.jpg';
 import {Container, List, ListItem, Icon, Left, Body, Right, Button} from 'native-base';
 import {Actions} from 'react-native-router-flux';
+import {firebaseAuth} from '../firebase/Firebase';
 
 const {width, height} = Dimensions.get('window');
 
 export default class Menu extends Component < {} > {
-  render() {
+    close = () => {
+        firebaseAuth.signOut()
+    };
+
+    render() {
     return (
       <View style={styles.menu}>
         <ScrollView style={styles.content}>
@@ -178,7 +183,7 @@ export default class Menu extends Component < {} > {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.cerrarS} onPress={()=> alert('Cerraste sesión perro')}>
+        <TouchableOpacity style={styles.cerrarS} onPress={()=> this.close()}>
 
             <Text style={styles.textCerrar} >Cerrar Sesión</Text>
 
