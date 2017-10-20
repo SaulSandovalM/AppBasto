@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import {Button, Input, Item} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';
+import firebase, {firebaseAuth} from '../firebase/Firebase';
 
 export default class Registro extends Component < {} > {
   state = {
@@ -82,7 +83,7 @@ export default class Registro extends Component < {} > {
       </Item>
     );
   }
-  
+
   render() {
     return (
       <ImageBackground source={img} style={styles.img}>
