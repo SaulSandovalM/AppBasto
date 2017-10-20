@@ -118,7 +118,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="needle" style={styles.iconoo}/>
+                <Icon name="bug" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Higiene</Text>
@@ -146,7 +146,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="odnoklassniki" style={styles.iconoo}/>
+                <Icon name="child-care" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Bebés</Text>
