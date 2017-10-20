@@ -10,13 +10,15 @@ import Recover from './src/components/login/Recover';
 import detalleProducto from './src/components/detalleproducto/detalleProducto';
 import Carrito from './src/components/carrito/Carrito';
 import Perfil from './src/components/perfil/Perfil';
+import Inicio from './src/components/bienvenida/Inicio';
 
 const Routes = () => {
   return (
     <Root>
     <Router>
       <Scene key="root">
-        <Scene key="Bienvenida" header={null} component={Bienvenida} initial/>
+        <Scene key="Inicio" header={null} component={Inicio} initial/>
+        <Scene key="Bienvenida" header={null} component={Bienvenida} />
         <Scene key="Login" header={null} component={Login}/>
         <Scene key="Registro" header={null} component={Registro}/>
         <Scene key="Recover" header={null} component={Recover}/>
