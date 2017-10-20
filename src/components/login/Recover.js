@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import {Button, Input, Item, Toast, Spinner, Icon} from 'native-base';
 import {Actions} from 'react-native-router-flux';
-import img from '../../assets/imgs/login.jpeg';
+import img from '../../assets/imgs/recover.jpeg';
 import firebase, {firebaseAuth} from '../firebase/Firebase';
 
 export default class Registro extends Component < {} > {
@@ -39,9 +39,10 @@ export default class Registro extends Component < {} > {
       return (
         <Item success style={styles.inputRounded}>
           <Input
+            style={styles.color}
             placeholder='Correo electrónico'
             keyboardType='email-address'
-            placeholderTextColor='#000'
+            placeholderTextColor='#fff'
             returnKeyType='next'
             autoCapitalize='none'
             value={this.state.verifyCorreo}
@@ -54,9 +55,10 @@ export default class Registro extends Component < {} > {
     return (
       <Item error style={styles.inputRounded}>
         <Input
+          style={styles.color}
           placeholder='Correo electrónico'
           keyboardType='email-address'
-          placeholderTextColor='#000'
+          placeholderTextColor='#fff'
           returnKeyType='next'
           autoCapitalize='none'
           value={this.state.verifyCorreo}
@@ -69,13 +71,15 @@ export default class Registro extends Component < {} > {
   render() {
     return (
       <ImageBackground source={img} style={styles.img}>
+        <View style={styles.estiloImageB}>
 
         <View style={styles.view}>
           <Item style={styles.inputRounded}>
             <Input
+              style={styles.color}
               placeholder='Correo electrónico'
               keyboardType='email-address'
-              placeholderTextColor='#000'
+              placeholderTextColor='#fff'
               returnKeyType='next'
               autoCapitalize='none'
               value={this.state.correo}
@@ -91,6 +95,7 @@ export default class Registro extends Component < {} > {
             <Text style={styles.boton}>RECUPERAR CONTRASEÑA</Text>
           </Button>
         </View>
+      </View>
 
       </ImageBackground>
     );
@@ -109,14 +114,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center'
   },
-  inputRounded: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginBottom: 10,
-    borderColor: '#000',
-    borderWidth: 1.5,
-    backgroundColor: 'transparent'
-  },
   boton: {
     color: 'white',
     fontWeight: 'bold'
@@ -124,7 +121,7 @@ const styles = StyleSheet.create({
   button: {
     width: '78%',
     alignSelf: 'center',
-    backgroundColor: '#4DA49B'
+    backgroundColor: 'orange'
   },
   content: {
     justifyContent: 'center',
@@ -133,6 +130,23 @@ const styles = StyleSheet.create({
     margin: 15
   },
   icon: {
-    marginRight: 10
+    marginRight: 10,
+    color: 'orange'
+  },
+  inputRounded: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginBottom: 10,
+    borderColor: 'orange',
+    borderWidth: 1.5,
+  },
+  estiloImageB: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center'
+  },
+  color: {
+    color: 'white'
   }
 });

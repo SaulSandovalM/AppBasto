@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
 import {Actions} from 'react-native-router-flux';
-import img from '../../assets/imgs/login.jpeg';
+import img from '../../assets/imgs/registro.jpeg';
 import firebase, {firebaseAuth} from '../firebase/Firebase';
 
 export default class Registro extends Component < {} > {
@@ -70,7 +70,7 @@ export default class Registro extends Component < {} > {
           <Input
             name="vcontraseña"
             placeholder='Verificar Contraseña'
-            placeholderTextColor='#000'
+            placeholderTextColor='#fff'
             returnKeyType='next'
             secureTextEntry={true}
             autoCapitalize='none'
@@ -87,7 +87,7 @@ export default class Registro extends Component < {} > {
         <Input
           name="vcontraseña"
           placeholder='Verificar Contraseña'
-          placeholderTextColor='#000'
+          placeholderTextColor='#fff'
           returnKeyType='next'
           secureTextEntry={true}
           autoCapitalize='none'
@@ -103,14 +103,14 @@ export default class Registro extends Component < {} > {
     return (
       <ImageBackground source={img} style={styles.img}>
 
-        <View style={styles.view1}>
-          <View style={styles.view2}>
+        <View style={styles.estiloImageB}>
+          <View>
             <View>
               <Item style={styles.inputRounded}>
                 <Input
                   name="nombre"
                   placeholder='Nombre'
-                  placeholderTextColor='#000'
+                  placeholderTextColor='#fff'
                   returnKeyType='next'
                   autoCapitalize='none'/>
               </Item>
@@ -122,7 +122,7 @@ export default class Registro extends Component < {} > {
                   name="correo"
                   placeholder='Correo Electronico'
                   keyboardType='email-address'
-                  placeholderTextColor='#000'
+                  placeholderTextColor='#fff'
                   returnKeyType='next'
                   autoCapitalize='none'/>
               </Item>
@@ -133,7 +133,7 @@ export default class Registro extends Component < {} > {
                 <Input
                   name="contraseña"
                   placeholder='Contraseña'
-                  placeholderTextColor='#000'
+                  placeholderTextColor='#fff'
                   returnKeyType='next'
                   autoCapitalize='none'
                   secureTextEntry={true}
@@ -149,19 +149,19 @@ export default class Registro extends Component < {} > {
             <View>
               <Item style={styles.inputRounded}>
                 <Input
+                  style={styles.color}
                   name="telefono"
                   placeholder='Telefono Celular'
                   keyboardType='numeric'
-                  placeholderTextColor='#000'
+                  placeholderTextColor='#fff'
                   returnKeyType='next'
                   autoCapitalize='none'/>
               </Item>
             </View>
           </View>
+
+          {this.spinnerInicio()}
         </View>
-
-        {this.spinnerInicio()}
-
       </ImageBackground>
     );
   }
@@ -173,17 +173,6 @@ const styles = StyleSheet.create({
     flex: 2,
     height: null,
     width: null
-  },
-  view: {
-    flexDirection: 'row'
-  },
-  view1: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
-  view2: {
-    alignItems: 'center'
   },
   inputRounded: {
     width: '86%',
@@ -198,7 +187,7 @@ const styles = StyleSheet.create({
   button: {
     width: '78%',
     alignSelf: 'center',
-    backgroundColor: '#4DA49B'
+    backgroundColor: 'orange'
   },
   content: {
     justifyContent: 'center',
@@ -211,5 +200,24 @@ const styles = StyleSheet.create({
     marginLeft: 140,
     marginBottom: 10,
     backgroundColor: '#4DA49B'
+  },
+  inputRounded: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginBottom: 10,
+    borderColor: 'orange',
+    borderWidth: 1.5,
+  },
+  color: {
+    color: 'white'
+  },
+  estiloImageB: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center'
+  },
+  icon: {
+    color: 'orange'
   }
 });
