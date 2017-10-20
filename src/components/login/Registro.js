@@ -136,7 +136,9 @@ export default class Registro extends Component < {} > {
                   placeholderTextColor='#000'
                   returnKeyType='next'
                   autoCapitalize='none'
-                  secureTextEntry={true}/>
+                  secureTextEntry={true}
+                  value={this.state.password}
+                  onChangeText={password => this.setState({password})}/>
               </Item>
             </View>
 
