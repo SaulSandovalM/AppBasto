@@ -29,7 +29,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="ios-ice-cream" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Lácteos</Text>
@@ -43,7 +43,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="ios-nutrition" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Frutas y Verduras</Text>
@@ -57,24 +57,10 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="pig" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Carnes y Pescados</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={styles.iconoo} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
-
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
-              </Left>
-              <Body>
-              <Text style={styles.textoC}>Salchichoneria</Text>
               </Body>
               <Right>
                 <TouchableOpacity>
@@ -99,7 +85,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="md-beaker" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Jugos</Text>
@@ -113,7 +99,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="beer" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Vinos y Licores</Text>
@@ -127,7 +113,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="needle" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Higiene</Text>
@@ -141,7 +127,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="heart" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Farmacia</Text>
@@ -155,7 +141,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="odnoklassniki" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Bebés</Text>
@@ -169,7 +155,7 @@ export default class Menu extends Component < {} > {
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-cart" style={styles.iconoo}/>
+                <Icon name="md-snow" style={styles.iconoo}/>
               </Left>
               <Body>
               <Text style={styles.textoC}>Congelados</Text>

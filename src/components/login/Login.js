@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     marginRight: 140,
     marginLeft: 140,
     marginBottom: 10,
-    backgroundColor: '#4DA49B'
+    backgroundColor: 'orange'
   },
   color: {
     color: 'white'
