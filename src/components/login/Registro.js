@@ -25,7 +25,7 @@ export default class Registro extends Component < {} > {
     this.setState({error: '', loading: true});
     if (password == verifyPassword && password != null && verifyPassword != null) {
       firebaseAuth.createUserWithEmailAndPassword(correo, password)
-        .then(this.onLoginSuccess).catch(this.onLoginFailed);
+      .then(this.onLoginSuccess).catch(this.onLoginFailed);
     } else {
       Toast.show({
         text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger'})
@@ -66,7 +66,7 @@ export default class Registro extends Component < {} > {
     const {verifyPassword, password} = this.state;
     if (verifyPassword == password) {
       return (
-        <Item success style={styles.inputRounded2}>
+        <Item success style={styles.inputRounded}>
           <Input
             name="vcontraseña"
             placeholder='Verificar Contraseña'
@@ -83,7 +83,7 @@ export default class Registro extends Component < {} > {
     }
 
     return (
-      <Item error style={styles.inputRounded2}>
+      <Item error style={styles.inputRounded}>
         <Input
           name="vcontraseña"
           placeholder='Verificar Contraseña'
@@ -106,7 +106,7 @@ export default class Registro extends Component < {} > {
         <View style={styles.view1}>
           <View style={styles.view2}>
             <View>
-              <Item style={styles.inputRounded2}>
+              <Item style={styles.inputRounded}>
                 <Input
                   name="nombre"
                   placeholder='Nombre'
@@ -117,7 +117,7 @@ export default class Registro extends Component < {} > {
             </View>
 
             <View>
-              <Item style={styles.inputRounded2}>
+              <Item style={styles.inputRounded}>
                 <Input
                   name="correo"
                   placeholder='Correo Electronico'
@@ -129,7 +129,7 @@ export default class Registro extends Component < {} > {
             </View>
 
             <View>
-              <Item style={styles.inputRounded2}>
+              <Item style={styles.inputRounded}>
                 <Input
                   name="contraseña"
                   placeholder='Contraseña'
@@ -147,7 +147,7 @@ export default class Registro extends Component < {} > {
             </View>
 
             <View>
-              <Item style={styles.inputRounded2}>
+              <Item style={styles.inputRounded}>
                 <Input
                   name="telefono"
                   placeholder='Telefono Celular'
@@ -159,8 +159,6 @@ export default class Registro extends Component < {} > {
             </View>
           </View>
         </View>
-
-
 
         {this.spinnerInicio()}
 
@@ -188,19 +186,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   inputRounded: {
-    width: '40%',
-    borderColor: '#000',
-    borderWidth: 1.5,
-    backgroundColor: 'transparent'
-  },
-  inputRounded1: {
-    marginLeft: 20,
-    width: '40%',
-    borderColor: '#000',
-    borderWidth: 1.5,
-    backgroundColor: 'transparent'
-  },
-  inputRounded2: {
     width: '86%',
     borderColor: '#000',
     borderWidth: 1.5,
@@ -226,5 +211,5 @@ const styles = StyleSheet.create({
     marginLeft: 140,
     marginBottom: 10,
     backgroundColor: '#4DA49B'
-  },
+  }
 });
