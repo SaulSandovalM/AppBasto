@@ -86,7 +86,10 @@ export default class Login extends Component < {} > {
               keyboardType='email-address'
               placeholderTextColor='#fff'
               returnKeyType='next'
-              autoCapitalize='none'/>
+              autoCapitalize='none'
+              style={styles.color}
+              value={this.state.correo}
+              onChangeText={value=>this.handleChange("correo", value)}/>
           </Item>
 
           <Item style={styles.inputRounded}>
@@ -94,7 +97,10 @@ export default class Login extends Component < {} > {
               name="password"
               placeholder='Contraseña'
               placeholderTextColor='#fff'
-              secureTextEntry={true}/>
+              secureTextEntry={true}
+              style={styles.color}
+              value={this.state.password}
+              onChangeText={value=>this.handleChange("password", value)}/>
           </Item>
 
           {this.spinnerInicio()}
@@ -198,4 +204,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: '#4DA49B'
   },
+  color: {
+    color: 'white'
+  }
 });
