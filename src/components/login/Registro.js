@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, ImageBackground} from 'react-native';
-import {Button, Input, Item} from 'native-base';
+import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';
 import firebase, {firebaseAuth} from '../firebase/Firebase';
@@ -20,23 +20,22 @@ export default class Registro extends Component < {} > {
     this.onLoginFailed = this.onLoginFailed.bind(this);
   }
 
-  atras() {
-    Actions.pop()
-  }
-
   onButtonPress() {
     const {correo, password, verifyPassword} = this.state;
     this.setState({error: '', loading: true});
     if (password == verifyPassword && password != null && verifyPassword != null) {
-      firebaseAuth.createUserWithEmailAndPassword(correo, password).then(this.onLoginSuccess).catch(this.onLoginFailed);
+      firebaseAuth.createUserWithEmailAndPassword(correo, password)
+        .then(this.onLoginSuccess).catch(this.onLoginFailed);
     } else {
-      Toast.show({text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger'})
+      Toast.show({
+        text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger'})
     }
   }
 
   onLoginFailed() {
     this.setState({error: 'Autenticación Fallida', loading: false});
-    Toast.show({text: 'Registro fallido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger'})
+    Toast.show({
+      text: 'Registro fallido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger'})
   }
 
   onLoginSuccess() {
@@ -55,9 +54,11 @@ export default class Registro extends Component < {} > {
     }
 
     return (
-      <Button rounded block style={styles.buttonStyle} onPress={this.onButtonPress.bind(this)}>
-        <Text style={styles.text}>CREAR CUENTA</Text>
-      </Button>
+      <View style={styles.content}>
+        <Button block style={styles.button} onPress={this.onButtonPress.bind(this)}>
+          <Text style={styles.boton}>REGISTRARTE</Text>
+        </Button>
+      </View>
     );
   }
 
@@ -65,9 +66,16 @@ export default class Registro extends Component < {} > {
     const {verifyPassword, password} = this.state;
     if (verifyPassword == password) {
       return (
-        <Item rounded success style={styles.inputRounded}>
-          <Input style={styles.input} placeholder='Verificar Contraseña' secureTextEntry={true}
-            placeholderTextColor='#ccc' value={this.state.verifyPassword}
+        <Item success style={styles.inputRounded2}>
+          <Input
+            name="vcontraseña"
+            placeholder='Verificar Contraseña'
+            placeholderTextColor='#000'
+            returnKeyType='next'
+            secureTextEntry={true}
+            autoCapitalize='none'
+            secureTextEntry={true}
+            value={this.state.verifyPassword}
             onChangeText={(verifyPassword) => this.setState({verifyPassword})}/>
           <Icon name='checkmark-circle' style={styles.icon}/>
         </Item>
@@ -75,9 +83,16 @@ export default class Registro extends Component < {} > {
     }
 
     return (
-      <Item rounded error style={styles.inputRounded}>
-        <Input style={styles.input} placeholder='Verificar Contraseña' secureTextEntry={true}
-          placeholderTextColor='#ccc' value={this.state.verifyPassword}
+      <Item error style={styles.inputRounded2}>
+        <Input
+          name="vcontraseña"
+          placeholder='Verificar Contraseña'
+          placeholderTextColor='#000'
+          returnKeyType='next'
+          secureTextEntry={true}
+          autoCapitalize='none'
+          secureTextEntry={true}
+          value={this.state.verifyPassword}
           onChangeText={(verifyPassword) => this.setState({verifyPassword})}/>
         <Icon name='close-circle' style={styles.icon}/>
       </Item>
@@ -90,22 +105,14 @@ export default class Registro extends Component < {} > {
 
         <View style={styles.view1}>
           <View style={styles.view2}>
-            <View style={styles.view}>
-              <Item style={styles.inputRounded}>
+            <View>
+              <Item style={styles.inputRounded2}>
                 <Input
                   name="nombre"
                   placeholder='Nombre'
                   placeholderTextColor='#000'
                   returnKeyType='next'
                   autoCapitalize='none'/>
-              </Item>
-
-              <Item style={styles.inputRounded1}>
-                <Input
-                  name="apellido"
-                  placeholder='Apellido'
-                  placeholderTextColor='#000'
-                  returnKeyType='next'/>
               </Item>
             </View>
 
@@ -134,15 +141,7 @@ export default class Registro extends Component < {} > {
             </View>
 
             <View>
-              <Item style={styles.inputRounded2}>
-                <Input
-                  name="vcontraseña"
-                  placeholder='Verificar
-                  Contraseña' placeholderTextColor='#000'
-                  returnKeyType='next'
-                  autoCapitalize='none'
-                  secureTextEntry={true}/>
-              </Item>
+              {this.buttonContra()}
             </View>
 
             <View>
@@ -159,11 +158,9 @@ export default class Registro extends Component < {} > {
           </View>
         </View>
 
-        <View style={styles.content}>
-          <Button block style={styles.button} onPress={() => Actions.Principal()}>
-            <Text style={styles.boton}>REGISTRARTE</Text>
-          </Button>
-        </View>
+
+
+        {this.spinnerInicio()}
 
       </ImageBackground>
     );
@@ -221,5 +218,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
     margin: 15
-  }
+  },
+  buttonSpinner: {
+    marginRight: 140,
+    marginLeft: 140,
+    marginBottom: 10,
+    backgroundColor: '#4DA49B'
+  },
 });

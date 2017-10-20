@@ -37,9 +37,8 @@ export default class Registro extends Component < {} > {
     const {verifyCorreo, correo} = this.state;
     if (verifyCorreo == correo) {
       return (
-        <Item style={styles.inputRounded}>
+        <Item success style={styles.inputRounded}>
           <Input
-            name="correo"
             placeholder='Correo electrónico'
             keyboardType='email-address'
             placeholderTextColor='#000'
@@ -47,19 +46,22 @@ export default class Registro extends Component < {} > {
             autoCapitalize='none'
             value={this.state.verifyCorreo}
             onChangeText={(verifyCorreo) => this.setState({verifyCorreo})}/>
+          <Icon name='checkmark-circle' style={styles.icon}/>
         </Item>
       );
     }
 
     return (
-      <Item style={styles.inputRounded}>
+      <Item error style={styles.inputRounded}>
         <Input
-          name="Verifica Correo"
-          placeholder='Contraseña'
+          placeholder='Correo electrónico'
+          keyboardType='email-address'
           placeholderTextColor='#000'
-          secureTextEntry={true}
+          returnKeyType='next'
+          autoCapitalize='none'
           value={this.state.verifyCorreo}
           onChangeText={(verifyCorreo) => this.setState({verifyCorreo})}/>
+        <Icon name='close-circle' style={styles.icon}/>
       </Item>
     );
   }
@@ -71,31 +73,21 @@ export default class Registro extends Component < {} > {
         <View style={styles.view}>
           <Item style={styles.inputRounded}>
             <Input
-              name="correo"
               placeholder='Correo electrónico'
               keyboardType='email-address'
               placeholderTextColor='#000'
               returnKeyType='next'
               autoCapitalize='none'
-              value={this.state.verifyCorreo}
-              onChangeText={(verifyCorreo) => this.setState({verifyCorreo})}/>
+              value={this.state.correo}
+              onChangeText={correo => this.setState({correo})}/>
           </Item>
 
-          <Item style={styles.inputRounded}>
-            <Input
-              name="Verifica Correo"
-              placeholder='Contraseña'
-              placeholderTextColor='#000'
-              secureTextEntry={true}
-              value={this.state.verifyCorreo}
-              onChangeText={(verifyCorreo) => this.setState({verifyCorreo})}/>
-          </Item>
+          {this.buttonCorreo()}
+
         </View>
 
-        {this.buttonCorreo()}
-
         <View style={styles.content}>
-          <Button block style={styles.button} onPress={() => Actions.Login()}>
+          <Button block style={styles.button} onPress={this.recover.bind(this)}>
             <Text style={styles.boton}>RECUPERAR CONTRASEÑA</Text>
           </Button>
         </View>
@@ -139,5 +131,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
     margin: 15
+  },
+  icon: {
+    marginRight: 10
   }
 });
