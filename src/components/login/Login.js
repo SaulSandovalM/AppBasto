@@ -34,7 +34,8 @@ export default class Login extends Component < {} > {
       .then(this.onLoginSuccess).catch(this.onLoginFailed);
   }
 
-  onLoginFailed() {
+  onLoginFailed(r) {
+      console.log(r);
     this.setState({error: 'Autenticación Fallida', loading: false});
     Toast.show({text: 'Usuario/contraseña inválidos', position: 'bottom', buttonText: 'OK', type: 'danger'})
   }
@@ -42,7 +43,7 @@ export default class Login extends Component < {} > {
   onLoginSuccess(r) {
     console.log(r);
     this.setState({email: '', contraseña: '', error: '', loading: false});
-    Actions.Log();
+    Actions.Principal();
     Toast.show({text: 'Bienvenido', position: 'bottom', duration: 5000, type: 'success'})
   }
 

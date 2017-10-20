@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import img from '../../assets/imgs/usuario.jpg';
-import {Container, List, ListItem, Icon, Left, Body, Right} from 'native-base';
+import {Container, List, ListItem, Icon, Left, Body, Right, Button} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 
 const {width, height} = Dimensions.get('window');
@@ -191,6 +191,12 @@ export default class Menu extends Component < {} > {
             </TouchableOpacity>
           </View>
         </View>
+
+        <TouchableOpacity style={styles.cerrarS} onPress={()=> alert('Cerraste sesión perro')}>
+
+            <Text style={styles.textCerrar} >Cerrar Sesión</Text>
+
+        </TouchableOpacity>
       </View>
     );
   }
@@ -257,5 +263,15 @@ const styles = StyleSheet.create({
   },
   textoC: {
     color: 'white'
-  }
+  },
+    cerrarS:{
+        backgroundColor:'black',
+        borderWidth:3,
+        flexDirection:'row',
+        justifyContent:'space-around'
+    },
+    textCerrar:{
+        color:'white',
+        fontSize:15
+    }
 });
