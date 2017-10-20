@@ -10,7 +10,6 @@ import Recover from './src/components/login/Recover';
 import detalleProducto from './src/components/detalleproducto/detalleProducto';
 import Carrito from './src/components/carrito/Carrito';
 import Perfil from './src/components/perfil/Perfil';
-import StatusOrden from './src/components/status/StatusOrden';
 
 const Routes = () => {
   return (
@@ -26,7 +25,6 @@ const Routes = () => {
         <Scene key="Detalle" header={null} component={Detalle}/>
         <Scene key="Carrito" header={null} component={Carrito}/>
         <Scene key="Perfil" header={null} component={Perfil}/>
-        <Scene key="StatusOrden" header={null} component={StatusOrden}/>
       </Scene>
     </Router>
     </Root>

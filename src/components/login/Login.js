@@ -1,25 +1,80 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {Button, Input, Item, Icon} from 'native-base';
+import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';
 import Video from 'react-native-video';
 import videop from '../../assets/video/videop.mp4';
+import firebase, {firebaseAuth} from '../firebase/Firebase';
 
 export default class Login extends Component < {} > {
+  state = {
+    email: '',
+    contraseña: '',
+    error: '',
+    credential: '',
+    loading: false,
+    loadingF: false,
+    login: {
+      correo: '',
+      password: ''
+    }
+  };
+
+  constructor(props) {
+    super(props);
+    this.onLoginSuccess = this.onLoginSuccess.bind(this);
+    this.onLoginFailed = this.onLoginFailed.bind(this);
+  }
+
+  onButtonPress() {
+    const {correo, password} = this.state.login;
+    this.setState({error: '', loading: true});
+    firebaseAuth.signInWithEmailAndPassword(correo, password)
+      .then(this.onLoginSuccess).catch(this.onLoginFailed);
+  }
+
+  onLoginFailed() {
+    this.setState({error: 'Autenticación Fallida', loading: false});
+    Toast.show({text: 'Usuario/contraseña inválidos', position: 'bottom', buttonText: 'OK', type: 'danger'})
+  }
+
+  onLoginSuccess(r) {
+    console.log(r);
+    this.setState({email: '', contraseña: '', error: '', loading: false});
+    Actions.Log();
+    Toast.show({text: 'Bienvenido', position: 'bottom', duration: 5000, type: 'success'})
+  }
+
+  spinnerInicio() {
+    if (this.state.loading) {
+      return (
+        <Button rounded block style={styles.buttonSpinner}>
+          <Spinner color='white'/>
+        </Button>
+      );
+    }
+
+    return (
+      <Button block style={styles.button} onPress={this.onButtonPress.bind(this)}>
+        <Text style={styles.boton}>INICIAR SESIÓN</Text>
+      </Button>
+    );
+  }
+
+  handleChange = (field, value) => {
+    const login = this.state.login;
+    login[field] = value;
+    this.setState({login});
+  };
+
   render() {
     return (
       <View style={styles.img}>
 
-        <Video
-        source={videop}
-        rate={1.0}
-        muted={true}
-        resizeMode={"cover"}
-        repeat
-        style={styles.video}/>
+        <Video source={videop} rate={1.0} muted={true} resizeMode={"cover"} repeat style={styles.video}/>
 
-      <View style={styles.view4}>
+        <View style={styles.view4}>
           <Icon name="ios-arrow-back" style={styles.icon} onPress={() => Actions.pop()}/>
         </View>
 
@@ -42,9 +97,8 @@ export default class Login extends Component < {} > {
               secureTextEntry={true}/>
           </Item>
 
-          <Button block style={styles.button} onPress={() => Actions.Principal()}>
-            <Text style={styles.boton}>INICIAR SESIÓN</Text>
-          </Button>
+          {this.spinnerInicio()}
+
         </View>
 
         <View style={styles.view2}>
@@ -137,5 +191,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     color: 'orange',
     fontSize: 50
-  }
+  },
+  buttonSpinner: {
+    marginRight: 140,
+    marginLeft: 140,
+    marginBottom: 10,
+    backgroundColor: '#4DA49B'
+  },
 });

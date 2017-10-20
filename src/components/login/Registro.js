@@ -5,6 +5,84 @@ import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/login.jpeg';
 
 export default class Registro extends Component < {} > {
+  state = {
+    correo: '',
+    password: '',
+    verifyPassword: '',
+    error: '',
+    loading: false
+  };
+
+  constructor(props) {
+    super(props);
+    this.onLoginSuccess = this.onLoginSuccess.bind(this);
+    this.onLoginFailed = this.onLoginFailed.bind(this);
+  }
+
+  atras() {
+    Actions.pop()
+  }
+
+  onButtonPress() {
+    const {correo, password, verifyPassword} = this.state;
+    this.setState({error: '', loading: true});
+    if (password == verifyPassword && password != null && verifyPassword != null) {
+      firebaseAuth.createUserWithEmailAndPassword(correo, password).then(this.onLoginSuccess).catch(this.onLoginFailed);
+    } else {
+      Toast.show({text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger'})
+    }
+  }
+
+  onLoginFailed() {
+    this.setState({error: 'Autenticación Fallida', loading: false});
+    Toast.show({text: 'Registro fallido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger'})
+  }
+
+  onLoginSuccess() {
+    this.setState({correo: '', password: '', error: '', verifyPassword: '', loading: false});
+    Actions.Log();
+    Toast.show({text: 'Bienvenido', position: 'bottom', duration: 3000, type: 'success'})
+  }
+
+  spinnerInicio() {
+    if (this.state.loading) {
+      return (
+        <Button rounded block style={styles.buttonSpinner}>
+          <Spinner color='white'/>
+        </Button>
+      );
+    }
+
+    return (
+      <Button rounded block style={styles.buttonStyle} onPress={this.onButtonPress.bind(this)}>
+        <Text style={styles.text}>CREAR CUENTA</Text>
+      </Button>
+    );
+  }
+
+  buttonContra() {
+    const {verifyPassword, password} = this.state;
+    if (verifyPassword == password) {
+      return (
+        <Item rounded success style={styles.inputRounded}>
+          <Input style={styles.input} placeholder='Verificar Contraseña' secureTextEntry={true}
+            placeholderTextColor='#ccc' value={this.state.verifyPassword}
+            onChangeText={(verifyPassword) => this.setState({verifyPassword})}/>
+          <Icon name='checkmark-circle' style={styles.icon}/>
+        </Item>
+      );
+    }
+
+    return (
+      <Item rounded error style={styles.inputRounded}>
+        <Input style={styles.input} placeholder='Verificar Contraseña' secureTextEntry={true}
+          placeholderTextColor='#ccc' value={this.state.verifyPassword}
+          onChangeText={(verifyPassword) => this.setState({verifyPassword})}/>
+        <Icon name='close-circle' style={styles.icon}/>
+      </Item>
+    );
+  }
+  
   render() {
     return (
       <ImageBackground source={img} style={styles.img}>
