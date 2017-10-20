@@ -24,6 +24,18 @@ var _login = require('../../assets/imgs/login.jpeg');
 
 var _login2 = _interopRequireDefault(_login);
 
+var _reactNativeVideo = require('react-native-video');
+
+var _reactNativeVideo2 = _interopRequireDefault(_reactNativeVideo);
+
+var _videop = require('../../assets/video/videop.mp4');
+
+var _videop2 = _interopRequireDefault(_videop);
+
+var _Firebase = require('../firebase/Firebase');
+
+var _Firebase2 = _interopRequireDefault(_Firebase);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -54,75 +66,157 @@ function _wrapComponent(id) {
 var Login = _wrapComponent('Login')(function (_Component) {
   _inherits(Login, _Component);
 
-  function Login() {
+  function Login(props) {
     _classCallCheck(this, Login);
 
-    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+    _this.state = {
+      email: '',
+      contraseña: '',
+      error: '',
+      credential: '',
+      loading: false,
+      loadingF: false,
+      login: {
+        correo: '',
+        password: ''
+      }
+    };
+
+    _this.handleChange = function (field, value) {
+      var login = _this.state.login;
+      login[field] = value;
+      _this.setState({ login: login });
+    };
+
+    _this.onLoginSuccess = _this.onLoginSuccess.bind(_this);
+    _this.onLoginFailed = _this.onLoginFailed.bind(_this);
+    return _this;
   }
 
   _createClass(Login, [{
-    key: 'render',
-    value: function render() {
+    key: 'onButtonPress',
+    value: function onButtonPress() {
+      var _state$login = this.state.login,
+          correo = _state$login.correo,
+          password = _state$login.password;
+
+      this.setState({ error: '', loading: true });
+      _Firebase.firebaseAuth.signInWithEmailAndPassword(correo, password).then(this.onLoginSuccess).catch(this.onLoginFailed);
+    }
+  }, {
+    key: 'onLoginFailed',
+    value: function onLoginFailed() {
+      this.setState({ error: 'Autenticación Fallida', loading: false });
+      _nativeBase.Toast.show({ text: 'Usuario/contraseña inválidos', position: 'bottom', buttonText: 'OK', type: 'danger' });
+    }
+  }, {
+    key: 'onLoginSuccess',
+    value: function onLoginSuccess(r) {
+      console.log(r);
+      this.setState({ email: '', contraseña: '', error: '', loading: false });
+      _reactNativeRouterFlux.Actions.Log();
+      _nativeBase.Toast.show({ text: 'Bienvenido', position: 'bottom', duration: 5000, type: 'success' });
+    }
+  }, {
+    key: 'spinnerInicio',
+    value: function spinnerInicio() {
+      if (this.state.loading) {
+        return _react3.default.createElement(
+          _nativeBase.Button,
+          { rounded: true, block: true, style: styles.buttonSpinner, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 52
+            }
+          },
+          _react3.default.createElement(_nativeBase.Spinner, { color: 'white', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 53
+            }
+          })
+        );
+      }
+
       return _react3.default.createElement(
-        _reactNative.ImageBackground,
-        { source: _login2.default, style: styles.img, __source: {
+        _nativeBase.Button,
+        { block: true, style: styles.button, onPress: this.onButtonPress.bind(this), __source: {
             fileName: _jsxFileName,
-            lineNumber: 10
+            lineNumber: 59
           }
         },
         _react3.default.createElement(
-          _reactNative.View,
-          {
-            __source: {
+          _reactNative.Text,
+          { style: styles.boton, __source: {
               fileName: _jsxFileName,
-              lineNumber: 12
+              lineNumber: 60
             }
           },
-          _react3.default.createElement(
-            _reactNative.View,
-            { style: styles.adelante, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 13
-              }
-            },
-            _react3.default.createElement(
-              _reactNative.Text,
-              { style: styles.texto,
-                onPress: function onPress() {
-                  return _reactNativeRouterFlux.Actions.Principal();
-                }, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 14
-                }
-              },
-              'INICIA SESI\xD3N MAS ADELANTE'
-            )
-          )
+          'INICIAR SESI\xD3N'
+        )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.img, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 73
+          }
+        },
+        _react3.default.createElement(_reactNativeVideo2.default, { source: _videop2.default, rate: 1.0, muted: true, resizeMode: "cover", repeat: true, style: styles.video, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 75
+          }
+        }),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.view4, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 77
+            }
+          },
+          _react3.default.createElement(_nativeBase.Icon, { name: 'ios-arrow-back', style: styles.icon, onPress: function onPress() {
+              return _reactNativeRouterFlux.Actions.pop();
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 78
+            }
+          })
         ),
         _react3.default.createElement(
           _reactNative.View,
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 19
+              lineNumber: 81
             }
           },
           _react3.default.createElement(
             _nativeBase.Item,
             { style: styles.inputRounded, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 20
+                lineNumber: 82
               }
             },
             _react3.default.createElement(_nativeBase.Input, {
               name: 'correo',
               placeholder: 'Correo electr\xF3nico',
               keyboardType: 'email-address',
-              placeholderTextColor: '#000',
+              placeholderTextColor: '#fff',
               returnKeyType: 'next',
-              autoCapitalize: 'none', __source: {
+              autoCapitalize: 'none',
+              style: styles.color,
+              value: this.state.correo,
+              onChangeText: function onChangeText(value) {
+                return _this2.handleChange("correo", value);
+              }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 21
+                lineNumber: 83
               }
             })
           ),
@@ -130,58 +224,45 @@ var Login = _wrapComponent('Login')(function (_Component) {
             _nativeBase.Item,
             { style: styles.inputRounded, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 30
+                lineNumber: 95
               }
             },
             _react3.default.createElement(_nativeBase.Input, {
               name: 'password',
               placeholder: 'Contrase\xF1a',
-              placeholderTextColor: '#000',
-              secureTextEntry: true, __source: {
+              placeholderTextColor: '#fff',
+              secureTextEntry: true,
+              style: styles.color,
+              value: this.state.password,
+              onChangeText: function onChangeText(value) {
+                return _this2.handleChange("password", value);
+              }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 31
+                lineNumber: 96
               }
             })
           ),
-          _react3.default.createElement(
-            _nativeBase.Button,
-            { block: true, style: styles.button, onPress: function onPress() {
-                return _reactNativeRouterFlux.Actions.Principal();
-              }, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 38
-              }
-            },
-            _react3.default.createElement(
-              _reactNative.Text,
-              { style: styles.boton, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 39
-                }
-              },
-              'INICIAR SESI\xD3N'
-            )
-          )
+          this.spinnerInicio()
         ),
         _react3.default.createElement(
           _reactNative.View,
           { style: styles.view2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 43
+              lineNumber: 110
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view3, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 44
+                lineNumber: 111
               }
             },
             _react3.default.createElement(
               _reactNative.View,
               { style: styles.view, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 45
+                  lineNumber: 112
                 }
               },
               _react3.default.createElement(
@@ -190,14 +271,14 @@ var Login = _wrapComponent('Login')(function (_Component) {
                     return _reactNativeRouterFlux.Actions.Recover();
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 46
+                    lineNumber: 113
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.text, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 47
+                      lineNumber: 114
                     }
                   },
                   '\xBFOlvidaste tu Contrase\xF1a?'
@@ -208,7 +289,7 @@ var Login = _wrapComponent('Login')(function (_Component) {
               _reactNative.View,
               { style: styles.view, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 50
+                  lineNumber: 117
                 }
               },
               _react3.default.createElement(
@@ -217,14 +298,14 @@ var Login = _wrapComponent('Login')(function (_Component) {
                     return _reactNativeRouterFlux.Actions.Registro();
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 51
+                    lineNumber: 118
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.text1, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 52
+                      lineNumber: 119
                     }
                   },
                   'Crear Cuenta'
@@ -244,6 +325,13 @@ exports.default = Login;
 
 
 var styles = _reactNative.StyleSheet.create({
+  video: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  },
   img: {
     justifyContent: 'flex-end',
     flex: 2,
@@ -270,23 +358,27 @@ var styles = _reactNative.StyleSheet.create({
     flexDirection: 'column',
     marginBottom: 10
   },
+  view4: {
+    flex: 1,
+    margin: 20
+  },
   inputRounded: {
     marginRight: 40,
     marginLeft: 40,
     marginBottom: 10,
-    borderColor: '#000',
+    borderColor: 'orange',
     borderWidth: 1.5,
-    backgroundColor: 'transparent'
+    backgroundColor: 'rgba(0,0,0,.5)'
   },
   boton: {
     color: 'white',
     fontWeight: 'bold'
   },
   text: {
-    color: 'black'
+    color: 'white'
   },
   text1: {
-    color: 'black',
+    color: 'white',
     fontSize: 18
   },
   adelante: {
@@ -297,6 +389,20 @@ var styles = _reactNative.StyleSheet.create({
   button: {
     width: '78%',
     alignSelf: 'center',
+    backgroundColor: 'orange'
+  },
+  icon: {
+    backgroundColor: 'transparent',
+    color: 'orange',
+    fontSize: 50
+  },
+  buttonSpinner: {
+    marginRight: 140,
+    marginLeft: 140,
+    marginBottom: 10,
     backgroundColor: '#4DA49B'
+  },
+  color: {
+    color: 'white'
   }
 });

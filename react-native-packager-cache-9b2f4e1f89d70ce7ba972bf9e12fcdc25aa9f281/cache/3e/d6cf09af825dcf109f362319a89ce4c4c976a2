@@ -13,12 +13,11 @@ var _reactNative = require('react-native');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Card = function Card(props) {
-
   return _react2.default.createElement(
     _reactNative.View,
     { style: styles.containerStyle, __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
+        lineNumber: 6
       }
     },
     props.children

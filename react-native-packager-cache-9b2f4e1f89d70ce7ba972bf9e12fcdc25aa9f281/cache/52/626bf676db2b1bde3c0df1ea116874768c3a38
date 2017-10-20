@@ -24,6 +24,10 @@ var _login = require('../../assets/imgs/login.jpeg');
 
 var _login2 = _interopRequireDefault(_login);
 
+var _Firebase = require('../firebase/Firebase');
+
+var _Firebase2 = _interopRequireDefault(_Firebase);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -54,48 +58,207 @@ function _wrapComponent(id) {
 var Registro = _wrapComponent('Registro')(function (_Component) {
   _inherits(Registro, _Component);
 
-  function Registro() {
+  function Registro(props) {
     _classCallCheck(this, Registro);
 
-    return _possibleConstructorReturn(this, (Registro.__proto__ || Object.getPrototypeOf(Registro)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Registro.__proto__ || Object.getPrototypeOf(Registro)).call(this, props));
+
+    _this.state = {
+      correo: '',
+      password: '',
+      verifyPassword: '',
+      error: '',
+      loading: false
+    };
+
+    _this.onLoginSuccess = _this.onLoginSuccess.bind(_this);
+    _this.onLoginFailed = _this.onLoginFailed.bind(_this);
+    return _this;
   }
 
   _createClass(Registro, [{
+    key: 'onButtonPress',
+    value: function onButtonPress() {
+      var _state = this.state,
+          correo = _state.correo,
+          password = _state.password,
+          verifyPassword = _state.verifyPassword;
+
+      this.setState({ error: '', loading: true });
+      if (password == verifyPassword && password != null && verifyPassword != null) {
+        _Firebase.firebaseAuth.createUserWithEmailAndPassword(correo, password).then(this.onLoginSuccess).catch(this.onLoginFailed);
+      } else {
+        _nativeBase.Toast.show({
+          text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger' });
+      }
+    }
+  }, {
+    key: 'onLoginFailed',
+    value: function onLoginFailed() {
+      this.setState({ error: 'Autenticación Fallida', loading: false });
+      _nativeBase.Toast.show({
+        text: 'Registro fallido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger' });
+    }
+  }, {
+    key: 'onLoginSuccess',
+    value: function onLoginSuccess() {
+      this.setState({ correo: '', password: '', error: '', verifyPassword: '', loading: false });
+      _reactNativeRouterFlux.Actions.Log();
+      _nativeBase.Toast.show({ text: 'Bienvenido', position: 'bottom', duration: 3000, type: 'success' });
+    }
+  }, {
+    key: 'spinnerInicio',
+    value: function spinnerInicio() {
+      if (this.state.loading) {
+        return _react3.default.createElement(
+          _nativeBase.Button,
+          { rounded: true, block: true, style: styles.buttonSpinner, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 50
+            }
+          },
+          _react3.default.createElement(_nativeBase.Spinner, { color: 'white', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 51
+            }
+          })
+        );
+      }
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.content, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 57
+          }
+        },
+        _react3.default.createElement(
+          _nativeBase.Button,
+          { block: true, style: styles.button, onPress: this.onButtonPress.bind(this), __source: {
+              fileName: _jsxFileName,
+              lineNumber: 58
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.Text,
+            { style: styles.boton, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 59
+              }
+            },
+            'REGISTRARTE'
+          )
+        )
+      );
+    }
+  }, {
+    key: 'buttonContra',
+    value: function buttonContra() {
+      var _this2 = this;
+
+      var _state2 = this.state,
+          verifyPassword = _state2.verifyPassword,
+          password = _state2.password;
+
+      if (verifyPassword == password) {
+        return _react3.default.createElement(
+          _nativeBase.Item,
+          { success: true, style: styles.inputRounded2, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 69
+            }
+          },
+          _react3.default.createElement(_nativeBase.Input, {
+            name: 'vcontrase\xF1a',
+            placeholder: 'Verificar Contrase\xF1a',
+            placeholderTextColor: '#000',
+            returnKeyType: 'next',
+            secureTextEntry: true,
+            autoCapitalize: 'none',
+            secureTextEntry: true,
+            value: this.state.verifyPassword,
+            onChangeText: function onChangeText(verifyPassword) {
+              return _this2.setState({ verifyPassword: verifyPassword });
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 70
+            }
+          }),
+          _react3.default.createElement(_nativeBase.Icon, { name: 'checkmark-circle', style: styles.icon, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 80
+            }
+          })
+        );
+      }
+
+      return _react3.default.createElement(
+        _nativeBase.Item,
+        { error: true, style: styles.inputRounded2, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 86
+          }
+        },
+        _react3.default.createElement(_nativeBase.Input, {
+          name: 'vcontrase\xF1a',
+          placeholder: 'Verificar Contrase\xF1a',
+          placeholderTextColor: '#000',
+          returnKeyType: 'next',
+          secureTextEntry: true,
+          autoCapitalize: 'none',
+          secureTextEntry: true,
+          value: this.state.verifyPassword,
+          onChangeText: function onChangeText(verifyPassword) {
+            return _this2.setState({ verifyPassword: verifyPassword });
+          }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 87
+          }
+        }),
+        _react3.default.createElement(_nativeBase.Icon, { name: 'close-circle', style: styles.icon, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 97
+          }
+        })
+      );
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react3.default.createElement(
         _reactNative.ImageBackground,
         { source: _login2.default, style: styles.img, __source: {
             fileName: _jsxFileName,
-            lineNumber: 10
+            lineNumber: 104
           }
         },
         _react3.default.createElement(
           _reactNative.View,
           { style: styles.view1, __source: {
               fileName: _jsxFileName,
-              lineNumber: 12
+              lineNumber: 106
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view2, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 13
+                lineNumber: 107
               }
             },
             _react3.default.createElement(
               _reactNative.View,
-              { style: styles.view, __source: {
+              {
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 14
+                  lineNumber: 108
                 }
               },
               _react3.default.createElement(
                 _nativeBase.Item,
-                { style: styles.inputRounded, __source: {
+                { style: styles.inputRounded2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 15
+                    lineNumber: 109
                   }
                 },
                 _react3.default.createElement(_nativeBase.Input, {
@@ -105,24 +268,7 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
                   returnKeyType: 'next',
                   autoCapitalize: 'none', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 16
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Item,
-                { style: styles.inputRounded1, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 24
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Input, {
-                  name: 'apellido',
-                  placeholder: 'Apellido',
-                  placeholderTextColor: '#000',
-                  returnKeyType: 'next', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 25
+                    lineNumber: 110
                   }
                 })
               )
@@ -132,14 +278,14 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 33
+                  lineNumber: 119
                 }
               },
               _react3.default.createElement(
                 _nativeBase.Item,
                 { style: styles.inputRounded2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 34
+                    lineNumber: 120
                   }
                 },
                 _react3.default.createElement(_nativeBase.Input, {
@@ -150,7 +296,7 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
                   returnKeyType: 'next',
                   autoCapitalize: 'none', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 35
+                    lineNumber: 121
                   }
                 })
               )
@@ -160,14 +306,14 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 45
+                  lineNumber: 131
                 }
               },
               _react3.default.createElement(
                 _nativeBase.Item,
                 { style: styles.inputRounded2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 46
+                    lineNumber: 132
                   }
                 },
                 _react3.default.createElement(_nativeBase.Input, {
@@ -178,7 +324,7 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
                   autoCapitalize: 'none',
                   secureTextEntry: true, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 47
+                    lineNumber: 133
                   }
                 })
               )
@@ -188,41 +334,24 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 57
+                  lineNumber: 143
                 }
               },
-              _react3.default.createElement(
-                _nativeBase.Item,
-                { style: styles.inputRounded2, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 58
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Input, {
-                  name: 'vcontrase\xF1a',
-                  placeholder: 'Verificar Contrase\xF1a', placeholderTextColor: '#000',
-                  returnKeyType: 'next',
-                  autoCapitalize: 'none',
-                  secureTextEntry: true, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 59
-                  }
-                })
-              )
+              this.buttonContra()
             ),
             _react3.default.createElement(
               _reactNative.View,
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 69
+                  lineNumber: 147
                 }
               },
               _react3.default.createElement(
                 _nativeBase.Item,
                 { style: styles.inputRounded2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 70
+                    lineNumber: 148
                   }
                 },
                 _react3.default.createElement(_nativeBase.Input, {
@@ -233,40 +362,14 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
                   returnKeyType: 'next',
                   autoCapitalize: 'none', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 71
+                    lineNumber: 149
                   }
                 })
               )
             )
           )
         ),
-        _react3.default.createElement(
-          _reactNative.View,
-          { style: styles.content, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 83
-            }
-          },
-          _react3.default.createElement(
-            _nativeBase.Button,
-            { block: true, style: styles.button, onPress: function onPress() {
-                return _reactNativeRouterFlux.Actions.Principal();
-              }, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 84
-              }
-            },
-            _react3.default.createElement(
-              _reactNative.Text,
-              { style: styles.boton, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 85
-                }
-              },
-              'REGISTRARTE'
-            )
-          )
-        )
+        this.spinnerInicio()
       );
     }
   }]);
@@ -328,5 +431,11 @@ var styles = _reactNative.StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
     margin: 15
+  },
+  buttonSpinner: {
+    marginRight: 140,
+    marginLeft: 140,
+    marginBottom: 10,
+    backgroundColor: '#4DA49B'
   }
 });

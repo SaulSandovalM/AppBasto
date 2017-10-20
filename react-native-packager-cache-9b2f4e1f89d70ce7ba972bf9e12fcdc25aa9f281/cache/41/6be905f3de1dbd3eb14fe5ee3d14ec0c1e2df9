@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _react2 = require('react');
@@ -27,130 +27,142 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _components = {
-    detalleProducto: {
-        displayName: 'detalleProducto'
-    }
+  detalleProducto: {
+    displayName: 'detalleProducto'
+  }
 };
 
 var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-    filename: '/home/jose/V\xEDdeos/AppBasto/src/components/detalleproducto/detalleProducto.js',
-    components: _components,
-    locals: [module],
-    imports: [_react3.default]
+  filename: '/home/jose/V\xEDdeos/AppBasto/src/components/detalleproducto/detalleProducto.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
 });
 
 function _wrapComponent(id) {
-    return function (Component) {
-        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
 }
 
 var detalleProducto = _wrapComponent('detalleProducto')(function (_Component) {
-    _inherits(detalleProducto, _Component);
+  _inherits(detalleProducto, _Component);
 
-    function detalleProducto() {
-        _classCallCheck(this, detalleProducto);
+  function detalleProducto() {
+    _classCallCheck(this, detalleProducto);
 
-        return _possibleConstructorReturn(this, (detalleProducto.__proto__ || Object.getPrototypeOf(detalleProducto)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (detalleProducto.__proto__ || Object.getPrototypeOf(detalleProducto)).apply(this, arguments));
+  }
+
+  _createClass(detalleProducto, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        },
+        _react3.default.createElement(_comun.Header, { headerText: 'ProductoID', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        }),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.view, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 10
+            }
+          },
+          _react3.default.createElement(
+            _comun.Card,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 11
+              }
+            },
+            _react3.default.createElement(_reactNative.Image, { source: {
+                uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
+              }, style: styles.img, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 12
+              }
+            })
+          ),
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.view, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 17
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 18
+                }
+              },
+              'ProductoID'
+            ),
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 19
+                }
+              },
+              'Descripci\xF3n'
+            ),
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 20
+                }
+              },
+              'Cantidad'
+            ),
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 21
+                }
+              },
+              'Agregar al carrito'
+            )
+          )
+        )
+      );
     }
+  }]);
 
-    _createClass(detalleProducto, [{
-        key: 'render',
-        value: function render() {
-            return _react3.default.createElement(
-                _reactNative.View,
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 8
-                    }
-                },
-                _react3.default.createElement(_comun.Header, { headerText: 'ProductoID', __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 9
-                    }
-                }),
-                _react3.default.createElement(
-                    _reactNative.View,
-                    { style: { flexDirection: 'row', height: 200 }, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 10
-                        }
-                    },
-                    _react3.default.createElement(
-                        _comun.Card,
-                        {
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 12
-                            }
-                        },
-                        _react3.default.createElement(_reactNative.Image, { source: {
-                                uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-                            }, style: {
-                                height: 200,
-                                width: 200,
-                                flex: 1
-                            }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 14
-                            }
-                        })
-                    ),
-                    _react3.default.createElement(
-                        _reactNative.View,
-                        { style: { marginTop: 10 }, __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 24
-                            }
-                        },
-                        _react3.default.createElement(
-                            _reactNative.Text,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 25
-                                }
-                            },
-                            'ProductoID'
-                        ),
-                        _react3.default.createElement(
-                            _reactNative.Text,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 26
-                                }
-                            },
-                            'Descripci\xF3n'
-                        ),
-                        _react3.default.createElement(
-                            _reactNative.Text,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 27
-                                }
-                            },
-                            'Cantidad'
-                        ),
-                        _react3.default.createElement(
-                            _reactNative.Text,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 28
-                                }
-                            },
-                            'Agregar al carrito'
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return detalleProducto;
+  return detalleProducto;
 }(_react2.Component));
 
 exports.default = detalleProducto;
+
+
+var styles = _reactNative.StyleSheet.create({
+  view: {
+    flexDirection: 'row',
+    height: 200
+  },
+  img: {
+    height: 200,
+    width: 200,
+    flex: 1
+  },
+  view2: {
+    marginTop: 10
+  }
+});

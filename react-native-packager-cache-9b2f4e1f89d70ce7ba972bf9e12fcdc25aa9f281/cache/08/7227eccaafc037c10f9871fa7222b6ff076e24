@@ -43,6 +43,10 @@ var _Carrito = require('./src/components/carrito/Carrito');
 
 var _Carrito2 = _interopRequireDefault(_Carrito);
 
+var _Perfil = require('./src/components/perfil/Perfil');
+
+var _Perfil2 = _interopRequireDefault(_Perfil);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Routes = function Routes() {
@@ -51,7 +55,7 @@ var Routes = function Routes() {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 16
       }
     },
     _react2.default.createElement(
@@ -59,54 +63,59 @@ var Routes = function Routes() {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 17
         }
       },
       _react2.default.createElement(
         _reactNativeRouterFlux.Scene,
         { key: 'root', __source: {
             fileName: _jsxFileName,
-            lineNumber: 17
+            lineNumber: 18
           }
         },
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Bienvenida', header: null, component: _Bienvenida2.default, initial: true, __source: {
             fileName: _jsxFileName,
-            lineNumber: 18
+            lineNumber: 19
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Login', header: null, component: _Login2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 20
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Registro', header: null, component: _Registro2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 20
+            lineNumber: 21
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Recover', header: null, component: _Recover2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 21
+            lineNumber: 22
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Principal', header: null, component: _Principal2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 23
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'detalleProducto', header: null, component: _detalleProducto2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 24
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Detalle', header: null, component: _Detalle2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 25
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Carrito', header: null, component: _Carrito2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 26
+          }
+        }),
+        _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Perfil', header: null, component: _Perfil2.default, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
           }
         })
       )
