@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import img from '../../assets/imgs/usuario.jpg';
+import img2 from '../../assets/imgs/nouser.png';
 import {Container, List, ListItem, Left, Body, Right, Button} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
@@ -9,9 +10,19 @@ import {firebaseAuth} from '../firebase/Firebase';
 const {width, height} = Dimensions.get('window');
 
 export default class Menu extends Component < {} > {
-  close = () => {
-    firebaseAuth.signOut()
+  state = {
+    loggedIn: null
   };
+
+  componentWillMount() {
+    firebaseAuth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({loggedIn: true})
+      } else {
+        this.setState({loggedIn: false})
+      }
+    });
+  }
 
   salir() {
     firebaseAuth.signOut();
@@ -155,20 +166,34 @@ export default class Menu extends Component < {} > {
           </ListItem>
         </ScrollView>
 
-        <View style={styles.container}>
-          <View>
-            <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
-              <Image style={styles.usuario} source={img}/>
-              <Text style={styles.text}>Pedido{'\n'}Status:
-                <Text style={styles.textoc}>En Camino</Text>
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        {this.state.loggedIn
+          ? <View>
+              <View style={styles.container}>
+                <View>
+                  <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
+                    <Image style={styles.usuario} source={img}/>
+                    <Text style={styles.text}>Pedido{'\n'}Status:
+                      <Text style={styles.textoc}>En Camino</Text>
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
 
-        <TouchableOpacity style={styles.cerrarS} onPress={() => this.close()}>
-          <Text style={styles.textCerrar} onPress={this.salir.bind(this)}>Cerrar Sesión</Text>
-        </TouchableOpacity>
+              <TouchableOpacity style={styles.cerrarS} onPress={() => this.close()}>
+                <Text style={styles.textCerrar} onPress={this.salir.bind(this)}>Cerrar Sesión</Text>
+              </TouchableOpacity>
+            </View>
+
+          :
+              <View style={styles.container}>
+                <View>
+                  <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
+                    <Image style={styles.usuario} source={img2}/>
+                      <Text style={styles.text}>Aun No Has{'\n'}Iniciado Sesion</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+        }
       </View>
     );
   }
@@ -261,5 +286,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: 'orange',
     marginRight: 5
+  },
+  nolog: {
+    color: 'white'
   }
 });

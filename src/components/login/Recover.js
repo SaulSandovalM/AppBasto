@@ -73,6 +73,10 @@ export default class Registro extends Component < {} > {
       <ImageBackground source={img} style={styles.img}>
         <View style={styles.estiloImageB}>
 
+        <View style={styles.view4}>
+          <Icon name="ios-arrow-back" style={styles.icon2} onPress={() => Actions.pop()}/>
+        </View>
+
         <View style={styles.view}>
           <Item style={styles.inputRounded}>
             <Input
@@ -133,6 +137,11 @@ const styles = StyleSheet.create({
     marginRight: 10,
     color: 'orange'
   },
+  icon2: {
+    backgroundColor: 'transparent',
+    color: 'orange',
+    fontSize: 50
+  },
   inputRounded: {
     marginRight: 40,
     marginLeft: 40,
@@ -148,5 +157,9 @@ const styles = StyleSheet.create({
   },
   color: {
     color: 'white'
-  }
+  },
+  view4: {
+    flex: 1,
+    margin: 20
+  },
 });
