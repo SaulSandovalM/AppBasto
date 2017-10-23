@@ -7,9 +7,11 @@ import firebase, {firebaseAuth} from '../firebase/Firebase';
 
 export default class Registro extends Component < {} > {
   state = {
+    nombre: '',
     correo: '',
     password: '',
     verifyPassword: '',
+    telefono: '',
     error: '',
     loading: false
   };
@@ -75,6 +77,7 @@ export default class Registro extends Component < {} > {
             secureTextEntry={true}
             autoCapitalize='none'
             secureTextEntry={true}
+            style={styles.color}
             value={this.state.verifyPassword}
             onChangeText={(verifyPassword) => this.setState({verifyPassword})}/>
           <Icon name='checkmark-circle' style={styles.icon}/>
@@ -92,6 +95,7 @@ export default class Registro extends Component < {} > {
           secureTextEntry={true}
           autoCapitalize='none'
           secureTextEntry={true}
+          style={styles.color}
           value={this.state.verifyPassword}
           onChangeText={(verifyPassword) => this.setState({verifyPassword})}/>
         <Icon name='close-circle' style={styles.icon}/>
@@ -115,7 +119,8 @@ export default class Registro extends Component < {} > {
                   placeholder='Nombre'
                   placeholderTextColor='#fff'
                   returnKeyType='next'
-                  autoCapitalize='none'/>
+                  autoCapitalize='none'
+                  style={styles.color}/>
               </Item>
             </View>
 
@@ -127,7 +132,8 @@ export default class Registro extends Component < {} > {
                   keyboardType='email-address'
                   placeholderTextColor='#fff'
                   returnKeyType='next'
-                  autoCapitalize='none'/>
+                  autoCapitalize='none'
+                  style={styles.color}/>
               </Item>
             </View>
 
@@ -140,6 +146,7 @@ export default class Registro extends Component < {} > {
                   returnKeyType='next'
                   autoCapitalize='none'
                   secureTextEntry={true}
+                  style={styles.color}
                   value={this.state.password}
                   onChangeText={password => this.setState({password})}/>
               </Item>

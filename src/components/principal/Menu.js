@@ -189,7 +189,7 @@ export default class Menu extends Component < {} > {
                 <View>
                   <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
                     <Image style={styles.usuario} source={img2}/>
-                      <Text style={styles.text}>Aun No Has{'\n'}Iniciado Sesion</Text>
+                      <Text style={styles.text}>Inicia Sesión</Text>
                   </TouchableOpacity>
                 </View>
               </View>

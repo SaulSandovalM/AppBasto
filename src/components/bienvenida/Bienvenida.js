@@ -38,7 +38,7 @@ export default class Bienvenida extends Component < {} > {
             <View style={styles.estiloImagenF}>
 
               <View style={styles.estiloMargen}>
-                <Text style={styles.text}>NOSOTROS {'\n'}VAMOS</Text>
+                <Text style={styles.text}>NOSOTROS{'\n'}VAMOS</Text>
               </View>
 
               <View style={styles.estiloV}>
