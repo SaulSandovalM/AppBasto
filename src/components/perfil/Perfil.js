@@ -20,6 +20,7 @@ export default class Perfil extends Component {
               <H1 style={styles.h1}>Saul Sandoval M</H1>
               <Text style={styles.text}>sauldevelop@gmail.com</Text>
             </View>
+
           </ImageBackground>
 
           <View>

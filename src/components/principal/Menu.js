@@ -12,13 +12,17 @@ export default class Menu extends Component < {} > {
         firebaseAuth.signOut()
     };
 
+    salir() {
+      firebaseAuth.signOut();
+    }
+
     render() {
     return (
       <View style={styles.menu}>
         <ScrollView style={styles.content}>
           <List>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="ios-cart" style={styles.iconoo }/>
               </Left>
@@ -32,7 +36,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="ios-ice-cream" style={styles.iconoo}/>
               </Left>
@@ -46,7 +50,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="ios-nutrition" style={styles.iconoo}/>
               </Left>
@@ -60,7 +64,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="pig" style={styles.iconoo}/>
               </Left>
@@ -74,7 +78,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="ios-cart" style={styles.iconoo}/>
               </Left>
@@ -88,7 +92,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="md-beaker" style={styles.iconoo}/>
               </Left>
@@ -102,7 +106,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="beer" style={styles.iconoo}/>
               </Left>
@@ -116,7 +120,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="bug" style={styles.iconoo}/>
               </Left>
@@ -130,7 +134,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="heart" style={styles.iconoo}/>
               </Left>
@@ -144,7 +148,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="child-care" style={styles.iconoo}/>
               </Left>
@@ -158,7 +162,7 @@ export default class Menu extends Component < {} > {
               </Right>
             </ListItem>
 
-            <ListItem icon>
+            <ListItem icon onPress={() => Actions.Detalle()}>
               <Left>
                 <Icon name="md-snow" style={styles.iconoo}/>
               </Left>
@@ -185,7 +189,7 @@ export default class Menu extends Component < {} > {
 
         <TouchableOpacity style={styles.cerrarS} onPress={()=> this.close()}>
 
-            <Text style={styles.textCerrar} >Cerrar Sesión</Text>
+            <Text style={styles.textCerrar} onPress={this.salir.bind(this)}>Cerrar Sesión</Text>
 
         </TouchableOpacity>
       </View>

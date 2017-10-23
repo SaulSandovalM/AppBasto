@@ -55,7 +55,7 @@ export default class Principal extends Component < {} > {
     return (
       <StyleProvider style={getTheme(material)}>
 
-        <SideMenu menu={< Menu />} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
+        <SideMenu menu={<Menu/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
             <Buscador toggle={this.toggle}/>
 
@@ -64,7 +64,7 @@ export default class Principal extends Component < {} > {
               <ImageBackground source={cat1} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text onPress={() => Actions.Detalle()} style={styles.texto}>
-                    FRUTAS Y VERDURAS
+                    DESPENSA
                   </Text>
                 </View>
               </ImageBackground>
@@ -109,7 +109,7 @@ export default class Principal extends Component < {} > {
               <ImageBackground source={cat1} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
-                    HIGIENE
+                    LACTEOS
                   </Text>
                 </View>
 
@@ -156,7 +156,7 @@ export default class Principal extends Component < {} > {
               <ImageBackground source={cat1} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
-                    CATEGORIA 3
+                    FRUTAS Y VERDURAS
                   </Text>
                 </View>
               </ImageBackground>
@@ -194,7 +194,266 @@ export default class Principal extends Component < {} > {
               <ImageBackground source={cat1} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
-                    CATEGORIA 4
+                    CARNES Y PESCADOS
+                  </Text>
+                </View>
+              </ImageBackground>
+              <View style={styles.view2}>
+                <ScrollView horizontal={true} style={styles.scroll}>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                </ScrollView>
+              </View>
+
+              <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    PANADERIA
+                  </Text>
+                </View>
+              </ImageBackground>
+              <View style={styles.view2}>
+                <ScrollView horizontal={true} style={styles.scroll}>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                </ScrollView>
+              </View>
+
+              <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    JUGOS
+                  </Text>
+                </View>
+              </ImageBackground>
+              <View style={styles.view2}>
+                <ScrollView horizontal={true} style={styles.scroll}>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                </ScrollView>
+              </View>
+
+              <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    VINOS Y LICORES
+                  </Text>
+                </View>
+              </ImageBackground>
+              <View style={styles.view2}>
+                <ScrollView horizontal={true} style={styles.scroll}>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                </ScrollView>
+              </View>
+
+              <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    HIGIENE
+                  </Text>
+                </View>
+              </ImageBackground>
+              <View style={styles.view2}>
+                <ScrollView horizontal={true} style={styles.scroll}>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                </ScrollView>
+              </View>
+
+              <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    FARMACIA
+                  </Text>
+                </View>
+              </ImageBackground>
+              <View style={styles.view2}>
+                <ScrollView horizontal={true} style={styles.scroll}>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                </ScrollView>
+              </View>
+
+              <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    BEBES
+                  </Text>
+                </View>
+              </ImageBackground>
+              <View style={styles.view2}>
+                <ScrollView horizontal={true} style={styles.scroll}>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Card>
+                      <Image source={{
+                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
+                      }} style={styles.img}/>
+                    </Card>
+                  </TouchableOpacity>
+
+                </ScrollView>
+              </View>
+
+              <ImageBackground source={cat1} style={styles.fondo}>
+                <View style={styles.view4}>
+                  <Text style={styles.texto}>
+                    CONGELADOS
                   </Text>
                 </View>
               </ImageBackground>

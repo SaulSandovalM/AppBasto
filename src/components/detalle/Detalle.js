@@ -148,3 +148,24 @@ const styles = StyleSheet.create({
     color: "green"
   }
 });
+
+// const Detalle = ({ detalle }) => {
+//   const {nombre, precio, url} = noticia;
+//   return (
+//     <View style={styles.viewP}>
+//       <Card style={styles.estiloCard}>
+//         <CardItem style={styles.estiloCardI}>
+//           <Left style={styles.cardL}>
+//             <Text>{nombre}</Text>
+//             <Text note>{precio}</Text>
+//           </Left>
+//         </CardItem>
+//         <Image source={img} style={styles.img}/>
+//         <Button bordered iconRight style={styles.btn} onPress={() => alert('Agregado!')}>
+//           <Text >Agregar al Carrito</Text>
+//           <Icon name="cart" style={styles.icon}/>
+//         </Button>
+//       </Card>
+//     </View>
+//   );
+// };
