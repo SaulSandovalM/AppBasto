@@ -100,7 +100,7 @@ export default class Carrito extends Component < {} > {
               <Text style={styles.pago}>$500.00 MXN</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={() => Actions.StatusOrden()}>
+            <Button block style={styles.boton} onPress={() => Actions.Principal()}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>
