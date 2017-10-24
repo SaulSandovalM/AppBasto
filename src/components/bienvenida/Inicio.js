@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import {firebaseAuth} from '../firebase/Firebase';
 import {Actions} from 'react-native-router-flux';
-import {Spinner} from 'native-base';
+import {Spinner, Container} from 'native-base';
+import Bienvenida from './Bienvenida';
+import Principal from '../principal/Principal';
 
 class Inicio extends Component {
   state = {
@@ -18,20 +20,15 @@ class Inicio extends Component {
       }
     });
   }
-
-  renderContent = () => {
-    switch (this.state.loggedIn) {
-      case true:
-        return Actions.Principal();
-      case false:
-        return Actions.Bienvenida();
-      default:
-        return <Spinner size='large'/>
-    }
-  };
-
+  
   render() {
-    return (<View onStatusChange={this.renderContent()}/>);
+    return (
+      <Container>
+        {this.state.loggedIn ?
+        <Principal />:
+        <Bienvenida />}
+      </Container>
+    );
   }
 }
 

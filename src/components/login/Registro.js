@@ -7,9 +7,11 @@ import firebase, {firebaseAuth} from '../firebase/Firebase';
 
 export default class Registro extends Component < {} > {
   state = {
+    nombre: '',
     correo: '',
     password: '',
     verifyPassword: '',
+    telefono: '',
     error: '',
     loading: false
   };
@@ -75,6 +77,7 @@ export default class Registro extends Component < {} > {
             secureTextEntry={true}
             autoCapitalize='none'
             secureTextEntry={true}
+            style={styles.color}
             value={this.state.verifyPassword}
             onChangeText={(verifyPassword) => this.setState({verifyPassword})}/>
           <Icon name='checkmark-circle' style={styles.icon}/>
@@ -92,6 +95,7 @@ export default class Registro extends Component < {} > {
           secureTextEntry={true}
           autoCapitalize='none'
           secureTextEntry={true}
+          style={styles.color}
           value={this.state.verifyPassword}
           onChangeText={(verifyPassword) => this.setState({verifyPassword})}/>
         <Icon name='close-circle' style={styles.icon}/>
@@ -104,6 +108,9 @@ export default class Registro extends Component < {} > {
       <ImageBackground source={img} style={styles.img}>
 
         <View style={styles.estiloImageB}>
+          <View style={styles.view4}>
+            <Icon name="ios-arrow-back" style={styles.icon2} onPress={() => Actions.pop()}/>
+          </View>
           <View>
             <View>
               <Item style={styles.inputRounded}>
@@ -112,7 +119,8 @@ export default class Registro extends Component < {} > {
                   placeholder='Nombre'
                   placeholderTextColor='#fff'
                   returnKeyType='next'
-                  autoCapitalize='none'/>
+                  autoCapitalize='none'
+                  style={styles.color}/>
               </Item>
             </View>
 
@@ -124,7 +132,8 @@ export default class Registro extends Component < {} > {
                   keyboardType='email-address'
                   placeholderTextColor='#fff'
                   returnKeyType='next'
-                  autoCapitalize='none'/>
+                  autoCapitalize='none'
+                  style={styles.color}/>
               </Item>
             </View>
 
@@ -137,6 +146,7 @@ export default class Registro extends Component < {} > {
                   returnKeyType='next'
                   autoCapitalize='none'
                   secureTextEntry={true}
+                  style={styles.color}
                   value={this.state.password}
                   onChangeText={password => this.setState({password})}/>
               </Item>
@@ -219,5 +229,14 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: 'orange'
+  },
+  view4: {
+    flex: 1,
+    margin: 20
+  },
+  icon2: {
+    backgroundColor: 'transparent',
+    color: 'orange',
+    fontSize: 50
   }
 });

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import img from '../../assets/imgs/usuario.jpg';
+import img2 from '../../assets/imgs/nouser.png';
 import {Container, List, ListItem, Left, Body, Right, Button} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
@@ -9,9 +10,19 @@ import {firebaseAuth} from '../firebase/Firebase';
 const {width, height} = Dimensions.get('window');
 
 export default class Menu extends Component < {} > {
-  close = () => {
-    firebaseAuth.signOut()
+  state = {
+    loggedIn: null
   };
+
+  componentWillMount() {
+    firebaseAuth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({loggedIn: true})
+      } else {
+        this.setState({loggedIn: false})
+      }
+    });
+  }
 
   salir() {
     firebaseAuth.signOut();
@@ -34,36 +45,36 @@ export default class Menu extends Component < {} > {
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="ios-ice-cream" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Lácteos</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="ios-nutrition" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Frutas y Verduras</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="ios-restaurant" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Carnes y Pescados</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
@@ -75,79 +86,79 @@ export default class Menu extends Component < {} > {
               <Icon name="ios-cafe" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Panadería</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="ios-beaker" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Jugos</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="ios-beer" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Vinos y Licores</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="ios-bug" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Higiene</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="ios-heart" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Farmacia</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="ios-bowtie" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Bebés</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon>
             <Left>
               <Icon name="md-snow" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Congelados</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
@@ -155,20 +166,34 @@ export default class Menu extends Component < {} > {
           </ListItem>
         </ScrollView>
 
-        <View style={styles.container}>
-          <View>
-            <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
-              <Image style={styles.usuario} source={img}/>
-              <Text style={styles.text}>Pedido{'\n'}Status:
-                <Text style={styles.textoc}>En Camino</Text>
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        {this.state.loggedIn
+          ? <View>
+              <View style={styles.container}>
+                <View>
+                  <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
+                    <Image style={styles.usuario} source={img}/>
+                    <Text style={styles.text}>Pedido{'\n'}Status:
+                      <Text style={styles.textoc}>En Camino</Text>
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
 
-        <TouchableOpacity style={styles.cerrarS} onPress={() => this.close()}>
-          <Text style={styles.textCerrar} onPress={this.salir.bind(this)}>Cerrar Sesión</Text>
-        </TouchableOpacity>
+              <TouchableOpacity style={styles.cerrarS} onPress={() => this.close()}>
+                <Text style={styles.textCerrar} onPress={this.salir.bind(this)}>Cerrar Sesión</Text>
+              </TouchableOpacity>
+            </View>
+
+          :
+              <View style={styles.container}>
+                <View>
+                  <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
+                    <Image style={styles.usuario} source={img2}/>
+                      <Text style={styles.text}>Inicia Sesión</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+        }
       </View>
     );
   }
@@ -261,5 +286,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: 'orange',
     marginRight: 5
+  },
+  nolog: {
+    color: 'white'
   }
 });

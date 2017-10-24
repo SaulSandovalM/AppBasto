@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
 });
 
 // const Detalle = ({ detalle }) => {
-//   const {nombre, precio, url} = noticia;
+//   const {nombre, precio, url} = detalle;
 //   return (
 //     <View style={styles.viewP}>
 //       <Card style={styles.estiloCard}>

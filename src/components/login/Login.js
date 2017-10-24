@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
 import {Actions} from 'react-native-router-flux';
-import img from '../../assets/imgs/login.jpeg';
 import Video from 'react-native-video';
 import videop from '../../assets/video/videop.mp4';
 import firebase, {firebaseAuth} from '../firebase/Firebase';

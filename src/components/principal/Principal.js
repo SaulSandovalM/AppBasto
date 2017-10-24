@@ -5,6 +5,16 @@ import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
 import {Card, CardItem, Icon, Button} from 'native-base';
 import cat1 from '../../assets/imgs/cat1.jpg';
+import despensa from '../../assets/imgs/despensa.png';
+import lacteos from '../../assets/imgs/lacteos.jpg';
+import carnes from '../../assets/imgs/carnes.jpg';
+import pan from '../../assets/imgs/pan.jpg';
+import jugos from '../../assets/imgs/jugos.jpg';
+import vinos from '../../assets/imgs/vinos.jpg';
+import farm from '../../assets/imgs/farm.jpg';
+import higiene from '../../assets/imgs/higiene.jpg';
+import bb from '../../assets/imgs/bb.jpeg';
+import conge from '../../assets/imgs/conge.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
@@ -61,7 +71,7 @@ export default class Principal extends Component < {} > {
 
             <ScrollView style={styles.content}>
               <StatusBar hidden={true}/>
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={despensa} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text onPress={() => Actions.Detalle()} style={styles.texto}>
                     DESPENSA
@@ -106,7 +116,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={lacteos} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     LACTEOS
@@ -191,7 +201,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={carnes} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     CARNES Y PESCADOS
@@ -228,7 +238,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={pan} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     PANADERIA
@@ -265,7 +275,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={jugos} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     JUGOS
@@ -302,7 +312,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={vinos} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     VINOS Y LICORES
@@ -339,7 +349,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={higiene} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     HIGIENE
@@ -376,7 +386,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={farm} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     FARMACIA
@@ -413,7 +423,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={bb} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     BEBES
@@ -450,7 +460,7 @@ export default class Principal extends Component < {} > {
                 </ScrollView>
               </View>
 
-              <ImageBackground source={cat1} style={styles.fondo}>
+              <ImageBackground source={conge} style={styles.fondo}>
                 <View style={styles.view4}>
                   <Text style={styles.texto}>
                     CONGELADOS
