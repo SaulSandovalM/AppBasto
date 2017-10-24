@@ -3,7 +3,7 @@ import {View, Image, ScrollView, StyleSheet, Text} from 'react-native';
 import {Card, CardItem, Left, Button, Icon, Container, StyleProvider} from 'native-base';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
-import img from '../../assets/imgs/bienvenida.jpg';
+import img from '../../assets/imgs/despensa.png';
 import Cabecera from "../comun/Cabecera";
 
 export default class Detalle extends Component < {} > {

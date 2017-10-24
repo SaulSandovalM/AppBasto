@@ -33,12 +33,12 @@ export default class Menu extends Component < {} > {
       <View style={styles.menu}>
         <ScrollView style={styles.content}>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
+          <ListItem icon >
             <Left>
               <Icon name="ios-basket" style={styles.iconoo}/>
             </Left>
             <Body>
-              <TouchableOpacity style={styles.touchable}>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Despensa</Text>
                 <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
               </TouchableOpacity>
