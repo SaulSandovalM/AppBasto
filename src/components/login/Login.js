@@ -43,7 +43,7 @@ export default class Login extends Component < {} > {
   onLoginSuccess(r) {
     console.log(r);
     this.setState({email: '', contraseña: '', error: '', loading: false});
-    Actions.Principal();
+    Actions.Inicio();
     Toast.show({text: 'Bienvenido', position: 'bottom', duration: 5000, type: 'success'})
   }
 
