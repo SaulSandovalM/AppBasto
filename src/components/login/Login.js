@@ -4,69 +4,38 @@ import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import Video from 'react-native-video';
 import videop from '../../assets/video/videop.mp4';
-import firebase, {firebaseAuth} from '../firebase/Firebase';
+import {connect} from 'react-redux';
+import {emailChanged, passwordChanged, loginUser} from '../../actions';
 
-export default class Login extends Component < {} > {
-  state = {
-    email: '',
-    contraseña: '',
-    error: '',
-    credential: '',
-    loading: false,
-    loadingF: false,
-    login: {
-      correo: '',
-      password: ''
-    }
-  };
 
-  constructor(props) {
-    super(props);
-    this.onLoginSuccess = this.onLoginSuccess.bind(this);
-    this.onLoginFailed = this.onLoginFailed.bind(this);
-  }
-
-  onButtonPress() {
-    const {correo, password} = this.state.login;
-    this.setState({error: '', loading: true});
-    firebaseAuth.signInWithEmailAndPassword(correo, password)
-      .then(this.onLoginSuccess).catch(this.onLoginFailed);
-  }
-
-  onLoginFailed(r) {
-      console.log(r);
-    this.setState({error: 'Autenticación Fallida', loading: false});
-    Toast.show({text: 'Usuario/contraseña inválidos', position: 'bottom', buttonText: 'OK', type: 'danger'})
-  }
-
-  onLoginSuccess(r) {
-    console.log(r);
-    this.setState({email: '', contraseña: '', error: '', loading: false});
-    Actions.Inicio();
-    Toast.show({text: 'Bienvenido', position: 'bottom', duration: 5000, type: 'success'})
-  }
-
-  spinnerInicio() {
-    if (this.state.loading) {
-      return (
-        <Button rounded block style={styles.buttonSpinner}>
-          <Spinner color='white'/>
-        </Button>
-      );
+class Login extends Component < {} > {
+    onEmailChange(text){
+        this.props.emailChanged(text);
     }
 
-    return (
-      <Button block style={styles.button} onPress={this.onButtonPress.bind(this)}>
-        <Text style={styles.boton}>INICIAR SESIÓN</Text>
-      </Button>
-    );
-  }
+    onPasswordChange(text){
+        this.props.passwordChanged(text);
+    }
 
-  handleChange = (field, value) => {
-    const login = this.state.login;
-    login[field] = value;
-    this.setState({login});
-  };
+    onButtonPress(){
+        const {email, password} = this.props;
+        this.props.loginUser({email,password});
+    }
+
+    renderButton(){
+        if(this.props.loading){
+            return <Spinner size="large" color='white' />
+        }
+
+        return (
+            <Button rounded style={styles.button} onPress={this.onButtonPress.bind(this)}>
+              <Text style={styles.boton}>INICIAR SESIÓN</Text>
+            </Button>
+        );
+    }
+
+
+
 
   render() {
     return (
@@ -88,8 +57,9 @@ export default class Login extends Component < {} > {
               returnKeyType='next'
               autoCapitalize='none'
               style={styles.color}
-              value={this.state.correo}
-              onChangeText={value=>this.handleChange("correo", value)}/>
+              onChangeText={this.onEmailChange.bind(this)}
+              value={this.props.email}
+            />
           </Item>
 
           <Item style={styles.inputRounded}>
@@ -99,11 +69,17 @@ export default class Login extends Component < {} > {
               placeholderTextColor='#fff'
               secureTextEntry={true}
               style={styles.color}
-              value={this.state.password}
-              onChangeText={value=>this.handleChange("password", value)}/>
+              onChangeText={this.onPasswordChange.bind(this)}
+              value={this.props.password}
+            />
           </Item>
 
-          {this.spinnerInicio()}
+            {this.renderButton()}
+
+          <Text style={styles.errorText}>
+              {this.props.error}
+          </Text>
+
 
         </View>
 
@@ -174,7 +150,8 @@ const styles = StyleSheet.create({
   },
   boton: {
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+      alignSelf:'center',
   },
   text: {
     color: 'white'
@@ -190,8 +167,9 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '78%',
-    alignSelf: 'center',
-    backgroundColor: 'orange'
+    justifyContent: 'center',
+      alignSelf:'center',
+    backgroundColor: 'orange',
   },
   icon: {
     backgroundColor: 'transparent',
@@ -206,5 +184,17 @@ const styles = StyleSheet.create({
   },
   color: {
     color: 'white'
-  }
+  },
+    errorText: {
+        fontSize: 20,
+        alignSelf: 'center',
+        color: 'red',
+    }
 });
+
+const mapStateToProps = ({auth}) => {
+    const {email, password, error, loading} = auth
+    return { email, password, error, loading};
+};
+
+export default connect(mapStateToProps, {loginUser, emailChanged, passwordChanged})(Login);
