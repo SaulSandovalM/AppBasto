@@ -33,7 +33,7 @@ export default class Menu extends Component < {} > {
       <View style={styles.menu}>
         <ScrollView style={styles.content}>
 
-          <ListItem icon >
+          <ListItem icon>
             <Left>
               <Icon name="ios-basket" style={styles.iconoo}/>
             </Left>
@@ -184,16 +184,15 @@ export default class Menu extends Component < {} > {
               </TouchableOpacity>
             </View>
 
-          :
-              <View style={styles.container}>
-                <View>
-                  <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
-                    <Image style={styles.usuario} source={img2}/>
-                      <Text style={styles.text}>Inicia Sesión</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-        }
+          : <View style={styles.container}>
+            <View>
+              <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
+                <Image style={styles.usuario} source={img2}/>
+                <Text style={styles.text}>Inicia Sesión</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+}
       </View>
     );
   }

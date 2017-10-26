@@ -73,33 +73,33 @@ export default class Registro extends Component < {} > {
       <ImageBackground source={img} style={styles.img}>
         <View style={styles.estiloImageB}>
 
-        <View style={styles.view4}>
-          <Icon name="ios-arrow-back" style={styles.icon2} onPress={() => Actions.pop()}/>
+          <View style={styles.view4}>
+            <Icon name="ios-arrow-back" style={styles.icon2} onPress={() => Actions.pop()}/>
+          </View>
+
+          <View style={styles.view}>
+            <Item style={styles.inputRounded}>
+              <Input
+                style={styles.color}
+                placeholder='Correo electrónico'
+                keyboardType='email-address'
+                placeholderTextColor='#fff'
+                returnKeyType='next'
+                autoCapitalize='none'
+                value={this.state.correo}
+                onChangeText={correo => this.setState({correo})}/>
+            </Item>
+
+            {this.buttonCorreo()}
+
+          </View>
+
+          <View style={styles.content}>
+            <Button block style={styles.button} onPress={this.recover.bind(this)}>
+              <Text style={styles.boton}>RECUPERAR CONTRASEÑA</Text>
+            </Button>
+          </View>
         </View>
-
-        <View style={styles.view}>
-          <Item style={styles.inputRounded}>
-            <Input
-              style={styles.color}
-              placeholder='Correo electrónico'
-              keyboardType='email-address'
-              placeholderTextColor='#fff'
-              returnKeyType='next'
-              autoCapitalize='none'
-              value={this.state.correo}
-              onChangeText={correo => this.setState({correo})}/>
-          </Item>
-
-          {this.buttonCorreo()}
-
-        </View>
-
-        <View style={styles.content}>
-          <Button block style={styles.button} onPress={this.recover.bind(this)}>
-            <Text style={styles.boton}>RECUPERAR CONTRASEÑA</Text>
-          </Button>
-        </View>
-      </View>
 
       </ImageBackground>
     );
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     marginBottom: 10,
     borderColor: 'orange',
-    borderWidth: 1.5,
+    borderWidth: 1.5
   },
   estiloImageB: {
     backgroundColor: 'rgba(0,0,0,.5)',
@@ -161,5 +161,5 @@ const styles = StyleSheet.create({
   view4: {
     flex: 1,
     margin: 20
-  },
+  }
 });

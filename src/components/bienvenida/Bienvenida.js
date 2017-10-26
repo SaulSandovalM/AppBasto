@@ -17,9 +17,11 @@ export default class Bienvenida extends Component < {} > {
           showsPagination={false}
           showsButtons={true}
           nextButton={
-            <Text style = {styles.estiloF}> › </Text>}
+            <Text style = {styles.estiloF}> › </Text>
+          }
           prevButton={
-            <Text style = {styles.estiloF}> ‹ </Text>}>
+            <Text style = {styles.estiloF}> ‹ </Text>
+          }>
 
           <ImageBackground source={img} style={styles.img}>
             <View style={styles.estiloImageB}>

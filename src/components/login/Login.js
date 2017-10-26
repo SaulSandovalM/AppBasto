@@ -7,44 +7,49 @@ import videop from '../../assets/video/videop.mp4';
 import {connect} from 'react-redux';
 import {emailChanged, passwordChanged, loginUser} from '../../actions';
 
-
 class Login extends Component < {} > {
-    onEmailChange(text){
-        this.props.emailChanged(text);
+  onEmailChange(text) {
+    this.props.emailChanged(text);
+  }
+
+  onPasswordChange(text) {
+    this.props.passwordChanged(text);
+  }
+
+  onButtonPress() {
+    const {email, password} = this.props;
+    this.props.loginUser({email, password});
+  }
+
+  renderButton() {
+    if (this.props.loading) {
+      return <Spinner size="large" color='white'/>
     }
 
-    onPasswordChange(text){
-        this.props.passwordChanged(text);
-    }
-
-    onButtonPress(){
-        const {email, password} = this.props;
-        this.props.loginUser({email,password});
-    }
-
-    renderButton(){
-        if(this.props.loading){
-            return <Spinner size="large" color='white' />
-        }
-
-        return (
-            <Button rounded style={styles.button} onPress={this.onButtonPress.bind(this)}>
-              <Text style={styles.boton}>INICIAR SESIÓN</Text>
-            </Button>
-        );
-    }
-
-
-
+    return (
+      <Button rounded style={styles.button} onPress={this.onButtonPress.bind(this)}>
+        <Text style={styles.boton}>INICIAR SESIÓN</Text>
+      </Button>
+    );
+  }
 
   render() {
     return (
       <View style={styles.img}>
 
-        <Video source={videop} rate={1.0} muted={true} resizeMode={"cover"} repeat style={styles.video}/>
+        <Video
+          source={videop}
+          rate={1.0}
+          muted={true}
+          resizeMode={"cover"}
+          repeat
+          style={styles.video}/>
 
         <View style={styles.view4}>
-          <Icon name="ios-arrow-back" style={styles.icon} onPress={() => Actions.pop()}/>
+          <Icon
+            name="ios-arrow-back"
+            style={styles.icon}
+            onPress={() => Actions.pop()}/>
         </View>
 
         <View>
@@ -58,8 +63,7 @@ class Login extends Component < {} > {
               autoCapitalize='none'
               style={styles.color}
               onChangeText={this.onEmailChange.bind(this)}
-              value={this.props.email}
-            />
+              value={this.props.email}/>
           </Item>
 
           <Item style={styles.inputRounded}>
@@ -70,16 +74,14 @@ class Login extends Component < {} > {
               secureTextEntry={true}
               style={styles.color}
               onChangeText={this.onPasswordChange.bind(this)}
-              value={this.props.password}
-            />
+              value={this.props.password}/>
           </Item>
 
-            {this.renderButton()}
+          {this.renderButton()}
 
           <Text style={styles.errorText}>
-              {this.props.error}
+            {this.props.error}
           </Text>
-
 
         </View>
 
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
   boton: {
     color: 'white',
     fontWeight: 'bold',
-      alignSelf:'center',
+    alignSelf: 'center'
   },
   text: {
     color: 'white'
@@ -168,8 +170,8 @@ const styles = StyleSheet.create({
   button: {
     width: '78%',
     justifyContent: 'center',
-      alignSelf:'center',
-    backgroundColor: 'orange',
+    alignSelf: 'center',
+    backgroundColor: 'orange'
   },
   icon: {
     backgroundColor: 'transparent',
@@ -185,16 +187,16 @@ const styles = StyleSheet.create({
   color: {
     color: 'white'
   },
-    errorText: {
-        fontSize: 20,
-        alignSelf: 'center',
-        color: 'red',
-    }
+  errorText: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
+  }
 });
 
 const mapStateToProps = ({auth}) => {
-    const {email, password, error, loading} = auth
-    return { email, password, error, loading};
+  const {email, password, error, loading} = auth
+  return {email, password, error, loading};
 };
 
 export default connect(mapStateToProps, {loginUser, emailChanged, passwordChanged})(Login);

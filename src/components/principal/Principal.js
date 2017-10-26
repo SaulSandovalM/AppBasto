@@ -496,7 +496,11 @@ export default class Principal extends Component < {} > {
 
                 </ScrollView>
               </View>
-              <Modal isVisible={this.state.visibleModal === 1} onBackdropPress={() => this.setState({visibleModal: null})} animationIn={'slideInLeft'} animationOut={'fadeOut'}>
+              <Modal
+                isVisible={this.state.visibleModal === 1}
+                onBackdropPress={() => this.setState({visibleModal: null})}
+                animationIn={'slideInLeft'}
+                animationOut={'fadeOut'}>
                 {this._renderModalContent()}
               </Modal>
 

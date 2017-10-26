@@ -29,15 +29,13 @@ export default class Registro extends Component < {} > {
       firebaseAuth.createUserWithEmailAndPassword(correo, password)
       .then(this.onLoginSuccess).catch(this.onLoginFailed);
     } else {
-      Toast.show({
-        text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger'})
+      Toast.show({text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger'})
     }
   }
 
   onLoginFailed() {
     this.setState({error: 'Autenticación Fallida', loading: false});
-    Toast.show({
-      text: 'Registro fallido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger'})
+    Toast.show({text: 'Registro fallido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger'})
   }
 
   onLoginSuccess() {
@@ -216,7 +214,7 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     marginBottom: 10,
     borderColor: 'orange',
-    borderWidth: 1.5,
+    borderWidth: 1.5
   },
   color: {
     color: 'white'

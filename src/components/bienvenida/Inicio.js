@@ -20,13 +20,13 @@ class Inicio extends Component {
       }
     });
   }
-  
+
   render() {
     return (
       <Container>
-        {this.state.loggedIn ?
-        <Principal />:
-        <Bienvenida />}
+        {this.state.loggedIn
+          ? <Principal/>
+          : <Bienvenida/>}
       </Container>
     );
   }

@@ -20,7 +20,6 @@ export default class Perfil extends Component {
               <H1 style={styles.h1}>Saul Sandoval M</H1>
               <Text style={styles.text}>sauldevelop@gmail.com</Text>
             </View>
-
           </ImageBackground>
 
           <View>
@@ -30,53 +29,59 @@ export default class Perfil extends Component {
           <SwipeRow
             leftOpenValue={75}
             rightOpenValue={-75}
-            left = {
-              <Button success onPress={()=>Actions.Carrito()}>
+            left= {
+              <Button success onPress={() => Actions.Carrito()}>
                 <Icon active name="add"/>
               </Button>
             }
-            body = {
+            body={
               <View>
                 <Text>Orden 1</Text>
-              </View>}
-            right = {
+              </View>
+            }
+            right= {
               <Button danger onPress={() => alert('Trash')}>
                 <Icon active name="trash"/>
-              </Button>}/>
+              </Button>
+            }/>
 
-            <SwipeRow
-              leftOpenValue={75}
-              rightOpenValue={-75}
-              left = {
-                <Button success onPress={() => alert('Add')}>
-                  <Icon active name="add"/>
+          <SwipeRow
+            leftOpenValue={75}
+            rightOpenValue={-75}
+            left= {
+              <Button success onPress={() => alert('Add')}>
+                <Icon active name="add"/>
+              </Button>
+            }
+            body={
+              <View>
+                <Text>Orden 2</Text>
+              </View>
+            }
+            right= {
+              <Button danger onPress={() => alert('Trash')}>
+                <Icon active name="trash"/>
                 </Button>
-              }
-              body = {
-                <View>
-                  <Text>Orden 2</Text>
-                </View>}
-              right = {
-                <Button danger onPress={() => alert('Trash')}>
-                  <Icon active name="trash"/>
-                </Button>}/>
+            }/>
 
-              <SwipeRow
-                leftOpenValue={75}
-                rightOpenValue={-75}
-                left = {
-                  <Button success onPress={() => alert('Add')}>
-                    <Icon active name="add"/>
-                  </Button>
-                }
-                body = {
-                  <View>
-                    <Text>Orden 3</Text>
-                  </View>}
-                right = {
-                  <Button danger onPress={() => alert('Trash')}>
-                    <Icon active name="trash"/>
-                  </Button>}/>
+          <SwipeRow
+            leftOpenValue={75}
+            rightOpenValue={-75}
+            left= {
+              <Button success onPress={() => alert('Add')}>
+                <Icon active name="add"/>
+              </Button>
+            }
+            body={
+              <View>
+                <Text>Orden 3</Text>
+              </View>
+            }
+            right= {
+              <Button danger onPress={() => alert('Trash')}>
+                <Icon active name="trash"/>
+              </Button>
+            }/>
 
         </Content>
       </Container>
