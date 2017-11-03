@@ -70,6 +70,7 @@ export default class Principal extends Component < {} > {
             <Buscador toggle={this.toggle}/>
 
             <ScrollView style={styles.content}>
+
               <StatusBar hidden={true}/>
               <ImageBackground source={despensa} style={styles.fondo}>
                 <View style={styles.view4}>

@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-export const state = {
-  allProductos: [
-    {},
-    {},
-    {},
-    {},
-    {},
-  ],
-
-}
-=======
 export const initialState = {
     allProducts:[
         {
@@ -99,4 +87,3 @@ export const initialState = {
     ],
 
 };
->>>>>>> a83f0984929b3152634990c4116d0b7650ac5894
