@@ -3,15 +3,15 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Header, Icon, Item, Input} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 
-const Buscador = (props) => {
+const Buscador = ({onSearch, toggle}) => {
     return (
       <Header searchBar style={styles.header}>
         <View style={styles.view} >
-          <Icon name="menu" style={styles.color} onPress={props.toggle}/>
+          <Icon name="menu" style={styles.color} onPress={toggle}/>
         </View>
         <Item style={styles.item}>
           <Icon name="ios-search" style={styles.icon}/>
-          <Input placeholder="Buscar" style={styles.input}/>
+          <Input onChangeText={onSearch} placeholder="Buscar" style={styles.input}/>
         </Item>
         <View style={styles.view}>
           <Icon name="ios-cart" style={styles.color} onPress={() => Actions.Carrito()}/>
