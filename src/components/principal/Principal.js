@@ -5,7 +5,6 @@ import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
 import {Card, CardItem, Icon, Button} from 'native-base';
 import cat1 from '../../assets/imgs/cat1.jpg';
-import despensa from '../../assets/imgs/despensa.png';
 import lacteos from '../../assets/imgs/lacteos.jpg';
 import carnes from '../../assets/imgs/carnes.jpg';
 import pan from '../../assets/imgs/pan.jpg';
@@ -20,8 +19,13 @@ import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
 import SideMenu from 'react-native-side-menu';
 import Menu from './Menu';
+import CategoryList from './listado/CategoryList';
+import {ResultList} from './listado/ResultList';
+//redux
+import {connect} from 'react-redux';
+import {setSearch} from '../../actions/filterActions';
 
-export default class Principal extends Component < {} > {
+class Principal extends Component < {} > {
   state = {
     modalVisible: null
   };
@@ -29,9 +33,11 @@ export default class Principal extends Component < {} > {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+        results:[]
     };
   }
+
 
   toggle = () => {
     this.setState({
@@ -61,451 +67,62 @@ export default class Principal extends Component < {} > {
     </View>
   );
 
+  onSearch = (value) => {
+    this.props.setSearch(value);
+    let results = this.props.allProducts;
+    const rEx = new RegExp(value,'i');
+    results = results.filter(p=>rEx.test(p.name) || rEx.test(p.description) || rEx.test(p.category));
+      this.setState({results})
+  };
+
   render() {
+    const {search} = this.props;
+    const {results} = this.state;
     return (
       <StyleProvider style={getTheme(material)}>
 
         <SideMenu menu={<Menu/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
-            <Buscador toggle={this.toggle}/>
 
+            <Buscador
+                onSearch={this.onSearch}
+                toggle={this.toggle}/>
+
+            <StatusBar hidden={true}/>
             <ScrollView style={styles.content}>
-              <StatusBar hidden={true}/>
-              <ImageBackground source={despensa} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text onPress={() => Actions.Detalle()} style={styles.texto}>
-                    DESPENSA
-                  </Text>
-                </View>
-              </ImageBackground>
 
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-                  <TouchableOpacity onPress={() => this.setState({visibleModal: 1})}>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
-                      }} style={styles.img}/>
-                    <View style={styles.view5}>
-                        <Icon name="ios-star-outline" style={styles.icon}/>
-                      </View>
-                    </Card>
-                  </TouchableOpacity>
 
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.agroindustriasmora.com/images/productos/papa.png'
-                      }} style={styles.img}/>
-                    <View style={styles.view5}>
-                        <Icon name="ios-star-outline" style={styles.icon}/>
-                      </View>
-                    </Card>
-                  </TouchableOpacity>
+                {!search ? <View>
+              <CategoryList
+                  fondo={lacteos}
+                  categoria="Despensa" />
+              <CategoryList
+                  fondo={carnes}
+                  categoria="Carnes" />
+              <CategoryList
+                  fondo={pan}
+                  categoria="Panaderia" />
+              <CategoryList
+                  fondo={jugos}
+                  categoria="Bebidas" />
+            </View>:
+                    <ResultList
+                      results={results}
+                    />
+                }
 
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://jalapeno.cz/wp-content/uploads/2015/02/SHU-stupnice-palivosti-chilli.jpg'
-                      }} style={styles.img}/>
-                    <View style={styles.view5}>
-                        <Icon name="ios-star-outline" style={styles.icon}/>
-                      </View>
-                    </Card>
-                  </TouchableOpacity>
-                </ScrollView>
-              </View>
 
-              <ImageBackground source={lacteos} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    LACTEOS
-                  </Text>
-                </View>
 
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
 
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://super.walmart.com.mx/images/product-images/img_large/00750102540304L.jpg'
-                      }} style={styles.img}/>
-                    <View style={styles.view5}>
-                        <Icon name="ios-star-outline" style={styles.icon}/>
-                      </View>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgatecommercial.com/App_Themes/ColgateStyle/Images/products/53096-lrg.png'
-                      }} style={styles.img}/>
-                    <View style={styles.view5}>
-                        <Icon name="ios-star-outline" style={styles.icon}/>
-                      </View>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://pedidos.com/myfotos/xLarge/(X)CLX-CLORO-930ML.jpg'
-                      }} style={styles.img}/>
-                    <View style={styles.view5}>
-                        <Icon name="ios-star-outline" style={styles.icon}/>
-                      </View>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    FRUTAS Y VERDURAS
-                  </Text>
-                </View>
-              </ImageBackground>
-
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.lamoderna.com.mx/templates/LaModerna/images/categories/pastas/pastas-la-moderna-mobile.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://i5.walmartimages.com/asr/4f552695-250f-4778-a1bf-b6aaa2f13728_1.135100d3d2562bc4adb81e96ddd88de6.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.chedraui.com.mx/media/catalog/product/cache/10/image/950x950/9df78eab33525d08d6e5fb8d27136e95/7/5/750103912014_00.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={carnes} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    CARNES Y PESCADOS
-                  </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={pan} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    PANADERIA
-                  </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={jugos} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    JUGOS
-                  </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={vinos} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    VINOS Y LICORES
-                  </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={higiene} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    HIGIENE
-                  </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={farm} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    FARMACIA
-                  </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={bb} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    BEBES
-                  </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={conge} style={styles.fondo}>
-                <View style={styles.view4}>
-                  <Text style={styles.texto}>
-                    CONGELADOS
-                  </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
               <Modal
-                isVisible={this.state.visibleModal === 1}
-                onBackdropPress={() => this.setState({visibleModal: null})}
-                animationIn={'slideInLeft'}
-                animationOut={'fadeOut'}>
-                {this._renderModalContent()}
+                    isVisible={this.state.visibleModal === 1}
+                    onBackdropPress={() => this.setState({visibleModal: null})}
+                    animationIn={'slideInLeft'}
+                    animationOut={'fadeOut'}>
+                    {this._renderModalContent()}
               </Modal>
 
             </ScrollView>
-
           </View>
         </SideMenu>
       </StyleProvider>
@@ -574,3 +191,13 @@ const styles = StyleSheet.create({
     color: "green"
   }
 });
+
+function mapStateToProps(state){
+  return {
+      search:state.filter.search,
+      allProducts:state.products.allProducts,
+  }
+}
+
+
+export default Principal = connect(mapStateToProps, {setSearch})(Principal);
