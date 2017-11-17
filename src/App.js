@@ -5,7 +5,7 @@ import Routes from './Routes';
 
 export const store = configureStore();
 
-export default class App extends Component < {} > {
+export default class App extends Component <{}> {
   render() {
     return (
       <Provider store={store}>

@@ -35,18 +35,6 @@ export default class Menu extends Component < {} > {
 
           <ListItem icon>
             <Left>
-              <Icon name="ios-basket" style={styles.iconoo}/>
-            </Left>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
-                <Text style={styles.textoC}>Despensa</Text>
-                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
-
-          <ListItem icon>
-            <Left>
               <Icon name="ios-ice-cream" style={styles.iconoo}/>
             </Left>
             <Body>

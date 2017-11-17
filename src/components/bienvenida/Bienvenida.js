@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, StatusBar, Image} from 'react-native';
 import {Button, Icon} from 'native-base';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
 import Swiper from 'react-native-swiper';
 import bienve3 from '../../assets/imgs/img5.jpg';
 import bienve2 from '../../assets/imgs/img4.jpg';
+import shoppy from '../../assets/imgs/shoppy.png'
 
 export default class Bienvenida extends Component < {} > {
   render() {
@@ -25,8 +26,7 @@ export default class Bienvenida extends Component < {} > {
 
           <ImageBackground source={img} style={styles.img}>
             <View style={styles.estiloImageB}>
-              <Icon name="md-cart" style={styles.icono}/>
-              <Text style={styles.text}>EAT FAST</Text>
+              <Image source={shoppy} style={styles.icono}/>
             </View>
           </ImageBackground>
 
@@ -126,8 +126,9 @@ const styles = StyleSheet.create({
     marginTop: 15
   },
   icono: {
-    color: 'white',
-    fontSize: 140,
+    marginTop: 50,
+    width: 220,
+    height: 93,
     alignSelf: 'center'
   }
 });

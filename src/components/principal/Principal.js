@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView, ImageBackground, TouchableOpacity, StyleSheet, StatusBar} from 'react-native';
+import {Text, View, Image, ScrollView, StyleSheet, StatusBar} from 'react-native';
 import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
-import {Card, CardItem, Icon, Button} from 'native-base';
-import cat1 from '../../assets/imgs/cat1.jpg';
+import {Card, Icon, Button} from 'native-base';
 import lacteos from '../../assets/imgs/lacteos.jpg';
 import carnes from '../../assets/imgs/carnes.jpg';
 import pan from '../../assets/imgs/pan.jpg';
@@ -13,6 +12,7 @@ import vinos from '../../assets/imgs/vinos.jpg';
 import farm from '../../assets/imgs/farm.jpg';
 import higiene from '../../assets/imgs/higiene.jpg';
 import bb from '../../assets/imgs/bb.jpeg';
+import cat1 from '../../assets/imgs/cat1.jpg';
 import conge from '../../assets/imgs/conge.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
@@ -48,21 +48,23 @@ class Principal extends Component < {} > {
     this.setState({isOpen})
   }
 
-  _renderModalContent = () => (<View style={styles.view3}>
-    <View style={styles.view}>
-      <Card>
-        <Image source={{
-            uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
-          }} style={styles.img2}/>
-      </Card>
-    </View>
+  _renderModalContent = () => (
+    <View style={styles.view3}>
+      <View style={styles.view}>
+        <Card>
+          <Image source={{
+              uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
+            }} style={styles.img2}/>
+        </Card>
+      </View>
 
-    <Text style={styles.text}>Jitomate</Text>
-    <Button bordered="bordered" iconRight="iconRight" style={styles.button} onPress={() => alert('Agregado!')}>
-      <Text>Agregar</Text>
-      <Icon name="cart" style={styles.icon}/>
-    </Button>
-  </View>);
+      <Text style={styles.text}>Jitomate</Text>
+      <Button bordered="bordered" iconRight="iconRight" style={styles.button} onPress={() => alert('Agregado!')}>
+        <Text>Agregar</Text>
+        <Icon name="cart" style={styles.icon}/>
+      </Button>
+    </View>
+  );
 
   onSearch = (value) => {
     this.props.setSearch(value);
@@ -75,38 +77,45 @@ class Principal extends Component < {} > {
   render() {
     const {search} = this.props;
     const {results} = this.state;
-    return (<StyleProvider style={getTheme(material)}>
+    return (
+      <StyleProvider style={getTheme(material)}>
+        <SideMenu menu={<Menu/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
+          <View style={styles.view}>
 
-      <SideMenu menu={<Menu/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
-        <View style={styles.view}>
+            <Buscador onSearch={this.onSearch} toggle={this.toggle}/>
 
-          <Buscador onSearch={this.onSearch} toggle={this.toggle}/>
+            <StatusBar hidden={true}/>
+            <ScrollView style={styles.content}>
 
-          <StatusBar hidden={true}/>
-          <ScrollView style={styles.content}>
+              {
+                !search
+                  ? <View>
+                      <CategoryList fondo={lacteos} categoria="Lacteos"/>
+                      <CategoryList fondo={cat1} categoria="Frutas y Verduras"/>
+                      <CategoryList fondo={carnes} categoria="Carnes y Pescados"/>
+                      <CategoryList fondo={pan} categoria="Penaderia"/>
+                      <CategoryList fondo={jugos} categoria="Jugos"/>
+                      <CategoryList fondo={vinos} categoria="Vinos y Licores"/>
+                      <CategoryList fondo={higiene} categoria="Higiene"/>
+                      <CategoryList fondo={farm} categoria="Farmacia"/>
+                      <CategoryList fondo={bb} categoria="Bebés"/>
+                      <CategoryList fondo={conge} categoria="Congelados"/>
+                    </View>
+                  : <ResultList results={results}/>
+              }
 
-            {
-              !search
-                ? <View>
-                    <CategoryList fondo={lacteos} categoria="Despensa"/>
-                    <CategoryList fondo={carnes} categoria="Carnes"/>
-                    <CategoryList fondo={pan} categoria="Panaderia"/>
-                    <CategoryList fondo={jugos} categoria="Bebidas"/>
-                  </View>
-                : <ResultList results={results}/>
-            }
+              <Modal
+                isVisible={this.state.visibleModal === 1}
+                onBackdropPress={() => this.setState({visibleModal: null})}
+                animationIn={'slideInLeft'} animationOut={'fadeOut'}>
+                {this._renderModalContent()}
+              </Modal>
 
-            <Modal
-              isVisible={this.state.visibleModal === 1}
-              onBackdropPress={() => this.setState({visibleModal: null})}
-              animationIn={'slideInLeft'} animationOut={'fadeOut'}>
-              {this._renderModalContent()}
-            </Modal>
-
-          </ScrollView>
-        </View>
-      </SideMenu>
-    </StyleProvider>);
+            </ScrollView>
+          </View>
+        </SideMenu>
+      </StyleProvider>
+    );
   }
 }
 
