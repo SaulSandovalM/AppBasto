@@ -161,7 +161,7 @@ export default class Menu extends Component < {} > {
                   <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
                     <Image style={styles.usuario} source={img}/>
                     <Text style={styles.text}>Pedido{'\n'}Status:
-                      <Text style={styles.textoc}>En Camino</Text>
+                      <Text style={styles.textoc}> En Camino</Text>
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -180,7 +180,7 @@ export default class Menu extends Component < {} > {
               </TouchableOpacity>
             </View>
           </View>
-}
+        }
       </View>
     );
   }
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: width,
     height: height,
-    backgroundColor: 'black'
+    backgroundColor: 'white'
   },
   container: {
     flexDirection: 'row',
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: width / 2 + 50,
     borderColor: '#000',
-    backgroundColor: 'black'
+    backgroundColor: 'white'
   },
   usuario: {
     width: 60,
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
-    color: 'white'
+    color: 'black'
   },
   texto: {
     color: 'black',
@@ -243,21 +243,20 @@ const styles = StyleSheet.create({
     marginLeft: 15
   },
   iconoo: {
-    color: 'orange',
+    color: '#8e1c58',
     fontSize: 20,
     marginRight: 5
   },
   textoC: {
-    color: 'white'
+    color: 'black'
   },
   cerrarS: {
-    backgroundColor: 'black',
-    borderWidth: 3,
+    backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-around'
   },
   textCerrar: {
-    color: 'white',
+    color: 'black',
     fontSize: 15
   },
   estiloTouch: {
@@ -271,7 +270,7 @@ const styles = StyleSheet.create({
   },
   icon2: {
     fontSize: 25,
-    color: 'orange',
+    color: '#8e1c58',
     marginRight: 5
   },
   nolog: {

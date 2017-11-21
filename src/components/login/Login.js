@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     marginRight: 40,
     marginLeft: 40,
     marginBottom: 10,
-    borderColor: '#8e1c58',
+    borderColor: 'orange',
     borderWidth: 1.5,
     backgroundColor: 'rgba(0,0,0,.5)'
   },
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     width: '78%',
     justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: '#8e1c58'
+    backgroundColor: 'orange'
   },
   icon: {
     backgroundColor: 'transparent',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     marginRight: 140,
     marginLeft: 140,
     marginBottom: 10,
-    backgroundColor: '#8e1c58'
+    backgroundColor: 'orange'
   },
   color: {
     color: 'white'

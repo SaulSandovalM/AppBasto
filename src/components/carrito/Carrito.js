@@ -43,7 +43,7 @@ export default class Carrito extends Component < {} > {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 20
   },
