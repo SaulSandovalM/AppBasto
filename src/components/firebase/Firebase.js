@@ -5,7 +5,7 @@ var config = {
     authDomain: "eatfast-f5acf.firebaseapp.com",
     databaseURL: "https://eatfast-f5acf.firebaseio.com",
     projectId: "eatfast-f5acf",
-    storageBucket: "",
+    storageBucket: "eatfast-f5acf.appspot.com",
     messagingSenderId: "354773888658"
 };
 firebase.initializeApp(config);

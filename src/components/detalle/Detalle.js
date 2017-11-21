@@ -4,7 +4,7 @@ import {Card, CardItem, Left, Button, Icon, Container, StyleProvider} from 'nati
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import img from '../../assets/imgs/despensa.png';
-import Cabecera from "../comun/Cabecera";
+import Cabecera from '../comun/Cabecera';
 
 export default class Detalle extends Component < {} > {
   render() {
@@ -120,11 +120,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   estiloCard: {
-    borderColor: 'green',
+    borderColor: '#8e1c58',
     borderWidth: 3
   },
   estiloCardI: {
-    borderColor: 'green',
+    borderColor: '#8e1c58',
     borderWidth: 1
   },
   cardL: {
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     alignSelf: 'stretch',
-    borderColor: 'green'
+    borderColor: '#8e1c58'
   },
   view: {
     flexDirection: 'row'
@@ -141,31 +141,10 @@ const styles = StyleSheet.create({
     height: 100,
     width: null,
     flex: 1,
-    borderColor: 'green',
+    borderColor: '#8e1c58',
     borderWidth: 1
   },
   icon: {
-    color: "green"
+    color: "#8e1c58"
   }
 });
-
-// const Detalle = ({ detalle }) => {
-//   const {nombre, precio, url} = detalle;
-//   return (
-//     <View style={styles.viewP}>
-//       <Card style={styles.estiloCard}>
-//         <CardItem style={styles.estiloCardI}>
-//           <Left style={styles.cardL}>
-//             <Text>{nombre}</Text>
-//             <Text note>{precio}</Text>
-//           </Left>
-//         </CardItem>
-//         <Image source={img} style={styles.img}/>
-//         <Button bordered iconRight style={styles.btn} onPress={() => alert('Agregado!')}>
-//           <Text >Agregar al Carrito</Text>
-//           <Icon name="cart" style={styles.icon}/>
-//         </Button>
-//       </Card>
-//     </View>
-//   );
-// };

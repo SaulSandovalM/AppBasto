@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Icon} from 'native-base';
+import {Card, Icon, Text} from 'native-base';
 import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
 
 export const ProductItem = ({setVisible, index, image}) => {
@@ -10,6 +10,7 @@ export const ProductItem = ({setVisible, index, image}) => {
             uri: image
           }} style={styles.img}/>
         <View style={styles.view5}>
+          <Text style={styles.precio}>$50.00</Text>
           <Icon name="ios-star-outline" style={styles.icon}/>
         </View>
       </Card>
@@ -37,8 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   view5: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
+    flexDirection: 'row'
   },
   content: {
     backgroundColor: '#fff'
@@ -76,5 +76,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: "green"
+  },
+  precio: {
+    width: 120,
+    marginTop: 5
   }
 });
