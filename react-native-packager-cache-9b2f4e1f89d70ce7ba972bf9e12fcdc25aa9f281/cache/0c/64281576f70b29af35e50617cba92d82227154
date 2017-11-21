@@ -1,0 +1,974 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/principal/Menu.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _usuario = require('../../assets/imgs/usuario.jpg');
+
+var _usuario2 = _interopRequireDefault(_usuario);
+
+var _nativeBase = require('native-base');
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  Menu: {
+    displayName: 'Menu'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/jose/V\xEDdeos/AppBasto/src/components/principal/Menu.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    width = _Dimensions$get.width,
+    height = _Dimensions$get.height;
+
+var Menu = _wrapComponent('Menu')(function (_Component) {
+  _inherits(Menu, _Component);
+
+  function Menu() {
+    _classCallCheck(this, Menu);
+
+    return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+  }
+
+  _createClass(Menu, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.menu, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.ScrollView,
+          { style: styles.content, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            }
+          },
+          _react3.default.createElement(
+            _nativeBase.List,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 14
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 16
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 17
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 18
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 20
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 21
+                    }
+                  },
+                  'Despensa'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 23
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 24
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 25
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 30
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 31
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 32
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 34
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 35
+                    }
+                  },
+                  'L\xE1cteos'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 37
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 38
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 39
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 44
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 45
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 46
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 48
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 49
+                    }
+                  },
+                  'Frutas y Verduras'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 51
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 52
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 53
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 58
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 59
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 60
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 62
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 63
+                    }
+                  },
+                  'Carnes y Pescados'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 65
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 66
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 67
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 72
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 73
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 74
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 76
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 77
+                    }
+                  },
+                  'Salchichoneria'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 79
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 80
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 81
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 86
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 87
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 88
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 90
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 91
+                    }
+                  },
+                  'Panaderia'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 93
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 94
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 95
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 100
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 101
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 102
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 104
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 105
+                    }
+                  },
+                  'Jugos'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 107
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 108
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 109
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 114
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 115
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 116
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 118
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 119
+                    }
+                  },
+                  'Vinos y Licores'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 121
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 122
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 123
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 128
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 129
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 130
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 132
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 133
+                    }
+                  },
+                  'Higiene'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 135
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 136
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 137
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 142
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 143
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 144
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 146
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 147
+                    }
+                  },
+                  'Farmacia'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 149
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 150
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 151
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 156
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 157
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 158
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 160
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 161
+                    }
+                  },
+                  'Beb\xE9s'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 163
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 164
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 165
+                    }
+                  })
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              { icon: true, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 170
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Left,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 171
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 172
+                  }
+                })
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 174
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 175
+                    }
+                  },
+                  'Congelados'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 177
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.TouchableOpacity,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 178
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 179
+                    }
+                  })
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.container, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 186
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.View,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 187
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.TouchableOpacity,
+              { style: styles.usuarioImagen, onPress: function onPress() {
+                  return _reactNativeRouterFlux.Actions.Perfil();
+                }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 188
+                }
+              },
+              _react3.default.createElement(_reactNative.Image, { style: styles.usuario, source: _usuario2.default, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 189
+                }
+              }),
+              _react3.default.createElement(
+                _reactNative.Text,
+                { style: styles.text, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 190
+                  }
+                },
+                'Pedido',
+                '\n',
+                'Status: ',
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoc, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 190
+                    }
+                  },
+                  'En Camino'
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Menu;
+}(_react2.Component));
+
+exports.default = Menu;
+
+
+var styles = _reactNative.StyleSheet.create({
+  menu: {
+    flex: 1,
+    width: width,
+    height: height,
+    backgroundColor: 'black'
+  },
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: width / 2 + 50,
+    borderColor: '#000',
+    backgroundColor: 'black'
+  },
+  usuario: {
+    width: 60,
+    height: 60,
+    margin: 20,
+    marginTop: 30
+  },
+  usuarioImagen: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  text: {
+    fontSize: 15,
+    color: 'white'
+  },
+  texto: {
+    color: 'black',
+    fontSize: 15,
+    marginLeft: 15
+  },
+  textoc: {
+    color: 'green'
+  },
+  textWithIcon: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    borderColor: 'red',
+    margin: 5
+  },
+  withIcon: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    margin: 10
+  },
+  content: {
+    width: width / 2 + 59
+  },
+  icon: {
+    marginRight: 10,
+    marginLeft: 15
+  },
+  iconoo: {
+    color: 'orange'
+  },
+  textoC: {
+    color: 'white'
+  }
+});

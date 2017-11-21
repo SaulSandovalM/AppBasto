@@ -1,92 +1,134 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native';
-// import Video from 'react-native-video';
-// import video from './src/assets/video/video.mp4';
-import {Button} from 'native-base';
+import {StyleSheet, Text, View, ImageBackground, StatusBar, Image} from 'react-native';
+import {Button, Icon} from 'native-base';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
-import {Buttonn} from "../comun";
-
-const Texto = Platform.select({
-  ios: 'DE LA CENTRAL\n A TU HOGAR,\n EN MINUTOS',
-  android: 'DE LA CENTRAL\n A TU HOGAR,\n EN MINUTOS',
-  //pensar en la frase de inicio
-});
+import Swiper from 'react-native-swiper';
+import bienve3 from '../../assets/imgs/img5.jpg';
+import bienve2 from '../../assets/imgs/img4.jpg';
+import shoppy from '../../assets/imgs/shoppy.png'
 
 export default class Bienvenida extends Component < {} > {
   render() {
     return (
-      <ImageBackground source={img} style={styles.img}>
+      <View style={styles.viewP}>
         <StatusBar hidden={true}/>
-        <View>
-          <View style={styles.container}>
-          <Text style={styles.nombre}>AppBasto</Text>
-          </View>
+        <Swiper
+          loop={false}
+          showsPagination={false}
+          showsButtons={true}
+          nextButton={
+            <Text style = {styles.estiloF}> › </Text>
+          }
+          prevButton={
+            <Text style = {styles.estiloF}> ‹ </Text>
+          }>
 
-          <View style={styles.container}>
-          <Text style={styles.texto}>{Texto}</Text>
-          </View>
-          <View style={styles.content}>
-            <Button rounded block style={styles.buttonIngreso} onPress={() => Actions.Login()}>
-              <Text style={styles.boton}>COMENZAR</Text>
-            </Button>
-          </View>
-        </View>
+          <ImageBackground source={img} style={styles.img}>
+            <View style={styles.estiloImageB}>
+              <Image source={shoppy} style={styles.icono}/>
+            </View>
+          </ImageBackground>
 
-      </ImageBackground>
+          <ImageBackground source={bienve2} style={styles.img}>
+            <View style={styles.estiloImageB}>
+              <Text style={styles.text}>¿IR AL SUPER?</Text>
+            </View>
+          </ImageBackground>
+
+          <ImageBackground source={bienve3} style={styles.img2}>
+            <View style={styles.estiloImagenF}>
+
+              <View style={styles.estiloMargen}>
+                <Text style={styles.text}>NOSOTROS{'\n'}VAMOS</Text>
+              </View>
+
+              <View style={styles.estiloV}>
+                <Button rounded success onPress={() => Actions.Login()} style={styles.estiloButton}>
+                  <Text style={styles.estiloTexto}>
+                    INICIAR SESIÓN
+                  </Text>
+                </Button>
+
+                <Text style={styles.estiloTexto2} onPress={() => Actions.Principal()}>
+                  VER PRODUCTOS
+                </Text>
+              </View>
+            </View>
+          </ImageBackground>
+        </Swiper>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  viewP: {
     flex: 1
   },
-  content: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
-    margin: 15
-  },
-  content2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 100
+  estiloF: {
+    fontSize: 100,
+    color: 'orange'
   },
   img: {
     justifyContent: 'space-around',
     alignItems: 'center',
-    flex: 2,
-    height: null,
-    width: null,
-    opacity: 15
+    height: '100%',
+    width: '100%'
   },
-  buttonIngreso: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginBottom: 10,
-    backgroundColor: '#4DA49B'
+  estiloImageB: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center'
   },
   text: {
-    color: 'white',
-    marginTop: 10
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+    alignSelf: 'center'
   },
-  texto: {
-    color: 'white',
-    backgroundColor: 'transparent',
-    fontSize: 45
+  img2: {
+    height: '100%',
+    width: '100%'
   },
-  nombre: {
-    color: 'white',
-    backgroundColor: 'transparent',
-    margin: 25,
-    fontSize: 20,
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
+  estiloImagenF: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'space-between'
   },
-  boton: {
+  estiloMargen: {
+    marginTop: '77%',
+    alignSelf: 'center'
+  },
+  estiloV: {
+    alignSelf: 'center',
+    marginBottom: '20%',
+    width: '100%'
+  },
+  estiloButton: {
+    width: '78%',
+    alignSelf: 'center',
+    backgroundColor: 'orange',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  estiloTexto: {
     color: 'white',
-    fontWeight: 'bold'
+    fontSize: 16,
+    alignSelf: 'center'
+  },
+  estiloTexto2: {
+    color: 'white',
+    fontSize: 16,
+    alignSelf: 'center',
+    marginTop: 15
+  },
+  icono: {
+    marginTop: 50,
+    width: 220,
+    height: 93,
+    alignSelf: 'center'
   }
 });

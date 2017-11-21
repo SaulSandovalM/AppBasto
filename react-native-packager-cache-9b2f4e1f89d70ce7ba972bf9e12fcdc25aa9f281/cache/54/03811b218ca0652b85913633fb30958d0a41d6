@@ -1,0 +1,635 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/carrito/Carrito.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _nativeBase = require('native-base');
+
+var _Cabecera = require('../comun/Cabecera');
+
+var _Cabecera2 = _interopRequireDefault(_Cabecera);
+
+var _components2 = require('../../../native-base-theme/components');
+
+var _components3 = _interopRequireDefault(_components2);
+
+var _material = require('../../../native-base-theme/variables/material');
+
+var _material2 = _interopRequireDefault(_material);
+
+var _bienvenida = require('../../assets/imgs/bienvenida.jpg');
+
+var _bienvenida2 = _interopRequireDefault(_bienvenida);
+
+var _Select = require('./Select');
+
+var _Select2 = _interopRequireDefault(_Select);
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  Carrito: {
+    displayName: 'Carrito'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/jose/V\xEDdeos/AppBasto/src/components/carrito/Carrito.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var Carrito = _wrapComponent('Carrito')(function (_Component) {
+  _inherits(Carrito, _Component);
+
+  function Carrito() {
+    _classCallCheck(this, Carrito);
+
+    return _possibleConstructorReturn(this, (Carrito.__proto__ || Object.getPrototypeOf(Carrito)).apply(this, arguments));
+  }
+
+  _createClass(Carrito, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        _nativeBase.StyleProvider,
+        { style: (0, _components3.default)(_material2.default), __source: {
+            fileName: _jsxFileName,
+            lineNumber: 14
+          }
+        },
+        _react3.default.createElement(
+          _nativeBase.Container,
+          { style: styles.fondo, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 15
+            }
+          },
+          _react3.default.createElement(_Cabecera2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 16
+            }
+          }),
+          _react3.default.createElement(
+            _nativeBase.List,
+            { style: styles.list, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 17
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 18
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 19
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.text1, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 20
+                    }
+                  },
+                  'Imagen'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 22
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.text1, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 23
+                    }
+                  },
+                  'Nombre'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 25
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.text1, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 26
+                    }
+                  },
+                  'Precio U'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 28
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.text1, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 29
+                    }
+                  },
+                  'Cantidad'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 31
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.total, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 32
+                    }
+                  },
+                  'Total'
+                )
+              )
+            )
+          ),
+          _react3.default.createElement(
+            _reactNative.ScrollView,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 37
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.List,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 38
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.ListItem,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 39
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Thumbnail, { square: true, size: 80, source: _bienvenida2.default, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 40
+                  }
+                }),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 41
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 42
+                      }
+                    },
+                    'Manzanas'
+                  )
+                ),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 44
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 45
+                      }
+                    },
+                    '$25.00'
+                  )
+                ),
+                _react3.default.createElement(_Select2.default, {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 47
+                  }
+                }),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 48
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.totalP, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 49
+                      }
+                    },
+                    '$25.00'
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.ListItem,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 53
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Thumbnail, { square: true, size: 80, source: _bienvenida2.default, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 54
+                  }
+                }),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 55
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 56
+                      }
+                    },
+                    'Manzanas'
+                  )
+                ),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 58
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 59
+                      }
+                    },
+                    '$25.00'
+                  )
+                ),
+                _react3.default.createElement(_Select2.default, {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 61
+                  }
+                }),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 62
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.totalP, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 63
+                      }
+                    },
+                    '$25.00'
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.ListItem,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 67
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Thumbnail, { square: true, size: 80, source: _bienvenida2.default, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 68
+                  }
+                }),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 69
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 70
+                      }
+                    },
+                    'Manzanas'
+                  )
+                ),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 72
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 73
+                      }
+                    },
+                    '$25.00'
+                  )
+                ),
+                _react3.default.createElement(_Select2.default, {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 75
+                  }
+                }),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 76
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.totalP, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 77
+                      }
+                    },
+                    '$25.00'
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.ListItem,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 81
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Thumbnail, { square: true, size: 80, source: _bienvenida2.default, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 82
+                  }
+                }),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 83
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 84
+                      }
+                    },
+                    'Manzanas'
+                  )
+                ),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 86
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 87
+                      }
+                    },
+                    '$25.00'
+                  )
+                ),
+                _react3.default.createElement(_Select2.default, {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 89
+                  }
+                }),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 90
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.totalP, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 91
+                      }
+                    },
+                    '$25.00'
+                  )
+                )
+              )
+            )
+          ),
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.card, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 97
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.CardItem,
+              { style: styles.cardItem, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 98
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.Text,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 99
+                  }
+                },
+                'Total a Pagar'
+              ),
+              _react3.default.createElement(
+                _reactNative.Text,
+                { style: styles.pago, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 100
+                  }
+                },
+                '$500.00 MXN'
+              )
+            ),
+            _react3.default.createElement(
+              _nativeBase.Button,
+              { block: true, style: styles.boton, onPress: function onPress() {
+                  return _reactNativeRouterFlux.Actions.StatusOrden();
+                }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 103
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.Text,
+                { style: styles.text, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 104
+                  }
+                },
+                'Pagar'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Carrito;
+}(_react2.Component));
+
+exports.default = Carrito;
+
+
+var styles = _reactNative.StyleSheet.create({
+  text: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  text1: {
+    color: 'black',
+    fontWeight: 'bold'
+  },
+  total: {
+    color: 'black',
+    marginLeft: 10,
+    fontWeight: 'bold'
+  },
+  totalP: {
+    marginLeft: 15
+  },
+  boton: {
+    backgroundColor: 'orange',
+    width: '100%'
+  },
+  list: {
+    backgroundColor: 'white'
+  },
+  cardItem: {
+    alignSelf: 'center',
+    flexDirection: 'column'
+  },
+  pago: {
+    fontSize: 20
+  },
+  card: {
+    flexDirection: 'column',
+    justifyContent: 'center'
+  },
+  fondo: {
+    backgroundColor: 'white'
+  }
+});

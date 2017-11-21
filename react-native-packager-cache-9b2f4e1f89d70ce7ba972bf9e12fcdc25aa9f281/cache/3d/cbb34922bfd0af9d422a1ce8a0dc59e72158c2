@@ -1,0 +1,279 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/login/Recover.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _nativeBase = require('native-base');
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _login = require('../../assets/imgs/login.jpeg');
+
+var _login2 = _interopRequireDefault(_login);
+
+var _Firebase = require('../firebase/Firebase');
+
+var _Firebase2 = _interopRequireDefault(_Firebase);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  Registro: {
+    displayName: 'Registro'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/jose/V\xEDdeos/AppBasto/src/components/login/Recover.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var Registro = _wrapComponent('Registro')(function (_Component) {
+  _inherits(Registro, _Component);
+
+  function Registro(props) {
+    _classCallCheck(this, Registro);
+
+    var _this = _possibleConstructorReturn(this, (Registro.__proto__ || Object.getPrototypeOf(Registro)).call(this, props));
+
+    _this.state = {
+      correo: '',
+      verifyCorreo: '',
+      error: '',
+      loading: false
+    };
+
+    _this.recover = _this.recover.bind(_this);
+    return _this;
+  }
+
+  _createClass(Registro, [{
+    key: 'recover',
+    value: function recover() {
+      var _state = this.state,
+          correo = _state.correo,
+          verifyCorreo = _state.verifyCorreo;
+
+      this.setState({ error: '', loading: true });
+      if (correo == verifyCorreo && correo != null && verifyCorreo != null) {
+        _Firebase.firebaseAuth.sendPasswordResetEmail(correo).then(function () {
+          _reactNativeRouterFlux.Actions.Login();
+          _nativeBase.Toast.show({
+            text: 'Revisa tu correo, continua los pasos', position: 'bottom', buttonText: 'OK', type: 'success' });
+        }, function (error) {
+          _nativeBase.Toast.show({
+            text: 'Correo inválido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger' });
+        });
+      }
+    }
+  }, {
+    key: 'buttonCorreo',
+    value: function buttonCorreo() {
+      var _this2 = this;
+
+      var _state2 = this.state,
+          verifyCorreo = _state2.verifyCorreo,
+          correo = _state2.correo;
+
+      if (verifyCorreo == correo) {
+        return _react3.default.createElement(
+          _nativeBase.Item,
+          { success: true, style: styles.inputRounded, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 40
+            }
+          },
+          _react3.default.createElement(_nativeBase.Input, {
+            placeholder: 'Correo electr\xF3nico',
+            keyboardType: 'email-address',
+            placeholderTextColor: '#000',
+            returnKeyType: 'next',
+            autoCapitalize: 'none',
+            value: this.state.verifyCorreo,
+            onChangeText: function onChangeText(verifyCorreo) {
+              return _this2.setState({ verifyCorreo: verifyCorreo });
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            }
+          }),
+          _react3.default.createElement(_nativeBase.Icon, { name: 'checkmark-circle', style: styles.icon, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 49
+            }
+          })
+        );
+      }
+
+      return _react3.default.createElement(
+        _nativeBase.Item,
+        { error: true, style: styles.inputRounded, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 55
+          }
+        },
+        _react3.default.createElement(_nativeBase.Input, {
+          placeholder: 'Correo electr\xF3nico',
+          keyboardType: 'email-address',
+          placeholderTextColor: '#000',
+          returnKeyType: 'next',
+          autoCapitalize: 'none',
+          value: this.state.verifyCorreo,
+          onChangeText: function onChangeText(verifyCorreo) {
+            return _this2.setState({ verifyCorreo: verifyCorreo });
+          }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56
+          }
+        }),
+        _react3.default.createElement(_nativeBase.Icon, { name: 'close-circle', style: styles.icon, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 64
+          }
+        })
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      return _react3.default.createElement(
+        _reactNative.ImageBackground,
+        { source: _login2.default, style: styles.img, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 71
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.view, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 73
+            }
+          },
+          _react3.default.createElement(
+            _nativeBase.Item,
+            { style: styles.inputRounded, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 74
+              }
+            },
+            _react3.default.createElement(_nativeBase.Input, {
+              placeholder: 'Correo electr\xF3nico',
+              keyboardType: 'email-address',
+              placeholderTextColor: '#000',
+              returnKeyType: 'next',
+              autoCapitalize: 'none',
+              value: this.state.correo,
+              onChangeText: function onChangeText(correo) {
+                return _this3.setState({ correo: correo });
+              }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 75
+              }
+            })
+          ),
+          this.buttonCorreo()
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.content, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 89
+            }
+          },
+          _react3.default.createElement(
+            _nativeBase.Button,
+            { block: true, style: styles.button, onPress: this.recover.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 90
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              { style: styles.boton, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 91
+                }
+              },
+              'RECUPERAR CONTRASE\xD1A'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Registro;
+}(_react2.Component));
+
+exports.default = Registro;
+
+
+var styles = _reactNative.StyleSheet.create({
+  img: {
+    justifyContent: 'flex-end',
+    flex: 2,
+    height: null,
+    width: null
+  },
+  view: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center'
+  },
+  inputRounded: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginBottom: 10,
+    borderColor: '#000',
+    borderWidth: 1.5,
+    backgroundColor: 'transparent'
+  },
+  boton: {
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  button: {
+    width: '78%',
+    alignSelf: 'center',
+    backgroundColor: '#4DA49B'
+  },
+  content: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    margin: 15
+  },
+  icon: {
+    marginRight: 10
+  }
+});

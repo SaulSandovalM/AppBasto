@@ -1,20 +1,55 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, TouchableOpacity, StatusBar} from 'react-native';
-import {Button, Input, Item} from 'native-base';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
 import {Actions} from 'react-native-router-flux';
-import img from '../../assets/imgs/login.jpeg';
+import Video from 'react-native-video';
+import videop from '../../assets/video/videop.mp4';
+import {connect} from 'react-redux';
+import {emailChanged, passwordChanged, loginUser} from '../../actions';
 
-export default class Login extends Component < {} > {
+class Login extends Component <{}> {
+  onEmailChange(text) {
+    this.props.emailChanged(text);
+  }
+
+  onPasswordChange(text) {
+    this.props.passwordChanged(text);
+  }
+
+  onButtonPress() {
+    const {email, password} = this.props;
+    this.props.loginUser({email, password});
+  }
+
+  renderButton() {
+    if (this.props.loading) {
+      return <Spinner size="large" color='white'/>
+    }
+
+    return (
+      <Button rounded style={styles.button} onPress={this.onButtonPress.bind(this)}>
+        <Text style={styles.boton}>INICIAR SESIÓN</Text>
+      </Button>
+    );
+  }
+
   render() {
     return (
-      <ImageBackground source={img} style={styles.img}>
-        <StatusBar hidden={true} />
+      <View style={styles.img}>
 
-        <View>
-          <View style={styles.adelante}>
-            <Text style={styles.texto}
-              onPress={() => Actions.Principal()}>INICIA SESIÓN MAS ADELANTE</Text>
-          </View>
+        <Video
+          source={videop}
+          rate={1.0}
+          muted={true}
+          resizeMode={"cover"}
+          repeat
+          style={styles.video}/>
+
+        <View style={styles.view4}>
+          <Icon
+            name="ios-arrow-back"
+            style={styles.icon}
+            onPress={() => Actions.pop()}/>
         </View>
 
         <View>
@@ -23,22 +58,31 @@ export default class Login extends Component < {} > {
               name="correo"
               placeholder='Correo electrónico'
               keyboardType='email-address'
-              placeholderTextColor='#000'
+              placeholderTextColor='#fff'
               returnKeyType='next'
-              autoCapitalize='none'/>
+              autoCapitalize='none'
+              style={styles.color}
+              onChangeText={this.onEmailChange.bind(this)}
+              value={this.props.email}/>
           </Item>
 
           <Item style={styles.inputRounded}>
             <Input
               name="password"
               placeholder='Contraseña'
-              placeholderTextColor='#000'
-              secureTextEntry={true}/>
+              placeholderTextColor='#fff'
+              secureTextEntry={true}
+              style={styles.color}
+              onChangeText={this.onPasswordChange.bind(this)}
+              value={this.props.password}/>
           </Item>
 
-          <Button block style={styles.button} onPress={() => Actions.Principal()}>
-            <Text style={styles.boton}>INICIAR SESIÓN</Text>
-          </Button>
+          {this.renderButton()}
+
+          <Text style={styles.errorText}>
+            {this.props.error}
+          </Text>
+
         </View>
 
         <View style={styles.view2}>
@@ -53,16 +97,21 @@ export default class Login extends Component < {} > {
                 <Text style={styles.text1}>Crear Cuenta</Text>
               </TouchableOpacity>
             </View>
-
           </View>
         </View>
-
-      </ImageBackground>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  video: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  },
   img: {
     justifyContent: 'flex-end',
     flex: 2,
@@ -89,23 +138,28 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginBottom: 10
   },
+  view4: {
+    flex: 1,
+    margin: 20
+  },
   inputRounded: {
     marginRight: 40,
     marginLeft: 40,
     marginBottom: 10,
-    borderColor: '#000',
+    borderColor: '#8e1c58',
     borderWidth: 1.5,
-    backgroundColor: 'transparent'
+    backgroundColor: 'rgba(0,0,0,.5)'
   },
   boton: {
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    alignSelf: 'center'
   },
   text: {
-    color: 'black'
+    color: 'white'
   },
   text1: {
-    color: 'black',
+    color: 'white',
     fontSize: 18
   },
   adelante: {
@@ -115,7 +169,34 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '78%',
+    justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: '#4DA49B'
+    backgroundColor: '#8e1c58'
+  },
+  icon: {
+    backgroundColor: 'transparent',
+    color: 'orange',
+    fontSize: 50
+  },
+  buttonSpinner: {
+    marginRight: 140,
+    marginLeft: 140,
+    marginBottom: 10,
+    backgroundColor: '#8e1c58'
+  },
+  color: {
+    color: 'white'
+  },
+  errorText: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
   }
 });
+
+const mapStateToProps = ({auth}) => {
+  const {email, password, error, loading} = auth
+  return {email, password, error, loading};
+};
+
+export default connect(mapStateToProps, {loginUser, emailChanged, passwordChanged})(Login);

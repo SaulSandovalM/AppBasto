@@ -1,0 +1,68 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Buttonn = undefined;
+var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/comun/Buttonn.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Buttonn = function Buttonn(_ref) {
+  var onPress = _ref.onPress,
+      children = _ref.children;
+  var buttonStyle = styles.buttonStyle,
+      textStyle = styles.textStyle;
+
+  return _react2.default.createElement(
+    _reactNative.TouchableOpacity,
+    { style: buttonStyle, onPress: onPress, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7
+      }
+    },
+    _react2.default.createElement(
+      _reactNative.Text,
+      { style: textStyle, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        }
+      },
+      children
+    )
+  );
+};
+
+var styles = {
+  buttonStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: 57,
+    paddingTop: 6,
+    paddingBottom: 6,
+    backgroundColor: '#4DA49B',
+    borderColor: '#3F51B5',
+    height: 45,
+    flexDirection: 'row',
+    elevation: 2,
+    alignItems: 'center',
+    marginRight: 40,
+    marginLeft: 40,
+    marginBottom: 10,
+    top: 5
+  },
+  textStyle: {
+    alignSelf: 'center',
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600'
+
+  }
+};
+
+exports.Buttonn = Buttonn;

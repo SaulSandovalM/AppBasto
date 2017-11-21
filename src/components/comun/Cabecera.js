@@ -4,15 +4,11 @@ import {Header, Left, Icon, Body, Right} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 
 export default class Cabecera extends Component {
-  atras() {
-   Actions.pop()
- }
-
   render() {
     return (
       <Header style={styles.header}>
         <Left>
-          <TouchableOpacity onPress={this.atras.bind(this)}>
+          <TouchableOpacity onPress={() => Actions.pop()}>
             <Icon name='ios-arrow-back' style={styles.color}/>
           </TouchableOpacity>
           </Left>
@@ -25,9 +21,9 @@ export default class Cabecera extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#1CAF57"
+    backgroundColor: '#8e1c58'
   },
   color: {
-    color: "white",
+    color: 'white',
   }
 });

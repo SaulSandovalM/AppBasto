@@ -1,29 +1,40 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView, ImageBackground, TouchableOpacity, StyleSheet, StatusBar} from 'react-native';
+import {Text, View, Image, ScrollView, StyleSheet, StatusBar} from 'react-native';
 import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
-import {Icon} from 'native-base';
-import {CardSection, Card, Header,CardSectionn} from '../comun';
-import cat1 from '../../assets/imgs/cat1.jpg'
-import cat2 from '../../assets/imgs/cat2.jpg'
-import cat3 from '../../assets/imgs/cat3.jpg'
-import cat4 from '../../assets/imgs/cat4.jpg'
+import {Card, Icon, Button} from 'native-base';
+import lacteos from '../../assets/imgs/lacteos.jpg';
+import carnes from '../../assets/imgs/carnes.jpg';
+import pan from '../../assets/imgs/pan.jpg';
+import jugos from '../../assets/imgs/jugos.jpg';
+import vinos from '../../assets/imgs/vinos.jpg';
+import farm from '../../assets/imgs/farm.jpg';
+import higiene from '../../assets/imgs/higiene.jpg';
+import bb from '../../assets/imgs/bb.jpeg';
+import cat1 from '../../assets/imgs/cat1.jpg';
+import conge from '../../assets/imgs/conge.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
 import SideMenu from 'react-native-side-menu';
 import Menu from './Menu';
-import {Encabezado} from "../comun/Encabezado";
+import CategoryList from './listado/CategoryList';
+import {ResultList} from './listado/ResultList';
+//redux
+import {connect} from 'react-redux';
+import {setSearch} from '../../actions/filterActions';
 
-export default class Principal extends Component < {} > {
-    state = {
-        modalVisible: null,
-    };
-  constructor(props){
-  	super(props);
-  	this.state = {
-      isOpen: false
+class Principal extends Component < {} > {
+  state = {
+    modalVisible: null
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      results: []
     };
   }
 
@@ -33,212 +44,76 @@ export default class Principal extends Component < {} > {
     })
   };
 
-  actualizar(isOpen){
-    this.setState({
-      isOpen
-    })
+  actualizar(isOpen) {
+    this.setState({isOpen})
   }
 
-    _renderModalContent = () => (
-        <View style={{width:200, alignSelf:'center'}}>
+  _renderModalContent = () => (
+    <View style={styles.view3}>
+      <View style={styles.view}>
+        <Card>
+          <Image source={{
+              uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
+            }} style={styles.img2}/>
+        </Card>
+      </View>
 
-          <CardSectionn >
+      <Text style={styles.text}>Jitomate</Text>
+      <Button bordered="bordered" iconRight="iconRight" style={styles.button} onPress={() => alert('Agregado!')}>
+        <Text>Agregar</Text>
+        <Icon name="cart" style={styles.icon}/>
+      </Button>
+    </View>
+  );
 
-            <Image source={{
-                uri: 'http://cdn2.cocinadelirante.com/sites/default/files/images/2017/02/jitomate2.jpg'
-            }} style={{
-                height: 200,
-                width: 200,
-                flex: 1
-            }}/>
-          </CardSectionn>
-
-          <CardSectionn >
-            <Text>Jitomate</Text>
-          </CardSectionn>
-          <CardSectionn >
-            <Text style={{marginRight:40, marginLeft:60}}>$20.00 Kg</Text>
-            <Icon name="cart" style={{color: "green"}}/>
-          </CardSectionn>
-        </View>
-    );
+  onSearch = (value) => {
+    this.props.setSearch(value);
+    let results = this.props.allProducts;
+    const rEx = new RegExp(value, 'i');
+    results = results.filter(p => rEx.test(p.name) || rEx.test(p.description) || rEx.test(p.category));
+    this.setState({results})
+  };
 
   render() {
+    const {search} = this.props;
+    const {results} = this.state;
     return (
-
       <StyleProvider style={getTheme(material)}>
-
-        <SideMenu
-          menu={<Menu/>}
-          isOpen={this.state.isOpen}
-          onChange={(isOpen) => this.actualizar(isOpen)}>
+        <SideMenu menu={<Menu/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
-            <Buscador toggle={this.toggle} />
 
+            <Buscador onSearch={this.onSearch} toggle={this.toggle}/>
+
+            <StatusBar hidden={true}/>
             <ScrollView style={styles.content}>
-              <StatusBar hidden={true} />
-              <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text onPress={() => Actions.Detalle()} style={styles.texto}>
-                  CATEGORIA 1
-                </Text>
-                </View>
-              </ImageBackground>
 
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-                  <TouchableOpacity onPress={() => this.setState({ visibleModal: 1 })}>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
+              {
+                !search
+                  ? <View>
+                      <CategoryList fondo={lacteos} categoria="Lacteos"/>
+                      <CategoryList fondo={cat1} categoria="Frutas y Verduras"/>
+                      <CategoryList fondo={carnes} categoria="Carnes y Pescados"/>
+                      <CategoryList fondo={pan} categoria="Penaderia"/>
+                      <CategoryList fondo={jugos} categoria="Jugos"/>
+                      <CategoryList fondo={vinos} categoria="Vinos y Licores"/>
+                      <CategoryList fondo={higiene} categoria="Higiene"/>
+                      <CategoryList fondo={farm} categoria="Farmacia"/>
+                      <CategoryList fondo={bb} categoria="Bebés"/>
+                      <CategoryList fondo={conge} categoria="Congelados"/>
+                    </View>
+                  : <ResultList results={results}/>
+              }
 
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.agroindustriasmora.com/images/productos/papa.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://jalapeno.cz/wp-content/uploads/2015/02/SHU-stupnice-palivosti-chilli.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text style={styles.texto}>
-                  CATEGORIA 2
-                </Text>
-                </View>
-
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://super.walmart.com.mx/images/product-images/img_large/00750102540304L.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgatecommercial.com/App_Themes/ColgateStyle/Images/products/53096-lrg.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://pedidos.com/myfotos/xLarge/(X)CLX-CLORO-930ML.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text style={styles.texto} onPress={() => Actions.PruebaM()}>
-                  CATEGORIA 3
-                </Text>
-                </View>
-              </ImageBackground>
-
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.lamoderna.com.mx/templates/LaModerna/images/categories/pastas/pastas-la-moderna-mobile.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://i5.walmartimages.com/asr/4f552695-250f-4778-a1bf-b6aaa2f13728_1.135100d3d2562bc4adb81e96ddd88de6.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.chedraui.com.mx/media/catalog/product/cache/10/image/950x950/9df78eab33525d08d6e5fb8d27136e95/7/5/750103912014_00.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
-
-              <ImageBackground source={cat1} style={styles.fondo}>
-                <View style={{backgroundColor:'rgba(0,0,0,.5)', height:'100%', width:'100%', justifyContent:'center' }}>
-                <Text style={styles.texto}>
-                  CATEGORIA 4
-                </Text>
-                </View>
-              </ImageBackground>
-              <View style={styles.view2}>
-                <ScrollView horizontal={true} style={styles.scroll}>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity>
-                    <Card>
-                      <Image source={{
-                        uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                      }} style={styles.img}/>
-                    </Card>
-                  </TouchableOpacity>
-
-                </ScrollView>
-              </View>
               <Modal
-                  isVisible={this.state.visibleModal === 1}
-                  onBackdropPress={() => this.setState({ visibleModal: null })}
-                  animationIn={'slideInLeft'}
-                  animationOut={'fadeOut'}
-              >
-                  {this._renderModalContent()}
+                isVisible={this.state.visibleModal === 1}
+                onBackdropPress={() => this.setState({visibleModal: null})}
+                animationIn={'slideInLeft'} animationOut={'fadeOut'}>
+                {this._renderModalContent()}
               </Modal>
 
             </ScrollView>
-
           </View>
         </SideMenu>
-
       </StyleProvider>
     );
   }
@@ -251,20 +126,39 @@ const styles = StyleSheet.create({
   view2: {
     flexDirection: 'row'
   },
+  view3: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+    backgroundColor: 'white'
+  },
+  view4: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center'
+  },
+  view5: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
   content: {
     backgroundColor: '#fff'
   },
   fondo: {
     justifyContent: 'center',
     height: 50,
-    width: null,
+    width: null
   },
   texto: {
     backgroundColor: 'transparent',
     color: 'white',
     fontWeight: 'bold',
     fontSize: 20,
-      marginLeft: 5
+    marginLeft: 5
+  },
+  text: {
+    alignSelf: 'center'
   },
   scroll: {
     marginBottom: 10
@@ -273,5 +167,22 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
     flex: 1
+  },
+  img2: {
+    width: '100%',
+    height: 150
+  },
+  button: {
+    alignSelf: 'center',
+    borderColor: 'white'
+  },
+  icon: {
+    color: "green"
   }
 });
+
+function mapStateToProps(state) {
+  return {search: state.filter.search, allProducts: state.products.allProducts}
+}
+
+export default Principal = connect(mapStateToProps, {setSearch})(Principal);

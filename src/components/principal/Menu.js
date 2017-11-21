@@ -1,169 +1,186 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import img from '../../assets/imgs/usuario.jpg';
-import { Container, Content, List, ListItem, Icon, Left, Body, Right, Switch } from 'native-base';
+import img2 from '../../assets/imgs/nouser.png';
+import {Container, List, ListItem, Left, Body, Right, Button} from 'native-base';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
+import {firebaseAuth} from '../firebase/Firebase';
 
 const {width, height} = Dimensions.get('window');
 
 export default class Menu extends Component < {} > {
+  state = {
+    loggedIn: null
+  };
+
+  componentWillMount() {
+    firebaseAuth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({loggedIn: true})
+      } else {
+        this.setState({loggedIn: false})
+      }
+    });
+  }
+
+  salir() {
+    firebaseAuth.signOut();
+  }
+
   render() {
     return (
       <View style={styles.menu}>
         <ScrollView style={styles.content}>
-          <List>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-                <Text style={{color: '#000' }}>Categoria 1</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name="ios-ice-cream" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Lácteos</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 2</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name="ios-nutrition" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Frutas y Verduras</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 3</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name="ios-restaurant" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Carnes y Pescados</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 4</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon onPress={() => Actions.Detalle()}>
+            <Left>
+              <Icon name="ios-cafe" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Panadería</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 5</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name="ios-beaker" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Jugos</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 6</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name="ios-beer" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Vinos y Licores</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 7</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name="ios-bug" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Higiene</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 8</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name="ios-heart" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Farmacia</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 9</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
+          <ListItem icon>
+            <Left>
+              <Icon name="ios-bowtie" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Bebés</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
 
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-cart" style={{color: '#1CAF57' }}/>
-              </Left>
-              <Body>
-              <Text style={{color: '#000' }}>Categoria 10</Text>
-              </Body>
-              <Right>
-                <TouchableOpacity>
-                  <Icon name="arrow-forward" style={{color: '#1CAF57' }} />
-                </TouchableOpacity>
-              </Right>
-            </ListItem>
-          </List>
+          <ListItem icon>
+            <Left>
+              <Icon name="md-snow" style={styles.iconoo}/>
+            </Left>
+            <Body>
+              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
+                <Text style={styles.textoC}>Congelados</Text>
+                <Icon name="ios-arrow-round-forward" style={styles.icon2}/>
+              </TouchableOpacity>
+            </Body>
+          </ListItem>
         </ScrollView>
 
-        <View style={styles.container}>
-          <View>
-            <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
-              <Image style={styles.usuario} source={img}/>
-              <Text style={styles.text}>Saul Sandoval</Text>
-            </TouchableOpacity>
+        {this.state.loggedIn
+          ? <View>
+              <View style={styles.container}>
+                <View>
+                  <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
+                    <Image style={styles.usuario} source={img}/>
+                    <Text style={styles.text}>Pedido{'\n'}Status:
+                      <Text style={styles.textoc}>En Camino</Text>
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <TouchableOpacity style={styles.cerrarS} onPress={() => this.close()}>
+                <Text style={styles.textCerrar} onPress={this.salir.bind(this)}>Cerrar Sesión</Text>
+              </TouchableOpacity>
+            </View>
+
+          : <View style={styles.container}>
+            <View>
+              <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
+                <Image style={styles.usuario} source={img2}/>
+                <Text style={styles.text}>Inicia Sesión</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-        
+}
       </View>
     );
   }
@@ -174,14 +191,15 @@ const styles = StyleSheet.create({
     flex: 1,
     width: width,
     height: height,
-    backgroundColor: '#fff'
+    backgroundColor: 'black'
   },
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: width / 2 + 50,
-    borderColor: '#000'
+    borderColor: '#000',
+    backgroundColor: 'black'
   },
   usuario: {
     width: 60,
@@ -194,13 +212,16 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    fontSize: 20,
-    color: 'black'
+    fontSize: 15,
+    color: 'white'
   },
   texto: {
     color: 'black',
     fontSize: 15,
     marginLeft: 15
+  },
+  textoc: {
+    color: 'green'
   },
   textWithIcon: {
     flexDirection: 'row',
@@ -220,5 +241,40 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 10,
     marginLeft: 15
+  },
+  iconoo: {
+    color: 'orange',
+    fontSize: 20,
+    marginRight: 5
+  },
+  textoC: {
+    color: 'white'
+  },
+  cerrarS: {
+    backgroundColor: 'black',
+    borderWidth: 3,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  textCerrar: {
+    color: 'white',
+    fontSize: 15
+  },
+  estiloTouch: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 10
+  },
+  touchable: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  icon2: {
+    fontSize: 25,
+    color: 'orange',
+    marginRight: 5
+  },
+  nolog: {
+    color: 'white'
   }
 });
