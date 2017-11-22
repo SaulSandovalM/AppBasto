@@ -114,7 +114,6 @@ class Registro extends Component < {} > {
 
 const mapStateToProps = ({regis}) => {
     const {email, password, error, loading} = regis
-    console.log(regis)
     return {email, password, error, loading};
 };
 

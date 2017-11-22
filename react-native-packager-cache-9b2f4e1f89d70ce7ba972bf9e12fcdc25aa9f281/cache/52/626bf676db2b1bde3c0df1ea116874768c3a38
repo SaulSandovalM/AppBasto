@@ -304,7 +304,6 @@ var mapStateToProps = function mapStateToProps(_ref) {
       error = regis.error,
       loading = regis.loading;
 
-  console.log(regis);
   return { email: email, password: password, error: error, loading: loading };
 };
 
