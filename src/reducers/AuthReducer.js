@@ -8,8 +8,7 @@ const INITIAL_STATE = {
   loading: false
 };
 
-export default(state = INITIAL_STATE, action) => {
-  console.log(action);
+export default auth = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case EMAIL_CHANGED:
       return {

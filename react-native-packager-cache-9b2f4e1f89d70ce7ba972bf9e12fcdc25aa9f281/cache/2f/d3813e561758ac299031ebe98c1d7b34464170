@@ -1,0 +1,12 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setSearch = setSearch;
+var SET_SEARCH = exports.SET_SEARCH = "SET_SEARCH";
+
+function setSearch(search) {
+  return {
+    type: SET_SEARCH,
+    search: search
+  };
+}

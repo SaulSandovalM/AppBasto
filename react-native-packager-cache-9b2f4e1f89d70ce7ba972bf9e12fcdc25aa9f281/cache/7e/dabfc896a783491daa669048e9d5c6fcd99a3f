@@ -15,7 +15,10 @@ var _reactNativeRouterFlux = require('react-native-router-flux');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Buscador = function Buscador(props) {
+var Buscador = function Buscador(_ref) {
+  var onSearch = _ref.onSearch,
+      toggle = _ref.toggle;
+
   return _react2.default.createElement(
     _nativeBase.Header,
     { searchBar: true, style: styles.header, __source: {
@@ -30,7 +33,7 @@ var Buscador = function Buscador(props) {
           lineNumber: 9
         }
       },
-      _react2.default.createElement(_nativeBase.Icon, { name: 'menu', style: styles.color, onPress: props.toggle, __source: {
+      _react2.default.createElement(_nativeBase.Icon, { name: 'menu', style: styles.color, onPress: toggle, __source: {
           fileName: _jsxFileName,
           lineNumber: 10
         }
@@ -48,7 +51,7 @@ var Buscador = function Buscador(props) {
           lineNumber: 13
         }
       }),
-      _react2.default.createElement(_nativeBase.Input, { placeholder: 'Buscar', style: styles.input, __source: {
+      _react2.default.createElement(_nativeBase.Input, { onChangeText: onSearch, placeholder: 'Buscar', style: styles.input, __source: {
           fileName: _jsxFileName,
           lineNumber: 14
         }
@@ -77,7 +80,7 @@ exports.default = Buscador;
 
 var styles = _reactNative.StyleSheet.create({
   header: {
-    backgroundColor: "orange"
+    backgroundColor: '#8e1c58'
   },
   view: {
     flexDirection: 'column',
@@ -85,7 +88,7 @@ var styles = _reactNative.StyleSheet.create({
     margin: 10
   },
   color: {
-    color: "white",
+    color: 'white',
     fontSize: 35
   },
   item: {
@@ -93,7 +96,7 @@ var styles = _reactNative.StyleSheet.create({
     borderRadius: 15
   },
   icon: {
-    color: "#000"
+    color: '#000'
   },
   input: {
     borderRadius: 50

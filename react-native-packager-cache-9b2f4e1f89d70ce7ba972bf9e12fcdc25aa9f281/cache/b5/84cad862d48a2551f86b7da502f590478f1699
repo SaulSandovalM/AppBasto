@@ -28,9 +28,45 @@ var _reactNativeRouterFlux = require('react-native-router-flux');
 
 var _nativeBase = require('native-base');
 
+var _lacteos = require('../../assets/imgs/lacteos.jpg');
+
+var _lacteos2 = _interopRequireDefault(_lacteos);
+
+var _carnes = require('../../assets/imgs/carnes.jpg');
+
+var _carnes2 = _interopRequireDefault(_carnes);
+
+var _pan = require('../../assets/imgs/pan.jpg');
+
+var _pan2 = _interopRequireDefault(_pan);
+
+var _jugos = require('../../assets/imgs/jugos.jpg');
+
+var _jugos2 = _interopRequireDefault(_jugos);
+
+var _vinos = require('../../assets/imgs/vinos.jpg');
+
+var _vinos2 = _interopRequireDefault(_vinos);
+
+var _farm = require('../../assets/imgs/farm.jpg');
+
+var _farm2 = _interopRequireDefault(_farm);
+
+var _higiene = require('../../assets/imgs/higiene.jpg');
+
+var _higiene2 = _interopRequireDefault(_higiene);
+
+var _bb = require('../../assets/imgs/bb.jpeg');
+
+var _bb2 = _interopRequireDefault(_bb);
+
 var _cat = require('../../assets/imgs/cat1.jpg');
 
 var _cat2 = _interopRequireDefault(_cat);
+
+var _conge = require('../../assets/imgs/conge.jpg');
+
+var _conge2 = _interopRequireDefault(_conge);
 
 var _components2 = require('../../../native-base-theme/components');
 
@@ -47,6 +83,16 @@ var _reactNativeSideMenu2 = _interopRequireDefault(_reactNativeSideMenu);
 var _Menu = require('./Menu');
 
 var _Menu2 = _interopRequireDefault(_Menu);
+
+var _CategoryList = require('./listado/CategoryList');
+
+var _CategoryList2 = _interopRequireDefault(_CategoryList);
+
+var _ResultList = require('./listado/ResultList');
+
+var _reactRedux = require('react-redux');
+
+var _filterActions = require('../../actions/filterActions');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -98,14 +144,14 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
         _reactNative.View,
         { style: styles.view3, __source: {
             fileName: _jsxFileName,
-            lineNumber: 37
+            lineNumber: 52
           }
         },
         _react3.default.createElement(
           _reactNative.View,
           { style: styles.view, __source: {
               fileName: _jsxFileName,
-              lineNumber: 38
+              lineNumber: 53
             }
           },
           _react3.default.createElement(
@@ -113,14 +159,14 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 39
+                lineNumber: 54
               }
             },
             _react3.default.createElement(_reactNative.Image, { source: {
                 uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
               }, style: styles.img2, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 40
+                lineNumber: 55
               }
             })
           )
@@ -129,18 +175,18 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
           _reactNative.Text,
           { style: styles.text, __source: {
               fileName: _jsxFileName,
-              lineNumber: 46
+              lineNumber: 61
             }
           },
           'Jitomate'
         ),
         _react3.default.createElement(
           _nativeBase.Button,
-          { bordered: true, iconRight: true, style: styles.button, onPress: function onPress() {
+          { bordered: 'bordered', iconRight: 'iconRight', style: styles.button, onPress: function onPress() {
               return alert('Agregado!');
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 47
+              lineNumber: 62
             }
           },
           _react3.default.createElement(
@@ -148,22 +194,33 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 48
+                lineNumber: 63
               }
             },
             'Agregar'
           ),
           _react3.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
               fileName: _jsxFileName,
-              lineNumber: 49
+              lineNumber: 64
             }
           })
         )
       );
     };
 
+    _this.onSearch = function (value) {
+      _this.props.setSearch(value);
+      var results = _this.props.allProducts;
+      var rEx = new RegExp(value, 'i');
+      results = results.filter(function (p) {
+        return rEx.test(p.name) || rEx.test(p.description) || rEx.test(p.category);
+      });
+      _this.setState({ results: results });
+    };
+
     _this.state = {
-      isOpen: false
+      isOpen: false,
+      results: []
     };
     return _this;
   }
@@ -178,11 +235,14 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var search = this.props.search;
+      var results = this.state.results;
+
       return _react3.default.createElement(
         _nativeBase.StyleProvider,
         { style: (0, _components3.default)(_material2.default), __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 81
           }
         },
         _react3.default.createElement(
@@ -190,591 +250,112 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
           { menu: _react3.default.createElement(_Menu2.default, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 58
+                lineNumber: 82
               }
             }), isOpen: this.state.isOpen, onChange: function onChange(isOpen) {
               return _this2.actualizar(isOpen);
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 58
+              lineNumber: 82
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 59
+                lineNumber: 83
               }
             },
-            _react3.default.createElement(_Buscador2.default, { toggle: this.toggle, __source: {
+            _react3.default.createElement(_Buscador2.default, { onSearch: this.onSearch, toggle: this.toggle, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 60
+                lineNumber: 85
+              }
+            }),
+            _react3.default.createElement(_reactNative.StatusBar, { hidden: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 87
               }
             }),
             _react3.default.createElement(
               _reactNative.ScrollView,
               { style: styles.content, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 62
+                  lineNumber: 88
                 }
               },
-              _react3.default.createElement(_reactNative.StatusBar, { hidden: true, __source: {
+              !search ? _react3.default.createElement(
+                _reactNative.View,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 92
+                  }
+                },
+                _react3.default.createElement(_CategoryList2.default, { fondo: _lacteos2.default, categoria: 'Lacteos', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 93
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _cat2.default, categoria: 'Frutas y Verduras', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 94
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _carnes2.default, categoria: 'Carnes y Pescados', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 95
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _pan2.default, categoria: 'Penaderia', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 96
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _jugos2.default, categoria: 'Jugos', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 97
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _vinos2.default, categoria: 'Vinos y Licores', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 98
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _higiene2.default, categoria: 'Higiene', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 99
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _farm2.default, categoria: 'Farmacia', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 100
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _bb2.default, categoria: 'Beb\xE9s', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 101
+                  }
+                }),
+                _react3.default.createElement(_CategoryList2.default, { fondo: _conge2.default, categoria: 'Congelados', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 102
+                  }
+                })
+              ) : _react3.default.createElement(_ResultList.ResultList, { results: results, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 63
+                  lineNumber: 104
                 }
               }),
               _react3.default.createElement(
-                _reactNative.ImageBackground,
-                { source: _cat2.default, style: styles.fondo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 64
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.View,
-                  { style: styles.view4, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 65
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.Text,
-                    { onPress: function onPress() {
-                        return _reactNativeRouterFlux.Actions.Detalle();
-                      }, style: styles.texto, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 66
-                      }
-                    },
-                    'FRUTAS Y VERDURAS'
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.View,
-                { style: styles.view2, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 72
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.ScrollView,
-                  { horizontal: true, style: styles.scroll, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 73
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    { onPress: function onPress() {
-                        return _this2.setState({ visibleModal: 1 });
-                      }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 74
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 75
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 76
-                        }
-                      }),
-                      _react3.default.createElement(
-                        _reactNative.View,
-                        { style: styles.view5, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 79
-                          }
-                        },
-                        _react3.default.createElement(_nativeBase.Icon, { name: 'ios-star-outline', style: styles.icon, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 80
-                          }
-                        })
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 85
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 86
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'http://www.agroindustriasmora.com/images/productos/papa.png'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 87
-                        }
-                      }),
-                      _react3.default.createElement(
-                        _reactNative.View,
-                        { style: styles.view5, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 90
-                          }
-                        },
-                        _react3.default.createElement(_nativeBase.Icon, { name: 'ios-star-outline', style: styles.icon, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 91
-                          }
-                        })
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 96
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 97
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'http://jalapeno.cz/wp-content/uploads/2015/02/SHU-stupnice-palivosti-chilli.jpg'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 98
-                        }
-                      }),
-                      _react3.default.createElement(
-                        _reactNative.View,
-                        { style: styles.view5, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 101
-                          }
-                        },
-                        _react3.default.createElement(_nativeBase.Icon, { name: 'ios-star-outline', style: styles.icon, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 102
-                          }
-                        })
-                      )
-                    )
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.ImageBackground,
-                { source: _cat2.default, style: styles.fondo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 109
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.View,
-                  { style: styles.view4, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 110
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.Text,
-                    { style: styles.texto, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 111
-                      }
-                    },
-                    'HIGIENE'
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.View,
-                { style: styles.view2, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 117
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.ScrollView,
-                  { horizontal: true, style: styles.scroll, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 118
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 120
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 121
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'https://super.walmart.com.mx/images/product-images/img_large/00750102540304L.jpg'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 122
-                        }
-                      }),
-                      _react3.default.createElement(
-                        _reactNative.View,
-                        { style: styles.view5, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 125
-                          }
-                        },
-                        _react3.default.createElement(_nativeBase.Icon, { name: 'ios-star-outline', style: styles.icon, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 126
-                          }
-                        })
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 131
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 132
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'http://www.colgatecommercial.com/App_Themes/ColgateStyle/Images/products/53096-lrg.png'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 133
-                        }
-                      }),
-                      _react3.default.createElement(
-                        _reactNative.View,
-                        { style: styles.view5, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 136
-                          }
-                        },
-                        _react3.default.createElement(_nativeBase.Icon, { name: 'ios-star-outline', style: styles.icon, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 137
-                          }
-                        })
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 142
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 143
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'https://pedidos.com/myfotos/xLarge/(X)CLX-CLORO-930ML.jpg'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 144
-                        }
-                      }),
-                      _react3.default.createElement(
-                        _reactNative.View,
-                        { style: styles.view5, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 147
-                          }
-                        },
-                        _react3.default.createElement(_nativeBase.Icon, { name: 'ios-star-outline', style: styles.icon, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 148
-                          }
-                        })
-                      )
-                    )
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.ImageBackground,
-                { source: _cat2.default, style: styles.fondo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 156
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.View,
-                  { style: styles.view4, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 157
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.Text,
-                    { style: styles.texto, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 158
-                      }
-                    },
-                    'CATEGORIA 3'
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.View,
-                { style: styles.view2, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 164
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.ScrollView,
-                  { horizontal: true, style: styles.scroll, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 165
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 167
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 168
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'http://www.lamoderna.com.mx/templates/LaModerna/images/categories/pastas/pastas-la-moderna-mobile.png'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 169
-                        }
-                      })
-                    )
-                  ),
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 175
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 176
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'https://i5.walmartimages.com/asr/4f552695-250f-4778-a1bf-b6aaa2f13728_1.135100d3d2562bc4adb81e96ddd88de6.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 177
-                        }
-                      })
-                    )
-                  ),
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 183
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 184
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'http://www.chedraui.com.mx/media/catalog/product/cache/10/image/950x950/9df78eab33525d08d6e5fb8d27136e95/7/5/750103912014_00.jpg'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 185
-                        }
-                      })
-                    )
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.ImageBackground,
-                { source: _cat2.default, style: styles.fondo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 194
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.View,
-                  { style: styles.view4, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 195
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.Text,
-                    { style: styles.texto, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 196
-                      }
-                    },
-                    'CATEGORIA 4'
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.View,
-                { style: styles.view2, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 201
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.ScrollView,
-                  { horizontal: true, style: styles.scroll, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 202
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 204
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 205
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'http://www.colgate.com.mx/CP15/es/mx/oc/products/toothpaste/images/total-clean-mint.png'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 206
-                        }
-                      })
-                    )
-                  ),
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 212
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 213
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'https://target.scene7.com/is/image/Target/14413690?wid=520&hei=520&fmt=pjpeg'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 214
-                        }
-                      })
-                    )
-                  ),
-                  _react3.default.createElement(
-                    _reactNative.TouchableOpacity,
-                    {
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 220
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Card,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 221
-                        }
-                      },
-                      _react3.default.createElement(_reactNative.Image, { source: {
-                          uri: 'https://images-na.ssl-images-amazon.com/images/I/51BxpJHnDJL._SX355_.jpg'
-                        }, style: styles.img, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 222
-                        }
-                      })
-                    )
-                  )
-                )
-              ),
-              _react3.default.createElement(
                 _reactNativeModal2.default,
-                { isVisible: this.state.visibleModal === 1, onBackdropPress: function onBackdropPress() {
+                {
+                  isVisible: this.state.visibleModal === 1,
+                  onBackdropPress: function onBackdropPress() {
                     return _this2.setState({ visibleModal: null });
-                  }, animationIn: 'slideInLeft', animationOut: 'fadeOut', __source: {
+                  },
+                  animationIn: 'slideInLeft', animationOut: 'fadeOut', __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 230
+                    lineNumber: 107
                   }
                 },
                 this._renderModalContent()
@@ -788,9 +369,6 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
 
   return Principal;
 }(_react2.Component));
-
-exports.default = Principal;
-
 
 var styles = _reactNative.StyleSheet.create({
   view: {
@@ -853,3 +431,9 @@ var styles = _reactNative.StyleSheet.create({
     color: "green"
   }
 });
+
+function mapStateToProps(state) {
+  return { search: state.filter.search, allProducts: state.products.allProducts };
+}
+
+exports.default = Principal = (0, _reactRedux.connect)(mapStateToProps, { setSearch: _filterActions.setSearch })(Principal);
