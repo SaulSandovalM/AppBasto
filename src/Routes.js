@@ -11,6 +11,7 @@ import detalleProducto from './components/detalleproducto/detalleProducto';
 import Carrito from './components/carrito/Carrito';
 import Perfil from './components/perfil/Perfil';
 import Inicio from './components/bienvenida/Inicio';
+import Ubicacion from './components/carrito/Ubicacion';
 
 const Routes = () => {
   return (
@@ -27,6 +28,7 @@ const Routes = () => {
         <Scene key="Detalle" header={null} component={Detalle}/>
         <Scene key="Carrito" header={null} component={Carrito}/>
         <Scene key="Perfil" header={null} component={Perfil}/>
+        <Scene key="Ubicacion" header={null} component={Ubicacion}/>
       </Scene>
     </Router>
     </Root>

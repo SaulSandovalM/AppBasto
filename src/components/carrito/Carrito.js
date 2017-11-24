@@ -7,7 +7,7 @@ import material from '../../../native-base-theme/variables/material';
 import {Actions} from 'react-native-router-flux';
 import ListaCompra from './ListaCompra';
 
-export default class Carrito extends Component < {} > {
+export default class Carrito extends Component <{}> {
   render() {
     return (
       <StyleProvider style={getTheme(material)}>
@@ -30,7 +30,7 @@ export default class Carrito extends Component < {} > {
               <Text style={styles.pago}>$500.00 MXN</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={() => Actions.Principal()}>
+            <Button block style={styles.boton} onPress={() => Actions.Ubicacion()}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>

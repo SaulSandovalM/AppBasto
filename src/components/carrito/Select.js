@@ -21,6 +21,7 @@ export default class Select extends Component < {} > {
             placeholder="1kg"
             selectedValue={this.state.selected2}
             onValueChange={this.onValueChange2.bind(this)}>
+            <Item label="1 kg" value="key0"/>
             <Item label="2 kg" value="key0"/>
             <Item label="3 kg" value="key1"/>
             <Item label="4 kg" value="key2"/>

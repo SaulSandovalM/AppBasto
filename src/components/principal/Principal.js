@@ -25,7 +25,7 @@ import {ResultList} from './listado/ResultList';
 import {connect} from 'react-redux';
 import {setSearch} from '../../actions/filterActions';
 
-class Principal extends Component < {} > {
+class Principal extends Component <{}> {
   state = {
     modalVisible: null
   };
