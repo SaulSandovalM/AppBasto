@@ -20,9 +20,19 @@ var _usuario = require('../../assets/imgs/usuario.jpg');
 
 var _usuario2 = _interopRequireDefault(_usuario);
 
+var _nouser = require('../../assets/imgs/nouser.png');
+
+var _nouser2 = _interopRequireDefault(_nouser);
+
 var _nativeBase = require('native-base');
 
+var _Ionicons = require('react-native-vector-icons/Ionicons');
+
+var _Ionicons2 = _interopRequireDefault(_Ionicons);
+
 var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _Firebase = require('../firebase/Firebase');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -59,799 +69,695 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
   _inherits(Menu, _Component);
 
   function Menu() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Menu);
 
-    return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Menu.__proto__ || Object.getPrototypeOf(Menu)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      loggedIn: null
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Menu, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      _Firebase.firebaseAuth.onAuthStateChanged(function (user) {
+        if (user) {
+          _this2.setState({ loggedIn: true });
+        } else {
+          _this2.setState({ loggedIn: false });
+        }
+      });
+    }
+  }, {
+    key: 'salir',
+    value: function salir() {
+      _Firebase.firebaseAuth.signOut();
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react3.default.createElement(
         _reactNative.View,
         { style: styles.menu, __source: {
             fileName: _jsxFileName,
-            lineNumber: 12
+            lineNumber: 33
           }
         },
         _react3.default.createElement(
           _reactNative.ScrollView,
           { style: styles.content, __source: {
               fileName: _jsxFileName,
-              lineNumber: 13
+              lineNumber: 34
             }
           },
           _react3.default.createElement(
-            _nativeBase.List,
-            {
-              __source: {
+            _nativeBase.ListItem,
+            { icon: true, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 14
+                lineNumber: 36
               }
             },
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Left,
+              {
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 16
+                  lineNumber: 37
                 }
               },
-              _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 17
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 18
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 20
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.Text,
-                  { style: styles.textoC, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 21
-                    }
-                  },
-                  'Despensa'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 23
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 24
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 25
-                    }
-                  })
-                )
-              )
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-ice-cream', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 38
+                }
+              })
             ),
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Body,
+              {
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 30
+                  lineNumber: 40
                 }
               },
               _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 31
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 32
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 34
+                    lineNumber: 41
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 35
+                      lineNumber: 42
                     }
                   },
                   'L\xE1cteos'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 37
+                    lineNumber: 43
                   }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 38
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 39
-                    }
-                  })
-                )
+                })
               )
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 48
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 49
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-nutrition', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 50
+                }
+              })
             ),
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Body,
+              {
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 44
+                  lineNumber: 52
                 }
               },
               _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 45
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 46
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 48
+                    lineNumber: 53
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 49
+                      lineNumber: 54
                     }
                   },
                   'Frutas y Verduras'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 51
+                    lineNumber: 55
                   }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 52
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 53
-                    }
-                  })
-                )
+                })
               )
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 60
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 61
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-restaurant', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 62
+                }
+              })
             ),
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Body,
+              {
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 58
+                  lineNumber: 64
                 }
               },
               _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 59
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 60
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 62
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.Text,
-                  { style: styles.textoC, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 63
-                    }
-                  },
-                  'Carnes y Pescados'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 65
                   }
                 },
                 _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
                       lineNumber: 66
                     }
                   },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 67
-                    }
-                  })
-                )
+                  'Carnes y Pescados'
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 67
+                  }
+                })
               )
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, onPress: function onPress() {
+                return _reactNativeRouterFlux.Actions.Detalle();
+              }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 72
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 73
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-cafe', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 74
+                }
+              })
             ),
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Body,
+              {
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 72
+                  lineNumber: 76
                 }
               },
               _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 73
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 74
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 76
+                    lineNumber: 77
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 77
+                      lineNumber: 78
                     }
                   },
-                  'Salchichoneria'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                  'Panader\xEDa'
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 79
                   }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 80
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 81
-                    }
-                  })
-                )
+                })
               )
-            ),
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 84
+              }
+            },
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 85
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-beaker', style: styles.iconoo, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 86
                 }
+              })
+            ),
+            _react3.default.createElement(
+              _nativeBase.Body,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 88
+                }
               },
               _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 87
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 88
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 90
+                    lineNumber: 89
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 91
+                      lineNumber: 90
                     }
                   },
-                  'Panaderia'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                  'Jugos'
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 93
+                    lineNumber: 91
                   }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 94
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 95
-                    }
-                  })
-                )
+                })
               )
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 96
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 97
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-beer', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 98
+                }
+              })
             ),
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Body,
+              {
+                __source: {
                   fileName: _jsxFileName,
                   lineNumber: 100
                 }
               },
               _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 101
                   }
                 },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 102
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 104
-                  }
-                },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 105
-                    }
-                  },
-                  'Jugos'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 107
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 108
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 109
-                    }
-                  })
-                )
-              )
-            ),
-            _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 114
-                }
-              },
-              _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 115
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 116
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 118
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.Text,
-                  { style: styles.textoC, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 119
+                      lineNumber: 102
                     }
                   },
                   'Vinos y Licores'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 121
+                    lineNumber: 103
                   }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 122
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 123
-                    }
-                  })
-                )
+                })
               )
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 108
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 109
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-bug', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 110
+                }
+              })
             ),
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Body,
+              {
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 128
+                  lineNumber: 112
                 }
               },
               _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 129
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 130
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 132
+                    lineNumber: 113
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 133
+                      lineNumber: 114
                     }
                   },
                   'Higiene'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 135
+                    lineNumber: 115
                   }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 136
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 137
-                    }
-                  })
-                )
+                })
               )
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 120
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 121
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-heart', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 122
+                }
+              })
             ),
             _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
+              _nativeBase.Body,
+              {
+                __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 142
+                  lineNumber: 124
                 }
               },
               _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 143
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 144
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 146
+                    lineNumber: 125
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 147
+                      lineNumber: 126
                     }
                   },
                   'Farmacia'
-                )
-              ),
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 127
+                  }
+                })
+              )
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 132
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 133
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'ios-bowtie', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 134
+                }
+              })
+            ),
+            _react3.default.createElement(
+              _nativeBase.Body,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 136
+                }
+              },
               _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 137
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 138
+                    }
+                  },
+                  'Beb\xE9s'
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 139
+                  }
+                })
+              )
+            )
+          ),
+          _react3.default.createElement(
+            _nativeBase.ListItem,
+            { icon: true, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 144
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Left,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 145
+                }
+              },
+              _react3.default.createElement(_Ionicons2.default, { name: 'md-snow', style: styles.iconoo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 146
+                }
+              })
+            ),
+            _react3.default.createElement(
+              _nativeBase.Body,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 148
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                { style: styles.touchable, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Detalle();
+                  }, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 149
                   }
                 },
                 _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
+                  _reactNative.Text,
+                  { style: styles.textoC, __source: {
                       fileName: _jsxFileName,
                       lineNumber: 150
                     }
                   },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 151
-                    }
-                  })
-                )
-              )
-            ),
-            _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 156
-                }
-              },
-              _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 157
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 158
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 160
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.Text,
-                  { style: styles.textoC, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 161
-                    }
-                  },
-                  'Beb\xE9s'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 163
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 164
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 165
-                    }
-                  })
-                )
-              )
-            ),
-            _react3.default.createElement(
-              _nativeBase.ListItem,
-              { icon: true, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 170
-                }
-              },
-              _react3.default.createElement(
-                _nativeBase.Left,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 171
-                  }
-                },
-                _react3.default.createElement(_nativeBase.Icon, { name: 'ios-cart', style: styles.iconoo, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 172
-                  }
-                })
-              ),
-              _react3.default.createElement(
-                _nativeBase.Body,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 174
-                  }
-                },
-                _react3.default.createElement(
-                  _reactNative.Text,
-                  { style: styles.textoC, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 175
-                    }
-                  },
                   'Congelados'
-                )
-              ),
-              _react3.default.createElement(
-                _nativeBase.Right,
-                {
-                  __source: {
+                ),
+                _react3.default.createElement(_Ionicons2.default, { name: 'ios-arrow-round-forward', style: styles.icon2, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 177
+                    lineNumber: 151
                   }
-                },
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 178
-                    }
-                  },
-                  _react3.default.createElement(_nativeBase.Icon, { name: 'arrow-forward', style: styles.iconoo, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 179
-                    }
-                  })
-                )
+                })
               )
             )
           )
         ),
-        _react3.default.createElement(
+        this.state.loggedIn ? _react3.default.createElement(
+          _reactNative.View,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 158
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.container, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 159
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 160
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                { style: styles.usuarioImagen, onPress: function onPress() {
+                    return _reactNativeRouterFlux.Actions.Perfil();
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 161
+                  }
+                },
+                _react3.default.createElement(_reactNative.Image, { style: styles.usuario, source: _usuario2.default, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 162
+                  }
+                }),
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.text, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 163
+                    }
+                  },
+                  'Pedido',
+                  '\n',
+                  'Status:',
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.textoc, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 164
+                      }
+                    },
+                    'En Camino'
+                  )
+                )
+              )
+            )
+          ),
+          _react3.default.createElement(
+            _reactNative.TouchableOpacity,
+            { style: styles.cerrarS, onPress: function onPress() {
+                return _this3.close();
+              }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 170
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              { style: styles.textCerrar, onPress: this.salir.bind(this), __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 171
+                }
+              },
+              'Cerrar Sesi\xF3n'
+            )
+          )
+        ) : _react3.default.createElement(
           _reactNative.View,
           { style: styles.container, __source: {
               fileName: _jsxFileName,
-              lineNumber: 186
+              lineNumber: 175
             }
           },
           _react3.default.createElement(
@@ -859,42 +765,31 @@ var Menu = _wrapComponent('Menu')(function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 187
+                lineNumber: 176
               }
             },
             _react3.default.createElement(
               _reactNative.TouchableOpacity,
               { style: styles.usuarioImagen, onPress: function onPress() {
-                  return _reactNativeRouterFlux.Actions.Perfil();
+                  return _reactNativeRouterFlux.Actions.Login();
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 188
+                  lineNumber: 177
                 }
               },
-              _react3.default.createElement(_reactNative.Image, { style: styles.usuario, source: _usuario2.default, __source: {
+              _react3.default.createElement(_reactNative.Image, { style: styles.usuario, source: _nouser2.default, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 189
+                  lineNumber: 178
                 }
               }),
               _react3.default.createElement(
                 _reactNative.Text,
                 { style: styles.text, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 190
+                    lineNumber: 179
                   }
                 },
-                'Pedido',
-                '\n',
-                'Status: ',
-                _react3.default.createElement(
-                  _reactNative.Text,
-                  { style: styles.textoc, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 190
-                    }
-                  },
-                  'En Camino'
-                )
+                'Inicia Sesi\xF3n'
               )
             )
           )
@@ -966,9 +861,38 @@ var styles = _reactNative.StyleSheet.create({
     marginLeft: 15
   },
   iconoo: {
-    color: 'orange'
+    color: 'orange',
+    fontSize: 20,
+    marginRight: 5
   },
   textoC: {
+    color: 'white'
+  },
+  cerrarS: {
+    backgroundColor: 'black',
+    borderWidth: 3,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  textCerrar: {
+    color: 'white',
+    fontSize: 15
+  },
+  estiloTouch: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 10
+  },
+  touchable: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  icon2: {
+    fontSize: 25,
+    color: 'orange',
+    marginRight: 5
+  },
+  nolog: {
     color: 'white'
   }
 });

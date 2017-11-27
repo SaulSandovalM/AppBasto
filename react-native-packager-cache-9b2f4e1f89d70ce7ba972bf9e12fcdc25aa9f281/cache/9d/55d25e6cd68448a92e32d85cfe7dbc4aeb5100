@@ -114,9 +114,9 @@ exports.default = Cabecera;
 
 var styles = _reactNative.StyleSheet.create({
   header: {
-    backgroundColor: "orange"
+    backgroundColor: '#8e1c58'
   },
   color: {
-    color: "white"
+    color: 'white'
   }
 });

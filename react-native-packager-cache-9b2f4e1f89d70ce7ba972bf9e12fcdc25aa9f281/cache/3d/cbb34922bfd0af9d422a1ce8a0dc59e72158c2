@@ -20,9 +20,9 @@ var _nativeBase = require('native-base');
 
 var _reactNativeRouterFlux = require('react-native-router-flux');
 
-var _login = require('../../assets/imgs/login.jpeg');
+var _recover = require('../../assets/imgs/recover.jpeg');
 
-var _login2 = _interopRequireDefault(_login);
+var _recover2 = _interopRequireDefault(_recover);
 
 var _Firebase = require('../firebase/Firebase');
 
@@ -111,9 +111,10 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
             }
           },
           _react3.default.createElement(_nativeBase.Input, {
+            style: styles.color,
             placeholder: 'Correo electr\xF3nico',
             keyboardType: 'email-address',
-            placeholderTextColor: '#000',
+            placeholderTextColor: '#fff',
             returnKeyType: 'next',
             autoCapitalize: 'none',
             value: this.state.verifyCorreo,
@@ -126,7 +127,7 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
           }),
           _react3.default.createElement(_nativeBase.Icon, { name: 'checkmark-circle', style: styles.icon, __source: {
               fileName: _jsxFileName,
-              lineNumber: 49
+              lineNumber: 50
             }
           })
         );
@@ -136,13 +137,14 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
         _nativeBase.Item,
         { error: true, style: styles.inputRounded, __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 56
           }
         },
         _react3.default.createElement(_nativeBase.Input, {
+          style: styles.color,
           placeholder: 'Correo electr\xF3nico',
           keyboardType: 'email-address',
-          placeholderTextColor: '#000',
+          placeholderTextColor: '#fff',
           returnKeyType: 'next',
           autoCapitalize: 'none',
           value: this.state.verifyCorreo,
@@ -150,12 +152,12 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
             return _this2.setState({ verifyCorreo: verifyCorreo });
           }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 57
           }
         }),
         _react3.default.createElement(_nativeBase.Icon, { name: 'close-circle', style: styles.icon, __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 66
           }
         })
       );
@@ -167,64 +169,88 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
 
       return _react3.default.createElement(
         _reactNative.ImageBackground,
-        { source: _login2.default, style: styles.img, __source: {
+        { source: _recover2.default, style: styles.img, __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 73
           }
         },
         _react3.default.createElement(
           _reactNative.View,
-          { style: styles.view, __source: {
+          { style: styles.estiloImageB, __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 74
             }
           },
           _react3.default.createElement(
-            _nativeBase.Item,
-            { style: styles.inputRounded, __source: {
+            _reactNative.View,
+            { style: styles.view4, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 74
+                lineNumber: 76
               }
             },
-            _react3.default.createElement(_nativeBase.Input, {
-              placeholder: 'Correo electr\xF3nico',
-              keyboardType: 'email-address',
-              placeholderTextColor: '#000',
-              returnKeyType: 'next',
-              autoCapitalize: 'none',
-              value: this.state.correo,
-              onChangeText: function onChangeText(correo) {
-                return _this3.setState({ correo: correo });
+            _react3.default.createElement(_nativeBase.Icon, { name: 'ios-arrow-back', style: styles.icon2, onPress: function onPress() {
+                return _reactNativeRouterFlux.Actions.pop();
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 75
+                lineNumber: 77
               }
             })
           ),
-          this.buttonCorreo()
-        ),
-        _react3.default.createElement(
-          _reactNative.View,
-          { style: styles.content, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 89
-            }
-          },
           _react3.default.createElement(
-            _nativeBase.Button,
-            { block: true, style: styles.button, onPress: this.recover.bind(this), __source: {
+            _reactNative.View,
+            { style: styles.view, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 90
+                lineNumber: 80
               }
             },
             _react3.default.createElement(
-              _reactNative.Text,
-              { style: styles.boton, __source: {
+              _nativeBase.Item,
+              { style: styles.inputRounded, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 91
+                  lineNumber: 81
                 }
               },
-              'RECUPERAR CONTRASE\xD1A'
+              _react3.default.createElement(_nativeBase.Input, {
+                style: styles.color,
+                placeholder: 'Correo electr\xF3nico',
+                keyboardType: 'email-address',
+                placeholderTextColor: '#fff',
+                returnKeyType: 'next',
+                autoCapitalize: 'none',
+                value: this.state.correo,
+                onChangeText: function onChangeText(correo) {
+                  return _this3.setState({ correo: correo });
+                }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 82
+                }
+              })
+            ),
+            this.buttonCorreo()
+          ),
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.content, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 97
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Button,
+              { block: true, style: styles.button, onPress: this.recover.bind(this), __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 98
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.Text,
+                { style: styles.boton, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 99
+                  }
+                },
+                'RECUPERAR CONTRASE\xD1A'
+              )
             )
           )
         )
@@ -250,14 +276,6 @@ var styles = _reactNative.StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center'
   },
-  inputRounded: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginBottom: 10,
-    borderColor: '#000',
-    borderWidth: 1.5,
-    backgroundColor: 'transparent'
-  },
   boton: {
     color: 'white',
     fontWeight: 'bold'
@@ -265,7 +283,7 @@ var styles = _reactNative.StyleSheet.create({
   button: {
     width: '78%',
     alignSelf: 'center',
-    backgroundColor: '#4DA49B'
+    backgroundColor: 'orange'
   },
   content: {
     justifyContent: 'center',
@@ -274,6 +292,32 @@ var styles = _reactNative.StyleSheet.create({
     margin: 15
   },
   icon: {
-    marginRight: 10
+    marginRight: 10,
+    color: 'orange'
+  },
+  icon2: {
+    backgroundColor: 'transparent',
+    color: 'orange',
+    fontSize: 50
+  },
+  inputRounded: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginBottom: 10,
+    borderColor: 'orange',
+    borderWidth: 1.5
+  },
+  estiloImageB: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center'
+  },
+  color: {
+    color: 'white'
+  },
+  view4: {
+    flex: 1,
+    margin: 20
   }
 });

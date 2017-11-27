@@ -1,0 +1,241 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/principal/listado/CategoryList.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactRedux = require('react-redux');
+
+var _redux = require('redux');
+
+var _reactNative = require('react-native');
+
+var _nativeBase = require('native-base');
+
+var _ProductItem = require('./ProductItem');
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  CategoryList: {
+    displayName: 'CategoryList'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/jose/V\xEDdeos/AppBasto/src/components/principal/listado/CategoryList.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
+  _inherits(CategoryList, _Component);
+
+  function CategoryList() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, CategoryList);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      allProducts: []
+    }, _this.setVisible = function (id) {
+      _this.setState({ visibleModal: id });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(CategoryList, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var allProducts = this.props.allProducts;
+
+      this.setState({ allProducts: allProducts });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      if (!this.props.fetched) return _react3.default.createElement(_nativeBase.Spinner, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        }
+      });
+      var allProducts = this.state.allProducts;
+      var _props = this.props,
+          fondo = _props.fondo,
+          categoria = _props.categoria;
+
+
+      return _react3.default.createElement(
+        _reactNative.ScrollView,
+        { style: styles.content, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.ImageBackground,
+          { source: fondo, style: styles.fondo, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.view4, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 32
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              { onPress: function onPress() {
+                  return _reactNativeRouterFlux.Actions.Detalle();
+                }, style: styles.texto, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 33
+                }
+              },
+              categoria
+            )
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.view2, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 39
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.ScrollView,
+            { horizontal: true, style: styles.scroll, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 40
+              }
+            },
+            allProducts.map(function (p, index) {
+              return _react3.default.createElement(_ProductItem.ProductItem, _extends({ setVisible: _this2.setVisible, key: index, index: index }, p, {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 43
+                }
+              }));
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return CategoryList;
+}(_react2.Component));
+
+var styles = _reactNative.StyleSheet.create({
+  view: {
+    flex: 1
+  },
+  view2: {
+    flexDirection: 'row'
+  },
+  view3: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+    backgroundColor: 'white'
+  },
+  view4: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center'
+  },
+  view5: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
+  content: {
+    backgroundColor: '#fff'
+  },
+  fondo: {
+    justifyContent: 'center',
+    height: 50,
+    width: null
+  },
+  texto: {
+    backgroundColor: 'transparent',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginLeft: 5
+  },
+  text: {
+    alignSelf: 'center'
+  },
+  scroll: {
+    marginBottom: 10
+  },
+  img: {
+    height: 150,
+    width: 150,
+    flex: 1
+  },
+  img2: {
+    width: '100%',
+    height: 150
+  },
+  button: {
+    alignSelf: 'center',
+    borderColor: 'white'
+  },
+  icon: {
+    color: "green"
+  }
+});
+
+function mapStateToProps(state, ownProps) {
+  return {
+    allProducts: state.products.allProducts,
+    fetched: state.products.allProducts.length > 0
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: (0, _redux.bindActionCreators)(dispatch) };
+}
+
+exports.default = CategoryList = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CategoryList);

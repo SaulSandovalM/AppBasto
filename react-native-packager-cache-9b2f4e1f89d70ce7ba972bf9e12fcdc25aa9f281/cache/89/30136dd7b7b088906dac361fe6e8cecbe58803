@@ -36,6 +36,10 @@ var _img3 = require('../../assets/imgs/img4.jpg');
 
 var _img4 = _interopRequireDefault(_img3);
 
+var _shoppy = require('../../assets/imgs/shoppy.png');
+
+var _shoppy2 = _interopRequireDefault(_shoppy);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -79,12 +83,12 @@ var Bienvenida = _wrapComponent('Bienvenida')(function (_Component) {
         _reactNative.View,
         { style: styles.viewP, __source: {
             fileName: _jsxFileName,
-            lineNumber: 13
+            lineNumber: 14
           }
         },
         _react3.default.createElement(_reactNative.StatusBar, { hidden: true, __source: {
             fileName: _jsxFileName,
-            lineNumber: 14
+            lineNumber: 15
           }
         }),
         _react3.default.createElement(
@@ -97,7 +101,7 @@ var Bienvenida = _wrapComponent('Bienvenida')(function (_Component) {
               _reactNative.Text,
               { style: styles.estiloF, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 20
+                  lineNumber: 21
                 }
               },
               ' \u203A '
@@ -106,64 +110,55 @@ var Bienvenida = _wrapComponent('Bienvenida')(function (_Component) {
               _reactNative.Text,
               { style: styles.estiloF, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 22
+                  lineNumber: 24
                 }
               },
               ' \u2039 '
             ), __source: {
               fileName: _jsxFileName,
-              lineNumber: 15
+              lineNumber: 16
             }
           },
           _react3.default.createElement(
             _reactNative.ImageBackground,
             { source: _bienvenida2.default, style: styles.img, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 24
+                lineNumber: 27
               }
             },
             _react3.default.createElement(
               _reactNative.View,
               { style: styles.estiloImageB, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 25
+                  lineNumber: 28
                 }
               },
-              _react3.default.createElement(_nativeBase.Icon, { name: 'md-cart', style: styles.icono, __source: {
+              _react3.default.createElement(_reactNative.Image, { source: _shoppy2.default, style: styles.icono, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 26
+                  lineNumber: 29
                 }
-              }),
-              _react3.default.createElement(
-                _reactNative.Text,
-                { style: styles.text, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 27
-                  }
-                },
-                'EAT FAST'
-              )
+              })
             )
           ),
           _react3.default.createElement(
             _reactNative.ImageBackground,
             { source: _img4.default, style: styles.img, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 31
+                lineNumber: 33
               }
             },
             _react3.default.createElement(
               _reactNative.View,
               { style: styles.estiloImageB, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 32
+                  lineNumber: 34
                 }
               },
               _react3.default.createElement(
                 _reactNative.Text,
                 { style: styles.text, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 33
+                    lineNumber: 35
                   }
                 },
                 '\xBFIR AL SUPER?'
@@ -174,31 +169,31 @@ var Bienvenida = _wrapComponent('Bienvenida')(function (_Component) {
             _reactNative.ImageBackground,
             { source: _img2.default, style: styles.img2, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 37
+                lineNumber: 39
               }
             },
             _react3.default.createElement(
               _reactNative.View,
               { style: styles.estiloImagenF, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 38
+                  lineNumber: 40
                 }
               },
               _react3.default.createElement(
                 _reactNative.View,
                 { style: styles.estiloMargen, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 40
+                    lineNumber: 42
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.text, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 41
+                      lineNumber: 43
                     }
                   },
-                  'NOSOTROS ',
+                  'NOSOTROS',
                   '\n',
                   'VAMOS'
                 )
@@ -207,7 +202,7 @@ var Bienvenida = _wrapComponent('Bienvenida')(function (_Component) {
                 _reactNative.View,
                 { style: styles.estiloV, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 44
+                    lineNumber: 46
                   }
                 },
                 _react3.default.createElement(
@@ -216,14 +211,14 @@ var Bienvenida = _wrapComponent('Bienvenida')(function (_Component) {
                       return _reactNativeRouterFlux.Actions.Login();
                     }, style: styles.estiloButton, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 45
+                      lineNumber: 47
                     }
                   },
                   _react3.default.createElement(
                     _reactNative.Text,
                     { style: styles.estiloTexto, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 46
+                        lineNumber: 48
                       }
                     },
                     'INICIAR SESI\xD3N'
@@ -235,7 +230,7 @@ var Bienvenida = _wrapComponent('Bienvenida')(function (_Component) {
                       return _reactNativeRouterFlux.Actions.Principal();
                     }, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 51
+                      lineNumber: 53
                     }
                   },
                   'VER PRODUCTOS'
@@ -318,8 +313,9 @@ var styles = _reactNative.StyleSheet.create({
     marginTop: 15
   },
   icono: {
-    color: 'white',
-    fontSize: 140,
+    marginTop: 50,
+    width: 220,
+    height: 93,
     alignSelf: 'center'
   }
 });

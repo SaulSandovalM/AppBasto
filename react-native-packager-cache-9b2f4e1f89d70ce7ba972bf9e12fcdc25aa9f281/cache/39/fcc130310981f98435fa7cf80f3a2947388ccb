@@ -1,0 +1,47 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.loginUserreg = exports.passwordChangedreg = exports.emailChangedreg = undefined;
+
+var _firebase = require('firebase');
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _types = require('./types');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var emailChangedreg = exports.emailChangedreg = function emailChangedreg(text) {
+    return { type: _types.EMAIL_CHANGEDREG, payload: text };
+};
+
+var passwordChangedreg = exports.passwordChangedreg = function passwordChangedreg(text) {
+    return { type: _types.PASSWORD_CHANGEDREG, payload: text };
+};
+
+var loginUserreg = exports.loginUserreg = function loginUserreg(_ref) {
+    var email = _ref.email,
+        password = _ref.password;
+
+    return function (dispatch) {
+        dispatch({ type: _types.LOGIN_USERREG });
+
+        _firebase2.default.auth().createUserWithEmailAndPassword(email, password).then(function (user) {
+            return loginUserSuccessreg(dispatch, user);
+        }).catch(function () {
+            return loginUserFailreg(dispatch);
+        });
+    };
+};
+
+var loginUserFailreg = function loginUserFailreg(dispatch) {
+    dispatch({ type: _types.LOGIN_USER_FAILREG });
+};
+
+var loginUserSuccessreg = function loginUserSuccessreg(dispatch, user) {
+    dispatch({ type: _types.LOGIN_USER_SUCCESSREG, payload: user });
+
+    _reactNativeRouterFlux.Actions.Principal();
+};

@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import Video from 'react-native-video';
 import videop from '../../assets/video/videop.mp4';
 import {connect} from 'react-redux';
-import {emailChanged, passwordChanged, loginUser} from '../../actions';
+import {emailChanged, passwordChanged, loginUser} from '../../actions/loginActions';
 
 class Login extends Component <{}> {
   onEmailChange(text) {

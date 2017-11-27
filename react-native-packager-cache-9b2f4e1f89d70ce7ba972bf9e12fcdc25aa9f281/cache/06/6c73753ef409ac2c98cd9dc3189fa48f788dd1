@@ -1,0 +1,125 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ProductMiniCard = undefined;
+var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/detalle/ProductMiniCard.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _nativeBase = require('native-base');
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProductMiniCard = exports.ProductMiniCard = function ProductMiniCard(_ref) {
+  var sellPrice = _ref.sellPrice,
+      name = _ref.name,
+      image = _ref.image;
+
+  return _react2.default.createElement(
+    _nativeBase.Card,
+    { style: styles.estiloCard, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7
+      }
+    },
+    _react2.default.createElement(
+      _nativeBase.CardItem,
+      { style: styles.estiloCardI, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        }
+      },
+      _react2.default.createElement(
+        _nativeBase.Left,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        },
+        _react2.default.createElement(
+          _nativeBase.Text,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 10
+            }
+          },
+          name
+        ),
+        _react2.default.createElement(
+          _nativeBase.Text,
+          { note: true, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 11
+            }
+          },
+          '$',
+          sellPrice
+        )
+      )
+    ),
+    _react2.default.createElement(_reactNative.Image, { source: { uri: image }, style: styles.img, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
+      }
+    }),
+    _react2.default.createElement(
+      _nativeBase.Button,
+      { bordered: true, iconRight: true, style: styles.btn, onPress: function onPress() {
+          return alert('Agregado!');
+        }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        }
+      },
+      _react2.default.createElement(
+        _nativeBase.Text,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 16
+          }
+        },
+        'Agregar al Carrito'
+      ),
+      _react2.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        }
+      })
+    )
+  );
+};
+
+var styles = _reactNative.StyleSheet.create({
+  estiloCard: {
+    borderColor: '#8e1c58',
+    borderWidth: 3,
+    minWidth: '100%',
+    height: 300,
+    flex: 1
+  },
+  estiloCardI: {
+    borderColor: '#8e1c58',
+    borderWidth: 1
+  },
+  btn: {
+    alignSelf: 'stretch',
+    borderColor: '#8e1c58'
+  },
+  img: {
+    height: 100,
+    width: null,
+    flex: 1,
+    borderColor: '#8e1c58',
+    borderWidth: 1
+  },
+  icon: {
+    color: '#8e1c58'
+  }
+});
