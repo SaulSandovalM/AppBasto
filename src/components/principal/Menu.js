@@ -9,7 +9,7 @@ import {firebaseAuth} from '../firebase/Firebase';
 
 const {width, height} = Dimensions.get('window');
 
-export default class Menu extends Component < {} > {
+export default class Menu extends Component <{}> {
   state = {
     loggedIn: null
   };
@@ -180,7 +180,7 @@ export default class Menu extends Component < {} > {
               </TouchableOpacity>
             </View>
           </View>
-}
+        }
       </View>
     );
   }
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: width,
     height: height,
-    backgroundColor: 'black'
+    backgroundColor: 'white'
   },
   container: {
     flexDirection: 'row',
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: width / 2 + 50,
     borderColor: '#000',
-    backgroundColor: 'black'
+    backgroundColor: 'white'
   },
   usuario: {
     width: 60,
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
-    color: 'white'
+    color: '#8e1c58'
   },
   texto: {
     color: 'black',
@@ -243,12 +243,12 @@ const styles = StyleSheet.create({
     marginLeft: 15
   },
   iconoo: {
-    color: 'orange',
+    color: '#8e1c58',
     fontSize: 20,
     marginRight: 5
   },
   textoC: {
-    color: 'white'
+    color: '#8e1c58'
   },
   cerrarS: {
     backgroundColor: 'black',
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
   },
   icon2: {
     fontSize: 25,
-    color: 'orange',
+    color: '#8e1c58',
     marginRight: 5
   },
   nolog: {

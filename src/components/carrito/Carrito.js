@@ -30,7 +30,7 @@ export default class Carrito extends Component <{}> {
               <Text style={styles.pago}>$500.00 MXN</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={() => Actions.Ubicacion()}>
+            <Button block style={styles.boton} onPress={() => Actions.Maps()}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>
@@ -43,7 +43,7 @@ export default class Carrito extends Component <{}> {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 20
   },
