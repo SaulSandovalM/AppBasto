@@ -4,6 +4,18 @@ import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/registro.jpeg';
 import firebase, {firebaseAuth} from '../firebase/Firebase';
+import {setUser} from '../../actions/userActions';
+import {store} from '../../App';
+
+const initial = {
+  nombre: '',
+  correo: '',
+  password: '',
+  verifyPassword: '',
+  telefono: '',
+  error: '',
+  loading: false
+}
 
 export default class Registro extends Component < {} > {
   state = {
@@ -20,27 +32,38 @@ export default class Registro extends Component < {} > {
     super(props);
     this.onLoginSuccess = this.onLoginSuccess.bind(this);
     this.onLoginFailed = this.onLoginFailed.bind(this);
+    this.onButtonPress = this.onButtonPress.bind(this);
   }
 
-  onButtonPress() {
+  onButtonPress(){
     const {correo, password, verifyPassword} = this.state;
+    //console.log(this.state);
     this.setState({error: '', loading: true});
     if (password == verifyPassword && password != null && verifyPassword != null) {
       firebaseAuth.createUserWithEmailAndPassword(correo, password)
       .then(this.onLoginSuccess).catch(this.onLoginFailed);
     } else {
-      Toast.show({text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger'})
+      Toast.show({text: 'Llene los campos correctamente', position: 'bottom', buttonText: 'OK', type: 'danger'});
+      this.setState({loading:false});
     }
   }
 
-  onLoginFailed() {
+  onLoginFailed(e) {
+    //console.log(e)
+    let error = "";
+    if(e.code === "auth/weak-password") error = "Tu contraseña debe tener al menos 6 caracteres"
+
     this.setState({error: 'Autenticación Fallida', loading: false});
-    Toast.show({text: 'Registro fallido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger'})
+    Toast.show({text: 'Registro fallido, '+error, position: 'bottom', buttonText: 'OK', type: 'danger'})
   }
 
-  onLoginSuccess() {
-    this.setState({correo: '', password: '', error: '', verifyPassword: '', loading: false});
-    Actions.Log();
+  onLoginSuccess(s) {
+    console.log(s);
+    s.phoneNumber = this.state.telefono;
+    s.displayName = this.state.nombre;
+    store.dipatch(setUser(s));
+    this.setState(initial);
+    Actions.Principal();
     Toast.show({text: 'Bienvenido', position: 'bottom', duration: 3000, type: 'success'})
   }
 
@@ -131,6 +154,7 @@ export default class Registro extends Component < {} > {
                   placeholderTextColor='#fff'
                   returnKeyType='next'
                   autoCapitalize='none'
+                  onChangeText={correo=>this.setState({correo})}
                   style={styles.color}/>
               </Item>
             </View>

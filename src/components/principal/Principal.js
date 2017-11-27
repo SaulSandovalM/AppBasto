@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
+  console.log(state);
   return {search: state.filter.search, allProducts: state.products.allProducts}
 }
 
