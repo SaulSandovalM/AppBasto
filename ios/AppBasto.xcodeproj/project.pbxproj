@@ -51,6 +51,7 @@
 		86F10DD1D5DD44FAB2A5D365 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D92356A7F5384EC88B82F52C /* libAirMaps.a */; };
 		8FF4F3667DB64006BAD544A4 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0085888D3CDA4F709660DAAB /* Ionicons.ttf */; };
 		92E7EB4D9BA242FB9877A8B4 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76B78124A86345589E48CBCB /* Ionicons.ttf */; };
+		949E4CF91FCCB97F0010BBBD /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CCC4AF1FCC8EE5002A958E /* libAirMaps.a */; };
 		94B4D2581F8D3465000DBE16 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B4D2561F8D3448000DBE16 /* libRCTVideo.a */; };
 		951CDD030BF942C8BC4676D9 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA261792AB0D4CA79AC03A42 /* MaterialCommunityIcons.ttf */; };
 		9FFE9775558D4263B79D1953 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 725228DAC9FE488FBD934B6E /* Roboto_medium.ttf */; };
@@ -478,6 +479,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				949E4CF91FCCB97F0010BBBD /* libAirMaps.a in Frameworks */,
 				94B4D2581F8D3465000DBE16 /* libRCTVideo.a in Frameworks */,
 				2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */,
 				2D02E4C21E0B4AEC006451C7 /* libRCTAnimation.a in Frameworks */,
@@ -1549,6 +1551,7 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 				);
 				INFOPLIST_FILE = AppBasto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1573,6 +1576,7 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 				);
 				INFOPLIST_FILE = AppBasto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1603,6 +1607,7 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 				);
 				INFOPLIST_FILE = "AppBasto-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1641,6 +1646,7 @@
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 				);
 				INFOPLIST_FILE = "AppBasto-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

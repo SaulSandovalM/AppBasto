@@ -49,7 +49,7 @@ export default class Maps extends Component <{}> {
       <View style={styles.container}>
           <MapView
             style={styles.container}
-            provider={MapView.PROVIDER_GOOGLE}
+            
             initialRegion={{
               latitude: 20.1286601,
               longitude: -98.7976939,
