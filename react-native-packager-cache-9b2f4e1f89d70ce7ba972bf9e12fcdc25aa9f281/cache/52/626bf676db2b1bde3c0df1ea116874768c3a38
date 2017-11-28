@@ -59,9 +59,19 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
   _inherits(Registro, _Component);
 
   function Registro() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, Registro);
 
-    return _possibleConstructorReturn(this, (Registro.__proto__ || Object.getPrototypeOf(Registro)).apply(this, arguments));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Registro.__proto__ || Object.getPrototypeOf(Registro)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      usuario: {}
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Registro, [{
@@ -70,26 +80,39 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
       this.props.emailChangedreg(text);
     }
   }, {
+    key: 'onPhoneChange',
+    value: function onPhoneChange(text) {
+      this.props.phoneChangedreg(text);
+    }
+  }, {
     key: 'onPasswordChange',
     value: function onPasswordChange(text) {
       this.props.passwordChangedreg(text);
     }
   }, {
+    key: 'onNameChange',
+    value: function onNameChange(text) {
+      this.props.nameChangedreg(text);
+    }
+  }, {
+    key: 'onDireccionChange',
+    value: function onDireccionChange(text) {
+      this.props.direccionChangedreg(text);
+    }
+  }, {
     key: 'onButtonPress',
     value: function onButtonPress() {
-      var _props = this.props,
-          email = _props.email,
-          password = _props.password;
+      var regis = this.props.regis;
 
-      this.props.loginUserreg({ email: email, password: password });
+      this.props.loginUserreg({ regis: regis });
     }
   }, {
     key: 'renderButton',
     value: function renderButton() {
-      if (this.props.loading) {
+      if (this.props.regis.loading) {
         return _react3.default.createElement(_nativeBase.Spinner, { size: 'large', color: 'white', __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 41
           }
         });
       }
@@ -98,21 +121,21 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
         _reactNative.View,
         { style: styles.content, __source: {
             fileName: _jsxFileName,
-            lineNumber: 29
+            lineNumber: 45
           }
         },
         _react3.default.createElement(
           _nativeBase.Button,
           { block: true, style: styles.button, onPress: this.onButtonPress.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 30
+              lineNumber: 46
             }
           },
           _react3.default.createElement(
             _reactNative.Text,
             { style: styles.boton, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 31
+                lineNumber: 47
               }
             },
             'INICIAR SESI\xD3N'
@@ -121,34 +144,41 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
       );
     }
   }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var usuario = this.props.users;
+      this.setState({ usuario: usuario });
+      console.log(usuario);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react3.default.createElement(
         _reactNative.ImageBackground,
         { source: _registro2.default, style: styles.img, __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 63
           }
         },
         _react3.default.createElement(
           _reactNative.View,
           { style: styles.estiloImageB, __source: {
               fileName: _jsxFileName,
-              lineNumber: 41
+              lineNumber: 65
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view4, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 42
+                lineNumber: 66
               }
             },
             _react3.default.createElement(_nativeBase.Icon, { name: 'ios-arrow-back', style: styles.icon2, onPress: function onPress() {
                 return _reactNativeRouterFlux.Actions.pop();
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 43
+                lineNumber: 67
               }
             })
           ),
@@ -157,7 +187,7 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 45
+                lineNumber: 69
               }
             },
             _react3.default.createElement(
@@ -165,25 +195,28 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 46
+                  lineNumber: 70
                 }
               },
               _react3.default.createElement(
                 _nativeBase.Item,
                 { style: styles.inputRounded, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 47
+                    lineNumber: 71
                   }
                 },
                 _react3.default.createElement(_nativeBase.Input, {
-                  name: 'nombre',
                   placeholder: 'Nombre',
                   placeholderTextColor: '#fff',
                   returnKeyType: 'next',
                   autoCapitalize: 'none',
-                  style: styles.color, __source: {
+                  style: styles.color,
+                  onChangeText: this.onNameChange.bind(this),
+                  value: this.props.names,
+
+                  __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 48
+                    lineNumber: 72
                   }
                 })
               )
@@ -193,14 +226,45 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 58
+                  lineNumber: 85
                 }
               },
               _react3.default.createElement(
                 _nativeBase.Item,
                 { style: styles.inputRounded, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 59
+                    lineNumber: 86
+                  }
+                },
+                _react3.default.createElement(_nativeBase.Input, {
+                  name: 'direccion',
+                  placeholder: 'Direcci\xF3n',
+                  placeholderTextColor: '#fff',
+                  returnKeyType: 'next',
+                  autoCapitalize: 'none',
+                  style: styles.color,
+                  onChangeText: this.onDireccionChange.bind(this),
+                  value: this.props.direccion,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 87
+                  }
+                })
+              )
+            ),
+            _react3.default.createElement(
+              _reactNative.View,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 100
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Item,
+                { style: styles.inputRounded, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 101
                   }
                 },
                 _react3.default.createElement(_nativeBase.Input, {
@@ -215,7 +279,7 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
                   value: this.props.email,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 60
+                    lineNumber: 102
                   }
                 })
               )
@@ -225,14 +289,14 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 74
+                  lineNumber: 116
                 }
               },
               _react3.default.createElement(
                 _nativeBase.Item,
                 { style: styles.inputRounded, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 75
+                    lineNumber: 117
                   }
                 },
                 _react3.default.createElement(_nativeBase.Input, {
@@ -247,7 +311,7 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
                   value: this.props.password,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 76
+                    lineNumber: 118
                   }
                 })
               )
@@ -255,7 +319,7 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
             _react3.default.createElement(_reactNative.View, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 90
+                lineNumber: 133
               }
             }),
             _react3.default.createElement(
@@ -263,14 +327,14 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 94
+                  lineNumber: 136
                 }
               },
               _react3.default.createElement(
                 _nativeBase.Item,
                 { style: styles.inputRounded, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 95
+                    lineNumber: 137
                   }
                 },
                 _react3.default.createElement(_nativeBase.Input, {
@@ -280,9 +344,12 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
                   keyboardType: 'numeric',
                   placeholderTextColor: '#fff',
                   returnKeyType: 'next',
-                  autoCapitalize: 'none', __source: {
+                  onChangeText: this.onPhoneChange.bind(this),
+                  value: this.props.phone,
+                  autoCapitalize: 'none',
+                  __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 96
+                    lineNumber: 138
                   }
                 })
               )
@@ -297,17 +364,14 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
   return Registro;
 }(_react2.Component));
 
-var mapStateToProps = function mapStateToProps(_ref) {
-  var regis = _ref.regis;
-  var email = regis.email,
-      password = regis.password,
-      error = regis.error,
-      loading = regis.loading;
+var mapStateToProps = function mapStateToProps(_ref2) {
+  var regis = _ref2.regis;
 
-  return { email: email, password: password, error: error, loading: loading };
+  console.log(regis);
+  return { regis: regis };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, { emailChangedreg: _registerActions.emailChangedreg, passwordChangedreg: _registerActions.passwordChangedreg, loginUserreg: _registerActions.loginUserreg })(Registro);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, { emailChangedreg: _registerActions.emailChangedreg, passwordChangedreg: _registerActions.passwordChangedreg, loginUserreg: _registerActions.loginUserreg, direccionChangedreg: _registerActions.direccionChangedreg, nameChangedreg: _registerActions.nameChangedreg, phoneChangedreg: _registerActions.phoneChangedreg })(Registro);
 
 
 var styles = _reactNative.StyleSheet.create({

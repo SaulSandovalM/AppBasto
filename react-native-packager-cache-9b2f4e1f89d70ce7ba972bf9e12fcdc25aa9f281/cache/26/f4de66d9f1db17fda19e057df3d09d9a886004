@@ -7,16 +7,20 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var _types = require('../actions/types');
 
 var INITIAL_STATE = {
-  email: '',
-  password: '',
-  user: null,
-  error: '',
-  loading: false
+  logi: {
+    email: '',
+    password: '',
+    user: null,
+    error: '',
+    loading: false
+  }
+
 };
 
 exports.default = auth = function auth() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE.logi;
   var action = arguments[1];
+
 
   switch (action.type) {
     case _types.EMAIL_CHANGED:

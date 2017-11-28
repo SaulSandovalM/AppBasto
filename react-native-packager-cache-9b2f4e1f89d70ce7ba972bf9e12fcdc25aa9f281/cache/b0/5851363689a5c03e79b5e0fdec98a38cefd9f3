@@ -7,26 +7,53 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var _types = require('../actions/types');
 
 var INITIAL_STATE = {
-    email: '',
-    password: '',
-    user: null,
-    error: '',
-    loading: false
+    users: {
+        email: '',
+        password: '',
+        names: '',
+        direccion: '',
+        error: '',
+        loading: false,
+        user: null,
+        phone: ''
+    }
 };
 
 exports.default = regis = function regis() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE.users;
     var action = arguments[1];
 
+
     switch (action.type) {
+
+        case _types.NAME_CHANGEDREG:
+            return _extends({}, state, {
+                names: action.payload
+            });
+
+        case _types.PHONE_CHANGEDRED:
+            return _extends({}, state, {
+                phone: action.payload
+            });
+
         case _types.EMAIL_CHANGEDREG:
             return _extends({}, state, {
                 email: action.payload
             });
 
+        case _types.INFO_USER:
+            {
+                return INITIAL_STATE;
+            };
+
         case _types.PASSWORD_CHANGEDREG:
             return _extends({}, state, {
                 password: action.payload
+            });
+
+        case _types.DIRECCION_CHANGEDREG:
+            return _extends({}, state, {
+                direccion: action.payload
             });
 
         case _types.LOGIN_USERREG:

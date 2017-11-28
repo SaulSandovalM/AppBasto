@@ -12,3 +12,16 @@ var PASSWORD_CHANGEDREG = exports.PASSWORD_CHANGEDREG = 'password_changedreg';
 var LOGIN_USER_SUCCESSREG = exports.LOGIN_USER_SUCCESSREG = 'login_user_successreg';
 var LOGIN_USER_FAILREG = exports.LOGIN_USER_FAILREG = 'login_user_failreg';
 var LOGIN_USERREG = exports.LOGIN_USERREG = 'login_userreg';
+
+var NAME_CHANGEDREG = exports.NAME_CHANGEDREG = 'name_changedreg';
+var DIRECCION_CHANGEDREG = exports.DIRECCION_CHANGEDREG = 'direccion_changedreg';
+
+var INFO_USER = exports.INFO_USER = 'info_user';
+var PHONE_CHANGEDRED = exports.PHONE_CHANGEDRED = 'phone_changedreg';
+
+var EMAIL_CHANGEDREC = exports.EMAIL_CHANGEDREC = 'email_changedrec';
+var VEMAIL_CHANGEDREC = exports.VEMAIL_CHANGEDREC = 'vemail_changedrec';
+var SEND_EMAIL = exports.SEND_EMAIL = 'send_email';
+
+var SEND_EMAIL_SUCCESS = exports.SEND_EMAIL_SUCCESS = 'send_email_success';
+var SEND_EMAIL_FAIL = exports.SEND_EMAIL_FAIL = 'send_email_success';

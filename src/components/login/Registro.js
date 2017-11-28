@@ -4,24 +4,40 @@ import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/registro.jpeg';
 import {connect} from 'react-redux';
-import {emailChangedreg, passwordChangedreg, loginUserreg} from '../../actions/registerActions';
+import {emailChangedreg, passwordChangedreg, loginUserreg, direccionChangedreg, nameChangedreg, phoneChangedreg} from '../../actions/registerActions';
+
 
 class Registro extends Component < {} > {
+    state={
+        usuario:{}
+    }
     onEmailChange(text) {
         this.props.emailChangedreg(text);
+    }
+
+    onPhoneChange(text){
+        this.props.phoneChangedreg(text);
     }
 
     onPasswordChange(text) {
         this.props.passwordChangedreg(text);
     }
 
+    onNameChange(text){
+        this.props.nameChangedreg(text);
+    }
+
+    onDireccionChange(text){
+        this.props.direccionChangedreg(text);
+    }
+
     onButtonPress() {
-        const {email, password} = this.props;
-        this.props.loginUserreg({email, password});
+        const {regis} = this.props;
+        this.props.loginUserreg({regis});
     }
 
     renderButton() {
-        if (this.props.loading) {
+        if (this.props.regis.loading) {
             return <Spinner size="large" color='white'/>
         }
 
@@ -33,6 +49,14 @@ class Registro extends Component < {} > {
             </View>
         );
     }
+
+    componentWillMount(){
+        let usuario = this.props.users
+        this.setState({usuario});
+        console.log(usuario)
+    }
+
+
 
   render() {
     return (
@@ -46,14 +70,32 @@ class Registro extends Component < {} > {
             <View>
               <Item style={styles.inputRounded}>
                 <Input
-                  name="nombre"
-                  placeholder='Nombre'
+                    placeholder='Nombre'
                   placeholderTextColor='#fff'
                   returnKeyType='next'
                   autoCapitalize='none'
-                  style={styles.color}/>
+                  style={styles.color}
+                  onChangeText={this.onNameChange.bind(this)}
+                  value={this.props.names}
+
+                />
               </Item>
             </View>
+
+              <View>
+                  <Item style={styles.inputRounded}>
+                      <Input
+                          name="direccion"
+                          placeholder='Dirección'
+                          placeholderTextColor='#fff'
+                          returnKeyType='next'
+                          autoCapitalize='none'
+                          style={styles.color}
+                          onChangeText={this.onDireccionChange.bind(this)}
+                          value={this.props.direccion}
+                      />
+                  </Item>
+              </View>
 
             <View>
               <Item style={styles.inputRounded}>
@@ -71,24 +113,24 @@ class Registro extends Component < {} > {
               </Item>
             </View>
 
-            <View>
-              <Item style={styles.inputRounded}>
-                <Input
-                  name="contraseña"
-                  placeholder='Contraseña'
-                  placeholderTextColor='#fff'
-                  returnKeyType='next'
-                  autoCapitalize='none'
-                  secureTextEntry={true}
-                  style={styles.color}
-                  onChangeText={this.onPasswordChange.bind(this)}
-                  value={this.props.password}
-                />
-              </Item>
-            </View>
+              <View>
+                  <Item style={styles.inputRounded}>
+                      <Input
+                          name="contraseña"
+                          placeholder='Contraseña'
+                          placeholderTextColor='#fff'
+                          returnKeyType='next'
+                          autoCapitalize='none'
+                          secureTextEntry={true}
+                          style={styles.color}
+                          onChangeText={this.onPasswordChange.bind(this)}
+                          value={this.props.password}
+                      />
+                  </Item>
+              </View>
+
 
             <View />
-
 
 
             <View>
@@ -100,7 +142,10 @@ class Registro extends Component < {} > {
                   keyboardType='numeric'
                   placeholderTextColor='#fff'
                   returnKeyType='next'
-                  autoCapitalize='none'/>
+                  onChangeText={this.onPhoneChange.bind(this)}
+                  value={this.props.phone}
+                  autoCapitalize='none'
+                />
               </Item>
             </View>
           </View>
@@ -113,11 +158,11 @@ class Registro extends Component < {} > {
 }
 
 const mapStateToProps = ({regis}) => {
-    const {email, password, error, loading} = regis
-    return {email, password, error, loading};
+    console.log(regis);
+    return {regis};
 };
 
-export default connect(mapStateToProps, {emailChangedreg, passwordChangedreg, loginUserreg})(Registro);
+export default connect(mapStateToProps, {emailChangedreg, passwordChangedreg, loginUserreg, direccionChangedreg, nameChangedreg, phoneChangedreg})(Registro);
 
 
 const styles = StyleSheet.create({

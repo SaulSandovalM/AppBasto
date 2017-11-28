@@ -3,39 +3,30 @@ import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import {Button, Input, Item, Toast, Spinner, Icon} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/recover.jpeg';
-import firebase, {firebaseAuth} from '../firebase/Firebase';
 
-export default class Registro extends Component < {} > {
-  state = {
-    correo: '',
-    verifyCorreo: '',
-    error: '',
-    loading: false
-  };
+import {connect} from 'react-redux';
+import {emailChangedrec, vemailChangedrec, sendEmail} from '../../actions/recoverActions';
 
-  constructor(props) {
-    super(props);
-    this.recover = this.recover.bind(this);
-  }
+class Recover extends Component < {} > {
 
-  recover() {
-    const {correo, verifyCorreo} = this.state;
-    this.setState({error: '', loading: true});
-    if (correo == verifyCorreo && correo != null && verifyCorreo != null) {
-      firebaseAuth.sendPasswordResetEmail(correo).then(function() {
-        Actions.Login()
-        Toast.show({
-          text: 'Revisa tu correo, continua los pasos', position: 'bottom', buttonText: 'OK', type: 'success'})
-      }, function(error) {
-        Toast.show({
-          text: 'Correo inválido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger'})
-      });
+    onEmailRChange(text) {
+        this.props.emailChangedrec(text);
     }
-  }
 
-  buttonCorreo() {
-    const {verifyCorreo, correo} = this.state;
-    if (verifyCorreo == correo) {
+    onVemailChange(text){
+        this.props.vemailChangedrec(text);
+    }
+
+    onButtonrPress() {
+        const {recover} = this.props;
+        console.log(recover)
+        this.props.sendEmail({recover});
+    }
+
+
+    buttonCorreo() {
+    console.log(this.props.recover)
+    if (this.props.recover.emailrec === this.props.recover.veriemail) {
       return (
         <Item success style={styles.inputRounded}>
           <Input
@@ -45,8 +36,8 @@ export default class Registro extends Component < {} > {
             placeholderTextColor='#fff'
             returnKeyType='next'
             autoCapitalize='none'
-            value={this.state.verifyCorreo}
-            onChangeText={(verifyCorreo) => this.setState({verifyCorreo})}/>
+            value={this.props.recover.veriemail}
+            onChangeText={this.onVemailChange.bind(this)}/>
           <Icon name='checkmark-circle' style={styles.icon}/>
         </Item>
       );
@@ -61,8 +52,8 @@ export default class Registro extends Component < {} > {
           placeholderTextColor='#fff'
           returnKeyType='next'
           autoCapitalize='none'
-          value={this.state.verifyCorreo}
-          onChangeText={(verifyCorreo) => this.setState({verifyCorreo})}/>
+          value={this.props.recover.veriemail}
+          onChangeText={this.onVemailChange.bind(this)}/>
         <Icon name='close-circle' style={styles.icon}/>
       </Item>
     );
@@ -86,8 +77,8 @@ export default class Registro extends Component < {} > {
                 placeholderTextColor='#fff'
                 returnKeyType='next'
                 autoCapitalize='none'
-                value={this.state.correo}
-                onChangeText={correo => this.setState({correo})}/>
+                value={this.props.recover.emailChangedrec}
+                onChangeText={this.onEmailRChange.bind(this)}/>
             </Item>
 
             {this.buttonCorreo()}
@@ -95,7 +86,7 @@ export default class Registro extends Component < {} > {
           </View>
 
           <View style={styles.content}>
-            <Button block style={styles.button} onPress={this.recover.bind(this)}>
+            <Button block style={styles.button} onPress={this.onButtonrPress.bind(this)}>
               <Text style={styles.boton}>RECUPERAR CONTRASEÑA</Text>
             </Button>
           </View>
@@ -105,6 +96,14 @@ export default class Registro extends Component < {} > {
     );
   }
 }
+
+const mapStateToProps = ({recover}) => {
+    console.log(recover);
+    return {recover};
+};
+
+export default connect(mapStateToProps, {emailChangedrec, vemailChangedrec, sendEmail})(Recover);
+
 
 const styles = StyleSheet.create({
   img: {

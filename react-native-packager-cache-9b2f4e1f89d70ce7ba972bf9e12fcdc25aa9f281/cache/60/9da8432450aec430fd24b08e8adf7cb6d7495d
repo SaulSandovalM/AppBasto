@@ -81,16 +81,14 @@ var Login = _wrapComponent('Login')(function (_Component) {
   }, {
     key: 'onButtonPress',
     value: function onButtonPress() {
-      var _props = this.props,
-          email = _props.email,
-          password = _props.password;
+      var auth = this.props.auth;
 
-      this.props.loginUser({ email: email, password: password });
+      this.props.loginUser({ auth: auth });
     }
   }, {
     key: 'renderButton',
     value: function renderButton() {
-      if (this.props.loading) {
+      if (this.props.auth.loading) {
         return _react3.default.createElement(_nativeBase.Spinner, { size: 'large', color: 'white', __source: {
             fileName: _jsxFileName,
             lineNumber: 26
@@ -385,12 +383,9 @@ var styles = _reactNative.StyleSheet.create({
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var auth = _ref.auth;
-  var email = auth.email,
-      password = auth.password,
-      error = auth.error,
-      loading = auth.loading;
 
-  return { email: email, password: password, error: error, loading: loading };
+
+  return { auth: auth };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { loginUser: _loginActions.loginUser, emailChanged: _loginActions.emailChanged, passwordChanged: _loginActions.passwordChanged })(Login);
