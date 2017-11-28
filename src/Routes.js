@@ -12,6 +12,7 @@ import Carrito from './components/carrito/Carrito';
 import Perfil from './components/perfil/Perfil';
 import Inicio from './components/bienvenida/Inicio';
 import Maps from './components/carrito/Maps';
+import Pedido from './components/carrito/Pedido';
 
 const Routes = () => {
   return (
@@ -29,6 +30,7 @@ const Routes = () => {
         <Scene key="Carrito" header={null} component={Carrito}/>
         <Scene key="Perfil" header={null} component={Perfil}/>
         <Scene key="Maps" header={null} component={Maps}/>
+        <Scene key="Pedido" header={null} component={Pedido}/>
       </Scene>
     </Router>
     </Root>

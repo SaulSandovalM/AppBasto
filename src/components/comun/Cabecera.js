@@ -21,9 +21,9 @@ export default class Cabecera extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#8e1c58'
+    backgroundColor: 'white'
   },
   color: {
-    color: 'white',
+    color: '#8e1c58',
   }
 });

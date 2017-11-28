@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
-import {View, Image, ScrollView, StyleSheet, Text} from 'react-native';
-import {Container, StyleProvider, Body, List, ListItem, CardItem, Button} from 'native-base';
+import {View, Image, ScrollView, StyleSheet, Text, Platform} from 'react-native';
+import {Container, StyleProvider, Body, List, ListItem, CardItem, Button, Toast} from 'native-base';
 import Cabecera from '../comun/Cabecera';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {Actions} from 'react-native-router-flux';
 import ListaCompra from './ListaCompra';
 
+const header = Platform.select({
+  ios: <Cabecera/>,
+});
+
 export default class Carrito extends Component <{}> {
   render() {
     return (
       <StyleProvider style={getTheme(material)}>
         <Container style={styles.fondo}>
-          <Cabecera/>
+          {header}
 
           <ScrollView>
             <ListaCompra/>
@@ -30,7 +34,7 @@ export default class Carrito extends Component <{}> {
               <Text style={styles.pago}>$500.00 MXN</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={() => Actions.Maps()}>
+            <Button block style={styles.boton} onPress={()=>Actions.Maps()}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>
@@ -43,7 +47,7 @@ export default class Carrito extends Component <{}> {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'white',
+    color: '#8e1c58',
     fontWeight: 'bold',
     fontSize: 20
   },
@@ -60,8 +64,10 @@ const styles = StyleSheet.create({
     marginLeft: 15
   },
   boton: {
-    backgroundColor: '#8e1c58',
-    width: '100%'
+    backgroundColor: 'white',
+    width: '100%',
+    borderColor: '#8e1c58',
+    borderWidth: 2
   },
   list: {
     backgroundColor: 'white'

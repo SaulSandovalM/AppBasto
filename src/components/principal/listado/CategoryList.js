@@ -40,6 +40,7 @@ class CategoryList extends Component {
           <ScrollView horizontal={true} style={styles.scroll}>
             {
               allProducts.map((p, index) => {
+                console.log(p)
                 return <ProductItem setVisible={this.setVisible} key={index} index={index} {...p}/>
               })
             }

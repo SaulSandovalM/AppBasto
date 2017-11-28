@@ -2,9 +2,9 @@ import React from 'react';
 import {Card, Icon, Text} from 'native-base';
 import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
 
-export const ProductItem = ({setVisible, index, image}) => {
+export const ProductItem = ({image}) => {
   return (
-      <TouchableOpacity onPress={() => setVisible(index)}>
+      <TouchableOpacity>
       <Card>
         <Image source={{
             uri: image

@@ -14,8 +14,7 @@ export default class Select extends Component < {} > {
 
   render() {
     return (
-      <Body>
-        <Form>
+        <Form style={{width: 100}}>
           <Picker
             mode="dropdown"
             placeholder="1kg"
@@ -29,7 +28,6 @@ export default class Select extends Component < {} > {
             <Item label="6 kg" value="key4"/>
           </Picker>
         </Form>
-      </Body>
     );
   }
 }
