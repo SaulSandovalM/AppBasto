@@ -1,5 +1,7 @@
 
-var funcToString = Function.prototype.toString;
+var funcProto = Function.prototype;
+
+var funcToString = funcProto.toString;
 
 function toSource(func) {
   if (func != null) {

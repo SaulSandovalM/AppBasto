@@ -16,10 +16,6 @@ var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/principal/lista
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _reactRedux = require('react-redux');
-
-var _redux = require('redux');
-
 var _reactNative = require('react-native');
 
 var _nativeBase = require('native-base');
@@ -27,6 +23,14 @@ var _nativeBase = require('native-base');
 var _ProductItem = require('./ProductItem');
 
 var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _reactRedux = require('react-redux');
+
+var _productosActions = require('../../../actions/productosActions');
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -59,66 +63,59 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
   _inherits(CategoryList, _Component);
 
   function CategoryList() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
     _classCallCheck(this, CategoryList);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      allProducts: []
-    }, _this.setVisible = function (id) {
-      _this.setState({ visibleModal: id });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    return _possibleConstructorReturn(this, (CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).apply(this, arguments));
   }
 
   _createClass(CategoryList, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      var allProducts = this.props.allProducts;
-
-      this.setState({ allProducts: allProducts });
+      this.props.listaFetch();
+      console.log(this.props.lista);
+    }
+  }, {
+    key: 'spinnerr',
+    value: function spinnerr() {
+      if (!this.props.fetched) return _react3.default.createElement(_nativeBase.Spinner, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        }
+      });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
-      if (!this.props.fetched) return _react3.default.createElement(_nativeBase.Spinner, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 25
-        }
-      });
-      var allProducts = this.state.allProducts;
       var _props = this.props,
           fondo = _props.fondo,
-          categoria = _props.categoria;
+          categoria = _props.categoria,
+          lista = _props.lista,
+          slug = _props.slug;
 
+      var filtrados = lista.filter(function (f) {
+        return f.category === slug && f.in_offer === true;
+      });
 
       return _react3.default.createElement(
         _reactNative.ScrollView,
         { style: styles.content, __source: {
             fileName: _jsxFileName,
-            lineNumber: 30
+            lineNumber: 27
           }
         },
         _react3.default.createElement(
           _reactNative.ImageBackground,
           { source: fondo, style: styles.fondo, __source: {
               fileName: _jsxFileName,
-              lineNumber: 31
+              lineNumber: 28
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view4, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 32
+                lineNumber: 29
               }
             },
             _react3.default.createElement(
@@ -127,7 +124,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
                   return _reactNativeRouterFlux.Actions.Detalle();
                 }, style: styles.texto, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 33
+                  lineNumber: 30
                 }
               },
               categoria
@@ -138,18 +135,19 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
           _reactNative.View,
           { style: styles.view2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 39
+              lineNumber: 36
             }
           },
           _react3.default.createElement(
             _reactNative.ScrollView,
             { horizontal: true, style: styles.scroll, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 40
+                lineNumber: 37
               }
             },
-            allProducts.map(function (p, index) {
-              return _react3.default.createElement(_ProductItem.ProductItem, _extends({ setVisible: _this2.setVisible, key: index, index: index }, p, {
+            this.spinnerr(),
+            filtrados.map(function (item, index) {
+              return _react3.default.createElement(_ProductItem.ProductItem, _extends({ key: index, index: index }, item, {
                 __source: {
                   fileName: _jsxFileName,
                   lineNumber: 43
@@ -166,27 +164,14 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
 }(_react2.Component));
 
 var styles = _reactNative.StyleSheet.create({
-  view: {
-    flex: 1
-  },
   view2: {
     flexDirection: 'row'
-  },
-  view3: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    backgroundColor: 'white'
   },
   view4: {
     backgroundColor: 'rgba(0,0,0,.5)',
     height: '100%',
     width: '100%',
     justifyContent: 'center'
-  },
-  view5: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
   },
   content: {
     backgroundColor: '#fff'
@@ -203,39 +188,20 @@ var styles = _reactNative.StyleSheet.create({
     fontSize: 20,
     marginLeft: 5
   },
-  text: {
-    alignSelf: 'center'
-  },
   scroll: {
     marginBottom: 10
-  },
-  img: {
-    height: 150,
-    width: 150,
-    flex: 1
-  },
-  img2: {
-    width: '100%',
-    height: 150
-  },
-  button: {
-    alignSelf: 'center',
-    borderColor: 'white'
-  },
-  icon: {
-    color: "green"
   }
+
 });
 
-function mapStateToProps(state, ownProps) {
-  return {
-    allProducts: state.products.allProducts,
-    fetched: state.products.allProducts.length > 0
-  };
-}
+var mapStateToProps = function mapStateToProps(state) {
+  var lista = _lodash2.default.map(state.lista, function (val, uid) {
+    return _extends({}, val, {
+      uid: uid
+    });
+  });
 
-function mapDispatchToProps(dispatch) {
-  return { actions: (0, _redux.bindActionCreators)(dispatch) };
-}
+  return { lista: lista, fetched: lista.length > 0 };
+};
 
-exports.default = CategoryList = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CategoryList);
+exports.default = CategoryList = (0, _reactRedux.connect)(mapStateToProps, { listaFetch: _productosActions.listaFetch })(CategoryList);

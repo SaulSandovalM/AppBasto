@@ -9,12 +9,8 @@ var objectProto = Object.prototype;
 
 var hasOwnProperty = objectProto.hasOwnProperty;
 
-var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
-var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
-
 var assign = createAssigner(function (object, source) {
-  if (nonEnumShadows || isPrototype(source) || isArrayLike(source)) {
+  if (isPrototype(source) || isArrayLike(source)) {
     copyObject(source, keys(source), object);
     return;
   }

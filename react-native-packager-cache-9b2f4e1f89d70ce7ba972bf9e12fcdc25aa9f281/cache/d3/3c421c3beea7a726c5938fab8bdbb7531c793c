@@ -24,6 +24,10 @@ var _RecoverReducer = require('./RecoverReducer');
 
 var _RecoverReducer2 = _interopRequireDefault(_RecoverReducer);
 
+var _dataReducer = require('./dataReducer');
+
+var _dataReducer2 = _interopRequireDefault(_dataReducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
@@ -31,6 +35,7 @@ var rootReducer = (0, _redux.combineReducers)({
     filter: _filterReducer2.default,
     products: _productReducer2.default,
     regis: _RegisterReducer2.default,
-    recover: _RecoverReducer2.default
+    recover: _RecoverReducer2.default,
+    lista: _dataReducer2.default
 });
 exports.default = rootReducer;

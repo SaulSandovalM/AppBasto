@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView, StyleSheet, StatusBar} from 'react-native';
+import {Text, View, Image, ScrollView, StyleSheet, StatusBar, ImageBackground} from 'react-native';
 import Buscador from '../comun/Buscador';
-import Modal from 'react-native-modal';
-import {Actions} from 'react-native-router-flux';
 import {Card, Icon, Button} from 'native-base';
 import lacteos from '../../assets/imgs/lacteos.jpg';
 import carnes from '../../assets/imgs/carnes.jpg';
@@ -16,102 +14,81 @@ import cat1 from '../../assets/imgs/cat1.jpg';
 import conge from '../../assets/imgs/conge.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
-import {StyleProvider} from 'native-base';
+import {StyleProvider, Spinner} from 'native-base';
 import SideMenu from 'react-native-side-menu';
 import Menu from './Menu';
 import CategoryList from './listado/CategoryList';
 import {ResultList} from './listado/ResultList';
 //redux
 import {connect} from 'react-redux';
-import {setSearch} from '../../actions/filterActions';
+import {listaFetch} from '../../actions/productosActions';
+import {setSearch} from "../../actions/filterActions";
+import _ from 'lodash';
 
 class Principal extends Component < {} > {
-  state = {
-    modalVisible: null
-  };
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpen: false,
+            results: [],
+        };
+    }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false,
-      results: []
+    onSearch = (value) => {
+        this.props.setSearch(value);
+        let results = this.props.lista;
+        const rEx = new RegExp(value, 'i');
+        results = results.filter(p => rEx.test(p.name));
+        this.setState({results});
     };
-  }
 
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
-  };
+    toggle = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+    };
 
-  actualizar(isOpen) {
-    this.setState({isOpen})
-  }
-
-  _renderModalContent = () => (
-    <View style={styles.view3}>
-      <View style={styles.view}>
-        <Card>
-          <Image source={{
-              uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
-            }} style={styles.img2}/>
-        </Card>
-      </View>
-
-      <Text style={styles.text}>Jitomate</Text>
-      <Button bordered="bordered" iconRight="iconRight" style={styles.button} onPress={() => alert('Agregado!')}>
-        <Text>Agregar</Text>
-        <Icon name="cart" style={styles.icon}/>
-      </Button>
-    </View>
-  );
-
-  onSearch = (value) => {
-    this.props.setSearch(value);
-    let results = this.props.allProducts;
-    const rEx = new RegExp(value, 'i');
-    results = results.filter(p => rEx.test(p.name) || rEx.test(p.description) || rEx.test(p.category));
-    this.setState({results})
-  };
+    actualizar(isOpen) {
+        this.setState({isOpen})
+    }
+    componentWillMount() {
+        this.props.listaFetch();
+        console.log(this.props.lista)
+    }
 
   render() {
     const {search} = this.props;
-    const {results} = this.state;
+      const {results} = this.state;
+
     return (
       <StyleProvider style={getTheme(material)}>
         <SideMenu menu={<Menu/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
 
             <Buscador onSearch={this.onSearch} toggle={this.toggle}/>
-
-            <StatusBar hidden={true}/>
             <ScrollView style={styles.content}>
+                {
+                    !search
+                        ?
+                        <View>
+                            <CategoryList fondo={lacteos} categoria="Abarrotes" slug="abarrotes"/>
+                            <CategoryList fondo={cat1} categoria="Cremería" slug="cremeria"/>
+                            <CategoryList fondo={carnes} categoria="Desechables" slug="desechables"/>
+                            <CategoryList fondo={pan} categoria="Frutos Secos y Semillas" slug="frutos-secos-y-semillas"/>
+                            <CategoryList fondo={jugos} categoria="Frutas y Verduras" slug="frutas-y-verduras"/>
+                            <CategoryList fondo={vinos} categoria="Productos de Limpieza" slug="productos-de-limpieza"/>
+                            <CategoryList fondo={higiene} categoria="Materias Primas" slug="materias-primas"/>
+                            <CategoryList fondo={farm} categoria="jugos"slug="jugos"/>
+                        </View>
+                        :
+                        <ResultList results={results}/>
+                }
 
-              {
-                !search
-                  ? <View>
-                      <CategoryList fondo={lacteos} categoria="Lacteos"/>
-                      <CategoryList fondo={cat1} categoria="Frutas y Verduras"/>
-                      <CategoryList fondo={carnes} categoria="Carnes y Pescados"/>
-                      <CategoryList fondo={pan} categoria="Penaderia"/>
-                      <CategoryList fondo={jugos} categoria="Jugos"/>
-                      <CategoryList fondo={vinos} categoria="Vinos y Licores"/>
-                      <CategoryList fondo={higiene} categoria="Higiene"/>
-                      <CategoryList fondo={farm} categoria="Farmacia"/>
-                      <CategoryList fondo={bb} categoria="Bebés"/>
-                      <CategoryList fondo={conge} categoria="Congelados"/>
-                    </View>
-                  : <ResultList results={results}/>
-              }
 
-              <Modal
-                isVisible={this.state.visibleModal === 1}
-                onBackdropPress={() => this.setState({visibleModal: null})}
-                animationIn={'slideInLeft'} animationOut={'fadeOut'}>
-                {this._renderModalContent()}
-              </Modal>
 
-            </ScrollView>
+
+
+              </ScrollView>
           </View>
         </SideMenu>
       </StyleProvider>
@@ -123,66 +100,24 @@ const styles = StyleSheet.create({
   view: {
     flex: 1
   },
-  view2: {
-    flexDirection: 'row'
-  },
-  view3: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    backgroundColor: 'white'
-  },
-  view4: {
-    backgroundColor: 'rgba(0,0,0,.5)',
-    height: '100%',
-    width: '100%',
-    justifyContent: 'center'
-  },
-  view5: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
-  },
-  content: {
+    content: {
     backgroundColor: '#fff'
   },
-  fondo: {
-    justifyContent: 'center',
-    height: 50,
-    width: null
-  },
-  texto: {
-    backgroundColor: 'transparent',
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 20,
-    marginLeft: 5
-  },
-  text: {
-    alignSelf: 'center'
-  },
-  scroll: {
-    marginBottom: 10
-  },
-  img: {
-    height: 150,
-    width: 150,
-    flex: 1
-  },
-  img2: {
-    width: '100%',
-    height: 150
-  },
-  button: {
-    alignSelf: 'center',
-    borderColor: 'white'
-  },
-  icon: {
-    color: "green"
-  }
+
 });
 
-function mapStateToProps(state) {
-  return {search: state.filter.search, allProducts: state.products.allProducts}
-}
+const mapStateToProps = state => {
+    const lista = _.map(state.lista, (val, uid) => {
+        return {
+            ...val,
+            uid
+        };
+    });
 
-export default Principal = connect(mapStateToProps, {setSearch})(Principal);
+    return {search: state.filter.search, lista};
+
+
+};
+
+
+export default Principal = connect(mapStateToProps, {listaFetch, setSearch})(Principal);

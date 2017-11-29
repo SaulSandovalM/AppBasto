@@ -1,4 +1,6 @@
 var Symbol = require('./_Symbol'),
+    arrayMap = require('./_arrayMap'),
+    isArray = require('./isArray'),
     isSymbol = require('./isSymbol');
 
 var INFINITY = 1 / 0;
@@ -9,6 +11,9 @@ var symbolProto = Symbol ? typeof Symbol === 'function' ? Symbol.prototype : '@@
 function baseToString(value) {
   if (typeof value == 'string') {
     return value;
+  }
+  if (isArray(value)) {
+    return arrayMap(value, baseToString) + '';
   }
   if (isSymbol(value)) {
     return symbolToString ? symbolToString.call(value) : '';

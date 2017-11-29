@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _react2 = require('react');
@@ -10,6 +10,8 @@ var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js')
 
 var _index2 = _interopRequireDefault(_index);
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/principal/Principal.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19,12 +21,6 @@ var _reactNative = require('react-native');
 var _Buscador = require('../comun/Buscador');
 
 var _Buscador2 = _interopRequireDefault(_Buscador);
-
-var _reactNativeModal = require('react-native-modal');
-
-var _reactNativeModal2 = _interopRequireDefault(_reactNativeModal);
-
-var _reactNativeRouterFlux = require('react-native-router-flux');
 
 var _nativeBase = require('native-base');
 
@@ -92,7 +88,13 @@ var _ResultList = require('./listado/ResultList');
 
 var _reactRedux = require('react-redux');
 
+var _productosActions = require('../../actions/productosActions');
+
 var _filterActions = require('../../actions/filterActions');
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -103,337 +105,196 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _components = {
-  Principal: {
-    displayName: 'Principal'
-  }
+    Principal: {
+        displayName: 'Principal'
+    }
 };
 
 var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-  filename: '/home/jose/V\xEDdeos/AppBasto/src/components/principal/Principal.js',
-  components: _components,
-  locals: [module],
-  imports: [_react3.default]
+    filename: '/home/jose/V\xEDdeos/AppBasto/src/components/principal/Principal.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
 });
 
 function _wrapComponent(id) {
-  return function (Component) {
-    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-  };
+    return function (Component) {
+        return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
 }
 
 var Principal = _wrapComponent('Principal')(function (_Component) {
-  _inherits(Principal, _Component);
+    _inherits(Principal, _Component);
 
-  function Principal(props) {
-    _classCallCheck(this, Principal);
+    function Principal(props) {
+        _classCallCheck(this, Principal);
 
-    var _this = _possibleConstructorReturn(this, (Principal.__proto__ || Object.getPrototypeOf(Principal)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Principal.__proto__ || Object.getPrototypeOf(Principal)).call(this, props));
 
-    _this.state = {
-      modalVisible: null
-    };
+        _this.onSearch = function (value) {
+            _this.props.setSearch(value);
+            var results = _this.props.lista;
+            var rEx = new RegExp(value, 'i');
+            results = results.filter(function (p) {
+                return rEx.test(p.name);
+            });
+            _this.setState({ results: results });
+        };
 
-    _this.toggle = function () {
-      _this.setState({
-        isOpen: !_this.state.isOpen
-      });
-    };
+        _this.toggle = function () {
+            _this.setState({
+                isOpen: !_this.state.isOpen
+            });
+        };
 
-    _this._renderModalContent = function () {
-      return _react3.default.createElement(
-        _reactNative.View,
-        { style: styles.view3, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 52
-          }
-        },
-        _react3.default.createElement(
-          _reactNative.View,
-          { style: styles.view, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 53
-            }
-          },
-          _react3.default.createElement(
-            _nativeBase.Card,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 54
-              }
-            },
-            _react3.default.createElement(_reactNative.Image, { source: {
-                uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
-              }, style: styles.img2, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 55
-              }
-            })
-          )
-        ),
-        _react3.default.createElement(
-          _reactNative.Text,
-          { style: styles.text, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 61
-            }
-          },
-          'Jitomate'
-        ),
-        _react3.default.createElement(
-          _nativeBase.Button,
-          { bordered: 'bordered', iconRight: 'iconRight', style: styles.button, onPress: function onPress() {
-              return alert('Agregado!');
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 62
-            }
-          },
-          _react3.default.createElement(
-            _reactNative.Text,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 63
-              }
-            },
-            'Agregar'
-          ),
-          _react3.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 64
-            }
-          })
-        )
-      );
-    };
-
-    _this.onSearch = function (value) {
-      _this.props.setSearch(value);
-      var results = _this.props.allProducts;
-      var rEx = new RegExp(value, 'i');
-      results = results.filter(function (p) {
-        return rEx.test(p.name) || rEx.test(p.description) || rEx.test(p.category);
-      });
-      _this.setState({ results: results });
-    };
-
-    _this.state = {
-      isOpen: false,
-      results: []
-    };
-    return _this;
-  }
-
-  _createClass(Principal, [{
-    key: 'actualizar',
-    value: function actualizar(isOpen) {
-      this.setState({ isOpen: isOpen });
+        _this.state = {
+            isOpen: false,
+            results: []
+        };
+        return _this;
     }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
 
-      var search = this.props.search;
-      var results = this.state.results;
+    _createClass(Principal, [{
+        key: 'actualizar',
+        value: function actualizar(isOpen) {
+            this.setState({ isOpen: isOpen });
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.props.listaFetch();
+            console.log(this.props.lista);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
 
-      return _react3.default.createElement(
-        _nativeBase.StyleProvider,
-        { style: (0, _components3.default)(_material2.default), __source: {
-            fileName: _jsxFileName,
-            lineNumber: 81
-          }
-        },
-        _react3.default.createElement(
-          _reactNativeSideMenu2.default,
-          { menu: _react3.default.createElement(_Menu2.default, {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 82
-              }
-            }), isOpen: this.state.isOpen, onChange: function onChange(isOpen) {
-              return _this2.actualizar(isOpen);
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 82
-            }
-          },
-          _react3.default.createElement(
-            _reactNative.View,
-            { style: styles.view, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 83
-              }
-            },
-            _react3.default.createElement(_Buscador2.default, { onSearch: this.onSearch, toggle: this.toggle, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 85
-              }
-            }),
-            _react3.default.createElement(_reactNative.StatusBar, { hidden: true, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 87
-              }
-            }),
-            _react3.default.createElement(
-              _reactNative.ScrollView,
-              { style: styles.content, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 88
-                }
-              },
-              !search ? _react3.default.createElement(
-                _reactNative.View,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 92
-                  }
+            var search = this.props.search;
+            var results = this.state.results;
+
+
+            return _react3.default.createElement(
+                _nativeBase.StyleProvider,
+                { style: (0, _components3.default)(_material2.default), __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 64
+                    }
                 },
-                _react3.default.createElement(_CategoryList2.default, { fondo: _lacteos2.default, categoria: 'Lacteos', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 93
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _cat2.default, categoria: 'Frutas y Verduras', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 94
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _carnes2.default, categoria: 'Carnes y Pescados', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 95
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _pan2.default, categoria: 'Penaderia', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 96
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _jugos2.default, categoria: 'Jugos', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 97
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _vinos2.default, categoria: 'Vinos y Licores', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 98
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _higiene2.default, categoria: 'Higiene', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 99
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _farm2.default, categoria: 'Farmacia', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 100
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _bb2.default, categoria: 'Beb\xE9s', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 101
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _conge2.default, categoria: 'Congelados', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 102
-                  }
-                })
-              ) : _react3.default.createElement(_ResultList.ResultList, { results: results, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 104
-                }
-              }),
-              _react3.default.createElement(
-                _reactNativeModal2.default,
-                {
-                  isVisible: this.state.visibleModal === 1,
-                  onBackdropPress: function onBackdropPress() {
-                    return _this2.setState({ visibleModal: null });
-                  },
-                  animationIn: 'slideInLeft', animationOut: 'fadeOut', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 107
-                  }
-                },
-                this._renderModalContent()
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
+                _react3.default.createElement(
+                    _reactNativeSideMenu2.default,
+                    { menu: _react3.default.createElement(_Menu2.default, {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 65
+                            }
+                        }), isOpen: this.state.isOpen, onChange: function onChange(isOpen) {
+                            return _this2.actualizar(isOpen);
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 65
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        { style: styles.view, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 66
+                            }
+                        },
+                        _react3.default.createElement(_Buscador2.default, { onSearch: this.onSearch, toggle: this.toggle, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 68
+                            }
+                        }),
+                        _react3.default.createElement(
+                            _reactNative.ScrollView,
+                            { style: styles.content, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 69
+                                }
+                            },
+                            !search ? _react3.default.createElement(
+                                _reactNative.View,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 73
+                                    }
+                                },
+                                _react3.default.createElement(_CategoryList2.default, { fondo: _lacteos2.default, categoria: 'Abarrotes', slug: 'abarrotes', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 74
+                                    }
+                                }),
+                                _react3.default.createElement(_CategoryList2.default, { fondo: _cat2.default, categoria: 'Cremer\xEDa', slug: 'cremeria', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 75
+                                    }
+                                }),
+                                _react3.default.createElement(_CategoryList2.default, { fondo: _carnes2.default, categoria: 'Desechables', slug: 'desechables', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 76
+                                    }
+                                }),
+                                _react3.default.createElement(_CategoryList2.default, { fondo: _pan2.default, categoria: 'Frutos Secos y Semillas', slug: 'frutos-secos-y-semillas', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 77
+                                    }
+                                }),
+                                _react3.default.createElement(_CategoryList2.default, { fondo: _jugos2.default, categoria: 'Frutas y Verduras', slug: 'frutas-y-verduras', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 78
+                                    }
+                                }),
+                                _react3.default.createElement(_CategoryList2.default, { fondo: _vinos2.default, categoria: 'Productos de Limpieza', slug: 'productos-de-limpieza', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 79
+                                    }
+                                }),
+                                _react3.default.createElement(_CategoryList2.default, { fondo: _higiene2.default, categoria: 'Materias Primas', slug: 'materias-primas', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 80
+                                    }
+                                }),
+                                _react3.default.createElement(_CategoryList2.default, { fondo: _farm2.default, categoria: 'jugos', slug: 'jugos', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 81
+                                    }
+                                })
+                            ) : _react3.default.createElement(_ResultList.ResultList, { results: results, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 84
+                                }
+                            })
+                        )
+                    )
+                )
+            );
+        }
+    }]);
 
-  return Principal;
+    return Principal;
 }(_react2.Component));
 
 var styles = _reactNative.StyleSheet.create({
-  view: {
-    flex: 1
-  },
-  view2: {
-    flexDirection: 'row'
-  },
-  view3: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    backgroundColor: 'white'
-  },
-  view4: {
-    backgroundColor: 'rgba(0,0,0,.5)',
-    height: '100%',
-    width: '100%',
-    justifyContent: 'center'
-  },
-  view5: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
-  },
-  content: {
-    backgroundColor: '#fff'
-  },
-  fondo: {
-    justifyContent: 'center',
-    height: 50,
-    width: null
-  },
-  texto: {
-    backgroundColor: 'transparent',
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 20,
-    marginLeft: 5
-  },
-  text: {
-    alignSelf: 'center'
-  },
-  scroll: {
-    marginBottom: 10
-  },
-  img: {
-    height: 150,
-    width: 150,
-    flex: 1
-  },
-  img2: {
-    width: '100%',
-    height: 150
-  },
-  button: {
-    alignSelf: 'center',
-    borderColor: 'white'
-  },
-  icon: {
-    color: "green"
-  }
+    view: {
+        flex: 1
+    },
+    content: {
+        backgroundColor: '#fff'
+    }
+
 });
 
-function mapStateToProps(state) {
-  return { search: state.filter.search, allProducts: state.products.allProducts };
-}
+var mapStateToProps = function mapStateToProps(state) {
+    var lista = _lodash2.default.map(state.lista, function (val, uid) {
+        return _extends({}, val, {
+            uid: uid
+        });
+    });
 
-exports.default = Principal = (0, _reactRedux.connect)(mapStateToProps, { setSearch: _filterActions.setSearch })(Principal);
+    return { search: state.filter.search, lista: lista };
+};
+
+exports.default = Principal = (0, _reactRedux.connect)(mapStateToProps, { listaFetch: _productosActions.listaFetch, setSearch: _filterActions.setSearch })(Principal);

@@ -1,21 +1,20 @@
-var getPrototype = require('./_getPrototype'),
-    isHostObject = require('./_isHostObject'),
+var baseGetTag = require('./_baseGetTag'),
+    getPrototype = require('./_getPrototype'),
     isObjectLike = require('./isObjectLike');
 
 var objectTag = '[object Object]';
 
-var objectProto = Object.prototype;
+var funcProto = Function.prototype,
+    objectProto = Object.prototype;
 
-var funcToString = Function.prototype.toString;
+var funcToString = funcProto.toString;
 
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 var objectCtorString = funcToString.call(Object);
 
-var objectToString = objectProto.toString;
-
 function isPlainObject(value) {
-  if (!isObjectLike(value) || objectToString.call(value) != objectTag || isHostObject(value)) {
+  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
     return false;
   }
   var proto = getPrototype(value);

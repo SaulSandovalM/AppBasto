@@ -22,3 +22,9 @@ export const SEND_EMAIL = 'send_email';
 
 export const SEND_EMAIL_SUCCESS = 'send_email_success';
 export const SEND_EMAIL_FAIL = 'send_email_success';
+
+//Fetching
+export const LISTA_FETCH_SUCCESS = 'lista_fetch_success';
+
+//FILTER
+export const SET_SEARCH = "SET_SEARCH";

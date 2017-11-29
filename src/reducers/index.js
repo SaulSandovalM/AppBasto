@@ -4,12 +4,14 @@ import filterReducer from './filterReducer';
 import productReducer from './productReducer';
 import RegisterReducer from "./RegisterReducer";
 import RecoverReducer from "./RecoverReducer";
+import dataReducer from './dataReducer';
 
 const rootReducer = combineReducers({
     auth: AuthReducer,
     filter: filterReducer,
     products:productReducer,
     regis:RegisterReducer,
-    recover : RecoverReducer
+    recover : RecoverReducer,
+    lista : dataReducer
 });
 export default rootReducer;
