@@ -20,20 +20,26 @@ import CategoryList from './listado/CategoryList';
 import {ResultList} from './listado/ResultList';
 //redux
 import {connect} from 'react-redux';
-import {setSearch} from '../../actions/filterActions';
+import {listaFetch} from '../../actions/productosActions';
+import {setSearch} from "../../actions/filterActions";
+import _ from 'lodash';
 
 class Principal extends Component <{}> {
-  state = {
-    modalVisible: null
-  };
-
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
-      results: []
+      results: [],
     };
   }
+
+  onSearch = (value) => {
+    this.props.setSearch(value);
+    let results = this.props.lista;
+    const rEx = new RegExp(value, 'i');
+    results = results.filter(p => rEx.test(p.name));
+    this.setState({results});
+  };
 
   toggle = () => {
     this.setState({
@@ -45,31 +51,10 @@ class Principal extends Component <{}> {
     this.setState({isOpen})
   }
 
-  _renderModalContent = () => (
-    <View style={styles.view3}>
-      <View style={styles.view}>
-        <Card>
-          <Image source={{
-              uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Tomates_-_Vladimir_Morozov.jpg'
-            }} style={styles.img2}/>
-        </Card>
-      </View>
-
-      <Text style={styles.text}>Jitomate</Text>
-      <Button bordered="bordered" iconRight="iconRight" style={styles.button} onPress={() => alert('Agregado!')}>
-        <Text>Agregar</Text>
-        <Icon name="cart" style={styles.icon}/>
-      </Button>
-    </View>
-  );
-
-  onSearch = (value) => {
-    this.props.setSearch(value);
-    let results = this.props.allProducts;
-    const rEx = new RegExp(value, 'i');
-    results = results.filter(p => rEx.test(p.name) || rEx.test(p.description) || rEx.test(p.category));
-    this.setState({results})
-  };
+  componentWillMount() {
+    this.props.listaFetch();
+    console.log(this.props.lista)
+  }
 
   render() {
     const {search} = this.props;
@@ -87,23 +72,16 @@ class Principal extends Component <{}> {
               {
                 !search
                   ? <View>
-                      <CategoryList fondo={lacteos} categoria="Frutos Secos y Semillas"/>
-                      <CategoryList fondo={cat1} categoria="Frutas y Verduras"/>
-                      <CategoryList fondo={carnes} categoria="Abarrotes"/>
-                      <CategoryList fondo={pan} categoria="Materias Primas"/>
-                      <CategoryList fondo={jugos} categoria="Desechables"/>
-                      <CategoryList fondo={vinos} categoria="Cremeria"/>
-                      <CategoryList fondo={higiene} categoria="Productos de Limpieza"/>
+                      <CategoryList fondo={lacteos} categoria="Frutos Secos y Semillas" slug="frutos-secos-y-semillas"/>
+                      <CategoryList fondo={cat1} categoria="Frutas y Verduras" slug="frutas-y-verduras"/>
+                      <CategoryList fondo={carnes} categoria="Abarrotes" slug="abarrotes"/>
+                      <CategoryList fondo={pan} categoria="Materias Primas" slug="materias-primas"/>
+                      <CategoryList fondo={jugos} categoria="Desechables" slug="desechables"/>
+                      <CategoryList fondo={vinos} categoria="Cremeria" slug="cremeria"/>
+                      <CategoryList fondo={higiene} categoria="Productos de Limpieza" slug="productos-de-limpieza"/>
                     </View>
                   : <ResultList results={results}/>
               }
-
-              <Modal
-                isVisible={this.state.visibleModal === 1}
-                onBackdropPress={() => this.setState({visibleModal: null})}
-                animationIn={'slideInLeft'} animationOut={'fadeOut'}>
-                {this._renderModalContent()}
-              </Modal>
 
             </ScrollView>
           </View>
@@ -116,6 +94,16 @@ class Principal extends Component <{}> {
 function mapStateToProps(state) {
   return {search: state.filter.search, allProducts: state.products.allProducts}
 }
+
+const mapStateToProps = state => {
+  const lista = _.map(state.lista, (val, uid) => {
+    return {
+      ...val,
+      uid
+    };
+  });
+  return {search: state.filter.search, lista};
+};
 
 const styles = StyleSheet.create({
   view: {
@@ -179,4 +167,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Principal = connect(mapStateToProps, {setSearch})(Principal);
+export default Principal = connect(mapStateToProps, {listaFetch, setSearch})(Principal);

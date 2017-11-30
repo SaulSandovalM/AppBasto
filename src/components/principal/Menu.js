@@ -178,7 +178,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: width / 2 + 50,
-    borderColor: '#000',
     backgroundColor: 'white'
   },
   usuario: {
@@ -231,13 +230,13 @@ const styles = StyleSheet.create({
     color: '#8e1c58'
   },
   cerrarS: {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     borderWidth: 3,
     flexDirection: 'row',
     justifyContent: 'space-around'
   },
   textCerrar: {
-    color: 'white',
+    color: '#8e1c58',
     fontSize: 15
   },
   estiloTouch: {

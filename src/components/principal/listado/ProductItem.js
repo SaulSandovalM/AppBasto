@@ -2,20 +2,20 @@ import React from 'react';
 import {Card, Text} from 'native-base';
 import {TouchableOpacity, View, Image, StyleSheet, Alert} from 'react-native';
 
-export const ProductItem = ({image}) => {
+export const ProductItem = ({image, name, addToCart, item, price, offer_price}) => {
   const showAlert = () => {
     Alert.alert('Este producto ha sido agregado al carrito ^_^')
   }
 
   return (
-    <TouchableOpacity onPress={showAlert}>
+    <TouchableOpacity onPress={()=>addToCart(item)}>
       <Card>
         <Image source={{
             uri: image
           }} style={styles.img}/>
         <View style={styles.view5}>
-          <Text style={styles.precio}>Pinol
-          <Text style={styles.precio2}>{'\n'}$ 50.00 </Text>$ 40.00</Text>
+          <Text style={styles.precio}>{name}
+          <Text style={styles.precio2}>{'\n'}$ {price} </Text>$ {offer_price}</Text>
         </View>
       </Card>
     </TouchableOpacity>

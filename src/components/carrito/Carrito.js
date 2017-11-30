@@ -1,40 +1,54 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView, StyleSheet, Text, Platform} from 'react-native';
-import {Container, StyleProvider, Body, List, ListItem, CardItem, Button, Toast} from 'native-base';
+import {Container, StyleProvider, Body, List, ListItem, CardItem, Button} from 'native-base';
 import Cabecera from '../comun/Cabecera';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {Actions} from 'react-native-router-flux';
-import ListaCompra from './ListaCompra';
+import {ListaCompra} from './ListaCompra';
+//Redux
+import {connect} from 'react-redux';
+import {addToCart, addAmount, substractAmount, deleteItem} from '../../actions/cartActions'
 
 const header = Platform.select({
-  ios: <Cabecera/>,
+  ios: <Cabecera/>
 });
 
-export default class Carrito extends Component <{}> {
+class Carrito extends Component < {} > {
+  getTotal = () => {
+    let total = 0;
+    for (let t of this.props.cart) {
+      let subtotal = t.product.price * t.amount;
+      total += subtotal
+    }
+    return total
+  };
+
   render() {
+    const total = this.getTotal()
     return (
       <StyleProvider style={getTheme(material)}>
         <Container style={styles.fondo}>
           {header}
 
           <ScrollView>
-            <ListaCompra/>
-            <ListaCompra/>
-            <ListaCompra/>
-            <ListaCompra/>
-            <ListaCompra/>
-            <ListaCompra/>
-            <ListaCompra/>
+
+            {
+              this.props.cart.map(item => {
+                return
+                  <ListaCompra item={item} addAmount={addAmount} substractAmount={substractAmount} deleteItem={deleteItem}/>
+              })
+            }
+
           </ScrollView>
 
           <View style={styles.card}>
             <CardItem style={styles.cardItem}>
               <Text>Total a Pagar</Text>
-              <Text style={styles.pago}>$500.00 MXN</Text>
+              <Text style={styles.pago}>$ {total}</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={()=>Actions.Maps()}>
+            <Button block style={styles.boton} onPress={() => Actions.Pedido()}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>
@@ -44,6 +58,10 @@ export default class Carrito extends Component <{}> {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {cart: state.cart};
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -87,3 +105,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   }
 });
+
+export default Carrito = connect(mapStateToProps, {addToCart, addAmount, substractAmount, deleteItem})(Carrito);

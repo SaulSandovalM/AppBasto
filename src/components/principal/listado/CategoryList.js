@@ -1,33 +1,31 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {StyleSheet, View, Text, ImageBackground, ScrollView} from 'react-native';
-import {Spinner} from 'native-base';
+import {Icon, Spinner} from 'native-base';
 import {ProductItem} from './ProductItem';
 import {Actions} from 'react-native-router-flux';
+//redux
+import {connect} from 'react-redux';
+import {listaFetch} from '../../../actions/productosActions';
+import {addToCart, addAmount, substractAmount} from '../../../actions/cartActions'
+import _ from 'lodash';
 
 class CategoryList extends Component {
-  state = {
-    allProducts: []
-  };
-
   componentWillMount() {
-    const {allProducts} = this.props;
-    this.setState({allProducts});
+    this.props.listaFetch();
+    console.log(this.props.lista)
   }
 
-  setVisible = (id) => {
-    this.setState({visibleModal: id});
-  };
-
-  render() {
+  spinnerr() {
     if (!this.props.fetched)
       return <Spinner/>;
-    const {allProducts} = this.state;
-    const {fondo, categoria} = this.props;
+    }
+
+  render() {
+    const {fondo, categoria, lista, slug, addToCart, addAmount, substractAmount} = this.props;
+    let filtrados = lista.filter(f=>{return f.category===slug && f.in_offer===true});
 
     return (
-        <ScrollView style={styles.content}>
+      <ScrollView style={styles.content}>
         <ImageBackground source={fondo} style={styles.fondo}>
           <View style={styles.view4}>
             <Text onPress={() => Actions.Detalle()} style={styles.texto}>
@@ -38,9 +36,15 @@ class CategoryList extends Component {
 
         <View style={styles.view2}>
           <ScrollView horizontal={true} style={styles.scroll}>
+            {this.spinnerr()}
             {
-              allProducts.map((p, index) => {
-                return <ProductItem setVisible={this.setVisible} key={index} index={index} {...p}/>
+              filtrados.map((item, index) => {
+                let cartItem = {
+                  product: item,
+                  amount: 1
+                }
+                return <ProductItem key={index} index={index} {...item} addToCart={addToCart} item={cartItem}/>
+
               })
             }
           </ScrollView>
@@ -50,16 +54,16 @@ class CategoryList extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    allProducts: state.products.allProducts,
-    fetched: state.products.allProducts.length > 0
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators(dispatch)};
-}
+const mapStateToProps = state => {
+  console.log(state.cart)
+  const lista = _.map(state.lista, (val, uid) => {
+    return {
+      ...val,
+      uid
+    };
+  });
+  return {lista, fetched: lista.length > 0, cart:state.cart};
+};
 
 const styles = StyleSheet.create({
   view2: {
@@ -91,4 +95,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CategoryList = connect(mapStateToProps, mapDispatchToProps)(CategoryList);
+export default CategoryList = connect(mapStateToProps, {listaFetch, addToCart, addAmount, substractAmount})(CategoryList);
