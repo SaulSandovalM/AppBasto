@@ -32,15 +32,17 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   color: {
-    color: '#8e1c58',
+    color: '#878787',
     fontSize: 35
   },
   item: {
-    backgroundColor: '#ccc',
-    borderRadius: 15
+    backgroundColor: 'white',
+    borderRadius: 15,
+    borderColor: '#878787',
+    borderWidth: 1
   },
   icon: {
-    color: '#8e1c58'
+    color: '#878787'
   },
   input: {
     borderRadius: 50

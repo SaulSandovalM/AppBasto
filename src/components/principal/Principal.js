@@ -9,11 +9,8 @@ import carnes from '../../assets/imgs/carnes.jpg';
 import pan from '../../assets/imgs/pan.jpg';
 import jugos from '../../assets/imgs/jugos.jpg';
 import vinos from '../../assets/imgs/vinos.jpg';
-import farm from '../../assets/imgs/farm.jpg';
 import higiene from '../../assets/imgs/higiene.jpg';
-import bb from '../../assets/imgs/bb.jpeg';
 import cat1 from '../../assets/imgs/cat1.jpg';
-import conge from '../../assets/imgs/conge.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
@@ -90,16 +87,13 @@ class Principal extends Component <{}> {
               {
                 !search
                   ? <View>
-                      <CategoryList fondo={lacteos} categoria="Lacteos"/>
+                      <CategoryList fondo={lacteos} categoria="Frutos Secos y Semillas"/>
                       <CategoryList fondo={cat1} categoria="Frutas y Verduras"/>
-                      <CategoryList fondo={carnes} categoria="Carnes y Pescados"/>
-                      <CategoryList fondo={pan} categoria="Penaderia"/>
-                      <CategoryList fondo={jugos} categoria="Jugos"/>
-                      <CategoryList fondo={vinos} categoria="Vinos y Licores"/>
-                      <CategoryList fondo={higiene} categoria="Higiene"/>
-                      <CategoryList fondo={farm} categoria="Farmacia"/>
-                      <CategoryList fondo={bb} categoria="Bebés"/>
-                      <CategoryList fondo={conge} categoria="Congelados"/>
+                      <CategoryList fondo={carnes} categoria="Abarrotes"/>
+                      <CategoryList fondo={pan} categoria="Materias Primas"/>
+                      <CategoryList fondo={jugos} categoria="Desechables"/>
+                      <CategoryList fondo={vinos} categoria="Cremeria"/>
+                      <CategoryList fondo={higiene} categoria="Productos de Limpieza"/>
                     </View>
                   : <ResultList results={results}/>
               }
@@ -117,6 +111,10 @@ class Principal extends Component <{}> {
       </StyleProvider>
     );
   }
+}
+
+function mapStateToProps(state) {
+  return {search: state.filter.search, allProducts: state.products.allProducts}
 }
 
 const styles = StyleSheet.create({
@@ -180,9 +178,5 @@ const styles = StyleSheet.create({
     color: "green"
   }
 });
-
-function mapStateToProps(state) {
-  return {search: state.filter.search, allProducts: state.products.allProducts}
-}
 
 export default Principal = connect(mapStateToProps, {setSearch})(Principal);

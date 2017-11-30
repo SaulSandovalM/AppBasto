@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {StyleSheet, View, Text, ImageBackground, ScrollView} from 'react-native';
-import {Icon, Spinner} from 'native-base';
+import {Spinner} from 'native-base';
 import {ProductItem} from './ProductItem';
 import {Actions} from 'react-native-router-flux';
 
@@ -40,7 +40,6 @@ class CategoryList extends Component {
           <ScrollView horizontal={true} style={styles.scroll}>
             {
               allProducts.map((p, index) => {
-                console.log(p)
                 return <ProductItem setVisible={this.setVisible} key={index} index={index} {...p}/>
               })
             }
@@ -51,28 +50,26 @@ class CategoryList extends Component {
   }
 }
 
+function mapStateToProps(state, ownProps) {
+  return {
+    allProducts: state.products.allProducts,
+    fetched: state.products.allProducts.length > 0
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(dispatch)};
+}
+
 const styles = StyleSheet.create({
-  view: {
-    flex: 1
-  },
   view2: {
     flexDirection: 'row'
-  },
-  view3: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    backgroundColor: 'white'
   },
   view4: {
     backgroundColor: 'rgba(0,0,0,.5)',
     height: '100%',
     width: '100%',
     justifyContent: 'center'
-  },
-  view5: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
   },
   content: {
     backgroundColor: '#fff'
@@ -89,39 +86,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 5
   },
-  text: {
-    alignSelf: 'center'
-  },
   scroll: {
     marginBottom: 10
-  },
-  img: {
-    height: 150,
-    width: 150,
-    flex: 1
-  },
-  img2: {
-    width: '100%',
-    height: 150
-  },
-  button: {
-    alignSelf: 'center',
-    borderColor: 'white'
-  },
-  icon: {
-    color: "green"
   }
 });
-
-function mapStateToProps(state, ownProps) {
-  return {
-    allProducts: state.products.allProducts,
-    fetched: state.products.allProducts.length > 0
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators(dispatch)};
-}
 
 export default CategoryList = connect(mapStateToProps, mapDispatchToProps)(CategoryList);

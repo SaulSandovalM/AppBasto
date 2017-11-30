@@ -4,20 +4,51 @@ import {Card, CardItem, Left, Button, Icon, Container, StyleProvider} from 'nati
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import img from '../../assets/imgs/despensa.png';
-import Cabecera from '../comun/Cabecera';
+import Buscador from '../comun/Buscador';
+import SideMenu from 'react-native-side-menu';
+import Menu from '../principal/Menu';
+import {connect} from 'react-redux';
+import {setSearch} from '../../actions/filterActions';
 
-const header = Platform.select({
-  ios: <Cabecera/>,
-});
+class Detalle extends Component <{}> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      results: [],
+      showToast: false
+    };
+  }
 
-export default class Detalle extends Component < {} > {
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  };
+
+  actualizar(isOpen) {
+    this.setState({isOpen})
+  }
+
+  onSearch = (value) => {
+    this.props.setSearch(value);
+    let results = this.props.allProducts;
+    const rEx = new RegExp(value, 'i');
+    results = results.filter(p => rEx.test(p.name) || rEx.test(p.description) || rEx.test(p.category));
+    this.setState({results})
+  };
+
   render() {
+    const {search} = this.props;
+    const {results} = this.state;
+
     return (
       <StyleProvider style={getTheme(material)}>
+        <SideMenu menu={<Menu/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
         <Container>
-          {header}
+          <Buscador onSearch={this.onSearch} toggle={this.toggle}/>
 
-          <ScrollView>
+          <ScrollView style={{backgroundColor: 'white'}}>
             <View style={styles.viewP}>
               <Card style={styles.estiloCard}>
                 <CardItem style={styles.estiloCardI}>
@@ -113,9 +144,14 @@ export default class Detalle extends Component < {} > {
           </ScrollView>
 
         </Container>
+        </SideMenu>
       </StyleProvider>
     );
   }
+}
+
+function mapStateToProps(state) {
+  return {search: state.filter.search, allProducts: state.products.allProducts}
 }
 
 const styles = StyleSheet.create({
@@ -152,3 +188,5 @@ const styles = StyleSheet.create({
     color: "#8e1c58"
   }
 });
+
+export default Detalle = connect(mapStateToProps, {setSearch})(Detalle);
