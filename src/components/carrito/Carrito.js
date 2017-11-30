@@ -36,7 +36,7 @@ class Carrito extends Component < {} > {
             {
               this.props.cart.map(item => {
                 return
-                  <ListaCompra item={item} addAmount={addAmount} substractAmount={substractAmount} deleteItem={deleteItem}/>
+                  <ListaCompra item={item} addAmount={this.props.addAmount} substractAmount={this.props.substractAmount} deleteItem={this.props.deleteItem}/>
               })
             }
 
