@@ -3,7 +3,7 @@ var MapCache = require('./_MapCache');
 var FUNC_ERROR_TEXT = 'Expected a function';
 
 function memoize(func, resolver) {
-  if (typeof func != 'function' || resolver && typeof resolver != 'function') {
+  if (typeof func != 'function' || resolver != null && typeof resolver != 'function') {
     throw new TypeError(FUNC_ERROR_TEXT);
   }
   var memoized = function memoized() {
@@ -15,7 +15,7 @@ function memoize(func, resolver) {
       return cache.get(key);
     }
     var result = func.apply(this, args);
-    memoized.cache = cache.set(key, result);
+    memoized.cache = cache.set(key, result) || cache;
     return result;
   };
   memoized.cache = new (memoize.Cache || MapCache)();

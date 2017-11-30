@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import Video from 'react-native-video';
 import videop from '../../assets/video/videop.mp4';
 import {connect} from 'react-redux';
-import {emailChanged, passwordChanged, loginUser} from '../../actions';
+import {emailChanged, passwordChanged, loginUser} from '../../actions/loginActions';
 
 class Login extends Component <{}> {
   onEmailChange(text) {
@@ -17,12 +17,12 @@ class Login extends Component <{}> {
   }
 
   onButtonPress() {
-    const {email, password} = this.props;
-    this.props.loginUser({email, password});
+    const {auth} = this.props;
+    this.props.loginUser({auth});
   }
 
   renderButton() {
-    if (this.props.loading) {
+    if (this.props.auth.loading) {
       return <Spinner size="large" color='white'/>
     }
 
@@ -195,8 +195,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({auth}) => {
-  const {email, password, error, loading} = auth
-  return {email, password, error, loading};
+
+  return {auth};
 };
 
 export default connect(mapStateToProps, {loginUser, emailChanged, passwordChanged})(Login);

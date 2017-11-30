@@ -1,10 +1,11 @@
 var arrayPush = require('./_arrayPush'),
     getPrototype = require('./_getPrototype'),
-    getSymbols = require('./_getSymbols');
+    getSymbols = require('./_getSymbols'),
+    stubArray = require('./stubArray');
 
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var nativeGetSymbols = Object.getOwnPropertySymbols;
 
-var getSymbolsIn = !getOwnPropertySymbols ? getSymbols : function (object) {
+var getSymbolsIn = !nativeGetSymbols ? stubArray : function (object) {
   var result = [];
   while (object) {
     arrayPush(result, getSymbols(object));

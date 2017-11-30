@@ -200,12 +200,12 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
                   return alert('Trash');
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 42
+                  lineNumber: 43
                 }
               },
               _react3.default.createElement(_nativeBase.Icon, { active: true, name: 'trash', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 43
+                  lineNumber: 44
                 }
               })
             ), __source: {
@@ -222,12 +222,12 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
                   return alert('Add');
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 50
+                  lineNumber: 52
                 }
               },
               _react3.default.createElement(_nativeBase.Icon, { active: true, name: 'add', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 51
+                  lineNumber: 53
                 }
               })
             ),
@@ -236,7 +236,7 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 55
+                  lineNumber: 57
                 }
               },
               _react3.default.createElement(
@@ -244,7 +244,7 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 56
+                    lineNumber: 58
                   }
                 },
                 'Orden 2'
@@ -256,17 +256,17 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
                   return alert('Trash');
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 59
+                  lineNumber: 62
                 }
               },
               _react3.default.createElement(_nativeBase.Icon, { active: true, name: 'trash', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 60
+                  lineNumber: 63
                 }
               })
             ), __source: {
               fileName: _jsxFileName,
-              lineNumber: 46
+              lineNumber: 48
             }
           }),
           _react3.default.createElement(_nativeBase.SwipeRow, {
@@ -278,12 +278,12 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
                   return alert('Add');
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 67
+                  lineNumber: 71
                 }
               },
               _react3.default.createElement(_nativeBase.Icon, { active: true, name: 'add', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 68
+                  lineNumber: 72
                 }
               })
             ),
@@ -292,7 +292,7 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 72
+                  lineNumber: 76
                 }
               },
               _react3.default.createElement(
@@ -300,7 +300,7 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 73
+                    lineNumber: 77
                   }
                 },
                 'Orden 3'
@@ -312,17 +312,17 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
                   return alert('Trash');
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 76
+                  lineNumber: 81
                 }
               },
               _react3.default.createElement(_nativeBase.Icon, { active: true, name: 'trash', __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 77
+                  lineNumber: 82
                 }
               })
             ), __source: {
               fileName: _jsxFileName,
-              lineNumber: 63
+              lineNumber: 67
             }
           })
         )

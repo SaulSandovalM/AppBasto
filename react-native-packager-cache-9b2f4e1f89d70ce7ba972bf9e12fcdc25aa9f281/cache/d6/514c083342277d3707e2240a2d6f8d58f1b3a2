@@ -1,8 +1,13 @@
 var isArray = require('./isArray'),
-    stringToPath = require('./_stringToPath');
+    isKey = require('./_isKey'),
+    stringToPath = require('./_stringToPath'),
+    toString = require('./toString');
 
-function castPath(value) {
-  return isArray(value) ? value : stringToPath(value);
+function castPath(value, object) {
+  if (isArray(value)) {
+    return value;
+  }
+  return isKey(value, object) ? [value] : stringToPath(toString(value));
 }
 
 module.exports = castPath;

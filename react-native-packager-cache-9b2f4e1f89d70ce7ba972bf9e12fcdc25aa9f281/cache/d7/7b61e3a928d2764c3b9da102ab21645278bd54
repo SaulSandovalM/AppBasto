@@ -1,0 +1,89 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ProductItem = undefined;
+var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/principal/listado/ProductItem.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _nativeBase = require('native-base');
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProductItem = exports.ProductItem = function ProductItem(_ref) {
+  var image = _ref.image,
+      name = _ref.name,
+      addToCart = _ref.addToCart,
+      item = _ref.item;
+
+  return _react2.default.createElement(
+    _reactNative.TouchableOpacity,
+    { onPress: function onPress() {
+        return addToCart(item);
+      }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7
+      }
+    },
+    _react2.default.createElement(
+      _nativeBase.Card,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        }
+      },
+      _react2.default.createElement(_reactNative.Image, { source: {
+          uri: image
+        }, style: styles.img, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9
+        }
+      }),
+      _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.view5, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        },
+        _react2.default.createElement(
+          _nativeBase.Text,
+          { style: styles.precio, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            }
+          },
+          '$50.00'
+        ),
+        _react2.default.createElement(_nativeBase.Icon, { name: 'ios-star-outline', style: styles.icon, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 14
+          }
+        })
+      )
+    )
+  );
+};
+
+var styles = _reactNative.StyleSheet.create({
+  view5: {
+    flexDirection: 'row'
+  },
+  img: {
+    height: 150,
+    width: 150,
+    flex: 1
+  },
+  icon: {
+    color: "green"
+  },
+  precio: {
+    width: 120,
+    marginTop: 5
+  }
+});

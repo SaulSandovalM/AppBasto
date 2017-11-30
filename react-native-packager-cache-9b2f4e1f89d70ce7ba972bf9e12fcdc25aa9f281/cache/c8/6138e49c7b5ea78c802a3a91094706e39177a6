@@ -1,0 +1,31 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var EMAIL_CHANGED = exports.EMAIL_CHANGED = 'email_changed';
+var PASSWORD_CHANGED = exports.PASSWORD_CHANGED = 'password_changed';
+var LOGIN_USER_SUCCESS = exports.LOGIN_USER_SUCCESS = 'login_user_success';
+var LOGIN_USER_FAIL = exports.LOGIN_USER_FAIL = 'login_user_fail';
+var LOGIN_USER = exports.LOGIN_USER = 'login_user';
+
+var EMAIL_CHANGEDREG = exports.EMAIL_CHANGEDREG = 'email_changedreg';
+var PASSWORD_CHANGEDREG = exports.PASSWORD_CHANGEDREG = 'password_changedreg';
+var LOGIN_USER_SUCCESSREG = exports.LOGIN_USER_SUCCESSREG = 'login_user_successreg';
+var LOGIN_USER_FAILREG = exports.LOGIN_USER_FAILREG = 'login_user_failreg';
+var LOGIN_USERREG = exports.LOGIN_USERREG = 'login_userreg';
+
+var NAME_CHANGEDREG = exports.NAME_CHANGEDREG = 'name_changedreg';
+var DIRECCION_CHANGEDREG = exports.DIRECCION_CHANGEDREG = 'direccion_changedreg';
+
+var INFO_USER = exports.INFO_USER = 'info_user';
+var PHONE_CHANGEDRED = exports.PHONE_CHANGEDRED = 'phone_changedreg';
+
+var EMAIL_CHANGEDREC = exports.EMAIL_CHANGEDREC = 'email_changedrec';
+var VEMAIL_CHANGEDREC = exports.VEMAIL_CHANGEDREC = 'vemail_changedrec';
+var SEND_EMAIL = exports.SEND_EMAIL = 'send_email';
+
+var SEND_EMAIL_SUCCESS = exports.SEND_EMAIL_SUCCESS = 'send_email_success';
+var SEND_EMAIL_FAIL = exports.SEND_EMAIL_FAIL = 'send_email_success';
+
+var LISTA_FETCH_SUCCESS = exports.LISTA_FETCH_SUCCESS = 'lista_fetch_success';
+
+var SET_SEARCH = exports.SET_SEARCH = "SET_SEARCH";

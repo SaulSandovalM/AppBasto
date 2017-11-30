@@ -1,0 +1,37 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _cartActions = require('../actions/cartActions');
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var INITIAL_STATE = [];
+
+var cartReducer = function cartReducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case _cartActions.ADD_TO_CART:
+            return [].concat(_toConsumableArray(state), [action.item]);
+        case _cartActions.SUBSTRACT_AMOUNT:
+            var items = state.filter(function (i) {
+                return i.product.id !== action.item.product.id;
+            });
+            return [].concat(_toConsumableArray(items), [action.item]);
+        case _cartActions.ADD_AMOUNT:
+            var itemss = state.filter(function (i) {
+                return i.product.id !== action.item.product.id;
+            });
+            return [].concat(_toConsumableArray(itemss), [action.item]);
+        case _cartActions.DELETE_ITEM:
+            return [].concat(_toConsumableArray(state.filter(function (i) {
+                i.product.id !== action.item.product.id;
+            })));
+        default:
+            return state;
+    }
+};
+
+exports.default = cartReducer;

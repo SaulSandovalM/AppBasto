@@ -1,11 +1,11 @@
 var _reactNative = require('react-native');
 
-var _Routes = require('./Routes');
+var _App = require('./src/App');
 
-var _Routes2 = _interopRequireDefault(_Routes);
+var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactNative.AppRegistry.registerComponent('AppBasto', function () {
-  return _Routes2.default;
+  return _App2.default;
 });

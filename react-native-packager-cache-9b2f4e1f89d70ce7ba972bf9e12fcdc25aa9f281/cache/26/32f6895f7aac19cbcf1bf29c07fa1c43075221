@@ -1,7 +1,8 @@
-var hashHas = require('./_hashHas');
 
-function hashDelete(hash, key) {
-  return hashHas(hash, key) && delete hash[key];
+function hashDelete(key) {
+  var result = this.has(key) && delete this.__data__[key];
+  this.size -= result ? 1 : 0;
+  return result;
 }
 
 module.exports = hashDelete;

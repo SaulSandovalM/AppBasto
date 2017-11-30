@@ -20,13 +20,13 @@ var _nativeBase = require('native-base');
 
 var _reactNativeRouterFlux = require('react-native-router-flux');
 
-var _login = require('../../assets/imgs/login.jpeg');
+var _recover = require('../../assets/imgs/recover.jpeg');
 
-var _login2 = _interopRequireDefault(_login);
+var _recover2 = _interopRequireDefault(_recover);
 
-var _Firebase = require('../firebase/Firebase');
+var _reactRedux = require('react-redux');
 
-var _Firebase2 = _interopRequireDefault(_Firebase);
+var _recoverActions = require('../../actions/recoverActions');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37,8 +37,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _components = {
-  Registro: {
-    displayName: 'Registro'
+  Recover: {
+    displayName: 'Recover'
   }
 };
 
@@ -55,78 +55,61 @@ function _wrapComponent(id) {
   };
 }
 
-var Registro = _wrapComponent('Registro')(function (_Component) {
-  _inherits(Registro, _Component);
+var Recover = _wrapComponent('Recover')(function (_Component) {
+  _inherits(Recover, _Component);
 
-  function Registro(props) {
-    _classCallCheck(this, Registro);
+  function Recover() {
+    _classCallCheck(this, Recover);
 
-    var _this = _possibleConstructorReturn(this, (Registro.__proto__ || Object.getPrototypeOf(Registro)).call(this, props));
-
-    _this.state = {
-      correo: '',
-      verifyCorreo: '',
-      error: '',
-      loading: false
-    };
-
-    _this.recover = _this.recover.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (Recover.__proto__ || Object.getPrototypeOf(Recover)).apply(this, arguments));
   }
 
-  _createClass(Registro, [{
-    key: 'recover',
-    value: function recover() {
-      var _state = this.state,
-          correo = _state.correo,
-          verifyCorreo = _state.verifyCorreo;
+  _createClass(Recover, [{
+    key: 'onEmailRChange',
+    value: function onEmailRChange(text) {
+      this.props.emailChangedrec(text);
+    }
+  }, {
+    key: 'onVemailChange',
+    value: function onVemailChange(text) {
+      this.props.vemailChangedrec(text);
+    }
+  }, {
+    key: 'onButtonrPress',
+    value: function onButtonrPress() {
+      var recover = this.props.recover;
 
-      this.setState({ error: '', loading: true });
-      if (correo == verifyCorreo && correo != null && verifyCorreo != null) {
-        _Firebase.firebaseAuth.sendPasswordResetEmail(correo).then(function () {
-          _reactNativeRouterFlux.Actions.Login();
-          _nativeBase.Toast.show({
-            text: 'Revisa tu correo, continua los pasos', position: 'bottom', buttonText: 'OK', type: 'success' });
-        }, function (error) {
-          _nativeBase.Toast.show({
-            text: 'Correo inválido, verifique campos', position: 'bottom', buttonText: 'OK', type: 'danger' });
-        });
-      }
+      console.log(recover);
+      this.props.sendEmail({ recover: recover });
     }
   }, {
     key: 'buttonCorreo',
     value: function buttonCorreo() {
-      var _this2 = this;
-
-      var _state2 = this.state,
-          verifyCorreo = _state2.verifyCorreo,
-          correo = _state2.correo;
-
-      if (verifyCorreo == correo) {
+      console.log(this.props.recover);
+      if (this.props.recover.emailrec === this.props.recover.veriemail) {
         return _react3.default.createElement(
           _nativeBase.Item,
           { success: true, style: styles.inputRounded, __source: {
               fileName: _jsxFileName,
-              lineNumber: 40
+              lineNumber: 31
             }
           },
           _react3.default.createElement(_nativeBase.Input, {
+            style: styles.color,
             placeholder: 'Correo electr\xF3nico',
             keyboardType: 'email-address',
-            placeholderTextColor: '#000',
+            placeholderTextColor: '#fff',
             returnKeyType: 'next',
             autoCapitalize: 'none',
-            value: this.state.verifyCorreo,
-            onChangeText: function onChangeText(verifyCorreo) {
-              return _this2.setState({ verifyCorreo: verifyCorreo });
-            }, __source: {
+            value: this.props.recover.veriemail,
+            onChangeText: this.onVemailChange.bind(this), __source: {
               fileName: _jsxFileName,
-              lineNumber: 41
+              lineNumber: 32
             }
           }),
           _react3.default.createElement(_nativeBase.Icon, { name: 'checkmark-circle', style: styles.icon, __source: {
               fileName: _jsxFileName,
-              lineNumber: 49
+              lineNumber: 41
             }
           })
         );
@@ -136,26 +119,25 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
         _nativeBase.Item,
         { error: true, style: styles.inputRounded, __source: {
             fileName: _jsxFileName,
-            lineNumber: 55
+            lineNumber: 47
           }
         },
         _react3.default.createElement(_nativeBase.Input, {
+          style: styles.color,
           placeholder: 'Correo electr\xF3nico',
           keyboardType: 'email-address',
-          placeholderTextColor: '#000',
+          placeholderTextColor: '#fff',
           returnKeyType: 'next',
           autoCapitalize: 'none',
-          value: this.state.verifyCorreo,
-          onChangeText: function onChangeText(verifyCorreo) {
-            return _this2.setState({ verifyCorreo: verifyCorreo });
-          }, __source: {
+          value: this.props.recover.veriemail,
+          onChangeText: this.onVemailChange.bind(this), __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 48
           }
         }),
         _react3.default.createElement(_nativeBase.Icon, { name: 'close-circle', style: styles.icon, __source: {
             fileName: _jsxFileName,
-            lineNumber: 64
+            lineNumber: 57
           }
         })
       );
@@ -163,68 +145,88 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
-
       return _react3.default.createElement(
         _reactNative.ImageBackground,
-        { source: _login2.default, style: styles.img, __source: {
+        { source: _recover2.default, style: styles.img, __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 64
           }
         },
         _react3.default.createElement(
           _reactNative.View,
-          { style: styles.view, __source: {
+          { style: styles.estiloImageB, __source: {
               fileName: _jsxFileName,
-              lineNumber: 73
+              lineNumber: 65
             }
           },
           _react3.default.createElement(
-            _nativeBase.Item,
-            { style: styles.inputRounded, __source: {
+            _reactNative.View,
+            { style: styles.view4, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 74
+                lineNumber: 67
               }
             },
-            _react3.default.createElement(_nativeBase.Input, {
-              placeholder: 'Correo electr\xF3nico',
-              keyboardType: 'email-address',
-              placeholderTextColor: '#000',
-              returnKeyType: 'next',
-              autoCapitalize: 'none',
-              value: this.state.correo,
-              onChangeText: function onChangeText(correo) {
-                return _this3.setState({ correo: correo });
+            _react3.default.createElement(_nativeBase.Icon, { name: 'ios-arrow-back', style: styles.icon2, onPress: function onPress() {
+                return _reactNativeRouterFlux.Actions.pop();
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 75
+                lineNumber: 68
               }
             })
           ),
-          this.buttonCorreo()
-        ),
-        _react3.default.createElement(
-          _reactNative.View,
-          { style: styles.content, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 89
-            }
-          },
           _react3.default.createElement(
-            _nativeBase.Button,
-            { block: true, style: styles.button, onPress: this.recover.bind(this), __source: {
+            _reactNative.View,
+            { style: styles.view, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 90
+                lineNumber: 71
               }
             },
             _react3.default.createElement(
-              _reactNative.Text,
-              { style: styles.boton, __source: {
+              _nativeBase.Item,
+              { style: styles.inputRounded, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 91
+                  lineNumber: 72
                 }
               },
-              'RECUPERAR CONTRASE\xD1A'
+              _react3.default.createElement(_nativeBase.Input, {
+                style: styles.color,
+                placeholder: 'Correo electr\xF3nico',
+                keyboardType: 'email-address',
+                placeholderTextColor: '#fff',
+                returnKeyType: 'next',
+                autoCapitalize: 'none',
+                value: this.props.recover.emailChangedrec,
+                onChangeText: this.onEmailRChange.bind(this), __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 73
+                }
+              })
+            ),
+            this.buttonCorreo()
+          ),
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.content, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 88
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.Button,
+              { block: true, style: styles.button, onPress: this.onButtonrPress.bind(this), __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 89
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.Text,
+                { style: styles.boton, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 90
+                  }
+                },
+                'RECUPERAR CONTRASE\xD1A'
+              )
             )
           )
         )
@@ -232,10 +234,17 @@ var Registro = _wrapComponent('Registro')(function (_Component) {
     }
   }]);
 
-  return Registro;
+  return Recover;
 }(_react2.Component));
 
-exports.default = Registro;
+var mapStateToProps = function mapStateToProps(_ref) {
+  var recover = _ref.recover;
+
+  console.log(recover);
+  return { recover: recover };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, { emailChangedrec: _recoverActions.emailChangedrec, vemailChangedrec: _recoverActions.vemailChangedrec, sendEmail: _recoverActions.sendEmail })(Recover);
 
 
 var styles = _reactNative.StyleSheet.create({
@@ -250,14 +259,6 @@ var styles = _reactNative.StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center'
   },
-  inputRounded: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginBottom: 10,
-    borderColor: '#000',
-    borderWidth: 1.5,
-    backgroundColor: 'transparent'
-  },
   boton: {
     color: 'white',
     fontWeight: 'bold'
@@ -265,7 +266,7 @@ var styles = _reactNative.StyleSheet.create({
   button: {
     width: '78%',
     alignSelf: 'center',
-    backgroundColor: '#4DA49B'
+    backgroundColor: 'orange'
   },
   content: {
     justifyContent: 'center',
@@ -274,6 +275,32 @@ var styles = _reactNative.StyleSheet.create({
     margin: 15
   },
   icon: {
-    marginRight: 10
+    marginRight: 10,
+    color: 'orange'
+  },
+  icon2: {
+    backgroundColor: 'transparent',
+    color: 'orange',
+    fontSize: 50
+  },
+  inputRounded: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginBottom: 10,
+    borderColor: 'orange',
+    borderWidth: 1.5
+  },
+  estiloImageB: {
+    backgroundColor: 'rgba(0,0,0,.5)',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center'
+  },
+  color: {
+    color: 'white'
+  },
+  view4: {
+    flex: 1,
+    margin: 20
   }
 });

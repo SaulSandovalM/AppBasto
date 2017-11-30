@@ -1,7 +1,6 @@
 
 function apply(func, thisArg, args) {
-  var length = args.length;
-  switch (length) {
+  switch (args.length) {
     case 0:
       return func.call(thisArg);
     case 1:

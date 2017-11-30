@@ -20,10 +20,6 @@ var _nativeBase = require('native-base');
 
 var _reactNativeRouterFlux = require('react-native-router-flux');
 
-var _login = require('../../assets/imgs/login.jpeg');
-
-var _login2 = _interopRequireDefault(_login);
-
 var _reactNativeVideo = require('react-native-video');
 
 var _reactNativeVideo2 = _interopRequireDefault(_reactNativeVideo);
@@ -32,9 +28,9 @@ var _videop = require('../../assets/video/videop.mp4');
 
 var _videop2 = _interopRequireDefault(_videop);
 
-var _Firebase = require('../firebase/Firebase');
+var _reactRedux = require('react-redux');
 
-var _Firebase2 = _interopRequireDefault(_Firebase);
+var _loginActions = require('../../actions/loginActions');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -66,90 +62,52 @@ function _wrapComponent(id) {
 var Login = _wrapComponent('Login')(function (_Component) {
   _inherits(Login, _Component);
 
-  function Login(props) {
+  function Login() {
     _classCallCheck(this, Login);
 
-    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
-
-    _this.state = {
-      email: '',
-      contraseña: '',
-      error: '',
-      credential: '',
-      loading: false,
-      loadingF: false,
-      login: {
-        correo: '',
-        password: ''
-      }
-    };
-
-    _this.handleChange = function (field, value) {
-      var login = _this.state.login;
-      login[field] = value;
-      _this.setState({ login: login });
-    };
-
-    _this.onLoginSuccess = _this.onLoginSuccess.bind(_this);
-    _this.onLoginFailed = _this.onLoginFailed.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
   }
 
   _createClass(Login, [{
+    key: 'onEmailChange',
+    value: function onEmailChange(text) {
+      this.props.emailChanged(text);
+    }
+  }, {
+    key: 'onPasswordChange',
+    value: function onPasswordChange(text) {
+      this.props.passwordChanged(text);
+    }
+  }, {
     key: 'onButtonPress',
     value: function onButtonPress() {
-      var _state$login = this.state.login,
-          correo = _state$login.correo,
-          password = _state$login.password;
+      var auth = this.props.auth;
 
-      this.setState({ error: '', loading: true });
-      _Firebase.firebaseAuth.signInWithEmailAndPassword(correo, password).then(this.onLoginSuccess).catch(this.onLoginFailed);
+      this.props.loginUser({ auth: auth });
     }
   }, {
-    key: 'onLoginFailed',
-    value: function onLoginFailed() {
-      this.setState({ error: 'Autenticación Fallida', loading: false });
-      _nativeBase.Toast.show({ text: 'Usuario/contraseña inválidos', position: 'bottom', buttonText: 'OK', type: 'danger' });
-    }
-  }, {
-    key: 'onLoginSuccess',
-    value: function onLoginSuccess(r) {
-      console.log(r);
-      this.setState({ email: '', contraseña: '', error: '', loading: false });
-      _reactNativeRouterFlux.Actions.Log();
-      _nativeBase.Toast.show({ text: 'Bienvenido', position: 'bottom', duration: 5000, type: 'success' });
-    }
-  }, {
-    key: 'spinnerInicio',
-    value: function spinnerInicio() {
-      if (this.state.loading) {
-        return _react3.default.createElement(
-          _nativeBase.Button,
-          { rounded: true, block: true, style: styles.buttonSpinner, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 52
-            }
-          },
-          _react3.default.createElement(_nativeBase.Spinner, { color: 'white', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 53
-            }
-          })
-        );
+    key: 'renderButton',
+    value: function renderButton() {
+      if (this.props.auth.loading) {
+        return _react3.default.createElement(_nativeBase.Spinner, { size: 'large', color: 'white', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          }
+        });
       }
 
       return _react3.default.createElement(
         _nativeBase.Button,
-        { block: true, style: styles.button, onPress: this.onButtonPress.bind(this), __source: {
+        { rounded: true, style: styles.button, onPress: this.onButtonPress.bind(this), __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 30
           }
         },
         _react3.default.createElement(
           _reactNative.Text,
           { style: styles.boton, __source: {
               fileName: _jsxFileName,
-              lineNumber: 60
+              lineNumber: 31
             }
           },
           'INICIAR SESI\xD3N'
@@ -159,32 +117,39 @@ var Login = _wrapComponent('Login')(function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       return _react3.default.createElement(
         _reactNative.View,
         { style: styles.img, __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 38
           }
         },
-        _react3.default.createElement(_reactNativeVideo2.default, { source: _videop2.default, rate: 1.0, muted: true, resizeMode: "cover", repeat: true, style: styles.video, __source: {
+        _react3.default.createElement(_reactNativeVideo2.default, {
+          source: _videop2.default,
+          rate: 1.0,
+          muted: true,
+          resizeMode: "cover",
+          repeat: true,
+          style: styles.video, __source: {
             fileName: _jsxFileName,
-            lineNumber: 75
+            lineNumber: 40
           }
         }),
         _react3.default.createElement(
           _reactNative.View,
           { style: styles.view4, __source: {
               fileName: _jsxFileName,
-              lineNumber: 77
+              lineNumber: 48
             }
           },
-          _react3.default.createElement(_nativeBase.Icon, { name: 'ios-arrow-back', style: styles.icon, onPress: function onPress() {
+          _react3.default.createElement(_nativeBase.Icon, {
+            name: 'ios-arrow-back',
+            style: styles.icon,
+            onPress: function onPress() {
               return _reactNativeRouterFlux.Actions.pop();
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 78
+              lineNumber: 49
             }
           })
         ),
@@ -193,14 +158,14 @@ var Login = _wrapComponent('Login')(function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 81
+              lineNumber: 55
             }
           },
           _react3.default.createElement(
             _nativeBase.Item,
             { style: styles.inputRounded, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 82
+                lineNumber: 56
               }
             },
             _react3.default.createElement(_nativeBase.Input, {
@@ -211,12 +176,10 @@ var Login = _wrapComponent('Login')(function (_Component) {
               returnKeyType: 'next',
               autoCapitalize: 'none',
               style: styles.color,
-              value: this.state.correo,
-              onChangeText: function onChangeText(value) {
-                return _this2.handleChange("correo", value);
-              }, __source: {
+              onChangeText: this.onEmailChange.bind(this),
+              value: this.props.email, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 83
+                lineNumber: 57
               }
             })
           ),
@@ -224,7 +187,7 @@ var Login = _wrapComponent('Login')(function (_Component) {
             _nativeBase.Item,
             { style: styles.inputRounded, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 95
+                lineNumber: 69
               }
             },
             _react3.default.createElement(_nativeBase.Input, {
@@ -233,36 +196,43 @@ var Login = _wrapComponent('Login')(function (_Component) {
               placeholderTextColor: '#fff',
               secureTextEntry: true,
               style: styles.color,
-              value: this.state.password,
-              onChangeText: function onChangeText(value) {
-                return _this2.handleChange("password", value);
-              }, __source: {
+              onChangeText: this.onPasswordChange.bind(this),
+              value: this.props.password, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 96
+                lineNumber: 70
               }
             })
           ),
-          this.spinnerInicio()
+          this.renderButton(),
+          _react3.default.createElement(
+            _reactNative.Text,
+            { style: styles.errorText, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 82
+              }
+            },
+            this.props.error
+          )
         ),
         _react3.default.createElement(
           _reactNative.View,
           { style: styles.view2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 110
+              lineNumber: 88
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view3, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 111
+                lineNumber: 89
               }
             },
             _react3.default.createElement(
               _reactNative.View,
               { style: styles.view, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 112
+                  lineNumber: 90
                 }
               },
               _react3.default.createElement(
@@ -271,14 +241,14 @@ var Login = _wrapComponent('Login')(function (_Component) {
                     return _reactNativeRouterFlux.Actions.Recover();
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 113
+                    lineNumber: 91
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.text, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 114
+                      lineNumber: 92
                     }
                   },
                   '\xBFOlvidaste tu Contrase\xF1a?'
@@ -289,7 +259,7 @@ var Login = _wrapComponent('Login')(function (_Component) {
               _reactNative.View,
               { style: styles.view, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 117
+                  lineNumber: 95
                 }
               },
               _react3.default.createElement(
@@ -298,14 +268,14 @@ var Login = _wrapComponent('Login')(function (_Component) {
                     return _reactNativeRouterFlux.Actions.Registro();
                   }, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 118
+                    lineNumber: 96
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   { style: styles.text1, __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 119
+                      lineNumber: 97
                     }
                   },
                   'Crear Cuenta'
@@ -320,9 +290,6 @@ var Login = _wrapComponent('Login')(function (_Component) {
 
   return Login;
 }(_react2.Component));
-
-exports.default = Login;
-
 
 var styles = _reactNative.StyleSheet.create({
   video: {
@@ -366,13 +333,14 @@ var styles = _reactNative.StyleSheet.create({
     marginRight: 40,
     marginLeft: 40,
     marginBottom: 10,
-    borderColor: 'orange',
+    borderColor: '#8e1c58',
     borderWidth: 1.5,
     backgroundColor: 'rgba(0,0,0,.5)'
   },
   boton: {
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    alignSelf: 'center'
   },
   text: {
     color: 'white'
@@ -388,8 +356,9 @@ var styles = _reactNative.StyleSheet.create({
   },
   button: {
     width: '78%',
+    justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: 'orange'
+    backgroundColor: '#8e1c58'
   },
   icon: {
     backgroundColor: 'transparent',
@@ -400,9 +369,23 @@ var styles = _reactNative.StyleSheet.create({
     marginRight: 140,
     marginLeft: 140,
     marginBottom: 10,
-    backgroundColor: '#4DA49B'
+    backgroundColor: '#8e1c58'
   },
   color: {
     color: 'white'
+  },
+  errorText: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
   }
 });
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var auth = _ref.auth;
+
+
+  return { auth: auth };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, { loginUser: _loginActions.loginUser, emailChanged: _loginActions.emailChanged, passwordChanged: _loginActions.passwordChanged })(Login);

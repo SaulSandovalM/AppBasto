@@ -1,17 +1,36 @@
 var arrayMap = require('./_arrayMap'),
-    baseDifference = require('./_baseDifference'),
-    baseFlatten = require('./_baseFlatten'),
-    basePick = require('./_basePick'),
-    getAllKeysIn = require('./_getAllKeysIn'),
-    rest = require('./rest'),
-    toKey = require('./_toKey');
+    baseClone = require('./_baseClone'),
+    baseUnset = require('./_baseUnset'),
+    castPath = require('./_castPath'),
+    copyObject = require('./_copyObject'),
+    customOmitClone = require('./_customOmitClone'),
+    flatRest = require('./_flatRest'),
+    getAllKeysIn = require('./_getAllKeysIn');
 
-var omit = rest(function (object, props) {
+var CLONE_DEEP_FLAG = 1,
+    CLONE_FLAT_FLAG = 2,
+    CLONE_SYMBOLS_FLAG = 4;
+
+var omit = flatRest(function (object, paths) {
+  var result = {};
   if (object == null) {
-    return {};
+    return result;
   }
-  props = arrayMap(baseFlatten(props, 1), toKey);
-  return basePick(object, baseDifference(getAllKeysIn(object), props));
+  var isDeep = false;
+  paths = arrayMap(paths, function (path) {
+    path = castPath(path, object);
+    isDeep || (isDeep = path.length > 1);
+    return path;
+  });
+  copyObject(object, getAllKeysIn(object), result);
+  if (isDeep) {
+    result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);
+  }
+  var length = paths.length;
+  while (length--) {
+    baseUnset(result, paths[length]);
+  }
+  return result;
 });
 
 module.exports = omit;

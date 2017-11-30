@@ -1,8 +1,5 @@
+var overArg = require('./_overArg');
 
-var nativeGetPrototype = Object.getPrototypeOf;
-
-function getPrototype(value) {
-  return nativeGetPrototype(Object(value));
-}
+var getPrototype = overArg(Object.getPrototypeOf, Object);
 
 module.exports = getPrototype;

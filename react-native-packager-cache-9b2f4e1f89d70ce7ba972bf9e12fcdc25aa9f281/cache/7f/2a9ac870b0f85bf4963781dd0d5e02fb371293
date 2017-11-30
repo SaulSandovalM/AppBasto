@@ -26,9 +26,9 @@ var _material = require('../../../native-base-theme/variables/material');
 
 var _material2 = _interopRequireDefault(_material);
 
-var _bienvenida = require('../../assets/imgs/bienvenida.jpg');
+var _despensa = require('../../assets/imgs/despensa.png');
 
-var _bienvenida2 = _interopRequireDefault(_bienvenida);
+var _despensa2 = _interopRequireDefault(_despensa);
 
 var _Cabecera = require('../comun/Cabecera');
 
@@ -151,7 +151,7 @@ var Detalle = _wrapComponent('Detalle')(function (_Component) {
                     )
                   )
                 ),
-                _react3.default.createElement(_reactNative.Image, { source: _bienvenida2.default, style: styles.img, __source: {
+                _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 25
                   }
@@ -224,7 +224,7 @@ var Detalle = _wrapComponent('Detalle')(function (_Component) {
                     )
                   )
                 ),
-                _react3.default.createElement(_reactNative.Image, { source: _bienvenida2.default, style: styles.img, __source: {
+                _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 39
                   }
@@ -305,7 +305,7 @@ var Detalle = _wrapComponent('Detalle')(function (_Component) {
                     )
                   )
                 ),
-                _react3.default.createElement(_reactNative.Image, { source: _bienvenida2.default, style: styles.img, __source: {
+                _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 56
                   }
@@ -378,7 +378,7 @@ var Detalle = _wrapComponent('Detalle')(function (_Component) {
                     )
                   )
                 ),
-                _react3.default.createElement(_reactNative.Image, { source: _bienvenida2.default, style: styles.img, __source: {
+                _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 70
                   }
@@ -459,7 +459,7 @@ var Detalle = _wrapComponent('Detalle')(function (_Component) {
                     )
                   )
                 ),
-                _react3.default.createElement(_reactNative.Image, { source: _bienvenida2.default, style: styles.img, __source: {
+                _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 87
                   }
@@ -532,7 +532,7 @@ var Detalle = _wrapComponent('Detalle')(function (_Component) {
                     )
                   )
                 ),
-                _react3.default.createElement(_reactNative.Image, { source: _bienvenida2.default, style: styles.img, __source: {
+                _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 101
                   }
@@ -582,11 +582,11 @@ var styles = _reactNative.StyleSheet.create({
     flexWrap: 'wrap'
   },
   estiloCard: {
-    borderColor: 'green',
+    borderColor: '#8e1c58',
     borderWidth: 3
   },
   estiloCardI: {
-    borderColor: 'green',
+    borderColor: '#8e1c58',
     borderWidth: 1
   },
   cardL: {
@@ -594,7 +594,7 @@ var styles = _reactNative.StyleSheet.create({
   },
   btn: {
     alignSelf: 'stretch',
-    borderColor: 'green'
+    borderColor: '#8e1c58'
   },
   view: {
     flexDirection: 'row'
@@ -603,10 +603,10 @@ var styles = _reactNative.StyleSheet.create({
     height: 100,
     width: null,
     flex: 1,
-    borderColor: 'green',
+    borderColor: '#8e1c58',
     borderWidth: 1
   },
   icon: {
-    color: "green"
+    color: "#8e1c58"
   }
 });

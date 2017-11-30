@@ -1,6 +1,8 @@
-var assignValue = require('./_assignValue');
+var assignValue = require('./_assignValue'),
+    baseAssignValue = require('./_baseAssignValue');
 
 function copyObject(source, props, object, customizer) {
+  var isNew = !object;
   object || (object = {});
 
   var index = -1,
@@ -9,9 +11,16 @@ function copyObject(source, props, object, customizer) {
   while (++index < length) {
     var key = props[index];
 
-    var newValue = customizer ? customizer(object[key], source[key], key, object, source) : source[key];
+    var newValue = customizer ? customizer(object[key], source[key], key, object, source) : undefined;
 
-    assignValue(object, key, newValue);
+    if (newValue === undefined) {
+      newValue = source[key];
+    }
+    if (isNew) {
+      baseAssignValue(object, key, newValue);
+    } else {
+      assignValue(object, key, newValue);
+    }
   }
   return object;
 }

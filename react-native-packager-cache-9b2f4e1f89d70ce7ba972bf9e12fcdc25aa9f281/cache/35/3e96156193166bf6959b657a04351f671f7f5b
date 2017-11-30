@@ -1,8 +1,6 @@
-var baseToPairs = require('./_baseToPairs'),
+var createToPairs = require('./_createToPairs'),
     keys = require('./keys');
 
-function toPairs(object) {
-  return baseToPairs(object, keys(object));
-}
+var toPairs = createToPairs(keys);
 
 module.exports = toPairs;
