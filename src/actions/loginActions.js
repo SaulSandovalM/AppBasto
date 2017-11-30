@@ -5,43 +5,32 @@ import {EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LO
 import {Toast} from 'native-base';
 
 export const emailChanged = (text) => {
-    return {type: EMAIL_CHANGED, payload: text};
+  return {type: EMAIL_CHANGED, payload: text};
 };
 
 export const passwordChanged = (text) => {
-    return {type: PASSWORD_CHANGED, payload: text};
+  return {type: PASSWORD_CHANGED, payload: text};
 };
 
 export const loginUser = ({auth}) => {
-    let {password, email}=auth
-    return (dispatch) => {
-        dispatch({type: LOGIN_USER});
-
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(user => loginUserSuccess(dispatch, user)).catch(() => loginUserFail(dispatch))
-    };
+  let {password, email} = auth
+  return(dispatch) => {
+    dispatch({type: LOGIN_USER});
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(user => loginUserSuccess(dispatch, user)).catch(() => loginUserFail(dispatch))
+  };
 };
 
 const loginUserFail = (dispatch) => {
-    dispatch({type: LOGIN_USER_FAIL});
+  dispatch({type: LOGIN_USER_FAIL});
 
-    Toast.show({
-        text: 'Autenticación Fallida!',
-        position: 'bottom',
-        buttonText: 'Ok',
-        type:'danger'
-    })
+  Toast.show({text: 'Autenticación Fallida!', position: 'bottom', buttonText: 'Ok', type: 'danger'})
 };
 
 const loginUserSuccess = (dispatch) => {
-    dispatch({type: LOGIN_USER_SUCCESS});
+  dispatch({type: LOGIN_USER_SUCCESS});
 
-    Toast.show({
-        text: 'Bienvenido!',
-        position: 'bottom',
-        buttonText: 'Okay',
-        type:'success'
-    })
+  Toast.show({text: 'Bienvenido!', position: 'bottom', buttonText: 'Okay', type: 'success'})
 
-    Actions.Principal();
+  Actions.Principal();
 };

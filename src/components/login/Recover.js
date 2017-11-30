@@ -8,23 +8,21 @@ import {connect} from 'react-redux';
 import {emailChangedrec, vemailChangedrec, sendEmail} from '../../actions/recoverActions';
 
 class Recover extends Component < {} > {
+  onEmailRChange(text) {
+    this.props.emailChangedrec(text);
+  }
 
-    onEmailRChange(text) {
-        this.props.emailChangedrec(text);
-    }
+  onVemailChange(text){
+    this.props.vemailChangedrec(text);
+  }
 
-    onVemailChange(text){
-        this.props.vemailChangedrec(text);
-    }
+  onButtonrPress() {
+    const {recover} = this.props;
+    console.log(recover)
+    this.props.sendEmail({recover});
+  }
 
-    onButtonrPress() {
-        const {recover} = this.props;
-        console.log(recover)
-        this.props.sendEmail({recover});
-    }
-
-
-    buttonCorreo() {
+  buttonCorreo() {
     console.log(this.props.recover)
     if (this.props.recover.emailrec === this.props.recover.veriemail) {
       return (
@@ -102,9 +100,6 @@ const mapStateToProps = ({recover}) => {
     return {recover};
 };
 
-export default connect(mapStateToProps, {emailChangedrec, vemailChangedrec, sendEmail})(Recover);
-
-
 const styles = StyleSheet.create({
   img: {
     justifyContent: 'flex-end',
@@ -162,3 +157,5 @@ const styles = StyleSheet.create({
     margin: 20
   }
 });
+
+export default connect(mapStateToProps, {emailChangedrec, vemailChangedrec, sendEmail})(Recover);

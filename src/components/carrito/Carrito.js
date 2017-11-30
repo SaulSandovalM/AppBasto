@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Image, ScrollView, StyleSheet, Text} from 'react-native';
+import {View, Image, ScrollView, StyleSheet, Text, Platform} from 'react-native';
 import {Container, StyleProvider, Body, List, ListItem, CardItem, Button} from 'native-base';
 import Cabecera from '../comun/Cabecera';
 import getTheme from '../../../native-base-theme/components';
@@ -10,10 +10,14 @@ import {ListaCompra} from './ListaCompra';
 import {connect} from 'react-redux';
 import {addToCart, addAmount, substractAmount, deleteItem} from '../../actions/cartActions'
 
+const header = Platform.select({
+  ios: <Cabecera/>
+});
+
 class Carrito extends Component < {} > {
-  getTotal=()=>{
+  getTotal = () => {
     let total = 0;
-    for (let t of this.props.cart ){
+    for (let t of this.props.cart) {
       let subtotal = t.product.price * t.amount;
       total += subtotal
     }
@@ -25,19 +29,16 @@ class Carrito extends Component < {} > {
     return (
       <StyleProvider style={getTheme(material)}>
         <Container style={styles.fondo}>
-          <Cabecera/>
-
+          {header}
 
           <ScrollView>
 
-              {this.props.cart.map(item=>{
-                  return <ListaCompra item={item}
-                                      addAmount={addAmount}
-                                      substractAmount={substractAmount}
-                                      deleteItem={deleteItem}
-                  />
-
-              })}
+            {
+              this.props.cart.map(item => {
+                return
+                  <ListaCompra item={item} addAmount={addAmount} substractAmount={substractAmount} deleteItem={deleteItem}/>
+              })
+            }
 
           </ScrollView>
 
@@ -47,7 +48,7 @@ class Carrito extends Component < {} > {
               <Text style={styles.pago}>$ {total}</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={() => Actions.Principal()}>
+            <Button block style={styles.boton} onPress={() => Actions.Pedido()}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>
@@ -59,15 +60,12 @@ class Carrito extends Component < {} > {
 }
 
 const mapStateToProps = state => {
-    return {cart:state.cart};
+  return {cart: state.cart};
 };
-
-
-export default Carrito = connect(mapStateToProps, {addToCart, addAmount, substractAmount, deleteItem})(Carrito);
 
 const styles = StyleSheet.create({
   text: {
-    color: 'white',
+    color: '#8e1c58',
     fontWeight: 'bold',
     fontSize: 20
   },
@@ -84,8 +82,10 @@ const styles = StyleSheet.create({
     marginLeft: 15
   },
   boton: {
-    backgroundColor: '#8e1c58',
-    width: '100%'
+    backgroundColor: 'white',
+    width: '100%',
+    borderColor: '#8e1c58',
+    borderWidth: 2
   },
   list: {
     backgroundColor: 'white'
@@ -105,3 +105,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   }
 });
+
+export default Carrito = connect(mapStateToProps, {addToCart, addAmount, substractAmount, deleteItem})(Carrito);

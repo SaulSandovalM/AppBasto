@@ -24,7 +24,7 @@ export default Buscador;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#8e1c58'
+    backgroundColor: 'white'
   },
   view: {
     flexDirection: 'column',
@@ -32,15 +32,17 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   color: {
-    color: 'white',
+    color: '#878787',
     fontSize: 35
   },
   item: {
     backgroundColor: 'white',
-    borderRadius: 15
+    borderRadius: 15,
+    borderColor: '#878787',
+    borderWidth: 1
   },
   icon: {
-    color: '#000'
+    color: '#878787'
   },
   input: {
     borderRadius: 50
