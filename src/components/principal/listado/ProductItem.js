@@ -2,9 +2,9 @@ import React from 'react';
 import {Card, Icon, Text} from 'native-base';
 import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
 
-export const ProductItem = ({image, name}) => {
+export const ProductItem = ({image, name, addToCart, item}) => {
   return (
-      <TouchableOpacity >
+      <TouchableOpacity onPress={()=>addToCart(item)}>
       <Card>
         <Image source={{
             uri: image

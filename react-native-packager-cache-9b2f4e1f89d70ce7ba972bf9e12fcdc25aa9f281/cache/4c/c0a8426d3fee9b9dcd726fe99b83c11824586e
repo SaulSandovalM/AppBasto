@@ -1,18 +1,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _react2 = require('react');
-
-var _react3 = _interopRequireDefault(_react2);
-
-var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
-
-var _index2 = _interopRequireDefault(_index);
-
+exports.ListaCompra = undefined;
 var _jsxFileName = '/home/jose/V\xEDdeos/AppBasto/src/components/carrito/ListaCompra.js';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
 
 var _reactNative = require('react-native');
 
@@ -28,118 +22,127 @@ var _bienvenida2 = _interopRequireDefault(_bienvenida);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var ListaCompra = exports.ListaCompra = function ListaCompra(_ref) {
+  var item = _ref.item,
+      addAmount = _ref.addAmount,
+      substractAmount = _ref.substractAmount,
+      deleteItem = _ref.deleteItem;
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _components = {
-  ListaCompra: {
-    displayName: 'ListaCompra'
-  }
-};
-
-var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-  filename: '/home/jose/V\xEDdeos/AppBasto/src/components/carrito/ListaCompra.js',
-  components: _components,
-  locals: [module],
-  imports: [_react3.default]
-});
-
-function _wrapComponent(id) {
-  return function (Component) {
-    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-  };
-}
-
-var ListaCompra = _wrapComponent('ListaCompra')(function (_Component) {
-  _inherits(ListaCompra, _Component);
-
-  function ListaCompra() {
-    _classCallCheck(this, ListaCompra);
-
-    return _possibleConstructorReturn(this, (ListaCompra.__proto__ || Object.getPrototypeOf(ListaCompra)).apply(this, arguments));
-  }
-
-  _createClass(ListaCompra, [{
-    key: 'render',
-    value: function render() {
-      return _react3.default.createElement(
-        _nativeBase.ListItem,
+  return _react2.default.createElement(
+    _nativeBase.ListItem,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
+      }
+    },
+    _react2.default.createElement(
+      _nativeBase.Body,
+      { style: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      },
+      _react2.default.createElement(_nativeBase.Thumbnail, { square: true, size: 80, source: { uri: item.product.image }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      }),
+      _react2.default.createElement(
+        _reactNative.Text,
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 10
+            lineNumber: 14
           }
         },
-        _react3.default.createElement(
-          _nativeBase.Body,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 11
-            }
-          },
-          _react3.default.createElement(_nativeBase.Thumbnail, { square: true, size: 80, source: _bienvenida2.default, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 12
-            }
-          })
-        ),
-        _react3.default.createElement(
-          _nativeBase.Body,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 14
-            }
-          },
-          _react3.default.createElement(
-            _reactNative.Text,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 15
-              }
-            },
-            'Manzanas'
-          )
-        ),
-        _react3.default.createElement(_Select2.default, {
-          __source: {
+        item.product.name
+      ),
+      _react2.default.createElement(
+        _nativeBase.Button,
+        { light: true, onPress: function onPress() {
+            return substractAmount(item);
+          }, __source: {
             fileName: _jsxFileName,
             lineNumber: 17
           }
-        }),
-        _react3.default.createElement(
-          _nativeBase.Body,
+        },
+        _react2.default.createElement(
+          _reactNative.Text,
           {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 18
             }
           },
-          _react3.default.createElement(
-            _reactNative.Text,
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 19
-              }
-            },
-            '$25.00'
-          )
+          '-'
         )
-      );
-    }
-  }]);
-
-  return ListaCompra;
-}(_react2.Component));
-
-exports.default = ListaCompra;
-;
+      ),
+      _react2.default.createElement(
+        _reactNative.Text,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20
+          }
+        },
+        item.amount
+      ),
+      _react2.default.createElement(
+        _nativeBase.Button,
+        { light: true, onPress: function onPress() {
+            addAmount(item);
+          }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Text,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 22
+            }
+          },
+          '+'
+        )
+      ),
+      _react2.default.createElement(
+        _nativeBase.Button,
+        { light: true, onPress: function onPress() {
+            deleteItem(item);
+          }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 25
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Text,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 26
+            }
+          },
+          'X'
+        )
+      ),
+      _react2.default.createElement(
+        _reactNative.Text,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          }
+        },
+        '$ ',
+        item.product.price
+      )
+    )
+  );
+};
 
 var styles = _reactNative.StyleSheet.create({
   totalP: {

@@ -28,6 +28,8 @@ var _reactRedux = require('react-redux');
 
 var _productosActions = require('../../../actions/productosActions');
 
+var _cartActions = require('../../../actions/cartActions');
+
 var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
@@ -80,7 +82,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
       if (!this.props.fetched) return _react3.default.createElement(_nativeBase.Spinner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 20
         }
       });
     }
@@ -91,7 +93,10 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
           fondo = _props.fondo,
           categoria = _props.categoria,
           lista = _props.lista,
-          slug = _props.slug;
+          slug = _props.slug,
+          addToCart = _props.addToCart,
+          addAmount = _props.addAmount,
+          substractAmount = _props.substractAmount;
 
       var filtrados = lista.filter(function (f) {
         return f.category === slug && f.in_offer === true;
@@ -101,21 +106,21 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
         _reactNative.ScrollView,
         { style: styles.content, __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
+            lineNumber: 28
           }
         },
         _react3.default.createElement(
           _reactNative.ImageBackground,
           { source: fondo, style: styles.fondo, __source: {
               fileName: _jsxFileName,
-              lineNumber: 28
+              lineNumber: 29
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view4, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 29
+                lineNumber: 30
               }
             },
             _react3.default.createElement(
@@ -124,7 +129,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
                   return _reactNativeRouterFlux.Actions.Detalle();
                 }, style: styles.texto, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 30
+                  lineNumber: 31
                 }
               },
               categoria
@@ -135,22 +140,27 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
           _reactNative.View,
           { style: styles.view2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 36
+              lineNumber: 37
             }
           },
           _react3.default.createElement(
             _reactNative.ScrollView,
             { horizontal: true, style: styles.scroll, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 37
+                lineNumber: 38
               }
             },
             this.spinnerr(),
             filtrados.map(function (item, index) {
-              return _react3.default.createElement(_ProductItem.ProductItem, _extends({ key: index, index: index }, item, {
+              var cartItem = { product: item, amount: 1 };
+              return _react3.default.createElement(_ProductItem.ProductItem, _extends({ key: index,
+                index: index
+              }, item, {
+                addToCart: addToCart,
+                item: cartItem,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 43
+                  lineNumber: 45
                 }
               }));
             })
@@ -195,13 +205,14 @@ var styles = _reactNative.StyleSheet.create({
 });
 
 var mapStateToProps = function mapStateToProps(state) {
+  console.log(state.cart);
   var lista = _lodash2.default.map(state.lista, function (val, uid) {
     return _extends({}, val, {
       uid: uid
     });
   });
 
-  return { lista: lista, fetched: lista.length > 0 };
+  return { lista: lista, fetched: lista.length > 0, cart: state.cart };
 };
 
-exports.default = CategoryList = (0, _reactRedux.connect)(mapStateToProps, { listaFetch: _productosActions.listaFetch })(CategoryList);
+exports.default = CategoryList = (0, _reactRedux.connect)(mapStateToProps, { listaFetch: _productosActions.listaFetch, addToCart: _cartActions.addToCart, addAmount: _cartActions.addAmount, substractAmount: _cartActions.substractAmount })(CategoryList);

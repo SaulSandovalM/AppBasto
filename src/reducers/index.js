@@ -5,6 +5,7 @@ import productReducer from './productReducer';
 import RegisterReducer from "./RegisterReducer";
 import RecoverReducer from "./RecoverReducer";
 import dataReducer from './dataReducer';
+import cartReducer from "./cartReducer";
 
 const rootReducer = combineReducers({
     auth: AuthReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     products:productReducer,
     regis:RegisterReducer,
     recover : RecoverReducer,
-    lista : dataReducer
+    lista : dataReducer,
+    cart: cartReducer
 });
 export default rootReducer;

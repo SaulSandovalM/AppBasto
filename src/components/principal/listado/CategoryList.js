@@ -6,6 +6,7 @@ import {Actions} from 'react-native-router-flux';
 
 import {connect} from 'react-redux';
 import {listaFetch} from '../../../actions/productosActions';
+import {addToCart, addAmount, substractAmount} from '../../../actions/cartActions'
 import _ from 'lodash';
 
 
@@ -20,7 +21,7 @@ class CategoryList extends Component {
     }
 
   render() {
-    const {fondo, categoria, lista, slug} = this.props;
+    const {fondo, categoria, lista, slug, addToCart, addAmount, substractAmount} = this.props;
     let filtrados = lista.filter(f=>{return f.category===slug && f.in_offer===true});
 
     return (
@@ -40,7 +41,13 @@ class CategoryList extends Component {
 
               {
                   filtrados.map((item, index) => {
-                          return <ProductItem key={index} index={index} {...item}/>
+                      let cartItem = {product:item, amount:1}
+                          return <ProductItem key={index}
+                                              index={index}
+                                              {...item}
+                                              addToCart={addToCart}
+                                              item={cartItem}
+                                              />
 
                   })
               }
@@ -84,6 +91,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
+    console.log(state.cart)
     const lista = _.map(state.lista, (val, uid) => {
         return {
             ...val,
@@ -91,8 +99,8 @@ const mapStateToProps = state => {
         };
     });
 
-    return {lista, fetched: lista.length > 0};
+    return {lista, fetched: lista.length > 0, cart:state.cart};
 };
 
 
-export default CategoryList = connect(mapStateToProps, {listaFetch})(CategoryList);
+export default CategoryList = connect(mapStateToProps, {listaFetch, addToCart, addAmount, substractAmount})(CategoryList);
