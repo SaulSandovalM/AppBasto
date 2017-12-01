@@ -24,12 +24,12 @@ export default Buscador;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   view: {
     flexDirection: 'column',
     justifyContent: 'center',
-    margin: 10,
+    padding: 10,
   },
   color: {
     color: '#878787',
