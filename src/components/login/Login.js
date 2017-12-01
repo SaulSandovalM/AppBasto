@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {Button, Input, Item, Icon, Spinner, Toast} from 'native-base';
+import {Button, Input, Item, Icon, Spinner} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import Video from 'react-native-video';
 import videop from '../../assets/video/videop.mp4';
@@ -118,13 +118,6 @@ const styles = StyleSheet.create({
     height: null,
     width: null
   },
-  texto: {
-    color: 'black',
-    alignSelf: 'center',
-    fontWeight: 'bold',
-    marginTop: 20,
-    backgroundColor: 'transparent'
-  },
   view: {
     margin: 15
   },
@@ -162,11 +155,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18
   },
-  adelante: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    margin: 20
-  },
   button: {
     width: '78%',
     justifyContent: 'center',
@@ -177,12 +165,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     color: 'orange',
     fontSize: 50
-  },
-  buttonSpinner: {
-    marginRight: 140,
-    marginLeft: 140,
-    marginBottom: 10,
-    backgroundColor: 'orange'
   },
   color: {
     color: 'white'
@@ -195,7 +177,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = ({auth}) => {
-
   return {auth};
 };
 

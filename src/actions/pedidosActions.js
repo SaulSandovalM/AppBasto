@@ -6,7 +6,7 @@ export function loadListaSuccess(lista) {
 }
 
 export function addItemListSuccess(item) {
-  return {type: "ADD_ITEM_LIST", item}
+  return {type: 'ADD_ITEM_LIST', item}
 }
 
 export function loadLista() {
@@ -30,5 +30,4 @@ export function addItemList(item) {
       dispatch.addItemListSuccess(resItem)
     })
   }
-}
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import {ProductMiniCard} from "../../detalle/ProductMiniCard";
-import {ScrollView, View, StyleSheet} from 'react-native';
+import {ProductMiniCard} from '../../detalle/ProductMiniCard';
+import {View, StyleSheet} from 'react-native';
 
 export const ResultList = ({results}) => {
   return (
@@ -20,8 +20,8 @@ export const ResultList = ({results}) => {
 
 const styles = StyleSheet.create({
   viewP: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap"
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 });

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, ImageBackground, StatusBar, Image} from 'react-native';
-import {Button, Icon} from 'native-base';
+import {Button} from 'native-base';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
 import Swiper from 'react-native-swiper';

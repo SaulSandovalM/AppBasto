@@ -10,24 +10,26 @@ const INITIAL_STATE = {
 };
 
 export default recover = (state = INITIAL_STATE.recov, action) => {
-
   switch (action.type) {
     case EMAIL_CHANGEDREC:
       return {
         ...state,
         emailrec: action.payload
       }
+
     case VEMAIL_CHANGEDREC:
       return {
         ...state,
         veriemail: action.payload
       }
+
     case SEND_EMAIL:
       return {
         ...state,
         loading: true,
         error: ''
       }
+
     case SEND_EMAIL_SUCCESS:
       return {
         ...state,
@@ -36,6 +38,7 @@ export default recover = (state = INITIAL_STATE.recov, action) => {
         error: '',
         emailrec: ''
       }
+
     case SEND_EMAIL_FAIL:
       return {
         ...state,

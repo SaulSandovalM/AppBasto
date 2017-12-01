@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Dimensions, Text, ImageBackground, Platform} from 'react-native';
-import {Container, Button, Toast, Footer, FooterTab, Right, Content, H1} from 'native-base';
+import {View, StyleSheet, Text, ImageBackground} from 'react-native';
+import {Container, Button, H1} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/img4.jpg';
 

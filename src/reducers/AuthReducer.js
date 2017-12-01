@@ -2,17 +2,15 @@ import {EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LO
 
 const INITIAL_STATE = {
   logi: {
-      email: '',
-      password: '',
-      user: null,
-      error: '',
-      loading: false
+    email: '',
+    password: '',
+    user: null,
+    error: '',
+    loading: false
   },
-
 };
 
 export default auth = (state = INITIAL_STATE.logi, action) => {
-
   switch (action.type) {
     case EMAIL_CHANGED:
       return {
@@ -50,6 +48,5 @@ export default auth = (state = INITIAL_STATE.logi, action) => {
 
     default:
       return state;
-
   }
 }

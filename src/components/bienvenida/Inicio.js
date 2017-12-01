@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
 import {firebaseAuth} from '../firebase/Firebase';
-import {Actions} from 'react-native-router-flux';
-import {Spinner, Container} from 'native-base';
+import {Container} from 'native-base';
 import Bienvenida from './Bienvenida';
 import Principal from '../principal/Principal';
 

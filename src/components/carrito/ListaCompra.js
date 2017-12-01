@@ -11,20 +11,20 @@ export const ListaCompra = ({item, addAmount, substractAmount, deleteItem}) => {
       <Body>
         <Text>{item.product.name}</Text>
       </Body>
-      <Body>
-        <Button light onPress={()=>substractAmount(item)}>
+      <Body style={styles.botones}>
+        <Button light onPress={()=>substractAmount(item)} style={styles.boton}>
           <Text>-</Text>
         </Button>
-        <Text>{item.amount}</Text>
-        <Button light onPress={()=>{addAmount(item)}}>
+        <Text style={styles.text}>{item.amount}</Text>
+        <Button light onPress={()=>{addAmount(item)}} style={styles.boton}>
           <Text>+</Text>
         </Button>
-        <Button light onPress={()=>{deleteItem(item)}}>
+      </Body>
+      <Body style={styles.botones}>
+        <Text style={styles.text}>$ {item.product.price}</Text>
+        <Button light onPress={()=>{deleteItem(item)}} style={styles.boton}>
           <Text>X</Text>
         </Button>
-      </Body>
-      <Body>
-        <Text>$ {item.product.price}</Text>
       </Body>
     </ListItem>
   );
@@ -33,5 +33,14 @@ export const ListaCompra = ({item, addAmount, substractAmount, deleteItem}) => {
 const styles = StyleSheet.create({
   totalP: {
     marginLeft: 15,
+  },
+  botones: {
+    flexDirection: 'row'
+  },
+  boton: {
+    backgroundColor: 'transparent', elevation: 0
+  },
+  text: {
+    marginTop: 13
   }
 });

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, Image, StyleSheet} from 'react-native';
-import {Header, Card} from "../comun";
+import {Header, Card} from '../comun';
 
 export default class detalleProducto extends Component < {} > {
   render() {

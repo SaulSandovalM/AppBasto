@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Header, Left, Icon, Body, Right} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 

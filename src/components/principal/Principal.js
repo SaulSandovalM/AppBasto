@@ -109,25 +109,6 @@ const styles = StyleSheet.create({
   view: {
     flex: 1
   },
-  view2: {
-    flexDirection: 'row'
-  },
-  view3: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    backgroundColor: 'white'
-  },
-  view4: {
-    backgroundColor: 'rgba(0,0,0,.5)',
-    height: '100%',
-    width: '100%',
-    justifyContent: 'center'
-  },
-  view5: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
-  },
   content: {
     backgroundColor: '#fff'
   },
@@ -135,13 +116,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 50,
     width: null
-  },
-  texto: {
-    backgroundColor: 'transparent',
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 20,
-    marginLeft: 5
   },
   text: {
     alignSelf: 'center'
@@ -154,16 +128,12 @@ const styles = StyleSheet.create({
     width: 150,
     flex: 1
   },
-  img2: {
-    width: '100%',
-    height: 150
-  },
   button: {
     alignSelf: 'center',
     borderColor: 'white'
   },
   icon: {
-    color: "green"
+    color: 'green'
   }
 });
 

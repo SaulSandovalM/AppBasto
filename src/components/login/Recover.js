@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, ImageBackground} from 'react-native';
-import {Button, Input, Item, Toast, Spinner, Icon} from 'native-base';
+import {Button, Input, Item, Icon} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/recover.jpeg';
-
+//Redux
 import {connect} from 'react-redux';
 import {emailChangedrec, vemailChangedrec, sendEmail} from '../../actions/recoverActions';
 
@@ -45,7 +45,7 @@ class Recover extends Component < {} > {
       <Item error style={styles.inputRounded}>
         <Input
           style={styles.color}
-          placeholder='Correo electrónico'
+          placeholder='Confirme correo electrónico'
           keyboardType='email-address'
           placeholderTextColor='#fff'
           returnKeyType='next'
@@ -96,8 +96,8 @@ class Recover extends Component < {} > {
 }
 
 const mapStateToProps = ({recover}) => {
-    console.log(recover);
-    return {recover};
+  console.log(recover);
+  return {recover};
 };
 
 const styles = StyleSheet.create({

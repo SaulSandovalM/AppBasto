@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon, Card, CardItem, Left, Text, Button} from 'native-base';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 
 export const ProductMiniCard = ({sellPrice, name, image}) => {
   return (

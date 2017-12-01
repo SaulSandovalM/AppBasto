@@ -16,25 +16,20 @@ export const sendEmail = ({recover}) => {
   let {emailrec, veriemail} = recover
   return(dispatch) => {
     dispatch({type: SEND_EMAIL});
-
     if (emailrec == veriemail && emailrec != null && veriemail != null) {
       firebase.auth().sendPasswordResetEmail(emailrec)
       .then(user => sendEmailSuccess(dispatch, user)).catch(() => sendEmailFail(dispatch))
     }
-
   };
 };
 
 const sendEmailFail = (dispatch) => {
   dispatch({type: SEND_EMAIL_FAIL});
-
   Toast.show({text: 'Verifica campos!', position: 'bottom', buttonText: 'Ok', type: 'danger'})
 };
 
 const sendEmailSuccess = (dispatch, user) => {
   dispatch({type: SEND_EMAIL_SUCCESS, payload: user});
-
   Toast.show({text: 'Revisa tu correo y continua', position: 'bottom', buttonText: 'Okay', type: 'success'})
-
   Actions.Login();
 };

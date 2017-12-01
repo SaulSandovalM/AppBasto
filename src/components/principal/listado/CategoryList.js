@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, ImageBackground, ScrollView} from 'react-native';
-import {Icon, Spinner, Content} from 'native-base';
+import {StyleSheet, View, Text, ImageBackground} from 'react-native';
+import {Spinner, Content} from 'native-base';
 import {ProductItem} from './ProductItem';
 import {Actions} from 'react-native-router-flux';
 //redux
 import {connect} from 'react-redux';
 import {listaFetch} from '../../../actions/productosActions';
 import {addToCart, addAmount, substractAmount} from '../../../actions/cartActions'
-import _ from 'lodash';
 
 class CategoryList extends Component {
   componentWillMount() {
@@ -25,7 +24,7 @@ class CategoryList extends Component {
     let filtrados = lista.filter(f=>{return f.category===slug && f.in_offer===true});
 
     return (
-      <ScrollView style={styles.content}>
+      <View style={styles.content}>
         <ImageBackground source={fondo} style={styles.fondo}>
           <View style={styles.view4}>
             <Text onPress={() => Actions.Detalle()} style={styles.texto}>
@@ -35,7 +34,7 @@ class CategoryList extends Component {
         </ImageBackground>
 
         <View style={styles.view2}>
-          <Content style={styles.scroll}>
+          <Content horizontal={true}>
             {this.spinnerr()}
             {
               filtrados.map((item, index) => {
@@ -44,12 +43,11 @@ class CategoryList extends Component {
                   amount: 1
                 }
                 return <ProductItem key={index} index={index} {...item} addToCart={addToCart} item={cartItem}/>
-
               })
             }
           </Content>
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -90,9 +88,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 5
   },
-  scroll: {
-    marginBottom: 10
-  }
+  // scroll: {
+  //   marginBottom: 10
+  // }
 });
 
 export default CategoryList = connect(mapStateToProps, {listaFetch, addToCart, addAmount, substractAmount})(CategoryList);

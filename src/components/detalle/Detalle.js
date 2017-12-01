@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Image, ScrollView, StyleSheet, Text, Platform} from 'react-native';
+import {View, Image, ScrollView, StyleSheet, Text} from 'react-native';
 import {Card, CardItem, Left, Button, Icon, Container, StyleProvider} from 'native-base';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';

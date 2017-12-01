@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import img from '../../assets/imgs/usuario.jpg';
 import img2 from '../../assets/imgs/nouser.png';
-import {Container, List, ListItem, Left, Body, Right, Button} from 'native-base';
+import {Container, List, ListItem, Left, Body, Right} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
 import {firebaseAuth} from '../firebase/Firebase';
@@ -202,18 +202,6 @@ const styles = StyleSheet.create({
   textoc: {
     color: 'green'
   },
-  textWithIcon: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    borderColor: 'red',
-    margin: 5
-  },
-  withIcon: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: 10
-  },
   content: {
     width: width / 2 + 59
   },
@@ -239,11 +227,6 @@ const styles = StyleSheet.create({
     color: '#8e1c58',
     fontSize: 15
   },
-  estiloTouch: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    margin: 10
-  },
   touchable: {
     flexDirection: 'row',
     justifyContent: 'space-between'
@@ -252,8 +235,5 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#8e1c58',
     marginRight: 5
-  },
-  nolog: {
-    color: 'white'
   }
 });

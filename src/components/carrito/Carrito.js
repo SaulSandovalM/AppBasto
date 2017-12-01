@@ -15,26 +15,26 @@ const header = Platform.select({
 });
 
 class Carrito extends Component < {} > {
-    state={
-        order:{
-            total:0,
-            products:[],
-            isDelivered:false,
-            user:'Shoppy'
-        }
-    };
+  state={
+    order:{
+      total:0,
+      products:[],
+      isDelivered:false,
+      user:'Shoppy'
+    }
+  };
 
-    sendOrder = () => {
-        let fecha = new Date();
-        fecha = fecha.getTime();
-        let {order} = this.state;
-        order.total = this.getTotal();
-        order.products = this.props.cart;
-        order.date = fecha;
-        console.log(this.state.order);
-        this.props.saveOrder(order).then((snap)=>console.log('Se mando Papud')).catch((error)=>console.log('valio bertha'))
-
-    };
+  sendOrder = () => {
+    let fecha = new Date();
+    fecha = fecha.getTime();
+    let {order} = this.state;
+    order.total = this.getTotal();
+    order.products = this.props.cart;
+    order.date = fecha;
+    console.log(this.state.order);
+    this.props.saveOrder(order).then((snap)=>console.log('Se mando Papud'))
+      .catch((error)=>console.log('ya bailo berta'))
+  };
 
   getTotal = () => {
     let total = 0;
@@ -53,18 +53,16 @@ class Carrito extends Component < {} > {
           {header}
 
           <ScrollView>
-
               {this.props.cart.map((item, index)=>{
                   console.log(item)
-                  return <ListaCompra item={item}
-                                      addAmount={this.props.addAmount}
-                                      substractAmount={this.props.substractAmount}
-                                      deleteItem={this.props.deleteItem}
-                                      key={index}
-                  />
-
+                  return <ListaCompra
+                            item={item}
+                            addAmount={this.props.addAmount}
+                            substractAmount={this.props.substractAmount}
+                            deleteItem={this.props.deleteItem}
+                            key={index}
+                          />
               })}
-
           </ScrollView>
 
           <View style={styles.card}>
