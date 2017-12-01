@@ -1,0 +1,48 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _cartActions = require('../actions/cartActions');
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var INITIAL_STATE = [];
+
+var cartReducer = function cartReducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+    var action = arguments[1];
+    var item = action.item;
+
+    switch (action.type) {
+        case _cartActions.ADD_TO_CART:
+            return [].concat(_toConsumableArray(state), [action.item]);
+        case _cartActions.SUBSTRACT_AMOUNT:
+            item.amount -= 1;
+            return [].concat(_toConsumableArray(state.map(function (i) {
+                if (i.product.id === action.item.product.id) {
+                    return item;
+                }
+                return i;
+            })));
+        case _cartActions.ADD_AMOUNT:
+            item.amount += 1;
+
+            var itemss = state.map(function (i) {
+                if (i.product.id === action.item.product.id) {
+                    return item;
+                }
+                return i;
+            });
+            return itemss;
+        case _cartActions.DELETE_ITEM:
+            return [].concat(_toConsumableArray(state.filter(function (i) {
+                console.log(i);
+                console.log(action.item);
+                return i.product.id !== action.item.product.id;
+            })));
+        default:
+            return state;
+    }
+};
+
+exports.default = cartReducer;

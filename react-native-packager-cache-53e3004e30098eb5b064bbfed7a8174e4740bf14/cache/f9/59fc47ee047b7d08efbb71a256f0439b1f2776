@@ -1,0 +1,53 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.saveOrder = exports.DELETE_ITEM = exports.SUBSTRACT_AMOUNT = exports.ADD_AMOUNT = exports.ADD_TO_CART = undefined;
+exports.addToCart = addToCart;
+exports.addAmount = addAmount;
+exports.substractAmount = substractAmount;
+exports.deleteItem = deleteItem;
+
+var _Firebase = require("../components/firebase/Firebase");
+
+var _Firebase2 = _interopRequireDefault(_Firebase);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ADD_TO_CART = exports.ADD_TO_CART = "ADD_TO_CART";
+var ADD_AMOUNT = exports.ADD_AMOUNT = "ADD_AMOUNT";
+var SUBSTRACT_AMOUNT = exports.SUBSTRACT_AMOUNT = "SUBSTRACT_AMOUNT";
+var DELETE_ITEM = exports.DELETE_ITEM = "DELETE_ITEM";
+
+db = _Firebase2.default.database().ref();
+
+function addToCart(item) {
+    return { type: ADD_TO_CART, item: item };
+}
+
+function addAmount(item) {
+    return { type: ADD_AMOUNT, item: item };
+}
+
+function substractAmount(item) {
+    return { type: SUBSTRACT_AMOUNT, item: item };
+}
+
+function deleteItem(item) {
+    return { type: DELETE_ITEM, item: item };
+}
+
+var saveOrder = exports.saveOrder = function saveOrder(order) {
+    return function (dispatch, getState) {
+        var updates = {};
+        var key = void 0;
+        if (order.id) key = order.id;else key = db.push().key;
+        order.id = key;
+        updates["dev/orders/" + key] = order;
+        return db.update(updates).then(function (snap) {
+            return Promise.resolve(snap);
+        }).catch(function (error) {
+            console.log(error);
+            return Promise.reject(error);
+        });
+    };
+};

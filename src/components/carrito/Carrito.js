@@ -8,13 +8,34 @@ import {Actions} from 'react-native-router-flux';
 import {ListaCompra} from './ListaCompra';
 //Redux
 import {connect} from 'react-redux';
-import {addToCart, addAmount, substractAmount, deleteItem} from '../../actions/cartActions'
+import {addToCart, addAmount, substractAmount, deleteItem, saveOrder} from '../../actions/cartActions'
 
 const header = Platform.select({
   ios: <Cabecera/>
 });
 
 class Carrito extends Component < {} > {
+    state={
+        order:{
+            total:0,
+            products:[],
+            isDelivered:false,
+            user:'Shoppy'
+        }
+    };
+
+    sendOrder = () => {
+        let fecha = new Date();
+        fecha = fecha.getTime();
+        let {order} = this.state;
+        order.total = this.getTotal();
+        order.products = this.props.cart;
+        order.date = fecha;
+        console.log(this.state.order);
+        this.props.saveOrder(order).then((snap)=>console.log('Se mando Papud')).catch((error)=>console.log('valio bertha'))
+
+    };
+
   getTotal = () => {
     let total = 0;
     for (let t of this.props.cart) {
@@ -33,12 +54,16 @@ class Carrito extends Component < {} > {
 
           <ScrollView>
 
-            {
-              this.props.cart.map(item => {
-                return
-                  <ListaCompra item={item} addAmount={this.props.addAmount} substractAmount={this.props.substractAmount} deleteItem={this.props.deleteItem}/>
-              })
-            }
+              {this.props.cart.map((item, index)=>{
+                  console.log(item)
+                  return <ListaCompra item={item}
+                                      addAmount={this.props.addAmount}
+                                      substractAmount={this.props.substractAmount}
+                                      deleteItem={this.props.deleteItem}
+                                      key={index}
+                  />
+
+              })}
 
           </ScrollView>
 
@@ -48,7 +73,7 @@ class Carrito extends Component < {} > {
               <Text style={styles.pago}>$ {total}</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={() => Actions.Pedido()}>
+            <Button block style={styles.boton} onPress={this.sendOrder}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>
@@ -106,4 +131,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Carrito = connect(mapStateToProps, {addToCart, addAmount, substractAmount, deleteItem})(Carrito);
+export default Carrito = connect(mapStateToProps, {addToCart, addAmount, substractAmount, deleteItem, saveOrder})(Carrito);

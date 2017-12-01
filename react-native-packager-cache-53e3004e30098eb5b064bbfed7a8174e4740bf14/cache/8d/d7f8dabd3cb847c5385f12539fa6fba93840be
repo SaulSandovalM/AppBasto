@@ -1,0 +1,107 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ProductItem = undefined;
+var _jsxFileName = '/home/jose/M\xFAsica/sh/AppBasto/src/components/principal/listado/ProductItem.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _nativeBase = require('native-base');
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProductItem = exports.ProductItem = function ProductItem(_ref) {
+  var image = _ref.image,
+      name = _ref.name,
+      addToCart = _ref.addToCart,
+      item = _ref.item,
+      price = _ref.price,
+      offer_price = _ref.offer_price;
+
+  var showAlert = function showAlert() {
+    _reactNative.Alert.alert('Este producto ha sido agregado al carrito ^_^');
+  };
+
+  return _react2.default.createElement(
+    _reactNative.TouchableOpacity,
+    { onPress: function onPress() {
+        return addToCart(item);
+      }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11
+      }
+    },
+    _react2.default.createElement(
+      _nativeBase.Card,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      },
+      _react2.default.createElement(_reactNative.Image, { source: {
+          uri: image
+        }, style: styles.img, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }),
+      _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.view5, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 16
+          }
+        },
+        _react2.default.createElement(
+          _nativeBase.Text,
+          { style: styles.precio, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 17
+            }
+          },
+          name,
+          _react2.default.createElement(
+            _nativeBase.Text,
+            { style: styles.precio2, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 18
+              }
+            },
+            '\n',
+            '$ ',
+            price,
+            ' '
+          ),
+          '$ ',
+          offer_price
+        )
+      )
+    )
+  );
+};
+
+var styles = _reactNative.StyleSheet.create({
+  view5: {
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  img: {
+    height: 150,
+    width: 150,
+    flex: 1
+  },
+  precio: {
+    marginTop: 5,
+    fontSize: 12
+  },
+  precio2: {
+    textDecorationLine: 'line-through',
+    color: 'red',
+    fontSize: 12
+  }
+});
