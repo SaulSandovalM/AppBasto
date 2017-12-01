@@ -19,21 +19,23 @@ exports.default = recover = function recover() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE.recov;
   var action = arguments[1];
 
-
   switch (action.type) {
     case _types.EMAIL_CHANGEDREC:
       return _extends({}, state, {
         emailrec: action.payload
       });
+
     case _types.VEMAIL_CHANGEDREC:
       return _extends({}, state, {
         veriemail: action.payload
       });
+
     case _types.SEND_EMAIL:
       return _extends({}, state, {
         loading: true,
         error: ''
       });
+
     case _types.SEND_EMAIL_SUCCESS:
       return _extends({}, state, {
         veriemail: '',
@@ -41,6 +43,7 @@ exports.default = recover = function recover() {
         error: '',
         emailrec: ''
       });
+
     case _types.SEND_EMAIL_FAIL:
       return _extends({}, state, {
         error: 'Autenticación Fallida.',

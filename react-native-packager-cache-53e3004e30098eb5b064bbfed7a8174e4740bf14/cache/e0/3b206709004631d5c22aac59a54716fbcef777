@@ -40,14 +40,11 @@ var loginUser = exports.loginUser = function loginUser(_ref) {
 
 var loginUserFail = function loginUserFail(dispatch) {
   dispatch({ type: _types.LOGIN_USER_FAIL });
-
   _nativeBase.Toast.show({ text: 'Autenticación Fallida!', position: 'bottom', buttonText: 'Ok', type: 'danger' });
 };
 
 var loginUserSuccess = function loginUserSuccess(dispatch) {
   dispatch({ type: _types.LOGIN_USER_SUCCESS });
-
   _nativeBase.Toast.show({ text: 'Bienvenido!', position: 'bottom', buttonText: 'Okay', type: 'success' });
-
   _reactNativeRouterFlux.Actions.Principal();
 };

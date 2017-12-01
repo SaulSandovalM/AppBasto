@@ -30,10 +30,6 @@ var _productosActions = require('../../../actions/productosActions');
 
 var _cartActions = require('../../../actions/cartActions');
 
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -82,7 +78,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
       if (!this.props.fetched) return _react3.default.createElement(_nativeBase.Spinner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 19
         }
       });
     }
@@ -103,24 +99,24 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
       });
 
       return _react3.default.createElement(
-        _reactNative.ScrollView,
+        _reactNative.View,
         { style: styles.content, __source: {
             fileName: _jsxFileName,
-            lineNumber: 28
+            lineNumber: 27
           }
         },
         _react3.default.createElement(
           _reactNative.ImageBackground,
           { source: fondo, style: styles.fondo, __source: {
               fileName: _jsxFileName,
-              lineNumber: 29
+              lineNumber: 28
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view4, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 30
+                lineNumber: 29
               }
             },
             _react3.default.createElement(
@@ -129,7 +125,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
                   return _reactNativeRouterFlux.Actions.Detalle();
                 }, style: styles.texto, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 31
+                  lineNumber: 30
                 }
               },
               categoria
@@ -140,14 +136,14 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
           _reactNative.View,
           { style: styles.view2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 37
+              lineNumber: 36
             }
           },
           _react3.default.createElement(
             _nativeBase.Content,
-            { style: styles.scroll, __source: {
+            { horizontal: true, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 38
+                lineNumber: 37
               }
             },
             this.spinnerr(),
@@ -158,7 +154,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
               };
               return _react3.default.createElement(_ProductItem.ProductItem, _extends({ key: index, index: index }, item, { addToCart: addToCart, item: cartItem, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 46
+                  lineNumber: 45
                 }
               }));
             })
@@ -173,7 +169,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   console.log(state.cart);
-  var lista = _lodash2.default.map(state.lista, function (val, uid) {
+  var lista = _.map(state.lista, function (val, uid) {
     return _extends({}, val, {
       uid: uid
     });
@@ -205,9 +201,6 @@ var styles = _reactNative.StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     marginLeft: 5
-  },
-  scroll: {
-    marginBottom: 10
   }
 });
 

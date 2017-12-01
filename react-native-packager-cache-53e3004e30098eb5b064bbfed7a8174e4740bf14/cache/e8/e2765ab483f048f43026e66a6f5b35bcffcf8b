@@ -16,6 +16,7 @@ var cartReducer = function cartReducer() {
     switch (action.type) {
         case _cartActions.ADD_TO_CART:
             return [].concat(_toConsumableArray(state), [action.item]);
+
         case _cartActions.SUBSTRACT_AMOUNT:
             item.amount -= 1;
             return [].concat(_toConsumableArray(state.map(function (i) {
@@ -24,9 +25,9 @@ var cartReducer = function cartReducer() {
                 }
                 return i;
             })));
+
         case _cartActions.ADD_AMOUNT:
             item.amount += 1;
-
             var itemss = state.map(function (i) {
                 if (i.product.id === action.item.product.id) {
                     return item;
@@ -34,6 +35,7 @@ var cartReducer = function cartReducer() {
                 return i;
             });
             return itemss;
+
         case _cartActions.DELETE_ITEM:
             return [].concat(_toConsumableArray(state.filter(function (i) {
                 console.log(i);

@@ -14,13 +14,11 @@ var INITIAL_STATE = {
     error: '',
     loading: false
   }
-
 };
 
 exports.default = auth = function auth() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE.logi;
   var action = arguments[1];
-
 
   switch (action.type) {
     case _types.EMAIL_CHANGED:
@@ -53,6 +51,5 @@ exports.default = auth = function auth() {
 
     default:
       return state;
-
   }
 };

@@ -9,6 +9,7 @@ import {ListaCompra} from './ListaCompra';
 //Redux
 import {connect} from 'react-redux';
 import {addToCart, addAmount, substractAmount, deleteItem, saveOrder} from '../../actions/cartActions'
+import firebase from '../../components/firebase/Firebase'
 
 const header = Platform.select({
   ios: <Cabecera/>
@@ -20,20 +21,26 @@ class Carrito extends Component < {} > {
       total:0,
       products:[],
       isDelivered:false,
-      user:'Shoppy'
+      user:''
     }
   };
 
   sendOrder = () => {
     let fecha = new Date();
+    let user = firebase.auth().currentUser;
+    let email;
+    if (user !== null) {
+          email = user.email;
+    }else{email='NO USER'}
     fecha = fecha.getTime();
     let {order} = this.state;
     order.total = this.getTotal();
     order.products = this.props.cart;
     order.date = fecha;
+    order.user = email;
     console.log(this.state.order);
     this.props.saveOrder(order).then((snap)=>console.log('Se mando Papud'))
-      .catch((error)=>console.log('ya bailo berta'))
+      .catch((error)=>console.log('valió barriga'))
   };
 
   getTotal = () => {

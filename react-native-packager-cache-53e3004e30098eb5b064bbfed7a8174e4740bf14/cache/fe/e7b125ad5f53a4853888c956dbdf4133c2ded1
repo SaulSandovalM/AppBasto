@@ -47,7 +47,6 @@ var loginUserreg = exports.loginUserreg = function loginUserreg(_ref) {
 
   return function (dispatch) {
     dispatch({ type: _types.LOGIN_USERREG });
-
     _firebase2.default.auth().createUserWithEmailAndPassword(email, password).then(function (user) {
       return loginUserSuccessreg(dispatch, user);
     }).then(function () {
@@ -62,13 +61,11 @@ var loginUserreg = exports.loginUserreg = function loginUserreg(_ref) {
 
 var loginUserFailreg = function loginUserFailreg(dispatch) {
   dispatch({ type: _types.LOGIN_USER_FAILREG });
-
   _nativeBase.Toast.show({ text: 'Verifica campos!', position: 'bottom', buttonText: 'Ok', type: 'danger' });
 };
 
 var loginUserSuccessreg = function loginUserSuccessreg(dispatch, user) {
   dispatch({ type: _types.LOGIN_USER_SUCCESSREG, payload: user });
-
   _reactNativeRouterFlux.Actions.Principal();
   _nativeBase.Toast.show({ text: 'Bienvenido!', position: 'bottom', buttonText: 'Ok', type: 'success' });
 };

@@ -124,7 +124,7 @@ var Recover = _wrapComponent('Recover')(function (_Component) {
         },
         _react3.default.createElement(_nativeBase.Input, {
           style: styles.color,
-          placeholder: 'Correo electr\xF3nico',
+          placeholder: 'Confirme correo electr\xF3nico',
           keyboardType: 'email-address',
           placeholderTextColor: '#fff',
           returnKeyType: 'next',

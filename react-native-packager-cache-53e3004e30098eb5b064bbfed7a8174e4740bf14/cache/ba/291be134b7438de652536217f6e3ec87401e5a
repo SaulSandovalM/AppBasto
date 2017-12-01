@@ -14,11 +14,7 @@ var _jsxFileName = '/home/jose/M\xFAsica/sh/AppBasto/src/components/bienvenida/I
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _reactNative = require('react-native');
-
 var _Firebase = require('../firebase/Firebase');
-
-var _reactNativeRouterFlux = require('react-native-router-flux');
 
 var _nativeBase = require('native-base');
 
@@ -97,18 +93,18 @@ var Inicio = _wrapComponent('Inicio')(function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 26
+            lineNumber: 24
           }
         },
         this.state.loggedIn ? _react3.default.createElement(_Principal2.default, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 28
+            lineNumber: 26
           }
         }) : _react3.default.createElement(_Bienvenida2.default, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 29
+            lineNumber: 27
           }
         })
       );
