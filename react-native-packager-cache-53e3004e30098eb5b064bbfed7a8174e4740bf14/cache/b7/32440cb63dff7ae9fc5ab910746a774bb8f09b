@@ -107,7 +107,9 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
         },
         _react3.default.createElement(
           _reactNative.ImageBackground,
-          { source: fondo, style: styles.fondo, __source: {
+          { source: {
+              uri: fondo
+            }, style: styles.fondo, __source: {
               fileName: _jsxFileName,
               lineNumber: 29
             }
@@ -116,7 +118,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
             _reactNative.View,
             { style: styles.view4, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 30
+                lineNumber: 32
               }
             },
             _react3.default.createElement(
@@ -125,7 +127,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
                   return _reactNativeRouterFlux.Actions.Detalle({ slug: slug, lista: lista, addToCart: addToCart });
                 }, style: styles.texto, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 31
+                  lineNumber: 33
                 }
               },
               categoria
@@ -136,14 +138,14 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
           _reactNative.View,
           { style: styles.view2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 37
+              lineNumber: 39
             }
           },
           _react3.default.createElement(
             _nativeBase.Content,
             { horizontal: true, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 38
+                lineNumber: 40
               }
             },
             this.spinnerr(),
@@ -154,7 +156,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
               };
               return _react3.default.createElement(_ProductItem.ProductItem, _extends({ key: index, index: index }, item, { addToCart: addToCart, item: cartItem, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 46
+                  lineNumber: 48
                 }
               }));
             })
@@ -169,7 +171,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   console.log(state.cart);
-  var lista = _.map(state.lista, function (val, uid) {
+  var lista = _.map(state.lista.products, function (val, uid) {
     return _extends({}, val, {
       uid: uid
     });

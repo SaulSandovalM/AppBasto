@@ -57,7 +57,8 @@ class Principal extends Component <{}> {
   }
 
   render() {
-    const {search} = this.props;
+    const {search, lista} = this.props;
+    let nlista = lista.sort((a,b)=>{return a.name > b.name})
     const {results} = this.state;
     return (
       <StyleProvider style={getTheme(material)}>
@@ -71,15 +72,10 @@ class Principal extends Component <{}> {
 
               {
                 !search
-                  ? <View>
-                      <CategoryList fondo={carnes} categoria="Abarrotes" slug="abarrotes"/>
-                      <CategoryList fondo={vinos} categoria="Cremeria" slug="cremeria"/>
-                      <CategoryList fondo={jugos} categoria="Desechables" slug="desechables"/>
-                      <CategoryList fondo={lacteos} categoria="Frutos Secos y Semillas" slug="frutos-secos-y-semillas"/>
-                      <CategoryList fondo={cat1} categoria="Frutas y Verduras" slug="frutas-y-verduras"/>
-                      <CategoryList fondo={higiene} categoria="Productos de Limpieza" slug="productos-de-limpieza"/>
-                      <CategoryList fondo={pan} categoria="Materias Primas" slug="materias-primas"/>
-                    </View>
+                  ? nlista.map((category, index) => {
+                        return <CategoryList fondo={category.image} categoria={category.name} slug={category.slug}/>
+                    })
+
                   : <ResultList results={results}/>
               }
 
@@ -92,12 +88,14 @@ class Principal extends Component <{}> {
 }
 
 const mapStateToProps = state => {
-  const lista = _.map(state.lista, (val, uid) => {
+    console.log(state)
+  const lista = _.map(state.lista.categories, (val, uid) => {
     return {
       ...val,
       uid
     };
   });
+  console.log(lista)
   return {search: state.filter.search, lista};
 };
 

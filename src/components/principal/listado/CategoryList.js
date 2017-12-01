@@ -26,7 +26,9 @@ class CategoryList extends Component {
 
     return (
       <View style={styles.content}>
-        <ImageBackground source={fondo} style={styles.fondo}>
+        <ImageBackground source={{
+            uri: fondo
+        }} style={styles.fondo}>
           <View style={styles.view4}>
             <Text onPress={() => Actions.Detalle({slug, lista:lista, addToCart})} style={styles.texto}>
               {categoria}
@@ -55,7 +57,7 @@ class CategoryList extends Component {
 
 const mapStateToProps = state => {
   console.log(state.cart)
-  const lista = _.map(state.lista, (val, uid) => {
+  const lista = _.map(state.lista.products, (val, uid) => {
     return {
       ...val,
       uid
@@ -89,9 +91,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 5
   },
-  // scroll: {
-  //   marginBottom: 10
-  // }
 });
 
 export default CategoryList = connect(mapStateToProps, {listaFetch, addToCart, addAmount, substractAmount})(CategoryList);
