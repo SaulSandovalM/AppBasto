@@ -38,9 +38,6 @@ export default class Menu extends Component <{}> {
             </ListItem>
 
           <ListItem icon>
-            <Left>
-              <Icon name="md-star" style={styles.iconoo}/>
-            </Left>
             <Body>
               <TouchableOpacity style={styles.touchable} onPress={() => Actions.Principal()}>
                 <Text style={styles.textoC}>Productos Destacados</Text>
@@ -50,9 +47,6 @@ export default class Menu extends Component <{}> {
           </ListItem>
 
           <ListItem icon>
-            <Left>
-              <Icon name="md-rose" style={styles.iconoo}/>
-            </Left>
             <Body>
               <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Frutos Secos y Semillas</Text>
@@ -62,9 +56,6 @@ export default class Menu extends Component <{}> {
           </ListItem>
 
           <ListItem icon>
-            <Left>
-              <Icon name="ios-nutrition" style={styles.iconoo}/>
-            </Left>
             <Body>
               <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Frutas y Verduras</Text>
@@ -74,9 +65,6 @@ export default class Menu extends Component <{}> {
           </ListItem>
 
           <ListItem icon>
-            <Left>
-              <Icon name="ios-basket" style={styles.iconoo}/>
-            </Left>
             <Body>
               <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Abarrotes</Text>
@@ -85,10 +73,7 @@ export default class Menu extends Component <{}> {
             </Body>
           </ListItem>
 
-          <ListItem icon onPress={() => Actions.Detalle()}>
-            <Left>
-              <Icon name="ios-basket" style={styles.iconoo}/>
-            </Left>
+          <ListItem icon>
             <Body>
               <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Materias Primas</Text>
@@ -98,9 +83,6 @@ export default class Menu extends Component <{}> {
           </ListItem>
 
           <ListItem icon>
-            <Left>
-              <Icon name="ios-restaurant" style={styles.iconoo}/>
-            </Left>
             <Body>
               <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Desechables</Text>
@@ -110,9 +92,6 @@ export default class Menu extends Component <{}> {
           </ListItem>
 
           <ListItem icon>
-            <Left>
-              <Icon name="ios-basket" style={styles.iconoo}/>
-            </Left>
             <Body>
               <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Cremeria</Text>
@@ -122,9 +101,6 @@ export default class Menu extends Component <{}> {
           </ListItem>
 
           <ListItem icon>
-            <Left>
-              <Icon name="ios-bug" style={styles.iconoo}/>
-            </Left>
             <Body>
               <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
                 <Text style={styles.textoC}>Productos de Limpieza</Text>

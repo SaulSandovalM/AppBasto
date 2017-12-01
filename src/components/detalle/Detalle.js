@@ -5,56 +5,40 @@ import Buscador from '../comun/Buscador';
 import {ProductItem} from "../principal/listado/ProductItem";
 
 export const Detalle = ({lista, slug, addToCart}) =>{
-    console.log(lista)
-    console.log(slug)
-    let filtrados = lista.filter(f=>{return f.category===slug });
-    console.log(filtrados)
-    onSearch = (value) => {
-        this.props.setSearch(value);
-        let results = this.props.lista;
-        const rEx = new RegExp(value, 'i');
-        results = results.filter(p => rEx.test(p.name));
-        this.setState({results});
-    };
-    return (
-        <View style={{flex:1}}>
+  console.log(lista)
+  console.log(slug)
+  let filtrados = lista.filter(f=>{return f.category===slug });
+  console.log(filtrados)
+  onSearch = (value) => {
+    this.props.setSearch(value);
+    let results = this.props.lista;
+    const rEx = new RegExp(value, 'i');
+    results = results.filter(p => rEx.test(p.name));
+    this.setState({results});
+  };
 
-            <Buscador />
-            <ScrollView >
-
-            {
-                filtrados.map((item, index) => {
-                    let cartItem = {
-                        product: item,
-                        amount: 1
-                    }
-                    return (
-                        <ProductItem key={index} index={index} {...item} addToCart={addToCart} item={cartItem}/>
-                    )
-                })
-            }
-            </ScrollView>
-        </View>
-    )
-
+  return (
+      <View style={{flex:1}}>
+          <Buscador />
+          <ScrollView >
+          {
+            filtrados.map((item, index) => {
+                let cartItem = {
+                    product: item,
+                    amount: 1
+                }
+                return (
+                    <ProductItem key={index} index={index} {...item} addToCart={addToCart} item={cartItem}/>
+                )
+            })
+          }
+          </ScrollView>
+      </View>
+  )
 }
+
 const styles = StyleSheet.create({
-    view5: {
-        flexDirection: 'row',
-        justifyContent: 'center'
-    },
-    img: {
-        height: 150,
-        width: 150,
-        flex: 0
-    },
-    precio: {
-        marginTop: 5,
-        fontSize: 12
-    },
-    precio2: {
-        textDecorationLine: 'line-through',
-        color: 'red',
-        fontSize: 12
-    }
+  view: {
+    flex: 1
+  }
 });

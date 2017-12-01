@@ -31,6 +31,7 @@ class Carrito extends Component < {} > {
     let email;
     if (user !== null) {
           email = user.email;
+          Actions.Pedido()
     }else{email='NO USER'}
     fecha = fecha.getTime();
     let {order} = this.state;
@@ -41,7 +42,6 @@ class Carrito extends Component < {} > {
     console.log(this.state.order);
     this.props.saveOrder(order).then((snap)=>console.log('Se mando Papud'))
       .catch((error)=>console.log('ya bailo berta'))
-    Actions.Pedido()
   };
 
   getTotal = () => {
