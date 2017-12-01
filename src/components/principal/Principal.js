@@ -72,13 +72,13 @@ class Principal extends Component <{}> {
               {
                 !search
                   ? <View>
+                      <CategoryList fondo={carnes} categoria="Abarrotes" slug="abarrotes"/>
+                      <CategoryList fondo={vinos} categoria="Cremeria" slug="cremeria"/>
+                      <CategoryList fondo={jugos} categoria="Desechables" slug="desechables"/>
                       <CategoryList fondo={lacteos} categoria="Frutos Secos y Semillas" slug="frutos-secos-y-semillas"/>
                       <CategoryList fondo={cat1} categoria="Frutas y Verduras" slug="frutas-y-verduras"/>
-                      <CategoryList fondo={carnes} categoria="Abarrotes" slug="abarrotes"/>
-                      <CategoryList fondo={pan} categoria="Materias Primas" slug="materias-primas"/>
-                      <CategoryList fondo={jugos} categoria="Desechables" slug="desechables"/>
-                      <CategoryList fondo={vinos} categoria="Cremeria" slug="cremeria"/>
                       <CategoryList fondo={higiene} categoria="Productos de Limpieza" slug="productos-de-limpieza"/>
+                      <CategoryList fondo={pan} categoria="Materias Primas" slug="materias-primas"/>
                     </View>
                   : <ResultList results={results}/>
               }

@@ -220,37 +220,37 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
                     lineNumber: 74
                   }
                 },
-                _react3.default.createElement(_CategoryList2.default, { fondo: _lacteos2.default, categoria: 'Frutos Secos y Semillas', slug: 'frutos-secos-y-semillas', __source: {
+                _react3.default.createElement(_CategoryList2.default, { fondo: _carnes2.default, categoria: 'Abarrotes', slug: 'abarrotes', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 75
                   }
                 }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _cat2.default, categoria: 'Frutas y Verduras', slug: 'frutas-y-verduras', __source: {
+                _react3.default.createElement(_CategoryList2.default, { fondo: _vinos2.default, categoria: 'Cremeria', slug: 'cremeria', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 76
                   }
                 }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _carnes2.default, categoria: 'Abarrotes', slug: 'abarrotes', __source: {
+                _react3.default.createElement(_CategoryList2.default, { fondo: _jugos2.default, categoria: 'Desechables', slug: 'desechables', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 77
                   }
                 }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _pan2.default, categoria: 'Materias Primas', slug: 'materias-primas', __source: {
+                _react3.default.createElement(_CategoryList2.default, { fondo: _lacteos2.default, categoria: 'Frutos Secos y Semillas', slug: 'frutos-secos-y-semillas', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 78
                   }
                 }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _jugos2.default, categoria: 'Desechables', slug: 'desechables', __source: {
+                _react3.default.createElement(_CategoryList2.default, { fondo: _cat2.default, categoria: 'Frutas y Verduras', slug: 'frutas-y-verduras', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 79
                   }
                 }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _vinos2.default, categoria: 'Cremeria', slug: 'cremeria', __source: {
+                _react3.default.createElement(_CategoryList2.default, { fondo: _higiene2.default, categoria: 'Productos de Limpieza', slug: 'productos-de-limpieza', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 80
                   }
                 }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _higiene2.default, categoria: 'Productos de Limpieza', slug: 'productos-de-limpieza', __source: {
+                _react3.default.createElement(_CategoryList2.default, { fondo: _pan2.default, categoria: 'Materias Primas', slug: 'materias-primas', __source: {
                     fileName: _jsxFileName,
                     lineNumber: 81
                   }
