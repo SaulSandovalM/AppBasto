@@ -8,7 +8,17 @@ export const ProductItem = ({image, name, addToCart, item, price, offer_price}) 
   }
 
   return (
-    <TouchableOpacity onPress={()=>addToCart(item)}>
+    <TouchableOpacity onPress={() => Alert.alert('PEDIDO', '¿Deseas enviar este producto al carrito?', [
+        {
+            text: 'Ok',
+            onPress: () => addToCart(item)
+        }, {
+            text: 'Cancelar',
+            onPress: () => console.log('Cancel Pressed'),
+            style: 'cancel'
+        }
+    ], {cancelable: false})}
+        >
       <Card>
         <Image source={{
             uri: image

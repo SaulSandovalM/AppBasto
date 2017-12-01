@@ -4,9 +4,12 @@ Object.defineProperty(exports, "__esModule", {
 
 var _cartActions = require('../actions/cartActions');
 
+var _nativeBase = require('native-base');
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var INITIAL_STATE = [];
+
 
 var cartReducer = function cartReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
@@ -15,6 +18,11 @@ var cartReducer = function cartReducer() {
 
     switch (action.type) {
         case _cartActions.ADD_TO_CART:
+            _nativeBase.Toast.show({
+                text: 'Producto Agregado',
+                position: 'bottom',
+                buttonText: 'OK'
+            });
             return [].concat(_toConsumableArray(state), [action.item]);
 
         case _cartActions.SUBSTRACT_AMOUNT:

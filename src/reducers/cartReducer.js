@@ -1,11 +1,17 @@
 import {ADD_TO_CART, SUBSTRACT_AMOUNT, ADD_AMOUNT, DELETE_ITEM} from '../actions/cartActions';
 
 const INITIAL_STATE = [];
+import {Toast} from 'native-base';
 
 const cartReducer = (state = INITIAL_STATE, action) => {
     let {item} = action;
     switch (action.type) {
         case ADD_TO_CART:
+            Toast.show({
+                text: 'Producto Agregado',
+                position: 'bottom',
+                buttonText: 'OK',
+            });
             return [...state, action.item];
 
         case SUBSTRACT_AMOUNT:
