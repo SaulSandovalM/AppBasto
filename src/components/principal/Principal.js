@@ -73,7 +73,7 @@ class Principal extends Component <{}> {
               {
                 !search
                   ? nlista.map((category, index) => {
-                        return <CategoryList fondo={category.image} categoria={category.name} slug={category.slug}/>
+                        return <CategoryList key={index} fondo={category.image} categoria={category.name} slug={category.slug}/>
                     })
 
                   : <ResultList results={results}/>

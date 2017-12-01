@@ -219,7 +219,7 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
                 }
               },
               !search ? nlista.map(function (category, index) {
-                return _react3.default.createElement(_CategoryList2.default, { fondo: category.image, categoria: category.name, slug: category.slug, __source: {
+                return _react3.default.createElement(_CategoryList2.default, { key: index, fondo: category.image, categoria: category.name, slug: category.slug, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 76
                   }
