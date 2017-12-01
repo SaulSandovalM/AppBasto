@@ -34,6 +34,7 @@ class Carrito extends Component < {} > {
     console.log(this.state.order);
     this.props.saveOrder(order).then((snap)=>console.log('Se mando Papud'))
       .catch((error)=>console.log('ya bailo berta'))
+    Actions.Pedido()
   };
 
   getTotal = () => {

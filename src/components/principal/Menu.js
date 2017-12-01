@@ -210,21 +210,20 @@ const styles = StyleSheet.create({
     marginLeft: 15
   },
   iconoo: {
-    color: '#8e1c58',
+    color: '#666666',
     fontSize: 20,
     marginRight: 5
   },
   textoC: {
-    color: '#8e1c58'
+    color: '#666666'
   },
   cerrarS: {
     backgroundColor: 'white',
-    borderWidth: 3,
     flexDirection: 'row',
     justifyContent: 'space-around'
   },
   textCerrar: {
-    color: '#8e1c58',
+    color: '#666666',
     fontSize: 15
   },
   touchable: {

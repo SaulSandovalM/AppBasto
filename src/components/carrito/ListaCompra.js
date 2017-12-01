@@ -23,7 +23,7 @@ export const ListaCompra = ({item, addAmount, substractAmount, deleteItem}) => {
       <Body style={styles.botones}>
         <Text style={styles.text}>$ {item.product.price}</Text>
         <Button light onPress={()=>{deleteItem(item)}} style={styles.boton}>
-          <Text>X</Text>
+          <Icon name="trash"/>
         </Button>
       </Body>
     </ListItem>

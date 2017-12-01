@@ -4,13 +4,13 @@ import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
 import {Card, Icon, Button} from 'native-base';
-import lacteos from '../../assets/imgs/lacteos.jpg';
-import carnes from '../../assets/imgs/carnes.jpg';
-import pan from '../../assets/imgs/pan.jpg';
-import jugos from '../../assets/imgs/jugos.jpg';
-import vinos from '../../assets/imgs/vinos.jpg';
-import higiene from '../../assets/imgs/higiene.jpg';
-import cat1 from '../../assets/imgs/cat1.jpg';
+import frutos from '../../assets/imgs/frutos.jpg';
+import frutas from '../../assets/imgs/frutas.jpg';
+import abarrotes from '../../assets/imgs/abarrotes.jpg';
+import materias from '../../assets/imgs/materias.jpg';
+import desechables from '../../assets/imgs/desechables.jpg';
+import cremeria from '../../assets/imgs/cremeria.jpg';
+import limpieza from '../../assets/imgs/limpieza.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
@@ -72,13 +72,13 @@ class Principal extends Component <{}> {
               {
                 !search
                   ? <View>
-                      <CategoryList fondo={lacteos} categoria="Frutos Secos y Semillas" slug="frutos-secos-y-semillas"/>
-                      <CategoryList fondo={cat1} categoria="Frutas y Verduras" slug="frutas-y-verduras"/>
-                      <CategoryList fondo={carnes} categoria="Abarrotes" slug="abarrotes"/>
-                      <CategoryList fondo={pan} categoria="Materias Primas" slug="materias-primas"/>
-                      <CategoryList fondo={jugos} categoria="Desechables" slug="desechables"/>
-                      <CategoryList fondo={vinos} categoria="Cremeria" slug="cremeria"/>
-                      <CategoryList fondo={higiene} categoria="Productos de Limpieza" slug="productos-de-limpieza"/>
+                      <CategoryList fondo={frutos} categoria="Frutos Secos y Semillas" slug="frutos-secos-y-semillas"/>
+                      <CategoryList fondo={frutas} categoria="Frutas y Verduras" slug="frutas-y-verduras"/>
+                      <CategoryList fondo={abarrotes} categoria="Abarrotes" slug="abarrotes"/>
+                      <CategoryList fondo={materias} categoria="Materias Primas" slug="materias-primas"/>
+                      <CategoryList fondo={desechables} categoria="Desechables" slug="desechables"/>
+                      <CategoryList fondo={cremeria} categoria="Cremeria" slug="cremeria"/>
+                      <CategoryList fondo={limpieza} categoria="Productos de Limpieza" slug="productos-de-limpieza"/>
                     </View>
                   : <ResultList results={results}/>
               }

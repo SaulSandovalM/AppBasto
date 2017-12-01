@@ -9,13 +9,15 @@ export const ProductItem = ({image, name, addToCart, item, price, offer_price}) 
 
   return (
     <TouchableOpacity onPress={()=>addToCart(item)}>
-      <Card>
+      <Card style={styles.card}>
         <Image source={{
             uri: image
           }} style={styles.img}/>
+          <View style={styles.view}>
+            <Text style={styles.precio2}>{'\n'}$ {price} </Text>
+          </View>
         <View style={styles.view5}>
-          <Text style={styles.precio}>{name}
-          <Text style={styles.precio2}>{'\n'}$ {price} </Text>$ {offer_price}</Text>
+          <Text style={styles.precio}>{name} {'\n'} <Text style={{fontWeight: 'bold'}}>$ {offer_price}</Text></Text>
         </View>
       </Card>
     </TouchableOpacity>
@@ -25,20 +27,40 @@ export const ProductItem = ({image, name, addToCart, item, price, offer_price}) 
 const styles = StyleSheet.create({
   view5: {
     flexDirection: 'row',
+    backgroundColor: 'white',
+    zIndex: 2,
+    marginTop: 100,
+    width: 160,
     justifyContent: 'center'
   },
   img: {
     height: 150,
-    width: 150,
+    width: 160,
     flex: 1
   },
   precio: {
     marginTop: 5,
-    fontSize: 12
+    fontSize: 14,
+    zIndex: 2,
+    backgroundColor: 'white'
   },
   precio2: {
     textDecorationLine: 'line-through',
-    color: 'red',
-    fontSize: 12
+    color: 'black',
+    fontSize: 14,
+    fontWeight: 'bold'
+  },
+  view: {
+    transform: [{ rotate: '45deg'}],
+    backgroundColor: 'red',
+    zIndex: 1,
+    width: 75,
+    alignItems: 'center',
+    opacity: 0.5,
+    marginLeft: 110,
+    marginTop: -155,
+  },
+  card: {
+    width: 160
   }
 });
