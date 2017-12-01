@@ -40,8 +40,8 @@ var ResultList = exports.ResultList = function ResultList(_ref) {
 
 var styles = _reactNative.StyleSheet.create({
   viewP: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap"
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 });

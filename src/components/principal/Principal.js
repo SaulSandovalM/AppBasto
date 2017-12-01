@@ -4,13 +4,6 @@ import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
 import {Card, Icon, Button} from 'native-base';
-import frutos from '../../assets/imgs/frutos.jpg';
-import frutas from '../../assets/imgs/frutas.jpg';
-import abarrotes from '../../assets/imgs/abarrotes.jpg';
-import materias from '../../assets/imgs/materias.jpg';
-import desechables from '../../assets/imgs/desechables.jpg';
-import cremeria from '../../assets/imgs/cremeria.jpg';
-import limpieza from '../../assets/imgs/limpieza.jpg';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
@@ -57,7 +50,8 @@ class Principal extends Component <{}> {
   }
 
   render() {
-    const {search} = this.props;
+    const {search, lista} = this.props;
+    let nlista = lista.sort((a,b)=>{return a.name > b.name})
     const {results} = this.state;
     return (
       <StyleProvider style={getTheme(material)}>
@@ -71,15 +65,9 @@ class Principal extends Component <{}> {
 
               {
                 !search
-                  ? <View>
-                      <CategoryList fondo={frutos} categoria="Frutos Secos y Semillas" slug="frutos-secos-y-semillas"/>
-                      <CategoryList fondo={frutas} categoria="Frutas y Verduras" slug="frutas-y-verduras"/>
-                      <CategoryList fondo={abarrotes} categoria="Abarrotes" slug="abarrotes"/>
-                      <CategoryList fondo={materias} categoria="Materias Primas" slug="materias-primas"/>
-                      <CategoryList fondo={desechables} categoria="Desechables" slug="desechables"/>
-                      <CategoryList fondo={cremeria} categoria="Cremeria" slug="cremeria"/>
-                      <CategoryList fondo={limpieza} categoria="Productos de Limpieza" slug="productos-de-limpieza"/>
-                    </View>
+                  ? nlista.map((category, index) => {
+                        return <CategoryList key={index} fondo={category.image} categoria={category.name} slug={category.slug}/>
+                    })
                   : <ResultList results={results}/>
               }
 
@@ -91,17 +79,15 @@ class Principal extends Component <{}> {
   }
 }
 
-function mapStateToProps(state) {
-  return {search: state.filter.search, allProducts: state.products.allProducts}
-}
-
 const mapStateToProps = state => {
-  const lista = _.map(state.lista, (val, uid) => {
+    console.log(state)
+  const lista = _.map(state.lista.categories, (val, uid) => {
     return {
       ...val,
       uid
     };
   });
+  console.log(lista)
   return {search: state.filter.search, lista};
 };
 

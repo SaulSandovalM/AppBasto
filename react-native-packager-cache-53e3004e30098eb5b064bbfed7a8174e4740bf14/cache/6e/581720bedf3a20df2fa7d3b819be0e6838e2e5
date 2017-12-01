@@ -305,13 +305,6 @@ var styles = _reactNative.StyleSheet.create({
     height: null,
     width: null
   },
-  texto: {
-    color: 'black',
-    alignSelf: 'center',
-    fontWeight: 'bold',
-    marginTop: 20,
-    backgroundColor: 'transparent'
-  },
   view: {
     margin: 15
   },
@@ -349,11 +342,6 @@ var styles = _reactNative.StyleSheet.create({
     color: 'white',
     fontSize: 18
   },
-  adelante: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    margin: 20
-  },
   button: {
     width: '78%',
     justifyContent: 'center',
@@ -364,12 +352,6 @@ var styles = _reactNative.StyleSheet.create({
     backgroundColor: 'transparent',
     color: 'orange',
     fontSize: 50
-  },
-  buttonSpinner: {
-    marginRight: 140,
-    marginLeft: 140,
-    marginBottom: 10,
-    backgroundColor: 'orange'
   },
   color: {
     color: 'white'
@@ -383,7 +365,6 @@ var styles = _reactNative.StyleSheet.create({
 
 var mapStateToProps = function mapStateToProps(_ref) {
   var auth = _ref.auth;
-
 
   return { auth: auth };
 };

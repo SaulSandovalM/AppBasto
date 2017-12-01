@@ -1,674 +1,101 @@
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
+exports.Detalle = undefined;
 
-var _react2 = require('react');
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react3 = _interopRequireDefault(_react2);
+var _this = this,
+    _jsxFileName = '/home/jose/M\xFAsica/sh/AppBasto/src/components/detalle/Detalle.js';
 
-var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+var _react = require('react');
 
-var _index2 = _interopRequireDefault(_index);
-
-var _jsxFileName = '/home/jose/M\xFAsica/sh/AppBasto/src/components/detalle/Detalle.js';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _react2 = _interopRequireDefault(_react);
 
 var _reactNative = require('react-native');
 
 var _nativeBase = require('native-base');
 
-var _components2 = require('../../../native-base-theme/components');
-
-var _components3 = _interopRequireDefault(_components2);
-
-var _material = require('../../../native-base-theme/variables/material');
-
-var _material2 = _interopRequireDefault(_material);
-
-var _despensa = require('../../assets/imgs/despensa.png');
-
-var _despensa2 = _interopRequireDefault(_despensa);
-
 var _Buscador = require('../comun/Buscador');
 
 var _Buscador2 = _interopRequireDefault(_Buscador);
 
-var _reactNativeSideMenu = require('react-native-side-menu');
-
-var _reactNativeSideMenu2 = _interopRequireDefault(_reactNativeSideMenu);
-
-var _Menu = require('../principal/Menu');
-
-var _Menu2 = _interopRequireDefault(_Menu);
-
-var _reactRedux = require('react-redux');
-
-var _filterActions = require('../../actions/filterActions');
+var _ProductItem = require('../principal/listado/ProductItem');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Detalle = exports.Detalle = function Detalle(_ref) {
+    var lista = _ref.lista,
+        slug = _ref.slug,
+        addToCart = _ref.addToCart;
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _components = {
-  Detalle: {
-    displayName: 'Detalle'
-  }
-};
-
-var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-  filename: '/home/jose/M\xFAsica/sh/AppBasto/src/components/detalle/Detalle.js',
-  components: _components,
-  locals: [module],
-  imports: [_react3.default]
-});
-
-function _wrapComponent(id) {
-  return function (Component) {
-    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-  };
-}
-
-var Detalle = _wrapComponent('Detalle')(function (_Component) {
-  _inherits(Detalle, _Component);
-
-  function Detalle(props) {
-    _classCallCheck(this, Detalle);
-
-    var _this = _possibleConstructorReturn(this, (Detalle.__proto__ || Object.getPrototypeOf(Detalle)).call(this, props));
-
-    _this.toggle = function () {
-      _this.setState({
-        isOpen: !_this.state.isOpen
-      });
+    console.log(lista);
+    console.log(slug);
+    var filtrados = lista.filter(function (f) {
+        return f.category === slug;
+    });
+    console.log(filtrados);
+    onSearch = function onSearch(value) {
+        _this.props.setSearch(value);
+        var results = _this.props.lista;
+        var rEx = new RegExp(value, 'i');
+        results = results.filter(function (p) {
+            return rEx.test(p.name);
+        });
+        _this.setState({ results: results });
     };
-
-    _this.onSearch = function (value) {
-      _this.props.setSearch(value);
-      var results = _this.props.allProducts;
-      var rEx = new RegExp(value, 'i');
-      results = results.filter(function (p) {
-        return rEx.test(p.name) || rEx.test(p.description) || rEx.test(p.category);
-      });
-      _this.setState({ results: results });
-    };
-
-    _this.state = {
-      isOpen: false,
-      results: [],
-      showToast: false
-    };
-    return _this;
-  }
-
-  _createClass(Detalle, [{
-    key: 'actualizar',
-    value: function actualizar(isOpen) {
-      this.setState({ isOpen: isOpen });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var search = this.props.search;
-      var results = this.state.results;
-
-
-      return _react3.default.createElement(
-        _nativeBase.StyleProvider,
-        { style: (0, _components3.default)(_material2.default), __source: {
-            fileName: _jsxFileName,
-            lineNumber: 46
-          }
-        },
-        _react3.default.createElement(
-          _reactNativeSideMenu2.default,
-          { menu: _react3.default.createElement(_Menu2.default, {
-              __source: {
+    return _react2.default.createElement(
+        _reactNative.View,
+        { style: { flex: 1 }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 47
-              }
-            }), isOpen: this.state.isOpen, onChange: function onChange(isOpen) {
-              return _this2.actualizar(isOpen);
-            }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 47
+                lineNumber: 20
             }
-          },
-          _react3.default.createElement(
-            _nativeBase.Container,
+        },
+        _react2.default.createElement(_Buscador2.default, {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 22
+            }
+        }),
+        _react2.default.createElement(
+            _reactNative.ScrollView,
             {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 48
-              }
-            },
-            _react3.default.createElement(_Buscador2.default, { onSearch: this.onSearch, toggle: this.toggle, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 49
-              }
-            }),
-            _react3.default.createElement(
-              _reactNative.ScrollView,
-              { style: { backgroundColor: 'white' }, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 51
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 23
                 }
-              },
-              _react3.default.createElement(
-                _reactNative.View,
-                { style: styles.viewP, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 52
-                  }
-                },
-                _react3.default.createElement(
-                  _nativeBase.Card,
-                  { style: styles.estiloCard, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 53
+            },
+            filtrados.map(function (item, index) {
+                var cartItem = {
+                    product: item,
+                    amount: 1
+                };
+                return _react2.default.createElement(_ProductItem.ProductItem, _extends({ key: index, index: index }, item, { addToCart: addToCart, item: cartItem, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 32
                     }
-                  },
-                  _react3.default.createElement(
-                    _nativeBase.CardItem,
-                    { style: styles.estiloCardI, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 54
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Left,
-                      { style: styles.cardL, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 55
-                        }
-                      },
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        {
-                          __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 56
-                          }
-                        },
-                        'Jitomate'
-                      ),
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        { note: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 57
-                          }
-                        },
-                        '$50.00'
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 60
-                    }
-                  }),
-                  _react3.default.createElement(
-                    _nativeBase.Button,
-                    { bordered: true, iconRight: true, style: styles.btn, onPress: function onPress() {
-                        return alert('Agregado!');
-                      }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 61
-                      }
-                    },
-                    _react3.default.createElement(
-                      _reactNative.Text,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 62
-                        }
-                      },
-                      'Agregar al Carrito'
-                    ),
-                    _react3.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 63
-                      }
-                    })
-                  )
-                ),
-                _react3.default.createElement(
-                  _nativeBase.Card,
-                  { style: styles.estiloCard, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 67
-                    }
-                  },
-                  _react3.default.createElement(
-                    _nativeBase.CardItem,
-                    { style: styles.estiloCardI, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 68
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Left,
-                      { style: styles.cardL, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 69
-                        }
-                      },
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        {
-                          __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 70
-                          }
-                        },
-                        'Jitomate'
-                      ),
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        { note: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 71
-                          }
-                        },
-                        '$50.00'
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 74
-                    }
-                  }),
-                  _react3.default.createElement(
-                    _nativeBase.Button,
-                    { bordered: true, iconRight: true, style: styles.btn, onPress: function onPress() {
-                        return alert('Agregado!');
-                      }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 75
-                      }
-                    },
-                    _react3.default.createElement(
-                      _reactNative.Text,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 76
-                        }
-                      },
-                      'Agregar al Carrito'
-                    ),
-                    _react3.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 77
-                      }
-                    })
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.View,
-                { style: styles.viewP, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 83
-                  }
-                },
-                _react3.default.createElement(
-                  _nativeBase.Card,
-                  { style: styles.estiloCard, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 84
-                    }
-                  },
-                  _react3.default.createElement(
-                    _nativeBase.CardItem,
-                    { style: styles.estiloCardI, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 85
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Left,
-                      { style: styles.cardL, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 86
-                        }
-                      },
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        {
-                          __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 87
-                          }
-                        },
-                        'Jitomate'
-                      ),
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        { note: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 88
-                          }
-                        },
-                        '$50.00'
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 91
-                    }
-                  }),
-                  _react3.default.createElement(
-                    _nativeBase.Button,
-                    { bordered: true, iconRight: true, style: styles.btn, onPress: function onPress() {
-                        return alert('Agregado!');
-                      }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 92
-                      }
-                    },
-                    _react3.default.createElement(
-                      _reactNative.Text,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 93
-                        }
-                      },
-                      'Agregar al Carrito'
-                    ),
-                    _react3.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 94
-                      }
-                    })
-                  )
-                ),
-                _react3.default.createElement(
-                  _nativeBase.Card,
-                  { style: styles.estiloCard, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 98
-                    }
-                  },
-                  _react3.default.createElement(
-                    _nativeBase.CardItem,
-                    { style: styles.estiloCardI, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 99
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Left,
-                      { style: styles.cardL, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 100
-                        }
-                      },
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        {
-                          __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 101
-                          }
-                        },
-                        'Jitomate'
-                      ),
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        { note: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 102
-                          }
-                        },
-                        '$50.00'
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 105
-                    }
-                  }),
-                  _react3.default.createElement(
-                    _nativeBase.Button,
-                    { bordered: true, iconRight: true, style: styles.btn, onPress: function onPress() {
-                        return alert('Agregado!');
-                      }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 106
-                      }
-                    },
-                    _react3.default.createElement(
-                      _reactNative.Text,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 107
-                        }
-                      },
-                      'Agregar al Carrito'
-                    ),
-                    _react3.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 108
-                      }
-                    })
-                  )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.View,
-                { style: styles.viewP, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 114
-                  }
-                },
-                _react3.default.createElement(
-                  _nativeBase.Card,
-                  { style: styles.estiloCard, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 115
-                    }
-                  },
-                  _react3.default.createElement(
-                    _nativeBase.CardItem,
-                    { style: styles.estiloCardI, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 116
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Left,
-                      { style: styles.cardL, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 117
-                        }
-                      },
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        {
-                          __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 118
-                          }
-                        },
-                        'Jitomate'
-                      ),
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        { note: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 119
-                          }
-                        },
-                        '$50.00'
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 122
-                    }
-                  }),
-                  _react3.default.createElement(
-                    _nativeBase.Button,
-                    { bordered: true, iconRight: true, style: styles.btn, onPress: function onPress() {
-                        return alert('Agregado!');
-                      }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 123
-                      }
-                    },
-                    _react3.default.createElement(
-                      _reactNative.Text,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 124
-                        }
-                      },
-                      'Agregar al Carrito'
-                    ),
-                    _react3.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 125
-                      }
-                    })
-                  )
-                ),
-                _react3.default.createElement(
-                  _nativeBase.Card,
-                  { style: styles.estiloCard, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 129
-                    }
-                  },
-                  _react3.default.createElement(
-                    _nativeBase.CardItem,
-                    { style: styles.estiloCardI, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 130
-                      }
-                    },
-                    _react3.default.createElement(
-                      _nativeBase.Left,
-                      { style: styles.cardL, __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 131
-                        }
-                      },
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        {
-                          __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 132
-                          }
-                        },
-                        'Jitomate'
-                      ),
-                      _react3.default.createElement(
-                        _reactNative.Text,
-                        { note: true, __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 133
-                          }
-                        },
-                        '$50.00'
-                      )
-                    )
-                  ),
-                  _react3.default.createElement(_reactNative.Image, { source: _despensa2.default, style: styles.img, __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 136
-                    }
-                  }),
-                  _react3.default.createElement(
-                    _nativeBase.Button,
-                    { bordered: true, iconRight: true, style: styles.btn, onPress: function onPress() {
-                        return alert('Agregado!');
-                      }, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 137
-                      }
-                    },
-                    _react3.default.createElement(
-                      _reactNative.Text,
-                      {
-                        __source: {
-                          fileName: _jsxFileName,
-                          lineNumber: 138
-                        }
-                      },
-                      'Agregar al Carrito'
-                    ),
-                    _react3.default.createElement(_nativeBase.Icon, { name: 'cart', style: styles.icon, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 139
-                      }
-                    })
-                  )
-                )
-              )
-            )
-          )
+                }));
+            })
         )
-      );
-    }
-  }]);
-
-  return Detalle;
-}(_react2.Component));
-
-function mapStateToProps(state) {
-  return { search: state.filter.search, allProducts: state.products.allProducts };
-}
-
+    );
+};
 var styles = _reactNative.StyleSheet.create({
-  viewP: {
-    flexDirection: 'row',
-    flexWrap: 'wrap'
-  },
-  estiloCard: {
-    borderColor: '#8e1c58',
-    borderWidth: 3
-  },
-  estiloCardI: {
-    borderColor: '#8e1c58',
-    borderWidth: 1
-  },
-  cardL: {
-    justifyContent: 'space-between'
-  },
-  btn: {
-    alignSelf: 'stretch',
-    borderColor: '#8e1c58'
-  },
-  view: {
-    flexDirection: 'row'
-  },
-  img: {
-    height: 100,
-    width: null,
-    flex: 1,
-    borderColor: '#8e1c58',
-    borderWidth: 1
-  },
-  icon: {
-    color: "#8e1c58"
-  }
+    view5: {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    img: {
+        height: 150,
+        width: 150,
+        flex: 0
+    },
+    precio: {
+        marginTop: 5,
+        fontSize: 12
+    },
+    precio2: {
+        textDecorationLine: 'line-through',
+        color: 'red',
+        fontSize: 12
+    }
 });
-
-exports.default = Detalle = (0, _reactRedux.connect)(mapStateToProps, { setSearch: _filterActions.setSearch })(Detalle);

@@ -164,14 +164,20 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var search = this.props.search;
+      var _props = this.props,
+          search = _props.search,
+          lista = _props.lista;
+
+      var nlista = lista.sort(function (a, b) {
+        return a.name > b.name;
+      });
       var results = this.state.results;
 
       return _react3.default.createElement(
         _nativeBase.StyleProvider,
         { style: (0, _components3.default)(_material2.default), __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 64
           }
         },
         _react3.default.createElement(
@@ -179,85 +185,48 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
           { menu: _react3.default.createElement(_Menu2.default, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 64
+                lineNumber: 65
               }
             }), isOpen: this.state.isOpen, onChange: function onChange(isOpen) {
               return _this2.actualizar(isOpen);
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 64
+              lineNumber: 65
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 65
+                lineNumber: 66
               }
             },
             _react3.default.createElement(_Buscador2.default, { onSearch: this.onSearch, toggle: this.toggle, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 67
+                lineNumber: 68
               }
             }),
             _react3.default.createElement(_reactNative.StatusBar, { hidden: true, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 69
+                lineNumber: 70
               }
             }),
             _react3.default.createElement(
               _reactNative.ScrollView,
               { style: styles.content, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 70
+                  lineNumber: 71
                 }
               },
-              !search ? _react3.default.createElement(
-                _reactNative.View,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 74
-                  }
-                },
-                _react3.default.createElement(_CategoryList2.default, { fondo: _lacteos2.default, categoria: 'Frutos Secos y Semillas', slug: 'frutos-secos-y-semillas', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 75
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _cat2.default, categoria: 'Frutas y Verduras', slug: 'frutas-y-verduras', __source: {
+              !search ? nlista.map(function (category, index) {
+                return _react3.default.createElement(_CategoryList2.default, { key: index, fondo: category.image, categoria: category.name, slug: category.slug, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 76
                   }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _carnes2.default, categoria: 'Abarrotes', slug: 'abarrotes', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 77
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _pan2.default, categoria: 'Materias Primas', slug: 'materias-primas', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 78
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _jugos2.default, categoria: 'Desechables', slug: 'desechables', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 79
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _vinos2.default, categoria: 'Cremeria', slug: 'cremeria', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 80
-                  }
-                }),
-                _react3.default.createElement(_CategoryList2.default, { fondo: _higiene2.default, categoria: 'Productos de Limpieza', slug: 'productos-de-limpieza', __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 81
-                  }
-                })
-              ) : _react3.default.createElement(_ResultList.ResultList, { results: results, __source: {
+                });
+              }) : _react3.default.createElement(_ResultList.ResultList, { results: results, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 83
+                  lineNumber: 79
                 }
               })
             )
@@ -270,41 +239,20 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
   return Principal;
 }(_react2.Component));
 
-function mapStateToProps(state) {
-  return { search: state.filter.search, allProducts: state.products.allProducts };
-}
-
 var mapStateToProps = function mapStateToProps(state) {
-  var lista = _lodash2.default.map(state.lista, function (val, uid) {
+  console.log(state);
+  var lista = _lodash2.default.map(state.lista.categories, function (val, uid) {
     return _extends({}, val, {
       uid: uid
     });
   });
+  console.log(lista);
   return { search: state.filter.search, lista: lista };
 };
 
 var styles = _reactNative.StyleSheet.create({
   view: {
     flex: 1
-  },
-  view2: {
-    flexDirection: 'row'
-  },
-  view3: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-    backgroundColor: 'white'
-  },
-  view4: {
-    backgroundColor: 'rgba(0,0,0,.5)',
-    height: '100%',
-    width: '100%',
-    justifyContent: 'center'
-  },
-  view5: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
   },
   content: {
     backgroundColor: '#fff'
@@ -313,13 +261,6 @@ var styles = _reactNative.StyleSheet.create({
     justifyContent: 'center',
     height: 50,
     width: null
-  },
-  texto: {
-    backgroundColor: 'transparent',
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 20,
-    marginLeft: 5
   },
   text: {
     alignSelf: 'center'
@@ -332,16 +273,12 @@ var styles = _reactNative.StyleSheet.create({
     width: 150,
     flex: 1
   },
-  img2: {
-    width: '100%',
-    height: 150
-  },
   button: {
     alignSelf: 'center',
     borderColor: 'white'
   },
   icon: {
-    color: "green"
+    color: 'green'
   }
 });
 

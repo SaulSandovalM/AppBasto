@@ -63,8 +63,7 @@ var ListaCompra = exports.ListaCompra = function ListaCompra(_ref) {
     ),
     _react2.default.createElement(
       _nativeBase.Body,
-      {
-        __source: {
+      { style: styles.botones, __source: {
           fileName: _jsxFileName,
           lineNumber: 14
         }
@@ -73,7 +72,7 @@ var ListaCompra = exports.ListaCompra = function ListaCompra(_ref) {
         _nativeBase.Button,
         { light: true, onPress: function onPress() {
             return substractAmount(item);
-          }, __source: {
+          }, style: styles.boton, __source: {
             fileName: _jsxFileName,
             lineNumber: 15
           }
@@ -91,8 +90,7 @@ var ListaCompra = exports.ListaCompra = function ListaCompra(_ref) {
       ),
       _react2.default.createElement(
         _reactNative.Text,
-        {
-          __source: {
+        { style: styles.text, __source: {
             fileName: _jsxFileName,
             lineNumber: 18
           }
@@ -103,7 +101,7 @@ var ListaCompra = exports.ListaCompra = function ListaCompra(_ref) {
         _nativeBase.Button,
         { light: true, onPress: function onPress() {
             addAmount(item);
-          }, __source: {
+          }, style: styles.boton, __source: {
             fileName: _jsxFileName,
             lineNumber: 19
           }
@@ -118,14 +116,32 @@ var ListaCompra = exports.ListaCompra = function ListaCompra(_ref) {
           },
           '+'
         )
+      )
+    ),
+    _react2.default.createElement(
+      _nativeBase.Body,
+      { style: styles.botones, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        }
+      },
+      _react2.default.createElement(
+        _reactNative.Text,
+        { style: styles.text, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 24
+          }
+        },
+        '$ ',
+        item.product.price
       ),
       _react2.default.createElement(
         _nativeBase.Button,
         { light: true, onPress: function onPress() {
             deleteItem(item);
-          }, __source: {
+          }, style: styles.boton, __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 25
           }
         },
         _react2.default.createElement(
@@ -133,31 +149,11 @@ var ListaCompra = exports.ListaCompra = function ListaCompra(_ref) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 23
+              lineNumber: 26
             }
           },
           'X'
         )
-      )
-    ),
-    _react2.default.createElement(
-      _nativeBase.Body,
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 26
-        }
-      },
-      _react2.default.createElement(
-        _reactNative.Text,
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 27
-          }
-        },
-        '$ ',
-        item.product.price
       )
     )
   );
@@ -166,5 +162,14 @@ var ListaCompra = exports.ListaCompra = function ListaCompra(_ref) {
 var styles = _reactNative.StyleSheet.create({
   totalP: {
     marginLeft: 15
+  },
+  botones: {
+    flexDirection: 'row'
+  },
+  boton: {
+    backgroundColor: 'transparent', elevation: 0
+  },
+  text: {
+    marginTop: 13
   }
 });

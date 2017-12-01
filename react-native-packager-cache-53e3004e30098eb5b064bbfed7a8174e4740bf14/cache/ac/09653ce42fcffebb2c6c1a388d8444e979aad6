@@ -21,4 +21,4 @@ var SEND_EMAIL = exports.SEND_EMAIL = 'send_email';
 var SEND_EMAIL_SUCCESS = exports.SEND_EMAIL_SUCCESS = 'send_email_success';
 var SEND_EMAIL_FAIL = exports.SEND_EMAIL_FAIL = 'send_email_success';
 var LISTA_FETCH_SUCCESS = exports.LISTA_FETCH_SUCCESS = 'lista_fetch_success';
-var SET_SEARCH = exports.SET_SEARCH = "SET_SEARCH";
+var SET_SEARCH = exports.SET_SEARCH = 'SET_SEARCH';

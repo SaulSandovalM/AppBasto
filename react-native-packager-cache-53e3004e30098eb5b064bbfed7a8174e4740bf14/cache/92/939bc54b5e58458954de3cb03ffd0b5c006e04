@@ -85,7 +85,7 @@ var styles = _reactNative.StyleSheet.create({
   view: {
     flexDirection: 'column',
     justifyContent: 'center',
-    margin: 10
+    padding: 10
   },
   color: {
     color: '#878787',
