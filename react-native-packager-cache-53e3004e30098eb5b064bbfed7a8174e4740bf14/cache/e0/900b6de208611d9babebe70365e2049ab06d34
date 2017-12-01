@@ -270,10 +270,6 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
   return Principal;
 }(_react2.Component));
 
-function mapStateToProps(state) {
-  return { search: state.filter.search, allProducts: state.products.allProducts };
-}
-
 var mapStateToProps = function mapStateToProps(state) {
   var lista = _lodash2.default.map(state.lista, function (val, uid) {
     return _extends({}, val, {

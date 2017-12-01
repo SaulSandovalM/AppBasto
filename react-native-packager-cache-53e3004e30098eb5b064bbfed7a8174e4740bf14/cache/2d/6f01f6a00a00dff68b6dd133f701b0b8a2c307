@@ -25,8 +25,6 @@ var _Principal2 = _interopRequireDefault(_Principal);
 
 var _Detalle = require('./components/detalle/Detalle');
 
-var _Detalle2 = _interopRequireDefault(_Detalle);
-
 var _Registro = require('./components/login/Registro');
 
 var _Registro2 = _interopRequireDefault(_Registro);
@@ -120,7 +118,7 @@ var Routes = function Routes() {
             lineNumber: 28
           }
         }),
-        _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Detalle', header: null, component: _Detalle2.default, __source: {
+        _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Detalle', header: null, component: _Detalle.Detalle, __source: {
             fileName: _jsxFileName,
             lineNumber: 29
           }

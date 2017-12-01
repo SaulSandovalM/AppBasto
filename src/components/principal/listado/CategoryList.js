@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {listaFetch} from '../../../actions/productosActions';
 import {addToCart, addAmount, substractAmount} from '../../../actions/cartActions'
 
+
 class CategoryList extends Component {
   componentWillMount() {
     this.props.listaFetch();
@@ -27,7 +28,7 @@ class CategoryList extends Component {
       <View style={styles.content}>
         <ImageBackground source={fondo} style={styles.fondo}>
           <View style={styles.view4}>
-            <Text onPress={() => Actions.Detalle()} style={styles.texto}>
+            <Text onPress={() => Actions.Detalle({slug, lista:lista, addToCart})} style={styles.texto}>
               {categoria}
             </Text>
           </View>

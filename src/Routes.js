@@ -4,7 +4,7 @@ import {Router, Scene} from 'react-native-router-flux';
 import Bienvenida from './components/bienvenida/Bienvenida';
 import Login from './components/login/Login';
 import Principal from './components/principal/Principal';
-import Detalle from './components/detalle/Detalle';
+import {Detalle} from './components/detalle/Detalle';
 import Registro from './components/login/Registro';
 import Recover from './components/login/Recover';
 import detalleProducto from './components/detalleproducto/detalleProducto';

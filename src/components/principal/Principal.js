@@ -91,10 +91,6 @@ class Principal extends Component <{}> {
   }
 }
 
-function mapStateToProps(state) {
-  return {search: state.filter.search, allProducts: state.products.allProducts}
-}
-
 const mapStateToProps = state => {
   const lista = _.map(state.lista, (val, uid) => {
     return {
