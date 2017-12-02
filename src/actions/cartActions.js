@@ -8,12 +8,13 @@ import firebase from '../components/firebase/Firebase';
 db = firebase.database().ref();
 
 export function addToCart(item) {
-  return {type: ADD_TO_CART, item}
+  return {type: ADD_TO_CART, item};
 }
 
 export function addAmount(item) {
   //item["amount"] +=1;
   return {type: ADD_AMOUNT, item}
+
 }
 
 export function substractAmount(item) {

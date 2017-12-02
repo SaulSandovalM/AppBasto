@@ -29,8 +29,20 @@ var ProductItem = exports.ProductItem = function ProductItem(_ref) {
   return _react2.default.createElement(
     _reactNative.TouchableOpacity,
     { onPress: function onPress() {
-        return addToCart(item);
-      }, __source: {
+        return _reactNative.Alert.alert('PEDIDO', '¿Deseas enviar este producto al carrito?', [{
+          text: 'Ok',
+          onPress: function onPress() {
+            return addToCart(item);
+          }
+        }, {
+          text: 'Cancelar',
+          onPress: function onPress() {
+            return console.log('Cancel Pressed');
+          },
+          style: 'cancel'
+        }], { cancelable: false });
+      },
+      __source: {
         fileName: _jsxFileName,
         lineNumber: 11
       }
@@ -40,28 +52,28 @@ var ProductItem = exports.ProductItem = function ProductItem(_ref) {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 22
         }
       },
       _react2.default.createElement(_reactNative.Image, { source: {
           uri: image
         }, style: styles.img, __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 23
         }
       }),
       _react2.default.createElement(
         _reactNative.View,
         { style: styles.view5, __source: {
             fileName: _jsxFileName,
-            lineNumber: 16
+            lineNumber: 26
           }
         },
         _react2.default.createElement(
           _nativeBase.Text,
           { style: styles.precio, __source: {
               fileName: _jsxFileName,
-              lineNumber: 17
+              lineNumber: 27
             }
           },
           name,
@@ -69,7 +81,7 @@ var ProductItem = exports.ProductItem = function ProductItem(_ref) {
             _nativeBase.Text,
             { style: styles.precio2, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 18
+                lineNumber: 28
               }
             },
             '\n',

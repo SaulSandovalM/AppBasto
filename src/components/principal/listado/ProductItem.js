@@ -8,7 +8,16 @@ export const ProductItem = ({image, name, addToCart, item, price, offer_price}) 
   }
 
   return (
-    <TouchableOpacity onPress={()=>addToCart(item)}>
+    <TouchableOpacity onPress={() => Alert.alert('PEDIDO', '¿Deseas enviar este producto al carrito?', [
+        {
+          text: 'Ok',
+          onPress: () => addToCart(item)
+        }, {
+          text: 'Cancelar',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel'
+        }
+    ], {cancelable: false})}>
       <Card style={styles.card}>
         <Image source={{
             uri: image
@@ -17,7 +26,7 @@ export const ProductItem = ({image, name, addToCart, item, price, offer_price}) 
             <Text style={styles.precio2}>{'\n'}$ {price} </Text>
           </View>
         <View style={styles.view5}>
-          <Text style={styles.precio}>{name} {'\n'} <Text style={{fontWeight: 'bold'}}>$ {offer_price}</Text></Text>
+          <Text style={styles.precio}>{name} {'\n'} <Text style={styles.text}>$ {offer_price}</Text></Text>
         </View>
       </Card>
     </TouchableOpacity>
@@ -62,5 +71,8 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 160
+  },
+  text: {
+    fontWeight: 'bold'
   }
 });
