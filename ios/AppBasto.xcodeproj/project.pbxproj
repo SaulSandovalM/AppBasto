@@ -258,6 +258,27 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		944203ED1FD60CCB00F5542B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944203E61FD60CCB00F5542B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 83BC4BC51C4D7C7822D42304A5473124;
+			remoteInfo = "Pods-AppBasto";
+		};
+		944203EF1FD60CCB00F5542B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944203E61FD60CCB00F5542B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21F111B334ABCEC3AF8C216A670CE733;
+			remoteInfo = React;
+		};
+		944203F11FD60CCB00F5542B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944203E61FD60CCB00F5542B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6DE1B92D51878F6F1A78C0641BB4742;
+			remoteInfo = yoga;
+		};
 		94B4D2391F8D3446000DBE16 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -391,6 +412,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		87025933E8E147598FCB4DA0 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		90D7FFEFF91147C781319277 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		944203E61FD60CCB00F5542B /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		94CCC4B41FCC8FA2002A958E /* AIRGoogleMapPolyline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapPolyline.h; sourceTree = "<group>"; };
 		94CCC4B51FCC8FA2002A958E /* AIRGoogleMapUrlTile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapUrlTile.m; sourceTree = "<group>"; };
 		94CCC4B61FCC8FA2002A958E /* AIRGoogleMapMarkerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapMarkerManager.h; sourceTree = "<group>"; };
@@ -674,6 +696,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				944203E61FD60CCB00F5542B /* Pods.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -727,6 +750,16 @@
 				00E356EE1AD99517003FC87E /* AppBastoTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* AppBasto-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* AppBasto-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		944203E71FD60CCB00F5542B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				944203EE1FD60CCB00F5542B /* libPods-AppBasto.a */,
+				944203F01FD60CCB00F5542B /* libReact.a */,
+				944203F21FD60CCB00F5542B /* libyoga.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -920,6 +953,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = E77EZQG9YS;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -946,6 +982,10 @@
 				{
 					ProductGroup = 94CCC4AB1FCC8EE5002A958E /* Products */;
 					ProjectRef = 54EDB9E52F8341ADAFA82846 /* AirMaps.xcodeproj */;
+				},
+				{
+					ProductGroup = 944203E71FD60CCB00F5542B /* Products */;
+					ProjectRef = 944203E61FD60CCB00F5542B /* Pods.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -1188,6 +1228,27 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		944203EE1FD60CCB00F5542B /* libPods-AppBasto.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-AppBasto.a";
+			remoteRef = 944203ED1FD60CCB00F5542B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		944203F01FD60CCB00F5542B /* libReact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReact.a;
+			remoteRef = 944203EF1FD60CCB00F5542B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		944203F21FD60CCB00F5542B /* libyoga.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoga.a;
+			remoteRef = 944203F11FD60CCB00F5542B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		94B4D23A1F8D3446000DBE16 /* libRCTBlob-tvOS.a */ = {
@@ -1546,6 +1607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = E77EZQG9YS;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
@@ -1560,6 +1622,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.AppBasto.bliss;
 				PRODUCT_NAME = AppBasto;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1571,6 +1634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E77EZQG9YS;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
@@ -1585,6 +1649,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.AppBasto.bliss;
 				PRODUCT_NAME = AppBasto;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
