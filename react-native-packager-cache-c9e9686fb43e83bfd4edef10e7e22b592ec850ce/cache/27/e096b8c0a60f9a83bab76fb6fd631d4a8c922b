@@ -1,0 +1,46 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = require('redux');
+
+var _AuthReducer = require('./AuthReducer');
+
+var _AuthReducer2 = _interopRequireDefault(_AuthReducer);
+
+var _filterReducer = require('./filterReducer');
+
+var _filterReducer2 = _interopRequireDefault(_filterReducer);
+
+var _productReducer = require('./productReducer');
+
+var _productReducer2 = _interopRequireDefault(_productReducer);
+
+var _RegisterReducer = require('./RegisterReducer');
+
+var _RegisterReducer2 = _interopRequireDefault(_RegisterReducer);
+
+var _RecoverReducer = require('./RecoverReducer');
+
+var _RecoverReducer2 = _interopRequireDefault(_RecoverReducer);
+
+var _dataReducer = require('./dataReducer');
+
+var _dataReducer2 = _interopRequireDefault(_dataReducer);
+
+var _cartReducer = require('./cartReducer');
+
+var _cartReducer2 = _interopRequireDefault(_cartReducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rootReducer = (0, _redux.combineReducers)({
+  auth: _AuthReducer2.default,
+  filter: _filterReducer2.default,
+  products: _productReducer2.default,
+  regis: _RegisterReducer2.default,
+  recover: _RecoverReducer2.default,
+  lista: _dataReducer2.default,
+  cart: _cartReducer2.default
+});
+exports.default = rootReducer;

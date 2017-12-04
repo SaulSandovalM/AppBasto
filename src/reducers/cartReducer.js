@@ -10,7 +10,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             Toast.show({
                 text: 'Producto Agregado',
                 position: 'bottom',
-                buttonText: 'OK',
+                duration: 1000
             });
             return [...state, action.item];
 

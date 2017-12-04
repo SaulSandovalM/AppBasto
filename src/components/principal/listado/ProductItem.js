@@ -8,7 +8,7 @@ export const ProductItem = ({image, name, addToCart, item, price, offer_price}) 
   }
 
   return (
-    <TouchableOpacity onPress={() => Alert.alert('PEDIDO', '¿Deseas enviar este producto al carrito?', [
+    <TouchableOpacity onPress={() => Alert.alert('PEDIDO', `¿Deseas enviar ${name} al carrito?`, [
         {
           text: 'Ok',
           onPress: () => addToCart(item)

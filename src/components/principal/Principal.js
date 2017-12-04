@@ -8,13 +8,15 @@ import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
 import {StyleProvider} from 'native-base';
 import SideMenu from 'react-native-side-menu';
-import Menu from './Menu';
+import {Menu} from './Menu';
 import CategoryList from './listado/CategoryList';
 import {ResultList} from './listado/ResultList';
+import firebase from '../../components/firebase/Firebase'
 //redux
 import {connect} from 'react-redux';
 import {listaFetch} from '../../actions/productosActions';
 import {setSearch} from "../../actions/filterActions";
+import {addToCart} from '../../actions/cartActions';
 import _ from 'lodash';
 
 class Principal extends Component <{}> {
@@ -23,8 +25,13 @@ class Principal extends Component <{}> {
     this.state = {
       isOpen: false,
       results: [],
+        loggedIn: null
     };
   }
+
+    salir =() =>{
+        firebase.auth().signOut();
+    };
 
   onSearch = (value) => {
     this.props.setSearch(value);
@@ -46,16 +53,26 @@ class Principal extends Component <{}> {
 
   componentWillMount() {
     this.props.listaFetch();
-    console.log(this.props.lista)
+    console.log(this.state);
+
+      firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+              this.setState({loggedIn: true})
+          } else {
+              this.setState({loggedIn: false})
+          }
+      });
   }
 
   render() {
-    const {search, lista} = this.props;
+    const {search, lista, listaP, addToCart} = this.props;
     let nlista = lista.sort((a,b)=>{return a.name > b.name})
     const {results} = this.state;
+    console.log(this.props.lista);
+
     return (
       <StyleProvider style={getTheme(material)}>
-        <SideMenu menu={<Menu/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
+        <SideMenu menu={<Menu lista={lista} listaP={listaP} addToCart={addToCart} loggedIn={this.state.loggedIn} salir={this.salir}/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
 
             <Buscador onSearch={this.onSearch} toggle={this.toggle}/>
@@ -87,8 +104,15 @@ const mapStateToProps = state => {
       uid
     };
   });
+
+    const listaP = _.map(state.lista.products, (val, uid) => {
+        return {
+            ...val,
+            uid
+        };
+    });
   console.log(lista)
-  return {search: state.filter.search, lista};
+  return {search: state.filter.search, lista, listaP, cart:state.cart};
 };
 
 const styles = StyleSheet.create({
@@ -123,4 +147,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Principal = connect(mapStateToProps, {listaFetch, setSearch})(Principal);
+export default Principal = connect(mapStateToProps, {listaFetch, setSearch, addToCart})(Principal);
