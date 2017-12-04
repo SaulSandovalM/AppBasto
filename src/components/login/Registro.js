@@ -198,9 +198,6 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center'
   },
-  icon: {
-    color: 'orange'
-  },
   view4: {
     flex: 1,
     margin: 20
