@@ -1,17 +1,25 @@
 import React from 'react';
 import {ProductMiniCard} from '../../detalle/ProductMiniCard';
 import {View, StyleSheet} from 'react-native';
+import {ProductItem} from './ProductItem'
 
-export const ResultList = ({results}) => {
+export const ResultList = ({results, addToCart}) => {
   return (
     <View style={styles.viewP}>
       {
         results.map(
-          (p, index) => <ProductMiniCard key = {
-            index
-          } {
-            ...p
-          } />
+          (item, index) =>{
+              let cartItem = {
+                  product: item,
+                  amount: 1
+              };
+
+              return <ProductItem key = {index} {...item} addToCart={addToCart} item={cartItem} />
+
+          }
+
+
+
         )
       }
     </View>
@@ -22,6 +30,7 @@ const styles = StyleSheet.create({
   viewP: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+      justifyContent:'space-around'
   }
 });

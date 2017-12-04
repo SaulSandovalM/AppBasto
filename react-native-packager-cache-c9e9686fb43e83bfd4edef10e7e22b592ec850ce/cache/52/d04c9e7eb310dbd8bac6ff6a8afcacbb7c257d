@@ -15,23 +15,30 @@ var _ProductMiniCard = require('../../detalle/ProductMiniCard');
 
 var _reactNative = require('react-native');
 
+var _ProductItem = require('./ProductItem');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ResultList = exports.ResultList = function ResultList(_ref) {
-  var results = _ref.results;
+  var results = _ref.results,
+      addToCart = _ref.addToCart;
 
   return _react2.default.createElement(
     _reactNative.View,
     { style: styles.viewP, __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
+        lineNumber: 8
       }
     },
-    results.map(function (p, index) {
-      return _react2.default.createElement(_ProductMiniCard.ProductMiniCard, _extends({ key: index }, p, {
-        __source: {
+    results.map(function (item, index) {
+      var cartItem = {
+        product: item,
+        amount: 1
+      };
+
+      return _react2.default.createElement(_ProductItem.ProductItem, _extends({ key: index }, item, { addToCart: addToCart, item: cartItem, __source: {
           fileName: _jsxFileName,
-          lineNumber: 10
+          lineNumber: 17
         }
       }));
     })
@@ -42,6 +49,7 @@ var styles = _reactNative.StyleSheet.create({
   viewP: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    justifyContent: 'space-around'
   }
 });

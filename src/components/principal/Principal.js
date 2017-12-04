@@ -35,7 +35,7 @@ class Principal extends Component <{}> {
 
   onSearch = (value) => {
     this.props.setSearch(value);
-    let results = this.props.lista;
+    let results = this.props.listaP;
     const rEx = new RegExp(value, 'i');
     results = results.filter(p => rEx.test(p.name));
     this.setState({results});
@@ -85,7 +85,7 @@ class Principal extends Component <{}> {
                   ? nlista.map((category, index) => {
                         return <CategoryList key={index} fondo={category.image} categoria={category.name} slug={category.slug}/>
                     })
-                  : <ResultList results={results}/>
+                  : <ResultList results={results} addToCart={addToCart}/>
               }
 
             </ScrollView>
