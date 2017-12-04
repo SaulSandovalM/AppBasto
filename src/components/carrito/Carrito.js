@@ -84,7 +84,7 @@ class Carrito extends Component <{}> {
             </CardItem>
 
             <Button block style={styles.boton} onPress={(this.sendOrder)}>
-              <Text style={styles.text}>Pagar</Text>
+              <Text style={styles.text}>Enviar Orden</Text>
             </Button>
           </View>
 

@@ -3,12 +3,8 @@ import {Card, Text} from 'native-base';
 import {TouchableOpacity, View, Image, StyleSheet, Alert} from 'react-native';
 
 export const ProductItem = ({image, name, addToCart, item, price, offer_price}) => {
-  const showAlert = () => {
-    Alert.alert('Este producto ha sido agregado al carrito ^_^')
-  }
-
   return (
-    <TouchableOpacity onPress={() => Alert.alert('PEDIDO', `¿Deseas enviar ${name} al carrito?`, [
+    <TouchableOpacity onPress={() => Alert.alert('PEDIDO', `¿Deseas agregar ${name} al carrito?`, [
         {
           text: 'Ok',
           onPress: () => addToCart(item)
