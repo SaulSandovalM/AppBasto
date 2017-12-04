@@ -107,7 +107,7 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
 
     _this.onSearch = function (value) {
       _this.props.setSearch(value);
-      var results = _this.props.lista;
+      var results = _this.props.listaP;
       var rEx = new RegExp(value, 'i');
       results = results.filter(function (p) {
         return rEx.test(p.name);
@@ -218,7 +218,7 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
                     lineNumber: 86
                   }
                 });
-              }) : _react3.default.createElement(_ResultList.ResultList, { results: results, __source: {
+              }) : _react3.default.createElement(_ResultList.ResultList, { results: results, addToCart: addToCart, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 88
                 }

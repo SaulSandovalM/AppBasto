@@ -18,7 +18,7 @@ export const Detalle = ({lista, slug, addToCart}) =>{
   };
 
   return (
-      <View style={{flex:1}}>
+      <View style={styles.view}>
           <Buscador />
           <ScrollView >
               <View style={styles.viewP}>

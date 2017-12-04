@@ -120,8 +120,12 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
       _this.props.saveOrder(order).then(function (snap) {
         return console.log('Se mando Papud');
       }).catch(function (error) {
-        return console.log('ya bailo berta');
-      });
+        return _reactNativeRouterFlux.Actions.Login();
+      }, _nativeBase.Toast.show({
+        text: 'Registrate para continuar',
+        position: 'bottom',
+        buttonText: 'Okay'
+      }));
     }, _this.getTotal = function () {
       var total = 0;
       for (var _iterator = _this.props.cart, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[typeof Symbol === 'function' ? typeof Symbol === 'function' ? Symbol.iterator : '@@iterator' : '@@iterator']();;) {
@@ -155,14 +159,14 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
         _nativeBase.StyleProvider,
         { style: (0, _components3.default)(_material2.default), __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 63
           }
         },
         _react3.default.createElement(
           _nativeBase.Container,
           { style: styles.fondo, __source: {
               fileName: _jsxFileName,
-              lineNumber: 60
+              lineNumber: 64
             }
           },
           header,
@@ -171,7 +175,7 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 63
+                lineNumber: 67
               }
             },
             this.props.cart.map(function (item, index) {
@@ -184,7 +188,7 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
                 key: index,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 66
+                  lineNumber: 70
                 }
               });
             })
@@ -193,14 +197,14 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
             _reactNative.View,
             { style: styles.card, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 76
+                lineNumber: 80
               }
             },
             _react3.default.createElement(
               _nativeBase.CardItem,
               { style: styles.cardItem, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 77
+                  lineNumber: 81
                 }
               },
               _react3.default.createElement(
@@ -208,7 +212,7 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 78
+                    lineNumber: 82
                   }
                 },
                 'Total a Pagar'
@@ -217,7 +221,7 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
                 _reactNative.Text,
                 { style: styles.pago, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 79
+                    lineNumber: 83
                   }
                 },
                 '$ ',
@@ -228,14 +232,14 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
               _nativeBase.Button,
               { block: true, style: styles.boton, onPress: this.sendOrder, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 82
+                  lineNumber: 86
                 }
               },
               _react3.default.createElement(
                 _reactNative.Text,
                 { style: styles.text, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 83
+                    lineNumber: 87
                   }
                 },
                 'Pagar'

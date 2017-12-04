@@ -1,5 +1,5 @@
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 exports.Detalle = undefined;
 
@@ -25,64 +25,77 @@ var _ProductItem = require('../principal/listado/ProductItem');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Detalle = exports.Detalle = function Detalle(_ref) {
-  var lista = _ref.lista,
-      slug = _ref.slug,
-      addToCart = _ref.addToCart;
+    var lista = _ref.lista,
+        slug = _ref.slug,
+        addToCart = _ref.addToCart;
 
-  console.log(lista);
-  console.log(slug);
-  var filtrados = lista.filter(function (f) {
-    return f.category === slug;
-  });
-  console.log(filtrados);
-  onSearch = function onSearch(value) {
-    _this.props.setSearch(value);
-    var results = _this.props.lista;
-    var rEx = new RegExp(value, 'i');
-    results = results.filter(function (p) {
-      return rEx.test(p.name);
+    console.log(lista);
+    console.log(slug);
+    var filtrados = lista.filter(function (f) {
+        return f.category === slug;
     });
-    _this.setState({ results: results });
-  };
+    console.log(filtrados);
+    onSearch = function onSearch(value) {
+        _this.props.setSearch(value);
+        var results = _this.props.lista;
+        var rEx = new RegExp(value, 'i');
+        results = results.filter(function (p) {
+            return rEx.test(p.name);
+        });
+        _this.setState({ results: results });
+    };
 
-  return _react2.default.createElement(
-    _reactNative.View,
-    { style: { flex: 1 }, __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      }
-    },
-    _react2.default.createElement(_Buscador2.default, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 22
-      }
-    }),
-    _react2.default.createElement(
-      _reactNative.ScrollView,
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 23
-        }
-      },
-      filtrados.map(function (item, index) {
-        var cartItem = {
-          product: item,
-          amount: 1
-        };
-        return _react2.default.createElement(_ProductItem.ProductItem, _extends({ key: index, index: index }, item, { addToCart: addToCart, item: cartItem, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 31
-          }
-        }));
-      })
-    )
-  );
+    return _react2.default.createElement(
+        _reactNative.View,
+        { style: { flex: 1 }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 21
+            }
+        },
+        _react2.default.createElement(_Buscador2.default, {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 22
+            }
+        }),
+        _react2.default.createElement(
+            _reactNative.ScrollView,
+            {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 23
+                }
+            },
+            _react2.default.createElement(
+                _reactNative.View,
+                { style: styles.viewP, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 24
+                    }
+                },
+                filtrados.map(function (item, index) {
+                    var cartItem = {
+                        product: item,
+                        amount: 1
+                    };
+                    return _react2.default.createElement(_ProductItem.ProductItem, _extends({ key: index, index: index }, item, { addToCart: addToCart, item: cartItem, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 32
+                        }
+                    }));
+                })
+            )
+        )
+    );
 };
 
 var styles = _reactNative.StyleSheet.create({
-  view: {
-    flex: 1
-  }
+    view: {
+        flex: 1
+    }, viewP: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
+    }
 });
