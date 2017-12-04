@@ -21,6 +21,7 @@ export const Detalle = ({lista, slug, addToCart}) =>{
       <View style={{flex:1}}>
           <Buscador />
           <ScrollView >
+              <View style={styles.viewP}>
           {
             filtrados.map((item, index) => {
                 let cartItem = {
@@ -32,6 +33,7 @@ export const Detalle = ({lista, slug, addToCart}) =>{
                 )
             })
           }
+              </View>
           </ScrollView>
       </View>
   )
@@ -40,5 +42,10 @@ export const Detalle = ({lista, slug, addToCart}) =>{
 const styles = StyleSheet.create({
   view: {
     flex: 1
-  }
+  }, viewP: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent:'space-around'
+    }
 });
