@@ -4,19 +4,13 @@ import {Button, Input, Item, Icon, Spinner} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/registro.jpeg';
 import {connect} from 'react-redux';
-import {
-  emailChangedreg,
-  passwordChangedreg,
-  loginUserreg,
-  direccionChangedreg,
-  nameChangedreg,
-  phoneChangedreg
-} from '../../actions/registerActions';
+import {emailChangedreg, passwordChangedreg, loginUserreg, direccionChangedreg, nameChangedreg, phoneChangedreg} from '../../actions/registerActions';
 
-class Registro extends Component < {} > {
+class Registro extends Component <{}> {
   state = {
     usuario: {}
   }
+
   onEmailChange(text) {
     this.props.emailChangedreg(text);
   }

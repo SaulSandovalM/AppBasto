@@ -23,10 +23,13 @@ export const ProductItem = ({image, name, addToCart, item, price, offer_price}) 
             uri: image
           }} style={styles.img}/>
           <View style={styles.view}>
-            <Text style={styles.precio2}>{'\n'}$ {price} </Text>
+            <Text style={styles.text}>{'\n'}$ {offer_price} </Text>
           </View>
         <View style={styles.view5}>
-          <Text style={styles.precio}>{name} {'\n'} <Text style={styles.text}>$ {offer_price}</Text></Text>
+          <Text style={styles.precio}>{name}</Text>
+        </View>
+        <View style={styles.view2}>
+        <Text style={styles.precio2}>$ {price}</Text>
         </View>
       </Card>
     </TouchableOpacity>
@@ -70,9 +73,16 @@ const styles = StyleSheet.create({
     marginTop: -155,
   },
   card: {
-    width: 160
+    width: 160,
+    overflow: 'hidden'
   },
   text: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  view2: {
+    justifyContent: 'center',
+    width: 160,
+    flexDirection: 'row',
   }
 });

@@ -31,7 +31,7 @@ class Carrito extends Component < {} > {
     let email;
     if (user !== null) {
           email = user.email;
-          Actions.Pedido()
+          Actions.Maps()
     }else{email='NO USER'}
     fecha = fecha.getTime();
     let {order} = this.state;
@@ -79,7 +79,7 @@ class Carrito extends Component < {} > {
               <Text style={styles.pago}>$ {total}</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={this.sendOrder}>
+            <Button block style={styles.boton} onPress={(this.sendOrder)}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>
