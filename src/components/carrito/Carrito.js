@@ -83,7 +83,7 @@ class Carrito extends Component <{}> {
               <Text style={styles.pago}>$ {total}</Text>
             </CardItem>
 
-            <Button block style={styles.boton} onPress={()=>Actions.Maps()}>
+            <Button block style={styles.boton} onPress={(this.sendOrder)}>
               <Text style={styles.text}>Pagar</Text>
             </Button>
           </View>
