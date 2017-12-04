@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView, StyleSheet, Text, Platform} from 'react-native';
-import {Container, StyleProvider, Body, List, ListItem, CardItem, Button} from 'native-base';
+import {Container, StyleProvider, Body, List, ListItem, CardItem, Button, Toast} from 'native-base';
 import Cabecera from '../comun/Cabecera';
 import getTheme from '../../../native-base-theme/components';
 import material from '../../../native-base-theme/variables/material';
@@ -8,14 +8,14 @@ import {Actions} from 'react-native-router-flux';
 import {ListaCompra} from './ListaCompra';
 //Redux
 import {connect} from 'react-redux';
-import {addToCart, addAmount, substractAmount, deleteItem, saveOrder} from '../../actions/cartActions'
-import firebase from '../../components/firebase/Firebase'
+import {addToCart, addAmount, substractAmount, deleteItem, saveOrder} from '../../actions/cartActions';
+import firebase from '../../components/firebase/Firebase';
 
 const header = Platform.select({
   ios: <Cabecera/>
 });
 
-class Carrito extends Component < {} > {
+class Carrito extends Component <{}> {
   state={
     order:{
       total:0,
@@ -41,7 +41,11 @@ class Carrito extends Component < {} > {
     order.user = email;
     console.log(this.state.order);
     this.props.saveOrder(order).then((snap)=>console.log('Se mando Papud'))
-      .catch((error)=>console.log('ya bailo berta'))
+      .catch((error)=>Actions.Login(), Toast.show({
+              text: 'Registrate para continuar',
+              position: 'bottom',
+              buttonText: 'Okay'
+            }))
   };
 
   getTotal = () => {
