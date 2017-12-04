@@ -5,142 +5,75 @@ import img2 from '../../assets/imgs/nouser.png';
 import {Container, List, ListItem, Left, Body, Right} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
-import {firebaseAuth} from '../firebase/Firebase';
 
 const {width, height} = Dimensions.get('window');
 
-export default class Menu extends Component <{}> {
-  state = {
-    loggedIn: null
-  };
+export const Menu = ({lista, listaP, addToCart, loggedIn, salir}) => {
+  console.log(lista);
+  console.log(listaP);
 
-  componentWillMount() {
-    firebaseAuth.onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({loggedIn: true})
-      } else {
-        this.setState({loggedIn: false})
-      }
-    });
-  }
-
-  salir() {
-    firebaseAuth.signOut();
-  }
-
-  render() {
     return (
-      <View style={styles.menu}>
-        <ScrollView style={styles.content}>
+        <View style={styles.menu}>
+          <ScrollView style={styles.content}>
 
-          <ListItem itemDivider>
-              <Text>Categorias</Text>
+            <ListItem itemDivider>
+              <Text>CATEGORIAS</Text>
             </ListItem>
 
-          <ListItem icon>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Principal()}>
-                <Text style={styles.textoC}>Productos Destacados</Text>
-                <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
+              {
+                  lista.length > 0
+                      ? lista.map((category, index) => {
+                          return (
+                              <ListItem icon key={index}>
+                                <Body>
+                                <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle({lista:listaP, slug:category.slug, addToCart})}>
+                                  <Text style={styles.textoC}>{category.name}</Text>
+                                  <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
+                                </TouchableOpacity>
+                                </Body>
+                              </ListItem>
+                          )
+                      })
+                      : <Text>Por el momento no existen categorías</Text>
+              }
 
-          <ListItem icon>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
-                <Text style={styles.textoC}>Frutos Secos y Semillas</Text>
-                <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
+          </ScrollView>
 
-          <ListItem icon>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
-                <Text style={styles.textoC}>Frutas y Verduras</Text>
-                <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
+            {loggedIn
+                ? <View>
+                  <View style={styles.container}>
+                    <View>
+                      <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
+                        <Image style={styles.usuario} source={img}/>
+                        <Text style={styles.text}>Pedido{'\n'}Status:
+                          <Text style={styles.textoc}>En Camino</Text>
+                        </Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
 
-          <ListItem icon>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
-                <Text style={styles.textoC}>Abarrotes</Text>
-                <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
-
-          <ListItem icon>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
-                <Text style={styles.textoC}>Materias Primas</Text>
-                <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
-
-          <ListItem icon>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
-                <Text style={styles.textoC}>Desechables</Text>
-                <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
-
-          <ListItem icon>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
-                <Text style={styles.textoC}>Cremeria</Text>
-                <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
-
-          <ListItem icon>
-            <Body>
-              <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle()}>
-                <Text style={styles.textoC}>Productos de Limpieza</Text>
-                <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-              </TouchableOpacity>
-            </Body>
-          </ListItem>
-        </ScrollView>
-
-        {this.state.loggedIn
-          ? <View>
-              <View style={styles.container}>
-                <View>
-                  <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
-                    <Image style={styles.usuario} source={img}/>
-                    <Text style={styles.text}>Pedido{'\n'}Status:
-                      <Text style={styles.textoc}>En Camino</Text>
-                    </Text>
+                  <TouchableOpacity style={styles.cerrarS}>
+                    <Text style={styles.textCerrar} onPress={salir}>Cerrar Sesión</Text>
                   </TouchableOpacity>
                 </View>
-              </View>
 
-              <TouchableOpacity style={styles.cerrarS} onPress={() => this.close()}>
-                <Text style={styles.textCerrar} onPress={this.salir.bind(this)}>Cerrar Sesión</Text>
-              </TouchableOpacity>
-            </View>
-
-          : <View style={styles.container}>
-            <View>
-              <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
-                <Image style={styles.usuario} source={img2}/>
-                <Text style={styles.text}>Inicia Sesión</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        }
-      </View>
+                : <View style={styles.container}>
+                  <View>
+                    <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
+                      <Image style={styles.usuario} source={img2}/>
+                      <Text style={styles.text}>Inicia Sesión</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+            }
+        </View>
     );
-  }
+
+
 }
+
+
+
 
 const styles = StyleSheet.create({
   menu: {
