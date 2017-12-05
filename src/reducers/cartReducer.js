@@ -7,11 +7,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     let {item} = action;
     switch (action.type) {
         case ADD_TO_CART:
-            Toast.show({
-                text: 'Producto Agregado',
-                position: 'bottom',
-                duration: 1000
-            });
             return [...state, action.item];
 
         case SUBSTRACT_AMOUNT:

@@ -29,9 +29,9 @@ class Principal extends Component <{}> {
     };
   }
 
-    salir =() =>{
-        firebase.auth().signOut();
-    };
+  salir =() =>{
+      firebase.auth().signOut();
+  };
 
   onSearch = (value) => {
     this.props.setSearch(value);
@@ -55,13 +55,13 @@ class Principal extends Component <{}> {
     this.props.listaFetch();
     console.log(this.state);
 
-      firebase.auth().onAuthStateChanged((user) => {
-          if (user) {
-              this.setState({loggedIn: true})
-          } else {
-              this.setState({loggedIn: false})
-          }
-      });
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            this.setState({loggedIn: true})
+        } else {
+            this.setState({loggedIn: false})
+        }
+    });
   }
 
   render() {
@@ -107,12 +107,12 @@ const mapStateToProps = state => {
     };
   });
 
-    const listaP = _.map(state.lista.products, (val, uid) => {
-        return {
-            ...val,
-            uid
-        };
-    });
+  const listaP = _.map(state.lista.products, (val, uid) => {
+    return {
+      ...val,
+      uid
+    };
+  });
   console.log(lista)
   return {search: state.filter.search, lista, listaP, cart:state.cart};
 };

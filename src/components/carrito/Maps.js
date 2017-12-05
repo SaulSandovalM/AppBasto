@@ -76,84 +76,12 @@ export default class Maps extends Component <{}> {
     navigator.geolocation.clearWatch(this.watchID)
   }
 
-  // constructor(){
-  // 	super();
-  // 	this.state = {
-  //     region: {
-  //       latitude: null,
-  //       longitude: null,
-  //       latitudeDelta: null,
-  //       longitudeDelta: null,
-  //     }
-  //   };
-  // }
-  //
-  // calcDelta(lat, lon, accuracy){
-  //   const oneDegreeOfLongitudInMeters = 111.32;
-  //   const circumference = (40075 / 360)
-  //   const latDelta = accuracy * (1 / (Math.cos(lat) * circumference))
-  //   const lonDelta = (accuracy / oneDegreeOfLongitudInMeters)
-  //
-  //   this.setState({
-  //     region: {
-  //       latitude: lat,
-  //       logitude: lon,
-  //       latitudeDelta: latDelta,
-  //       longitudeDelta: lonDelta
-  //     }
-  //   })
-  // }
-  //
-  // componentWillMount() {
-  //   navigator.geolocation.getCurrentPosition(
-  //     (position) => {
-  //       const lat = position.coords.latitude
-  //       const lon = position.coords.longitude
-  //       const accuracy = position.coords.accuracy
-  //       this.calcDelta(lat, lon, accuracy)
-  //     }
-  //   )
-  // }
-  //
-  // marker(){
-  //   return {
-  //     latitude: this.state.region.latitude,
-  //     longitude: this.state.region.longitude
-  //   }
-  // }
-
   render() {
     console.log(this.props);
     return (
-      // <View style={styles.container}>
-      //   {this.state.region.latitude ?
-      //     <MapView
-      //       style={styles.maps}
-      //       initialRegion={this.state.region}
-      //     >
-      //       <MapView.Marker
-      //         coordinate={this.marker()}
-      //         title="Hola"
-      //         description="Casa"
-      //         />
-      //     </MapView>
-      //   : null }
-      // </View>
       <StyleProvider style={getTheme(material)}>
         <Container>
           {header}
-        {/*<View style={styles.container}>
-            <MapView
-              style={styles.container}
-
-              initialRegion={{
-                latitude: 20.1286601,
-                longitude: -98.7976939,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
-              }}>
-            </MapView>
-        </View>*/}
         <View style={styles.container}>
           <MapView
             style={styles.container}

@@ -6,7 +6,7 @@ import {Actions} from 'react-native-router-flux';
 //redux
 import {connect} from 'react-redux';
 import {listaFetch} from '../../../actions/productosActions';
-import {addToCart, addAmount, substractAmount} from '../../../actions/cartActions'
+import {addToCart, addAmount, substractAmount} from '../../../actions/cartActions';
 
 class CategoryList extends Component {
   componentWillMount() {
