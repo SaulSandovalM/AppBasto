@@ -1,7 +1,7 @@
 import React from 'react';
 import {ProductMiniCard} from '../../detalle/ProductMiniCard';
 import {View, StyleSheet} from 'react-native';
-import {ProductItem} from './ProductItem'
+import {ProductItem} from '../../comun/ProductItem';
 
 export const ResultList = ({results, addToCart}) => {
   return (

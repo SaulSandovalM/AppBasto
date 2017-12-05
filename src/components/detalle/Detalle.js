@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Image, ScrollView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {Card, CardItem, Left, Button, Icon, Container, StyleProvider} from 'native-base';
 import Buscador from '../comun/Buscador';
-import {ProductItem} from "../principal/listado/ProductItem";
+import {ProductItem} from '../comun/ProductItem';
 
 export const Detalle = ({lista, slug, addToCart}) =>{
   console.log(lista)

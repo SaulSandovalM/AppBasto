@@ -15,7 +15,7 @@ import firebase from '../../components/firebase/Firebase'
 //redux
 import {connect} from 'react-redux';
 import {listaFetch} from '../../actions/productosActions';
-import {setSearch} from "../../actions/filterActions";
+import {setSearch} from '../../actions/filterActions';
 import {addToCart} from '../../actions/cartActions';
 import _ from 'lodash';
 
@@ -72,7 +72,8 @@ class Principal extends Component <{}> {
 
     return (
       <StyleProvider style={getTheme(material)}>
-        <SideMenu menu={<Menu lista={lista} listaP={listaP} addToCart={addToCart} loggedIn={this.state.loggedIn} salir={this.salir}/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
+        <SideMenu menu={<Menu lista={lista} listaP={listaP} addToCart={addToCart} loggedIn={this.state.loggedIn}
+          salir={this.salir}/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
 
             <Buscador onSearch={this.onSearch} toggle={this.toggle}/>
@@ -83,7 +84,8 @@ class Principal extends Component <{}> {
               {
                 !search
                   ? nlista.map((category, index) => {
-                        return <CategoryList key={index} fondo={category.image} categoria={category.name} slug={category.slug}/>
+                        return <CategoryList key={index} fondo={category.image} categoria={category.name}
+                                slug={category.slug}/>
                     })
                   : <ResultList results={results} addToCart={addToCart}/>
               }

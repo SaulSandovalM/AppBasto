@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, ImageBackground} from 'react-native';
 import {Spinner, Content} from 'native-base';
-import {ProductItem} from './ProductItem';
+import {ProductItem} from '../../comun/ProductItem';
 import {Actions} from 'react-native-router-flux';
 //redux
 import {connect} from 'react-redux';
 import {listaFetch} from '../../../actions/productosActions';
 import {addToCart, addAmount, substractAmount} from '../../../actions/cartActions'
-
 
 class CategoryList extends Component {
   componentWillMount() {

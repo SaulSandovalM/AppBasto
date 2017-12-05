@@ -12,68 +12,64 @@ export const Menu = ({lista, listaP, addToCart, loggedIn, salir}) => {
   console.log(lista);
   console.log(listaP);
 
-    return (
-        <View style={styles.menu}>
-          <ScrollView style={styles.content}>
+  return (
+      <View style={styles.menu}>
+        <ScrollView style={styles.content}>
 
-            <ListItem itemDivider>
-              <Text>CATEGORIAS</Text>
-            </ListItem>
+          <ListItem itemDivider>
+            <Text>CATEGORIAS</Text>
+          </ListItem>
 
-              {
-                  lista.length > 0
-                      ? lista.map((category, index) => {
-                          return (
-                              <ListItem icon key={index}>
-                                <Body>
-                                <TouchableOpacity style={styles.touchable} onPress={() => Actions.Detalle({lista:listaP, slug:category.slug, addToCart})}>
-                                  <Text style={styles.textoC}>{category.name}</Text>
-                                  <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
-                                </TouchableOpacity>
-                                </Body>
-                              </ListItem>
-                          )
-                      })
-                      : <Text>Por el momento no existen categorías</Text>
-              }
-
-          </ScrollView>
-
-            {loggedIn
-                ? <View>
-                  <View style={styles.container}>
-                    <View>
-                      <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
-                        <Image style={styles.usuario} source={img}/>
-                        <Text style={styles.text}>Pedido{'\n'}Status:
-                          <Text style={styles.textoc}>En Camino</Text>
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-
-                  <TouchableOpacity style={styles.cerrarS}>
-                    <Text style={styles.textCerrar} onPress={salir}>Cerrar Sesión</Text>
-                  </TouchableOpacity>
-                </View>
-
-                : <View style={styles.container}>
-                  <View>
-                    <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
-                      <Image style={styles.usuario} source={img2}/>
-                      <Text style={styles.text}>Inicia Sesión</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
+            {
+              lista.length > 0
+                ? lista.map((category, index) => {
+                    return (
+                      <ListItem icon key={index}>
+                        <Body>
+                        <TouchableOpacity style={styles.touchable}
+                          onPress={() => Actions.Detalle({lista:listaP, slug:category.slug, addToCart})}>
+                          <Text style={styles.textoC}>{category.name}</Text>
+                          <Icon name="ios-arrow-forward-outline" style={styles.icon2}/>
+                        </TouchableOpacity>
+                        </Body>
+                      </ListItem>
+                    )
+                })
+                : <Text>Por el momento no existen categorías</Text>
             }
+        </ScrollView>
+
+      {
+          loggedIn
+      ? <View>
+          <View style={styles.container}>
+            <View>
+              <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
+                <Image style={styles.usuario} source={img}/>
+                <Text style={styles.text}>Pedido{'\n'}Status:
+                  <Text style={styles.textoc}>En Camino</Text>
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <TouchableOpacity style={styles.cerrarS}>
+            <Text style={styles.textCerrar} onPress={salir}>Cerrar Sesión</Text>
+          </TouchableOpacity>
         </View>
-    );
 
-
+      : <View style={styles.container}>
+          <View>
+            <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
+              <Image style={styles.usuario} source={img2}/>
+              <Text style={styles.text}>Inicia Sesión</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      }
+    </View>
+  );
 }
-
-
-
 
 const styles = StyleSheet.create({
   menu: {

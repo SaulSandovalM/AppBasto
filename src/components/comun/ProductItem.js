@@ -18,9 +18,15 @@ export const ProductItem = ({image, name, addToCart, item, price, offer_price}) 
         <Image source={{
             uri: image
           }} style={styles.img}/>
-          <View style={styles.view}>
-            <Text style={styles.text}>{'\n'}$ {offer_price} </Text>
-          </View>
+
+        {
+          !offer_price
+          ? <View style={styles.view}></View>
+          : <View style={styles.view}>
+              <Text style={styles.text}>{'\n'}$ {offer_price} </Text>
+            </View>
+        }
+
         <View style={styles.view5}>
           <Text style={styles.precio}>{name}</Text>
         </View>
@@ -80,5 +86,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 160,
     flexDirection: 'row',
+    backgroundColor: 'white'
   }
 });
