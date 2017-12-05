@@ -25,7 +25,7 @@ class Principal extends Component <{}> {
     this.state = {
       isOpen: false,
       results: [],
-        loggedIn: null
+      loggedIn: null
     };
   }
 

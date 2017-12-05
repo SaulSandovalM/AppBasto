@@ -6,9 +6,9 @@ import {Actions} from 'react-native-router-flux';
 import Swiper from 'react-native-swiper';
 import bienve3 from '../../assets/imgs/img5.jpg';
 import bienve2 from '../../assets/imgs/img4.jpg';
-import shoppy from '../../assets/imgs/shoppy.png'
+import shoppy from '../../assets/imgs/shoppy.png';
 
-export default class Bienvenida extends Component < {} > {
+export default class Bienvenida extends Component <{}> {
   render() {
     return (
       <View style={styles.viewP}>

@@ -7,7 +7,6 @@ import Principal from './components/principal/Principal';
 import {Detalle} from './components/detalle/Detalle';
 import Registro from './components/login/Registro';
 import Recover from './components/login/Recover';
-import detalleProducto from './components/detalleproducto/detalleProducto';
 import Carrito from './components/carrito/Carrito';
 import Perfil from './components/perfil/Perfil';
 import Inicio from './components/bienvenida/Inicio';
@@ -25,7 +24,6 @@ const Routes = () => {
         <Scene key="Registro" header={null} component={Registro}/>
         <Scene key="Recover" header={null} component={Recover}/>
         <Scene key="Principal" header={null} component={Principal}/>
-        <Scene key="detalleProducto" header={null} component={detalleProducto}/>
         <Scene key="Detalle" header={null} component={Detalle}/>
         <Scene key="Carrito" header={null} component={Carrito}/>
         <Scene key="Perfil" header={null} component={Perfil}/>

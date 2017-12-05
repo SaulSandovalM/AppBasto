@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
     width: 75,
     alignItems: 'center',
-    opacity: 0.5,
+    opacity: 0.8,
     marginLeft: 110,
     marginTop: -155,
   },
