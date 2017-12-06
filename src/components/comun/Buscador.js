@@ -13,12 +13,14 @@ const Buscador = ({onSearch, toggle, cart}) => {
         <Icon name="ios-search" style={styles.icon}/>
         <Input onChangeText={onSearch} placeholder="Buscar" style={styles.input}/>
       </Item>
+
       <View style={styles.view} >
-        <Icon name="ios-cart" style={styles.color}  onPress={() => Actions.Carrito()}/>
+        <Icon name="md-cart" style={styles.color}  onPress={() => Actions.Carrito()}/>
         <View style={styles.nView}>
           <Text style={styles.nTextView}>{cart}</Text>
         </View>
       </View>
+
     </Header>
   );
 };
@@ -37,8 +39,8 @@ const styles = StyleSheet.create({
   },
   color: {
     color: '#666666',
-    fontSize: 35,
-    zIndex:2,
+    fontSize: 38,
+    zIndex:1,
     position:'absolute',
   },
   item: {
@@ -55,14 +57,13 @@ const styles = StyleSheet.create({
   },
   nView:{
     alignItems:'center',
-    zIndex:1,
-    position:'absolute'
+    zIndex: 2,
+    position:'absolute',
+    flexDirection: 'row',
+    backgroundColor: 'transparent'
   },
   nTextView:{
-    color:'#666666',
-    marginBottom:33,
-    marginLeft:20,
-    borderRadius:50,
-    padding:1
+    color: 'white',
+    paddingBottom: 12
   }
 });
