@@ -5,6 +5,7 @@ import img2 from '../../assets/imgs/usuario.jpg';
 import Cabecera from '../comun/Cabecera';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
+import HistorialPedidos from './HistorialPedidos';
 
 const header = Platform.select({
   ios: <Cabecera/>,
@@ -30,62 +31,7 @@ export default class Perfil extends Component {
             <Text style={styles.orden}>Historia de Ordenes</Text>
           </View>
 
-          <SwipeRow
-            leftOpenValue={75}
-            rightOpenValue={-75}
-            left= {
-              <Button success onPress={() => Actions.Carrito()}>
-                <Icon active name="add"/>
-              </Button>
-            }
-            body={
-              <View>
-                <Text>Orden 1</Text>
-              </View>
-            }
-            right= {
-              <Button danger onPress={() => alert('Trash')}>
-                <Icon active name="trash"/>
-              </Button>
-            }/>
-
-          <SwipeRow
-            leftOpenValue={75}
-            rightOpenValue={-75}
-            left= {
-              <Button success onPress={() => alert('Add')}>
-                <Icon active name="add"/>
-              </Button>
-            }
-            body={
-              <View>
-                <Text>Orden 2</Text>
-              </View>
-            }
-            right= {
-              <Button danger onPress={() => alert('Trash')}>
-                <Icon active name="trash"/>
-                </Button>
-            }/>
-
-          <SwipeRow
-            leftOpenValue={75}
-            rightOpenValue={-75}
-            left= {
-              <Button success onPress={() => alert('Add')}>
-                <Icon active name="add"/>
-              </Button>
-            }
-            body={
-              <View>
-                <Text>Orden 3</Text>
-              </View>
-            }
-            right= {
-              <Button danger onPress={() => alert('Trash')}>
-                <Icon active name="trash"/>
-              </Button>
-            }/>
+          <HistorialPedidos/>
 
         </Content>
       </Container>
