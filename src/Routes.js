@@ -12,6 +12,7 @@ import Perfil from './components/perfil/Perfil';
 import Inicio from './components/bienvenida/Inicio';
 import Maps from './components/carrito/Maps';
 import Pedido from './components/carrito/Pedido';
+import DetallePedido from './components/perfil/DetallePedido';
 
 const Routes = () => {
   return (
@@ -19,8 +20,8 @@ const Routes = () => {
     <Router>
       <Scene key="root">
         <Scene key="Inicio" header={null} component={Inicio} initial/>
-        <Scene key="Bienvenida" header={null} component={Bienvenida} />
-        <Scene key="Login" header={null} component={Login} />
+        <Scene key="Bienvenida" header={null} component={Bienvenida}/>
+        <Scene key="Login" header={null} component={Login}/>
         <Scene key="Registro" header={null} component={Registro}/>
         <Scene key="Recover" header={null} component={Recover}/>
         <Scene key="Principal" header={null} component={Principal}/>
@@ -29,6 +30,7 @@ const Routes = () => {
         <Scene key="Perfil" header={null} component={Perfil}/>
         <Scene key="Maps" header={null} component={Maps}/>
         <Scene key="Pedido" header={null} component={Pedido}/>
+        <Scene key="DetallePedido" header={null} component={DetallePedido}/>
       </Scene>
     </Router>
     </Root>

@@ -32,6 +32,9 @@ export default class Perfil extends Component {
           </View>
 
           <HistorialPedidos/>
+          <HistorialPedidos/>
+          <HistorialPedidos/>
+          <HistorialPedidos/>
 
         </Content>
       </Container>
@@ -59,15 +62,16 @@ const styles = StyleSheet.create({
     width: null,
     opacity: 15
   },
-  container: {
-    backgroundColor: 'white'
-  },
   view: {
     alignSelf: 'center'
   },
   orden: {
     alignSelf: 'center',
     margin: 20,
-    fontSize: 20
+    fontSize: 20,
+    color: 'black'
+  },
+  container: {
+    backgroundColor: 'white'
   }
 });
