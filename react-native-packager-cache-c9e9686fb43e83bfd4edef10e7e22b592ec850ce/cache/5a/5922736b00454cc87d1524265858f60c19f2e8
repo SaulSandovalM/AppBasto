@@ -16,11 +16,11 @@ var _reactNative = require('react-native');
 
 var _nativeBase = require('native-base');
 
-var _Buscador = require('../comun/Buscador');
+var _Cabecera = require('../comun/Cabecera');
 
-var _Buscador2 = _interopRequireDefault(_Buscador);
+var _Cabecera2 = _interopRequireDefault(_Cabecera);
 
-var _ProductItem = require('../principal/listado/ProductItem');
+var _ProductItem = require('../comun/ProductItem');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47,12 +47,12 @@ var Detalle = exports.Detalle = function Detalle(_ref) {
 
     return _react2.default.createElement(
         _reactNative.View,
-        { style: { flex: 1 }, __source: {
+        { style: styles.view, __source: {
                 fileName: _jsxFileName,
                 lineNumber: 21
             }
         },
-        _react2.default.createElement(_Buscador2.default, {
+        _react2.default.createElement(_Cabecera2.default, {
             __source: {
                 fileName: _jsxFileName,
                 lineNumber: 22
@@ -92,7 +92,8 @@ var Detalle = exports.Detalle = function Detalle(_ref) {
 var styles = _reactNative.StyleSheet.create({
     view: {
         flex: 1
-    }, viewP: {
+    },
+    viewP: {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',

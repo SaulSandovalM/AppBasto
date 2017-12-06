@@ -20,7 +20,7 @@ var _reactNative = require('react-native');
 
 var _nativeBase = require('native-base');
 
-var _ProductItem = require('./ProductItem');
+var _ProductItem = require('../../comun/ProductItem');
 
 var _reactNativeRouterFlux = require('react-native-router-flux');
 
@@ -78,7 +78,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
       if (!this.props.fetched) return _react3.default.createElement(_nativeBase.Spinner, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 19
         }
       });
     }
@@ -102,7 +102,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
         _reactNative.View,
         { style: styles.content, __source: {
             fileName: _jsxFileName,
-            lineNumber: 28
+            lineNumber: 27
           }
         },
         _react3.default.createElement(
@@ -111,14 +111,14 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
               uri: fondo
             }, style: styles.fondo, __source: {
               fileName: _jsxFileName,
-              lineNumber: 29
+              lineNumber: 28
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view4, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 32
+                lineNumber: 31
               }
             },
             _react3.default.createElement(
@@ -127,7 +127,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
                   return _reactNativeRouterFlux.Actions.Detalle({ slug: slug, lista: lista, addToCart: addToCart });
                 }, style: styles.texto, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 33
+                  lineNumber: 32
                 }
               },
               categoria
@@ -138,14 +138,14 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
           _reactNative.View,
           { style: styles.view2, __source: {
               fileName: _jsxFileName,
-              lineNumber: 39
+              lineNumber: 38
             }
           },
           _react3.default.createElement(
             _nativeBase.Content,
             { horizontal: true, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 40
+                lineNumber: 39
               }
             },
             this.spinnerr(),
@@ -156,7 +156,7 @@ var CategoryList = _wrapComponent('CategoryList')(function (_Component) {
               };
               return _react3.default.createElement(_ProductItem.ProductItem, _extends({ key: index, index: index }, item, { addToCart: addToCart, item: cartItem, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 48
+                  lineNumber: 47
                 }
               }));
             })

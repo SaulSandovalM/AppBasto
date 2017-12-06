@@ -159,8 +159,10 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
           search = _props.search,
           lista = _props.lista,
           listaP = _props.listaP,
-          addToCart = _props.addToCart;
+          addToCart = _props.addToCart,
+          cart = _props.cart;
 
+      console.log(cart.length);
       var nlista = lista.sort(function (a, b) {
         return a.name > b.name;
       });
@@ -172,55 +174,57 @@ var Principal = _wrapComponent('Principal')(function (_Component) {
         _nativeBase.StyleProvider,
         { style: (0, _components3.default)(_material2.default), __source: {
             fileName: _jsxFileName,
-            lineNumber: 74
+            lineNumber: 75
           }
         },
         _react3.default.createElement(
           _reactNativeSideMenu2.default,
-          { menu: _react3.default.createElement(_Menu.Menu, { lista: lista, listaP: listaP, addToCart: addToCart, loggedIn: this.state.loggedIn, salir: this.salir, __source: {
+          { menu: _react3.default.createElement(_Menu.Menu, { lista: lista, listaP: listaP, addToCart: addToCart, loggedIn: this.state.loggedIn,
+              salir: this.salir, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 75
+                lineNumber: 76
               }
             }), isOpen: this.state.isOpen, onChange: function onChange(isOpen) {
               return _this3.actualizar(isOpen);
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 75
+              lineNumber: 76
             }
           },
           _react3.default.createElement(
             _reactNative.View,
             { style: styles.view, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 76
+                lineNumber: 78
               }
             },
-            _react3.default.createElement(_Buscador2.default, { onSearch: this.onSearch, toggle: this.toggle, __source: {
+            _react3.default.createElement(_Buscador2.default, { onSearch: this.onSearch, toggle: this.toggle, cart: cart.length, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 78
+                lineNumber: 80
               }
             }),
             _react3.default.createElement(_reactNative.StatusBar, { hidden: true, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 80
+                lineNumber: 82
               }
             }),
             _react3.default.createElement(
               _reactNative.ScrollView,
               { style: styles.content, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 81
+                  lineNumber: 83
                 }
               },
               !search ? nlista.map(function (category, index) {
-                return _react3.default.createElement(_CategoryList2.default, { key: index, fondo: category.image, categoria: category.name, slug: category.slug, __source: {
+                return _react3.default.createElement(_CategoryList2.default, { key: index, fondo: category.image, categoria: category.name,
+                  slug: category.slug, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 86
+                    lineNumber: 88
                   }
                 });
               }) : _react3.default.createElement(_ResultList.ResultList, { results: results, addToCart: addToCart, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 88
+                  lineNumber: 91
                 }
               })
             )

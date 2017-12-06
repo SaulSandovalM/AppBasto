@@ -23,10 +23,28 @@ var cartReducer = function cartReducer() {
                 position: 'bottom',
                 duration: 1000
             });
+            var nLista = state.filter(function (p) {
+                return p.product.id !== action.item.product.id;
+            });
+
+            var repetido = state.find(function (p) {
+                return p.product.id === action.item.product.id;
+            });
+
+            if (repetido !== undefined) {
+                repetido.amount += 1;
+                return [].concat(_toConsumableArray(nLista), [repetido]);
+            }
+
             return [].concat(_toConsumableArray(state), [action.item]);
 
         case _cartActions.SUBSTRACT_AMOUNT:
-            item.amount -= 1;
+            if (item.amount > 1) {
+                item.amount -= 1;
+            } else {
+                item.amount = 1;
+            }
+
             return [].concat(_toConsumableArray(state.map(function (i) {
                 if (i.product.id === action.item.product.id) {
                     return item;
@@ -46,8 +64,6 @@ var cartReducer = function cartReducer() {
 
         case _cartActions.DELETE_ITEM:
             return [].concat(_toConsumableArray(state.filter(function (i) {
-                console.log(i);
-                console.log(action.item);
                 return i.product.id !== action.item.product.id;
             })));
         default:

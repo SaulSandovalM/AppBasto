@@ -122,7 +122,7 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
       }).catch(function (error) {
         return _reactNativeRouterFlux.Actions.Login();
       }, _nativeBase.Toast.show({
-        text: 'Registrate para continuar',
+        text: 'Inicia Sesion para Continuar',
         position: 'bottom',
         buttonText: 'Okay'
       }));
@@ -242,7 +242,7 @@ var Carrito = _wrapComponent('Carrito')(function (_Component) {
                     lineNumber: 87
                   }
                 },
-                'Pagar'
+                'Enviar Orden'
               )
             )
           )

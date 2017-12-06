@@ -15,7 +15,7 @@ var _ProductMiniCard = require('../../detalle/ProductMiniCard');
 
 var _reactNative = require('react-native');
 
-var _ProductItem = require('./ProductItem');
+var _ProductItem = require('../../comun/ProductItem');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35,10 +35,9 @@ var ResultList = exports.ResultList = function ResultList(_ref) {
         product: item,
         amount: 1
       };
-
       return _react2.default.createElement(_ProductItem.ProductItem, _extends({ key: index }, item, { addToCart: addToCart, item: cartItem, __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 16
         }
       }));
     })

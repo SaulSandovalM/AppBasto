@@ -33,10 +33,6 @@ var _Recover = require('./components/login/Recover');
 
 var _Recover2 = _interopRequireDefault(_Recover);
 
-var _detalleProducto = require('./components/detalleproducto/detalleProducto');
-
-var _detalleProducto2 = _interopRequireDefault(_detalleProducto);
-
 var _Carrito = require('./components/carrito/Carrito');
 
 var _Carrito2 = _interopRequireDefault(_Carrito);
@@ -65,7 +61,7 @@ var Routes = function Routes() {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 18
       }
     },
     _react2.default.createElement(
@@ -73,74 +69,69 @@ var Routes = function Routes() {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 19
         }
       },
       _react2.default.createElement(
         _reactNativeRouterFlux.Scene,
         { key: 'root', __source: {
             fileName: _jsxFileName,
-            lineNumber: 21
+            lineNumber: 20
           }
         },
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Inicio', header: null, component: _Inicio2.default, initial: true, __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 21
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Bienvenida', header: null, component: _Bienvenida2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 22
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Login', header: null, component: _Login2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 23
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Registro', header: null, component: _Registro2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 25
+            lineNumber: 24
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Recover', header: null, component: _Recover2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 26
+            lineNumber: 25
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Principal', header: null, component: _Principal2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
-          }
-        }),
-        _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'detalleProducto', header: null, component: _detalleProducto2.default, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 28
+            lineNumber: 26
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Detalle', header: null, component: _Detalle.Detalle, __source: {
             fileName: _jsxFileName,
-            lineNumber: 29
+            lineNumber: 27
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Carrito', header: null, component: _Carrito2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 30
+            lineNumber: 28
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Perfil', header: null, component: _Perfil2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 31
+            lineNumber: 29
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Maps', header: null, component: _Maps2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 32
+            lineNumber: 30
           }
         }),
         _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Pedido', header: null, component: _Pedido2.default, __source: {
             fileName: _jsxFileName,
-            lineNumber: 33
+            lineNumber: 31
           }
         })
       )
