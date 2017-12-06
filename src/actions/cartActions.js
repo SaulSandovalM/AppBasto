@@ -12,13 +12,11 @@ export function addToCart(item) {
 }
 
 export function addAmount(item) {
-  //item["amount"] +=1;
   return {type: ADD_AMOUNT, item}
 
 }
 
 export function substractAmount(item) {
-  //item["amount"] -=1;
   return {type: SUBSTRACT_AMOUNT, item}
 }
 

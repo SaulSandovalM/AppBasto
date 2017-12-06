@@ -7,10 +7,32 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     let {item} = action;
     switch (action.type) {
         case ADD_TO_CART:
-            return [...state, action.item];
+            Toast.show({
+                text: 'Producto Agregado',
+                position: 'bottom',
+                duration: 1000
+            });
+            let nLista = state.filter(p=>{
+                return p.product.id !== action.item.product.id
+            });
+
+            let repetido = state.find(p => {
+                return p.product.id === action.item.product.id
+            });
+
+            if(repetido !== undefined){
+                repetido.amount +=1;
+                return [...nLista, repetido]
+            }
+
+    return [...state, action.item];
+
 
         case SUBSTRACT_AMOUNT:
-            item.amount-=1;
+            if(item.amount >1){
+                item.amount-=1;
+            }else {item.amount =1}
+
             return [ ...state.map( i => {
               if(i.product.id === action.item.product.id){
                   return item
@@ -26,17 +48,14 @@ const cartReducer = (state = INITIAL_STATE, action) => {
               }
               return i
             });
-            return itemss
+            return itemss;
 
         case DELETE_ITEM:
-//            let nlist = state.filter(i=>{return i.product.id !== action.item.product.id})
             return [...state.filter(i=> {
-              console.log(i)
-              console.log(action.item)
               return i.product.id !== action.item.product.id
             })];
         default:
-          return state
+          return state;
     }
 };
 

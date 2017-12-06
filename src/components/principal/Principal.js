@@ -65,7 +65,8 @@ class Principal extends Component <{}> {
   }
 
   render() {
-    const {search, lista, listaP, addToCart} = this.props;
+    const {search, lista, listaP, addToCart, cart} = this.props;
+    console.log(cart.length)
     let nlista = lista.sort((a,b)=>{return a.name > b.name})
     const {results} = this.state;
     console.log(this.props.lista);
@@ -76,7 +77,7 @@ class Principal extends Component <{}> {
           salir={this.salir}/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
           <View style={styles.view}>
 
-            <Buscador onSearch={this.onSearch} toggle={this.toggle}/>
+            <Buscador onSearch={this.onSearch} toggle={this.toggle} cart={cart.length}/>
 
             <StatusBar hidden={true}/>
             <ScrollView style={styles.content}>
