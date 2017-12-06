@@ -40,7 +40,7 @@ export const loginUserreg = ({regis}) => {
     dispatch({type: LOGIN_USERREG});
     firebase.auth().createUserWithEmailAndPassword(email, password).
       then(user => loginUserSuccessreg(dispatch, user)).then(() => {
-        firebase.database().ref().child('usersP/').push({email, names, direccion, phone}).then(() => {
+        firebase.database().ref().child('dev/users').push({email, names, direccion, phone}).then(() => {
           dispatch({type: INFO_USER})
       })
     }).catch(() => loginUserFailreg(dispatch))
