@@ -37,30 +37,34 @@ var Menu = exports.Menu = function Menu(_ref) {
       listaP = _ref.listaP,
       addToCart = _ref.addToCart,
       loggedIn = _ref.loggedIn,
-      salir = _ref.salir;
+      salir = _ref.salir,
+      listaO = _ref.listaO,
+      user = _ref.user;
 
   console.log(lista);
   console.log(listaP);
+  console.log(listaO);
+  console.log(user);
 
   return _react2.default.createElement(
     _reactNative.View,
     { style: styles.menu, __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 18
       }
     },
     _react2.default.createElement(
       _reactNative.ScrollView,
       { style: styles.content, __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 19
         }
       },
       _react2.default.createElement(
         _nativeBase.ListItem,
         { itemDivider: true, __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 21
           }
         },
         _react2.default.createElement(
@@ -68,7 +72,7 @@ var Menu = exports.Menu = function Menu(_ref) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 22
             }
           },
           'CATEGORIAS'
@@ -79,7 +83,7 @@ var Menu = exports.Menu = function Menu(_ref) {
           _nativeBase.ListItem,
           { icon: true, key: index, __source: {
               fileName: _jsxFileName,
-              lineNumber: 27
+              lineNumber: 29
             }
           },
           _react2.default.createElement(
@@ -87,7 +91,7 @@ var Menu = exports.Menu = function Menu(_ref) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 28
+                lineNumber: 30
               }
             },
             _react2.default.createElement(
@@ -97,21 +101,21 @@ var Menu = exports.Menu = function Menu(_ref) {
                   return _reactNativeRouterFlux.Actions.Detalle({ lista: listaP, slug: category.slug, addToCart: addToCart });
                 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 29
+                  lineNumber: 31
                 }
               },
               _react2.default.createElement(
                 _reactNative.Text,
                 { style: styles.textoC, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 31
+                    lineNumber: 33
                   }
                 },
                 category.name
               ),
               _react2.default.createElement(_Ionicons2.default, { name: 'ios-arrow-forward-outline', style: styles.icon2, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 32
+                  lineNumber: 34
                 }
               })
             )
@@ -122,7 +126,7 @@ var Menu = exports.Menu = function Menu(_ref) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 40
           }
         },
         'Por el momento no existen categor\xEDas'
@@ -133,14 +137,14 @@ var Menu = exports.Menu = function Menu(_ref) {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 46
         }
       },
       _react2.default.createElement(
         _reactNative.View,
         { style: styles.container, __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 47
           }
         },
         _react2.default.createElement(
@@ -148,28 +152,28 @@ var Menu = exports.Menu = function Menu(_ref) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 46
+              lineNumber: 48
             }
           },
           _react2.default.createElement(
             _reactNative.TouchableOpacity,
             { style: styles.usuarioImagen, onPress: function onPress() {
-                return _reactNativeRouterFlux.Actions.Perfil();
+                return _reactNativeRouterFlux.Actions.Perfil({ listaO: listaO, user: user });
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 47
+                lineNumber: 49
               }
             },
             _react2.default.createElement(_reactNative.Image, { style: styles.usuario, source: _usuario2.default, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 48
+                lineNumber: 50
               }
             }),
             _react2.default.createElement(
               _reactNative.Text,
               { style: styles.text, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 49
+                  lineNumber: 51
                 }
               },
               'Pedido',
@@ -179,7 +183,7 @@ var Menu = exports.Menu = function Menu(_ref) {
                 _reactNative.Text,
                 { style: styles.textoc, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 50
+                    lineNumber: 52
                   }
                 },
                 'En Camino'
@@ -192,14 +196,14 @@ var Menu = exports.Menu = function Menu(_ref) {
         _reactNative.TouchableOpacity,
         { style: styles.cerrarS, __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 58
           }
         },
         _react2.default.createElement(
           _reactNative.Text,
           { style: styles.textCerrar, onPress: salir, __source: {
               fileName: _jsxFileName,
-              lineNumber: 57
+              lineNumber: 59
             }
           },
           'Cerrar Sesi\xF3n'
@@ -209,7 +213,7 @@ var Menu = exports.Menu = function Menu(_ref) {
       _reactNative.View,
       { style: styles.container, __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 63
         }
       },
       _react2.default.createElement(
@@ -217,7 +221,7 @@ var Menu = exports.Menu = function Menu(_ref) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 64
           }
         },
         _react2.default.createElement(
@@ -226,19 +230,19 @@ var Menu = exports.Menu = function Menu(_ref) {
               return _reactNativeRouterFlux.Actions.Login();
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 63
+              lineNumber: 65
             }
           },
           _react2.default.createElement(_reactNative.Image, { style: styles.usuario, source: _nouser2.default, __source: {
               fileName: _jsxFileName,
-              lineNumber: 64
+              lineNumber: 66
             }
           }),
           _react2.default.createElement(
             _reactNative.Text,
             { style: styles.text, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 65
+                lineNumber: 67
               }
             },
             'Inicia Sesi\xF3n'

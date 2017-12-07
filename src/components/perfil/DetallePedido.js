@@ -11,6 +11,9 @@ const header = Platform.select({
 
 export default class Perfil extends Component {
   render() {
+      console.log(this.props.listaO);
+      const {listaO} = this.props;
+      let nlistaO = listaO.products
     return (
       <Container style={styles.container}>
         {header}
@@ -18,13 +21,40 @@ export default class Perfil extends Component {
 
           <Title style={styles.color}>Detalle del pedido</Title>
 
-          <HistorialPedidos/>
-          <ListaPedidos/>
-          <ListaPedidos/>
-          <ListaPedidos/>
-          <ListaPedidos/>
-          <ListaPedidos/>
-          <ListaPedidos/>
+          <List>
+            <ListItem>
+              <Body>
+              <Text>{listaO.date}</Text>
+              <Text note>Fecha</Text>
+              </Body>
+              <Right>
+                <Text>$ {listaO.total}</Text>
+                <Text note style={{color:'green'}}>Recibido</Text>
+              </Right>
+            </ListItem>
+          </List>
+
+            {
+              nlistaO.map((l,index) => {
+                  return (
+                      <List key={index}>
+                        <ListItem avatar>
+                          <Left>
+                            <Thumbnail
+                                source={{uri: l.product.image}} />
+                          </Left>
+                          <Body>
+                          <Text>{l.product.name}</Text>
+                          <Text note>{l.product.presentation}</Text>
+                          </Body>
+                          <Right>
+                            <Text note>$ {l.product.price}</Text>
+                          </Right>
+                        </ListItem>
+                      </List>
+                        )
+                    })
+            }
 
           <Text style={styles.repar}>Tu repartidor fue Saul</Text>
 

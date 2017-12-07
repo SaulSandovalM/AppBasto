@@ -25,7 +25,8 @@ class Principal extends Component <{}> {
     this.state = {
       isOpen: false,
       results: [],
-      loggedIn: null
+      loggedIn: null,
+        user:''
     };
   }
 
@@ -56,6 +57,8 @@ class Principal extends Component <{}> {
     console.log(this.state);
 
     firebase.auth().onAuthStateChanged((user) => {
+      console.log(user)
+        this.setState({user:user})
         if (user) {
             this.setState({loggedIn: true})
         } else {
@@ -65,7 +68,7 @@ class Principal extends Component <{}> {
   }
 
   render() {
-    const {search, lista, listaP, addToCart, cart} = this.props;
+    const {search, lista, listaP, addToCart, cart, listaO} = this.props;
     console.log(cart.length)
     let nlista = lista.sort((a,b)=>{return a.name > b.name})
     const {results} = this.state;
@@ -73,8 +76,8 @@ class Principal extends Component <{}> {
 
     return (
       <StyleProvider style={getTheme(material)}>
-        <SideMenu menu={<Menu lista={lista} listaP={listaP} addToCart={addToCart} loggedIn={this.state.loggedIn}
-          salir={this.salir}/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
+        <SideMenu menu={<Menu lista={lista} user={this.state.user} listaP={listaP} addToCart={addToCart} loggedIn={this.state.loggedIn}
+          salir={this.salir} listaO={listaO}/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)} listaO={listaO}>
           <View style={styles.view}>
 
             <Buscador onSearch={this.onSearch} toggle={this.toggle} cart={cart.length}/>
@@ -114,8 +117,14 @@ const mapStateToProps = state => {
       uid
     };
   });
-  console.log(lista)
-  return {search: state.filter.search, lista, listaP, cart:state.cart};
+    const listaO = _.map(state.lista.orders, (val, uid) => {
+        return {
+            ...val,
+            uid
+        };
+    });
+  console.log(listaO)
+  return {search: state.filter.search, lista, listaP, cart:state.cart, listaO};
 };
 
 const styles = StyleSheet.create({

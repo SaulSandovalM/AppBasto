@@ -39,8 +39,6 @@ var _Carrito2 = _interopRequireDefault(_Carrito);
 
 var _Perfil = require('./components/perfil/Perfil');
 
-var _Perfil2 = _interopRequireDefault(_Perfil);
-
 var _Inicio = require('./components/bienvenida/Inicio');
 
 var _Inicio2 = _interopRequireDefault(_Inicio);
@@ -123,7 +121,7 @@ var Routes = function Routes() {
             lineNumber: 29
           }
         }),
-        _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Perfil', header: null, component: _Perfil2.default, __source: {
+        _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'Perfil', header: null, component: _Perfil.Perfil, __source: {
             fileName: _jsxFileName,
             lineNumber: 30
           }

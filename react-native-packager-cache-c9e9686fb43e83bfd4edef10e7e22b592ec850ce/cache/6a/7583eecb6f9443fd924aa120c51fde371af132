@@ -78,11 +78,15 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
   _createClass(Perfil, [{
     key: 'render',
     value: function render() {
+      console.log(this.props.listaO);
+      var listaO = this.props.listaO;
+
+      var nlistaO = listaO.products;
       return _react3.default.createElement(
         _nativeBase.Container,
         { style: styles.container, __source: {
             fileName: _jsxFileName,
-            lineNumber: 15
+            lineNumber: 18
           }
         },
         header,
@@ -91,65 +95,178 @@ var Perfil = _wrapComponent('Perfil')(function (_Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 17
+              lineNumber: 20
             }
           },
           _react3.default.createElement(
             _nativeBase.Title,
             { style: styles.color, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 19
+                lineNumber: 22
               }
             },
             'Detalle del pedido'
           ),
-          _react3.default.createElement(_HistorialPedidos2.default, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          }),
-          _react3.default.createElement(_ListaPedidos2.default, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 22
-            }
-          }),
-          _react3.default.createElement(_ListaPedidos2.default, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 23
-            }
-          }),
-          _react3.default.createElement(_ListaPedidos2.default, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 24
-            }
-          }),
-          _react3.default.createElement(_ListaPedidos2.default, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 25
-            }
-          }),
-          _react3.default.createElement(_ListaPedidos2.default, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 26
-            }
-          }),
-          _react3.default.createElement(_ListaPedidos2.default, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 27
-            }
+          _react3.default.createElement(
+            _nativeBase.List,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 24
+              }
+            },
+            _react3.default.createElement(
+              _nativeBase.ListItem,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 25
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.Body,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 26
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 27
+                    }
+                  },
+                  listaO.date
+                ),
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { note: true, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 28
+                    }
+                  },
+                  'Fecha'
+                )
+              ),
+              _react3.default.createElement(
+                _nativeBase.Right,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 30
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 31
+                    }
+                  },
+                  '$ ',
+                  listaO.total
+                ),
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { note: true, style: { color: 'green' }, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 32
+                    }
+                  },
+                  'Recibido'
+                )
+              )
+            )
+          ),
+          nlistaO.map(function (l, index) {
+            return _react3.default.createElement(
+              _nativeBase.List,
+              { key: index, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 40
+                }
+              },
+              _react3.default.createElement(
+                _nativeBase.ListItem,
+                { avatar: true, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 41
+                  }
+                },
+                _react3.default.createElement(
+                  _nativeBase.Left,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 42
+                    }
+                  },
+                  _react3.default.createElement(_nativeBase.Thumbnail, {
+                    source: { uri: l.product.image }, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 43
+                    }
+                  })
+                ),
+                _react3.default.createElement(
+                  _nativeBase.Body,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 46
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 47
+                      }
+                    },
+                    l.product.name
+                  ),
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    { note: true, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 48
+                      }
+                    },
+                    l.product.presentation
+                  )
+                ),
+                _react3.default.createElement(
+                  _nativeBase.Right,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 50
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    { note: true, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 51
+                      }
+                    },
+                    '$ ',
+                    l.product.price
+                  )
+                )
+              )
+            );
           }),
           _react3.default.createElement(
             _reactNative.Text,
             { style: styles.repar, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 29
+                lineNumber: 59
               }
             },
             'Tu repartidor fue Saul'
