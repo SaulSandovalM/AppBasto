@@ -18,10 +18,10 @@ export default class Perfil extends Component {
         {header}
         <Content>
           <ImageBackground source={img} style={styles.img}>
-            <View style={styles.view}>
-              <View style={styles.view}>
+            <View style={styles.view4}>
+
                 <Thumbnail source={img2} style={styles.thub}/>
-              </View>
+
               <H1 style={styles.h1}>Saul Sandoval M</H1>
               <Text style={styles.text}>sauldevelop@gmail.com</Text>
             </View>
@@ -43,6 +43,14 @@ export default class Perfil extends Component {
 }
 
 const styles = StyleSheet.create({
+    view4: {
+        backgroundColor: 'rgba(0,0,0,.5)',
+        height: '100%',
+        width: '100%',
+        justifyContent: 'center',
+        alignSelf:'center',
+        alignItems:'center'
+    },
   thub: {
     margin: 10,
     height: 80,
@@ -60,7 +68,8 @@ const styles = StyleSheet.create({
     flex: 2,
     height: 200,
     width: null,
-    opacity: 15
+    opacity: 15,
+
   },
   view: {
     alignSelf: 'center'

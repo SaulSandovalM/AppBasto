@@ -109,7 +109,8 @@ var styles = _reactNative.StyleSheet.create({
   color: {
     color: '#666666',
     fontSize: 38,
-    zIndex: 1, position: 'absolute'
+    zIndex: 1,
+    position: 'absolute'
   },
   item: {
     backgroundColor: 'white',
@@ -126,11 +127,12 @@ var styles = _reactNative.StyleSheet.create({
   nView: {
     alignItems: 'center',
     zIndex: 2,
-    position: 'absolute', flexDirection: 'row'
+    position: 'absolute',
+    flexDirection: 'row',
+    backgroundColor: 'transparent'
   },
   nTextView: {
     color: 'white',
     paddingBottom: 12
   }
-
 });

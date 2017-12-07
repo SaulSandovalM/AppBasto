@@ -1,0 +1,171 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ProductItem = undefined;
+var _jsxFileName = '/home/jose/M\xFAsica/sh2/AppBasto/src/components/principal/listado/ProductItem.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _nativeBase = require('native-base');
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProductItem = exports.ProductItem = function ProductItem(_ref) {
+  var image = _ref.image,
+      name = _ref.name,
+      addToCart = _ref.addToCart,
+      item = _ref.item,
+      price = _ref.price,
+      offer_price = _ref.offer_price;
+
+  var showAlert = function showAlert() {
+    _reactNative.Alert.alert('Este producto ha sido agregado al carrito ^_^');
+  };
+
+  return _react2.default.createElement(
+    _reactNative.TouchableOpacity,
+    { onPress: function onPress() {
+        return _reactNative.Alert.alert('PEDIDO', '\xBFDeseas enviar ' + name + ' al carrito?', [{
+          text: 'Ok',
+          onPress: function onPress() {
+            return addToCart(item);
+          }
+        }, {
+          text: 'Cancelar',
+          onPress: function onPress() {
+            return console.log('Cancel Pressed');
+          },
+          style: 'cancel'
+        }], { cancelable: false });
+      }, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11
+      }
+    },
+    _react2.default.createElement(
+      _nativeBase.Card,
+      { style: styles.card, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        }
+      },
+      _react2.default.createElement(_reactNative.Image, { source: {
+          uri: image
+        }, style: styles.img, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        }
+      }),
+      _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.view, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 25
+          }
+        },
+        _react2.default.createElement(
+          _nativeBase.Text,
+          { style: styles.text, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 26
+            }
+          },
+          '\n',
+          '$ ',
+          offer_price,
+          ' '
+        )
+      ),
+      _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.view5, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 28
+          }
+        },
+        _react2.default.createElement(
+          _nativeBase.Text,
+          { style: styles.precio, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 29
+            }
+          },
+          name
+        )
+      ),
+      _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.view2, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 31
+          }
+        },
+        _react2.default.createElement(
+          _nativeBase.Text,
+          { style: styles.precio2, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 32
+            }
+          },
+          '$ ',
+          price
+        )
+      )
+    )
+  );
+};
+
+var styles = _reactNative.StyleSheet.create({
+  view5: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    zIndex: 2,
+    marginTop: 100,
+    width: 160,
+    justifyContent: 'center'
+  },
+  img: {
+    height: 150,
+    width: 160,
+    flex: 1
+  },
+  precio: {
+    marginTop: 5,
+    fontSize: 14,
+    zIndex: 2,
+    backgroundColor: 'white'
+  },
+  precio2: {
+    textDecorationLine: 'line-through',
+    color: 'black',
+    fontSize: 14,
+    fontWeight: 'bold'
+  },
+  view: {
+    transform: [{ rotate: '45deg' }],
+    backgroundColor: 'red',
+    zIndex: 1,
+    width: 75,
+    alignItems: 'center',
+    opacity: 0.5,
+    marginLeft: 110,
+    marginTop: -155
+  },
+  card: {
+    width: 160,
+    overflow: 'hidden'
+  },
+  text: {
+    fontWeight: 'bold',
+    fontSize: 14
+  },
+  view2: {
+    justifyContent: 'center',
+    width: 160,
+    flexDirection: 'row'
+  }
+});

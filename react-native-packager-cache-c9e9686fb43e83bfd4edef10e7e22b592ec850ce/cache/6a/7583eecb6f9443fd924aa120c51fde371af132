@@ -1,0 +1,181 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jsxFileName = '/home/jose/M\xFAsica/sh2/AppBasto/src/components/perfil/DetallePedido.js';
+
+var _reactNative = require('react-native');
+
+var _nativeBase = require('native-base');
+
+var _Cabecera = require('../comun/Cabecera');
+
+var _Cabecera2 = _interopRequireDefault(_Cabecera);
+
+var _HistorialPedidos = require('./HistorialPedidos');
+
+var _HistorialPedidos2 = _interopRequireDefault(_HistorialPedidos);
+
+var _ListaPedidos = require('./ListaPedidos');
+
+var _ListaPedidos2 = _interopRequireDefault(_ListaPedidos);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  Perfil: {
+    displayName: 'Perfil'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/jose/M\xFAsica/sh2/AppBasto/src/components/perfil/DetallePedido.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var header = _reactNative.Platform.select({
+  ios: _react3.default.createElement(_Cabecera2.default, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    }
+  })
+});
+
+var Perfil = _wrapComponent('Perfil')(function (_Component) {
+  _inherits(Perfil, _Component);
+
+  function Perfil() {
+    _classCallCheck(this, Perfil);
+
+    return _possibleConstructorReturn(this, (Perfil.__proto__ || Object.getPrototypeOf(Perfil)).apply(this, arguments));
+  }
+
+  _createClass(Perfil, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        _nativeBase.Container,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 15
+          }
+        },
+        header,
+        _react3.default.createElement(
+          _nativeBase.Content,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 17
+            }
+          },
+          _react3.default.createElement(
+            _nativeBase.Title,
+            { style: styles.color, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 19
+              }
+            },
+            'Detalle del pedido'
+          ),
+          _react3.default.createElement(_HistorialPedidos2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 21
+            }
+          }),
+          _react3.default.createElement(_ListaPedidos2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 22
+            }
+          }),
+          _react3.default.createElement(_ListaPedidos2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 23
+            }
+          }),
+          _react3.default.createElement(_ListaPedidos2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            }
+          }),
+          _react3.default.createElement(_ListaPedidos2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            }
+          }),
+          _react3.default.createElement(_ListaPedidos2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 26
+            }
+          }),
+          _react3.default.createElement(_ListaPedidos2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27
+            }
+          }),
+          _react3.default.createElement(
+            _reactNative.Text,
+            { style: styles.repar, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 29
+              }
+            },
+            'Tu repartidor fue Saul'
+          )
+        )
+      );
+    }
+  }]);
+
+  return Perfil;
+}(_react2.Component));
+
+exports.default = Perfil;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    backgroundColor: 'white'
+  },
+  color: {
+    color: 'black',
+    marginTop: 20
+  },
+  repar: {
+    fontSize: 16,
+    color: 'black',
+    margin: 15
+  }
+});
