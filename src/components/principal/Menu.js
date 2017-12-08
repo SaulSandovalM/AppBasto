@@ -8,9 +8,11 @@ import {Actions} from 'react-native-router-flux';
 
 const {width, height} = Dimensions.get('window');
 
-export const Menu = ({lista, listaP, addToCart, loggedIn, salir}) => {
+export const Menu = ({lista, listaP, addToCart, loggedIn, salir, listaO, user}) => {
   console.log(lista);
   console.log(listaP);
+  console.log(listaO);
+  console.log(user);
 
   return (
       <View style={styles.menu}>
@@ -44,7 +46,8 @@ export const Menu = ({lista, listaP, addToCart, loggedIn, salir}) => {
       ? <View>
           <View style={styles.container}>
             <View>
-              <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Perfil()}>
+              <TouchableOpacity style={styles.usuarioImagen}
+                onPress={() => Actions.Perfil({listaO:listaO, user:user})}>
                 <Image style={styles.usuario} source={img}/>
                 <Text style={styles.text}>Pedido{'\n'}Status:
                   <Text style={styles.textoc}>En Camino</Text>

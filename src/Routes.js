@@ -8,7 +8,7 @@ import {Detalle} from './components/detalle/Detalle';
 import Registro from './components/login/Registro';
 import Recover from './components/login/Recover';
 import Carrito from './components/carrito/Carrito';
-import Perfil from './components/perfil/Perfil';
+import {Perfil} from './components/perfil/Perfil';
 import Inicio from './components/bienvenida/Inicio';
 import Maps from './components/carrito/Maps';
 import Pedido from './components/carrito/Pedido';

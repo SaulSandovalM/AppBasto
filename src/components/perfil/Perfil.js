@@ -1,22 +1,24 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, ImageBackground, Platform} from 'react-native';
-import {Container, Content, SwipeRow, Icon, Button, Thumbnail, H1} from 'native-base';
+import {Container, Content, SwipeRow, Icon, Button, Thumbnail, H1, List, ListItem, Body, Right} from 'native-base';
 import img2 from '../../assets/imgs/usuario.jpg';
 import Cabecera from '../comun/Cabecera';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
-import HistorialPedidos from './HistorialPedidos';
 
 const header = Platform.select({
   ios: <Cabecera/>,
 });
 
-export default class Perfil extends Component {
-  render() {
+export const Perfil =({listaO, user})=>{
+  console.log(listaO)
+    console.log(user)
+    let filtrados = listaO.filter(f=>{return f.user===user.email});
     return (
       <Container style={styles.container}>
         {header}
         <Content>
+
           <ImageBackground source={img} style={styles.img}>
             <View style={styles.view4}>
 
@@ -28,19 +30,38 @@ export default class Perfil extends Component {
           </ImageBackground>
 
           <View>
-            <Text style={styles.orden}>Historia de Ordenes</Text>
+            <Text style={styles.orden}>Historial de Ordenes</Text>
           </View>
 
-          <HistorialPedidos/>
-          <HistorialPedidos/>
-          <HistorialPedidos/>
-          <HistorialPedidos/>
+            {
+              filtrados.length > 0
+                ?
+                filtrados.map((listaO,index) => {
+                  let date=new Date(listaO.date)
+                  let nDate = date.toDateString();
+                  console.log(date.toDateString())
+                    return (
+                      <List key={index}>
+                        <ListItem onPress={()=> Actions.DetallePedido({listaO})}>
+                          <Body>
+                          <Text>{nDate}</Text>
+                          <Text note>Fecha</Text>
+                          </Body>
+                          <Right>
+                            <Text>$ {listaO.total}</Text>
+                            <Text note style={{color:'green'}}>Recibido</Text>
+                          </Right>
+                        </ListItem>
+                      </List>
+                    )
+                  })
+              : <Text>Crea tu primera orden!</Text>
+            }
 
         </Content>
       </Container>
     );
   }
-}
 
 const styles = StyleSheet.create({
   view4: {
@@ -68,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 2,
     height: 200,
     width: null,
-    opacity: 15,
+    opacity: 15
   },
   view: {
     alignSelf: 'center'

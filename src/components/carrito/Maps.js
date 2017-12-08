@@ -13,10 +13,17 @@ const SCREEN_WIDTH = width;
 const ASPECT_RADIO = width / height;
 const LATITUDE_DELTA = 0.0150;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RADIO;
+const SPACE = 0.01;
+const LATITUDE = 20.104989;
+const LONGITUDE = -98.756323;
 
 const header = Platform.select({
   ios: <Cabecera/>,
 });
+
+function log(eventName, e) {
+  console.log(eventName, e.nativeEvent);
+}
 
 export default class Maps extends Component <{}> {
   constructor(props) {
@@ -31,7 +38,15 @@ export default class Maps extends Component <{}> {
       markerPosition: {
         latitude: 0,
         longitude: 0
-      }
+      },
+      a: {
+        latitude: LATITUDE + SPACE,
+        longitude: LONGITUDE + SPACE,
+      },
+      b: {
+        latitude: LATITUDE - SPACE,
+        longitude: LONGITUDE - SPACE,
+      },
     }
   };
 
@@ -88,7 +103,13 @@ export default class Maps extends Component <{}> {
             region={this.state.initialPosition}>
 
               <MapView.Marker
-                coordinate={this.state.markerPosition}>
+                coordinate={this.state.markerPosition}
+                nSelect={(e) => log('onSelect', e)}
+                onDrag={(e) => log('onDrag', e)}
+                onDragStart={(e) => log('onDragStart', e)}
+                onDragEnd={(e) => log('onDragEnd', e)}
+                onPress={(e) => log('onPress', e)}
+                draggable>
 
                 <View style={styles.radius}>
                   <View style={styles.marker}/>

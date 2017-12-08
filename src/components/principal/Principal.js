@@ -19,18 +19,19 @@ import {setSearch} from '../../actions/filterActions';
 import {addToCart} from '../../actions/cartActions';
 import _ from 'lodash';
 
-class Principal extends Component <{}> {
+class Principal extends Component < {} > {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
       results: [],
-      loggedIn: null
+      loggedIn: null,
+      user: ''
     };
   }
 
-  salir =() =>{
-      firebase.auth().signOut();
+  salir = () => {
+    firebase.auth().signOut();
   };
 
   onSearch = (value) => {
@@ -56,25 +57,31 @@ class Principal extends Component <{}> {
     console.log(this.state);
 
     firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            this.setState({loggedIn: true})
-        } else {
-            this.setState({loggedIn: false})
-        }
+      console.log(user)
+      this.setState({user: user})
+      if (user) {
+        this.setState({loggedIn: true})
+      } else {
+        this.setState({loggedIn: false})
+      }
     });
   }
 
   render() {
-    const {search, lista, listaP, addToCart, cart} = this.props;
+    const {search, lista, listaP, addToCart, cart, listaO} = this.props;
     console.log(cart.length)
-    let nlista = lista.sort((a,b)=>{return a.name > b.name})
+    let nlista = lista.sort((a, b) => {
+      return a.name > b.name
+    })
     const {results} = this.state;
     console.log(this.props.lista);
 
     return (
       <StyleProvider style={getTheme(material)}>
-        <SideMenu menu={<Menu lista={lista} listaP={listaP} addToCart={addToCart} loggedIn={this.state.loggedIn}
-          salir={this.salir}/>} isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)}>
+        <SideMenu menu={<Menu lista = {lista} user = {this.state.user} listaP = {listaP} addToCart = {addToCart}
+          loggedIn = {this.state.loggedIn} salir = {this.salir} listaO = {listaO} />}
+          isOpen={this.state.isOpen} onChange={(isOpen) => this.actualizar(isOpen)} listaO={listaO}>
+
           <View style={styles.view}>
 
             <Buscador onSearch={this.onSearch} toggle={this.toggle} cart={cart.length}/>
@@ -85,9 +92,9 @@ class Principal extends Component <{}> {
               {
                 !search
                   ? nlista.map((category, index) => {
-                        return <CategoryList key={index} fondo={category.image} categoria={category.name}
-                                slug={category.slug}/>
-                    })
+                    return <CategoryList
+                            key={index} fondo={category.image} categoria={category.name} slug={category.slug}/>
+                  })
                   : <ResultList results={results} addToCart={addToCart}/>
               }
 
@@ -100,7 +107,7 @@ class Principal extends Component <{}> {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+  console.log(state)
   const lista = _.map(state.lista.categories, (val, uid) => {
     return {
       ...val,
@@ -114,8 +121,14 @@ const mapStateToProps = state => {
       uid
     };
   });
-  console.log(lista)
-  return {search: state.filter.search, lista, listaP, cart:state.cart};
+  const listaO = _.map(state.lista.orders, (val, uid) => {
+    return {
+      ...val,
+      uid
+    };
+  });
+  console.log(listaO)
+  return {search: state.filter.search, lista, listaP, cart: state.cart, listaO};
 };
 
 const styles = StyleSheet.create({
