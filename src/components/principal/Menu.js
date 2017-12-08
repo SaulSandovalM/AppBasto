@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Dimensions, StyleSheet, View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
-import img from '../../assets/imgs/usuario.jpg';
 import img2 from '../../assets/imgs/nouser.png';
-import {Container, List, ListItem, Left, Body, Right} from 'native-base';
+import {Container, List, ListItem, Left, Body, Right, Thumbnail} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Actions} from 'react-native-router-flux';
 
@@ -48,7 +47,7 @@ export const Menu = ({lista, listaP, addToCart, loggedIn, salir, listaO, user}) 
             <View>
               <TouchableOpacity style={styles.usuarioImagen}
                 onPress={() => Actions.Perfil({listaO:listaO, user:user})}>
-                <Image style={styles.usuario} source={img}/>
+                <Thumbnail style={styles.usuario} source={img2}/>
                 <Text style={styles.text}>Pedido{'\n'}Status:
                   <Text style={styles.textoc}>En Camino</Text>
                 </Text>
@@ -61,11 +60,10 @@ export const Menu = ({lista, listaP, addToCart, loggedIn, salir, listaO, user}) 
           </TouchableOpacity>
         </View>
 
-      : <View style={styles.container}>
+      : <View>
           <View>
-            <TouchableOpacity style={styles.usuarioImagen} onPress={() => Actions.Login()}>
-              <Image style={styles.usuario} source={img2}/>
-              <Text style={styles.text}>Inicia Sesión</Text>
+            <TouchableOpacity style={styles.cerrarS} onPress={() => Actions.Login()}>
+              <Text style={styles.textCerrar}>Inicia Sesión</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -91,8 +89,8 @@ const styles = StyleSheet.create({
   usuario: {
     width: 60,
     height: 60,
-    margin: 20,
-    marginTop: 30
+    marginLeft: 20,
+    marginRight: 15,
   },
   usuarioImagen: {
     flexDirection: 'row',
@@ -132,7 +130,8 @@ const styles = StyleSheet.create({
   },
   textCerrar: {
     color: '#666666',
-    fontSize: 15
+    fontSize: 15,
+    margin: 10
   },
   touchable: {
     flexDirection: 'row',

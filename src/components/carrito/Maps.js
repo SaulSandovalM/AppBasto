@@ -38,15 +38,7 @@ export default class Maps extends Component <{}> {
       markerPosition: {
         latitude: 0,
         longitude: 0
-      },
-      a: {
-        latitude: LATITUDE + SPACE,
-        longitude: LONGITUDE + SPACE,
-      },
-      b: {
-        latitude: LATITUDE - SPACE,
-        longitude: LONGITUDE - SPACE,
-      },
+      }
     }
   };
 

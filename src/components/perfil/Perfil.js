@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, ImageBackground, Platform} from 'react-native';
 import {Container, Content, SwipeRow, Icon, Button, Thumbnail, H1, List, ListItem, Body, Right} from 'native-base';
-import img2 from '../../assets/imgs/usuario.jpg';
+import img2 from '../../assets/imgs/nouser.png';
 import Cabecera from '../comun/Cabecera';
 import img from '../../assets/imgs/bienvenida.jpg';
 import {Actions} from 'react-native-router-flux';
@@ -21,9 +21,9 @@ export const Perfil =({listaO, user})=>{
 
           <ImageBackground source={img} style={styles.img}>
             <View style={styles.view4}>
-
-                <Thumbnail source={img2} style={styles.thub}/>
-
+              <ListItem avatar style={{backgroundColor: 'transparent'}}>
+                <Thumbnail source={img2}/>
+              </ListItem>
               <H1 style={styles.h1}>Saul Sandoval M</H1>
               <Text style={styles.text}>sauldevelop@gmail.com</Text>
             </View>

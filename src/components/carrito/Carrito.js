@@ -40,7 +40,11 @@ class Carrito extends Component <{}> {
     order.date = fecha;
     order.user = email;
     console.log(this.state.order);
-    this.props.saveOrder(order).then((snap)=>console.log('Se mando Papud'))
+    this.props.saveOrder(order).then((snap)=>Toast.show({
+            text: 'Confirma tu ubicacion',
+            position: 'bottom',
+            buttonText: 'Okay'
+          }))
       .catch((error)=>Actions.Login(), Toast.show({
               text: 'Inicia Sesion para Continuar',
               position: 'bottom',
