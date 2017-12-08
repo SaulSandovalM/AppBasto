@@ -91,6 +91,7 @@ export default class Maps extends Component <{}> {
           {header}
         <View style={styles.container}>
           <MapView
+            provider={MapView.PROVIDER_GOOGLE}
             style={styles.container}
             region={this.state.initialPosition}>
 

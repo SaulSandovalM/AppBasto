@@ -19,7 +19,7 @@
 {
   NSURL *jsCodeLocation;
 
-  [GMSServices provideAPIKey:@"AIzaSyAJQGmt-EtIckk8507t9rmbGPCcuzJ9-QY"];
+  [GMSServices provideAPIKey:@"AIzaSyAILllhbpyinwCV8Wy4yLbasXnC6bMv79c"];
 
   [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
