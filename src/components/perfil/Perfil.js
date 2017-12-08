@@ -12,8 +12,8 @@ const header = Platform.select({
 
 export const Perfil =({listaO, user})=>{
   console.log(listaO)
-    console.log(user)
-    let filtrados = listaO.filter(f=>{return f.user===user.email});
+  console.log(user)
+  let filtrados = listaO.filter(f=>{return f.user===user.email});
     return (
       <Container style={styles.container}>
         {header}
@@ -24,8 +24,8 @@ export const Perfil =({listaO, user})=>{
               <ListItem avatar style={{backgroundColor: 'transparent'}}>
                 <Thumbnail source={img2}/>
               </ListItem>
-              <H1 style={styles.h1}>Saul Sandoval M</H1>
-              <Text style={styles.text}>sauldevelop@gmail.com</Text>
+              <H1 style={styles.h1}>{user.email}</H1>
+              <Text style={styles.text}>{user.email}</Text>
             </View>
           </ImageBackground>
 
