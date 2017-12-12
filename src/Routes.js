@@ -13,13 +13,14 @@ import Inicio from './components/bienvenida/Inicio';
 import Maps from './components/carrito/Maps';
 import Pedido from './components/carrito/Pedido';
 import DetallePedido from './components/perfil/DetallePedido';
+import ResumenOrden from './components/carrito/ResumenOrden';
 
 const Routes = () => {
   return (
     <Root>
     <Router>
       <Scene key="root">
-        <Scene key="Inicio" header={null} component={Inicio} initial/>
+        <Scene key="Inicio" header={null} component={Inicio} />
         <Scene key="Bienvenida" header={null} component={Bienvenida}/>
         <Scene key="Login" header={null} component={Login}/>
         <Scene key="Registro" header={null} component={Registro}/>
@@ -31,6 +32,7 @@ const Routes = () => {
         <Scene key="Maps" header={null} component={Maps}/>
         <Scene key="Pedido" header={null} component={Pedido}/>
         <Scene key="DetallePedido" header={null} component={DetallePedido}/>
+        <Scene key="ResumenOrden" header={null} component={ResumenOrden} initial/>
       </Scene>
     </Router>
     </Root>

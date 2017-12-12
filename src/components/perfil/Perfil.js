@@ -49,7 +49,7 @@ export const Perfil =({listaO, user})=>{
                           </Body>
                           <Right>
                             <Text>$ {listaO.total}</Text>
-                            <Text note style={{color:'green'}}>Recibido</Text>
+                            <Text note style={styles.color2}>Recibido</Text>
                           </Right>
                         </ListItem>
                       </List>
@@ -57,7 +57,6 @@ export const Perfil =({listaO, user})=>{
                   })
               : <Text>Crea tu primera orden!</Text>
             }
-
         </Content>
       </Container>
     );
@@ -102,5 +101,8 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: 'white'
+  },
+  color2: {
+    color:'green'
   }
 });

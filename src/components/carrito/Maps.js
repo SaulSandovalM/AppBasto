@@ -115,7 +115,7 @@ export default class Maps extends Component <{}> {
         <Footer style={styles.back}>
             <FooterTab style={styles.footerT}>
               <Right>
-              <Button style={styles.back2} onPress={()=>Actions.Pedido()}>
+              <Button style={styles.back2} onPress={()=>Actions.ResumenPedido()}>
                 <Text style={styles.textC}>Siguiente</Text>
               </Button>
             </Right>
