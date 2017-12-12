@@ -1,80 +1,37 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Text, Image} from 'react-native';
+import {View, StyleSheet, Text, Image, Platform} from 'react-native';
 import {Container, Content, List, ListItem, Body, Right, Left, Thumbnail, Button, CardItem, Icon} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import img from '../../assets/imgs/map.png';
+import Cabecera from '../comun/Cabecera';
+//Redux
+import {connect} from 'react-redux';
+import {addToCart, addAmount, substractAmount, deleteItem, saveOrder} from '../../actions/cartActions';
 
-export default class Pedido extends Component <{}> {
+const header = Platform.select({
+  ios: <Cabecera/>
+});
+
+class ResumenOrden extends Component <{}> {
   render() {
     return (
       <Container>
+        {header}
         <Content style={styles.back}>
           <Text style={styles.text2}>Resumen de orden</Text>
           <Image source={img} style={styles.img}/>
 
           <Text style={styles.text}>Productos</Text>
-            <List>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={img}/>
-                </Left>
-                <Body>
-                <Text>Manzana</Text>
-                <Text note>2</Text>
-                </Body>
-                <Right>
-                  <Text note>$ 50.00</Text>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={img}/>
-                </Left>
-                <Body>
-                <Text>Manzana</Text>
-                <Text note>2</Text>
-                </Body>
-                <Right>
-                  <Text note>$ 50.00</Text>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={img}/>
-                </Left>
-                <Body>
-                <Text>Manzana</Text>
-                <Text note>2</Text>
-                </Body>
-                <Right>
-                  <Text note>$ 50.00</Text>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={img}/>
-                </Left>
-                <Body>
-                <Text>Manzana</Text>
-                <Text note>2</Text>
-                </Body>
-                <Right>
-                  <Text note>$ 50.00</Text>
-                </Right>
-              </ListItem>
-              <ListItem avatar>
-                <Left>
-                  <Thumbnail source={img}/>
-                </Left>
-                <Body>
-                <Text>Manzana</Text>
-                <Text note>2</Text>
-                </Body>
-                <Right>
-                  <Text note>$ 50.00</Text>
-                </Right>
-              </ListItem>
-            </List>
+                {this.props.cart.map((item, index)=>{
+                    console.log(item)
+                    return <ListaResumen
+                              item={item}
+                              addAmount={this.props.addAmount}
+                              substractAmount={this.props.substractAmount}
+                              deleteItem={this.props.deleteItem}
+                              key={index}
+                            />
+                })}
 
         </Content>
 
@@ -102,6 +59,10 @@ export default class Pedido extends Component <{}> {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {cart: state.cart};
+};
 
 const styles = StyleSheet.create({
   img: {
@@ -146,3 +107,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 });
+
+export default ResuemnOrden = connect(mapStateToProps, {addToCart, addAmount, substractAmount, deleteItem, saveOrder})(ResumenOrden);

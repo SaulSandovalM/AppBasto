@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView, StyleSheet, StatusBar} from 'react-native';
+import {Text, View, Image, ScrollView, StyleSheet, StatusBar, Animated} from 'react-native';
 import Buscador from '../comun/Buscador';
 import Modal from 'react-native-modal';
 import {Actions} from 'react-native-router-flux';
@@ -19,7 +19,7 @@ import {setSearch} from '../../actions/filterActions';
 import {addToCart} from '../../actions/cartActions';
 import _ from 'lodash';
 
-class Principal extends Component < {} > {
+class Principal extends Component <{}> {
   constructor(props) {
     super(props);
     this.state = {

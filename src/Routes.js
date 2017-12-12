@@ -14,6 +14,7 @@ import Maps from './components/carrito/Maps';
 import Pedido from './components/carrito/Pedido';
 import DetallePedido from './components/perfil/DetallePedido';
 import ResumenOrden from './components/carrito/ResumenOrden';
+import Animation from './components/principal/Animation';
 
 const Routes = () => {
   return (
@@ -33,6 +34,7 @@ const Routes = () => {
         <Scene key="Pedido" header={null} component={Pedido}/>
         <Scene key="DetallePedido" header={null} component={DetallePedido}/>
         <Scene key="ResumenOrden" header={null} component={ResumenOrden} initial/>
+        <Scene key="Animation" header={null} component={Animation}/>
       </Scene>
     </Router>
     </Root>
